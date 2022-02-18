@@ -127,7 +127,7 @@ function RegisterForm() {
                 ></Grid>
               </MKBox>
               <MKBox pt={4} pb={3} px={3}>
-                <MKBox component="form" role="form">
+                <MKBox component="form" role="form" onSubmit={createUser}>
                   <MKBox mb={2}>
                     <MKInput
                       label="First Name"
@@ -315,6 +315,8 @@ function RegisterForm() {
         bottom="1.625rem"
       ></MKBox>
     </>
+
+    // OLD CODE BELOW
     // <MKBox component="section" py={12}>
     //   <Container>
     //     <Grid
