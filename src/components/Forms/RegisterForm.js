@@ -17,14 +17,17 @@ import MKTypography from "../MKTypography";
 
 //for radio button
 import Radio from "@mui/material/Radio";
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 // Images
 import bgImage from "assets/images/bg-about-us.jpg";
 
 function RegisterForm() {
-  const [rememberMe, setRememberMe] = useState(false);
-
-  const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  //const [rememberMe, setRememberMe] = useState(false);
+  // const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -56,6 +59,11 @@ function RegisterForm() {
     register(newUser).then((res) => {
       navigate("/user");
     });
+  };
+
+  //for radio group
+  const handleChange = (event) => {
+    setUserType(event.target.value);
   };
 
   return (
@@ -113,7 +121,7 @@ function RegisterForm() {
               >
                 <MKTypography
                   variant="h4"
-                  fontWeight="medium"
+                  fontWeight="large"
                   color="white"
                   mt={1}
                 >
@@ -123,13 +131,16 @@ function RegisterForm() {
                   container
                   spacing={3}
                   justifyContent="center"
-                  sx={{ mt: 1, mb: 2 }}
+                  // sx={{ mt: 1, mb: 2 }}
+                  sx={{ mt: 0, mb: 0 }}
                 ></Grid>
               </MKBox>
               <MKBox pt={4} pb={3} px={3}>
-                <MKBox component="form" role="form" onSubmit={createUser}>
+                <MKBox component="form" method="post" autocomplete="off"
+                  role="form" onSubmit={createUser}>
                   <MKBox mb={2}>
                     <MKInput
+
                       label="First Name"
                       type="text"
                       name="first_name"
@@ -139,6 +150,7 @@ function RegisterForm() {
                       onChange={(e) => setFirstName(e.target.value)}
                     />
                     <MKInput
+
                       label="Last Name"
                       type="text"
                       name="last_name"
@@ -205,7 +217,6 @@ function RegisterForm() {
                       value={zipcode}
                       onChange={(e) => setZipcode(e.target.value)}
                     />
-
                     <MKInput
                       label="City"
                       type="text"
@@ -215,28 +226,6 @@ function RegisterForm() {
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                     />
-                  </MKBox>
-                  <MKBox mb={2}>
-                    <Radio
-                      type="radio"
-                      name="account_type"
-                      value="owner"
-                      checked={userType === "owner"}
-                      onChange={(e) => {
-                        setUserType(e.target.value);
-                      }}
-                    />
-                    Owner
-                    <Radio
-                      type="radio"
-                      name="account_type"
-                      value="doglover"
-                      checked={userType === "doglover"}
-                      onChange={(e) => {
-                        setUserType(e.target.value);
-                      }}
-                    />
-                    Dog Lover
                   </MKBox>
                   <MKBox mb={2}>
                     <MKInput
@@ -250,6 +239,45 @@ function RegisterForm() {
                       onChange={(e) => setCountry(e.target.value)}
                     />
                   </MKBox>
+                  {/* <MKBox mb={2} >
+                    <Radio
+                      label="Owner"
+                      size="small"
+                      type="radio"
+                      name="account_type"
+                      value="owner"
+                      checked={userType === "owner"}
+                      onChange={(e) => {
+                        setUserType(e.target.value);
+                      }}
+                    />
+
+                    <Radio
+                      label="Dog Lover"
+                      size="small"
+                      type="radio"
+                      name="account_type"
+                      value="doglover"
+                      checked={userType === "doglover"}
+                      onChange={(e) => {
+                        setUserType(e.target.value);
+                      }}
+                    />
+
+                  </MKBox> */}
+                  <FormControl>
+                    <FormLabel style={{ fontSize: "0.70em", color: "Gray" }} size="small">Gender</FormLabel>
+                    <RadioGroup
+                      name="controlled-radio-buttons-group"
+                      value={userType}
+                      onChange={handleChange}
+                      size="small"
+                      row
+                    >
+                      <FormControlLabel value="owner" control={<Radio size="small" style={{ fontSize: "0.70em" }} />} label="Owner" />
+                      <FormControlLabel value="doglover" control={<Radio size="small" style={{ fontSize: "0.70em" }} />} label="Dog Lover" />
+                    </RadioGroup>
+                  </FormControl>
                   {/* <MKBox display="flex" alignItems="center" ml={-1}>
                     <Switch
                       checked={rememberMe}
@@ -265,7 +293,7 @@ function RegisterForm() {
                       &nbsp;&nbsp;Remember me
                     </MKTypography>
                   </MKBox> */}
-                  <MKBox mt={4} mb={4} textAlign="center" width="100%">
+                  <MKBox mt={2} justifyContent="space-around" display="flex" mb={0} textAlign="center" width="100%">
                     {/* <MKButton variant="gradient" color="info" fullWidth>
                       Register
                     </MKButton> */}
