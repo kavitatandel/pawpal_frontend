@@ -9,6 +9,10 @@ export const register = (user) => {
             email: user.email,
             password: user.password,
             user_type: user.user_type,
+            street: user.street,
+            zip_code: user.zip_code,
+            city: user.city,
+            country: user.country
         })
         .then((res) => console.log("User is successfully Registered"))
         .catch((err) => console.log(err));

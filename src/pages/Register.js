@@ -7,6 +7,10 @@ const Register = () => {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [street, setStreet] = useState('')
+    const [zipcode, setZipcode] = useState('')
+    const [city, setCity] = useState('')
+    const [country, setCountry] = useState('')
     const [userType, setUserType] = useState('owner')
 
     let navigate = useNavigate()
@@ -20,6 +24,10 @@ const Register = () => {
             email: email,
             password: password,
             user_type: userType,
+            street: street,
+            zip_code: zipcode,
+            city: city,
+            country: country
         }
 
         register(newUser).then(res => {
@@ -50,6 +58,22 @@ const Register = () => {
                         <label htmlFor="password">Password</label>
                         <input name="password" placeholder="Enter your password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
 
+                    </div>
+                    <div>
+                        <label htmlFor="street">Street</label>
+                        <input type="text" name="street" placeholder="Enter your street" required value={street} onChange={(e) => setStreet(e.target.value)} />
+                    </div>
+                    <div>
+                        <label htmlFor="zip_code">Zip Code</label>
+                        <input type="text" name="zip_code" placeholder="Enter your zip code" required value={zipcode} onChange={(e) => setZipcode(e.target.value)} />
+                    </div>
+                    <div>
+                        <label htmlFor="city">City</label>
+                        <input type="text" name="city" placeholder="Enter your city" required value={city} onChange={(e) => setCity(e.target.value)} />
+                    </div>
+                    <div>
+                        <label htmlFor="country">Country</label>
+                        <input type="text" name="country" placeholder="Enter your country" required value={country} onChange={(e) => setCountry(e.target.value)} />
                     </div>
                     <div>
                         <label htmlFor="account_type">Account Type</label>
