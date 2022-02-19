@@ -2,6 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../logic/UserFunctions";
 import RegisterForm from "../components/Forms/RegisterForm";
+import { Link } from "react-router-dom";
+import Header from "components/Layout/Header";
+
+import MKButton from "components/MKButton";
+import MKTypography from "components/MKTypography";
+import MKBox from "components/MKBox";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import CenteredFooter from "components/Layout/CenteredFooter";
+import PageContainer from "components/Layout/PageContainer";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -39,6 +49,7 @@ const Register = () => {
   return (
     <>
       <RegisterForm />
+      <PageContainer />
     </>
   );
 };
