@@ -17,13 +17,13 @@ import MKTypography from "../MKTypography";
 
 //for radio button
 import Radio from "@mui/material/Radio";
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 
 // Images
-import bgImage from "assets/images/bg-about-us.jpg";
+import regBkImg from "assets/images/backgrounds/agustina-gabes-FSIxZmwEDqI-unsplash.jpeg";
 
 function RegisterForm() {
   //const [rememberMe, setRememberMe] = useState(false);
@@ -81,9 +81,9 @@ function RegisterForm() {
             palette: { gradients },
           }) =>
             `${linearGradient(
-              rgba(gradients.dark.main, 0.6),
-              rgba(gradients.dark.state, 0.6)
-            )}, url(${bgImage})`,
+              rgba(gradients.dark.main, 0.3),
+              rgba(gradients.dark.state, 0.3)
+            )}, url(${regBkImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -106,41 +106,56 @@ function RegisterForm() {
           height="100%"
         >
           {/* <Grid item xs={11} sm={9} md={5} lg={10} xl={3}> */}
-          <Grid item xs={12} md={10} lg={8} xl={6} xxl={4}>
+          <Grid
+            item
+            sx={{ minWidth: 400, maxWidth: 600 }}
+            xs={12}
+            sm={12}
+            md={10}
+            lg={8}
+            xl={8}
+            xxl={6}
+          >
             <Card>
               <MKBox
                 variant="gradient"
                 bgColor="info"
                 borderRadius="lg"
                 coloredShadow="info"
-                mx={2}
+                mx={4}
                 mt={-3}
-                p={2}
-                mb={1}
+                p={5}
+                mb={-2}
                 textAlign="center"
               >
                 <MKTypography
-                  variant="h4"
+                  variant="h3"
                   fontWeight="large"
                   color="white"
-                  mt={1}
+                  // mt={1}
                 >
-                  Register
+                  REGISTER
                 </MKTypography>
-                <Grid
+                {/* <Grid
                   container
                   spacing={3}
                   justifyContent="center"
                   // sx={{ mt: 1, mb: 2 }}
                   sx={{ mt: 0, mb: 0 }}
-                ></Grid>
+                ></Grid> */}
               </MKBox>
               <MKBox pt={4} pb={3} px={3}>
-                <MKBox component="form" method="post" autocomplete="off"
-                  role="form" onSubmit={createUser}>
-                  <MKBox mb={2}>
+                <MKBox
+                  component="form"
+                  method="post"
+                  autocomplete="off"
+                  role="form"
+                  onSubmit={createUser}
+                  p={6}
+                >
+                  <MKBox mb={1} display="flex" justifyContent="space-between">
                     <MKInput
-
+                      style={{ width: "48%" }}
                       label="First Name"
                       type="text"
                       name="first_name"
@@ -150,7 +165,7 @@ function RegisterForm() {
                       onChange={(e) => setFirstName(e.target.value)}
                     />
                     <MKInput
-
+                      style={{ width: "48%" }}
                       label="Last Name"
                       type="text"
                       name="last_name"
@@ -207,8 +222,9 @@ function RegisterForm() {
                       onChange={(e) => setStreet(e.target.value)}
                     />
                   </MKBox>
-                  <MKBox mb={2}>
+                  <MKBox mb={2} display="flex" justifyContent="space-between">
                     <MKInput
+                      style={{ width: "48%" }}
                       label="Zip Code"
                       type="text"
                       name="zip_code"
@@ -218,6 +234,7 @@ function RegisterForm() {
                       onChange={(e) => setZipcode(e.target.value)}
                     />
                     <MKInput
+                      style={{ width: "48%" }}
                       label="City"
                       type="text"
                       name="city"
@@ -265,19 +282,52 @@ function RegisterForm() {
                     />
 
                   </MKBox> */}
-                  <FormControl>
-                    <FormLabel style={{ fontSize: "0.70em", color: "Gray" }} size="small">Gender</FormLabel>
-                    <RadioGroup
-                      name="controlled-radio-buttons-group"
-                      value={userType}
-                      onChange={handleChange}
-                      size="small"
-                      row
-                    >
-                      <FormControlLabel value="owner" control={<Radio size="small" style={{ fontSize: "0.70em" }} />} label="Owner" />
-                      <FormControlLabel value="doglover" control={<Radio size="small" style={{ fontSize: "0.70em" }} />} label="Dog Lover" />
-                    </RadioGroup>
-                  </FormControl>
+                  <MKBox
+                    mt={4}
+                    justifyContent="flex-start"
+                    display="flex"
+                    mb={6}
+                    ml={0.5}
+                    textAlign="left"
+                    width="100%"
+                  >
+                    <FormControl>
+                      <FormLabel
+                        style={{ fontSize: "0.70em", color: "Gray" }}
+                        size="small"
+                      >
+                        User Type
+                      </FormLabel>
+                      <RadioGroup
+                        name="controlled-radio-buttons-group"
+                        value={userType}
+                        onChange={handleChange}
+                        size="small"
+                        row
+                      >
+                        <FormControlLabel
+                          value="owner"
+                          control={
+                            <Radio
+                              size="small"
+                              style={{ fontSize: "0.70em" }}
+                            />
+                          }
+                          label="Owner"
+                        />
+                        <FormControlLabel
+                          value="doglover"
+                          control={
+                            <Radio
+                              size="small"
+                              style={{ fontSize: "0.70em" }}
+                            />
+                          }
+                          label="Dog Lover"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  </MKBox>
                   {/* <MKBox display="flex" alignItems="center" ml={-1}>
                     <Switch
                       checked={rememberMe}
@@ -293,19 +343,33 @@ function RegisterForm() {
                       &nbsp;&nbsp;Remember me
                     </MKTypography>
                   </MKBox> */}
-                  <MKBox mt={2} justifyContent="space-around" display="flex" mb={0} textAlign="center" width="100%">
+                  <MKBox
+                    mt={2}
+                    justifyContent="center"
+                    display="flex"
+                    textAlign="center"
+                    width="100%"
+                  >
                     {/* <MKButton variant="gradient" color="info" fullWidth>
                       Register
                     </MKButton> */}
-                    <MKButton type="submit" variant="gradient" color="info">
-                      Sign Up
-                    </MKButton>
                     <MKButton
+                      size="large"
                       onClick={() => navigate("/")}
                       variant="gradient"
                       color="info"
+                      style={{ marginRight: "1.5rem", width: "8rem" }}
                     >
                       Cancel
+                    </MKButton>
+                    <MKButton
+                      size="large"
+                      type="submit"
+                      variant="gradient"
+                      color="info"
+                      style={{ marginLeft: "1.5rem", width: "8rem" }}
+                    >
+                      Sign Up
                     </MKButton>
                   </MKBox>
                   <MKBox mt={3} mb={1} textAlign="center">
