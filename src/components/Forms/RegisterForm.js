@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../logic/UserFunctions";
+import Header from "components/Layout/Header";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -21,9 +22,6 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-
-// Images
-import regBkImg from "assets/images/backgrounds/agustina-gabes-FSIxZmwEDqI-unsplash.jpeg";
 
 function RegisterForm() {
   //const [rememberMe, setRememberMe] = useState(false);
@@ -69,33 +67,12 @@ function RegisterForm() {
   return (
     <>
       <MKBox
-        position="absolute"
-        top={0}
-        left={0}
-        zIndex={1}
-        width="100%"
-        minHeight="100vh"
-        sx={{
-          backgroundImage: ({
-            functions: { linearGradient, rgba },
-            palette: { gradients },
-          }) =>
-            `${linearGradient(
-              rgba(gradients.dark.main, 0.3),
-              rgba(gradients.dark.state, 0.3)
-            )}, url(${regBkImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-      <MKBox
         px={1}
         width="100%"
         height="100vh"
         mx="auto"
         position="relative"
-        zIndex={2}
+        zIndex={1}
         sx={{ width: "75%" }}
       >
         <Grid
@@ -103,7 +80,7 @@ function RegisterForm() {
           spacing={1}
           justifyContent="center"
           alignItems="center"
-          height="100%"
+          height="85%"
         >
           {/* <Grid item xs={11} sm={9} md={5} lg={10} xl={3}> */}
           <Grid

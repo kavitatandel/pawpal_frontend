@@ -30,7 +30,7 @@ import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
 // Images
-import bgImage from "assets/images/bg-about-us.jpg";
+import bgImage from "assets/images/backgrounds/patrick-hendry-jd0hS7Vhn_A-unsplash.jpeg";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -45,8 +45,8 @@ const Landing = () => {
             palette: { gradients },
           }) =>
             `${linearGradient(
-              rgba(gradients.dark.main, 0.6),
-              rgba(gradients.dark.state, 0.6)
+              rgba(gradients.dark.main, 0.4),
+              rgba(gradients.dark.state, 0.4)
             )}, url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -63,50 +63,56 @@ const Landing = () => {
             justifyContent="center"
             alignItems="center"
             flexDirection="column"
-            sx={{ mx: "auto", textAlign: "center" }}
+            sx={{ mx: "auto", textAlign: "center", top: "-100" }}
           >
             <MKTypography
               variant="h1"
               color="white"
+              style={{ paddingBottom: "3rem" }}
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
                 },
               })}
             >
-              Work with an amazing design
+              Welcome to App Name
             </MKTypography>
             <MKTypography
               variant="body1"
               color="white"
               opacity={0.8}
-              mt={1}
-              mb={3}
+              style={{ paddingBottom: "3rem" }}
             >
-              We&apos;re constantly trying to express ourselves and actualize
-              our dreams. If you have the opportunity to play this game
+              Some cool introduction to our site. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Architecto ducimus dolor temporibus
+              voluptates, possimus culpa dolorem quia praesentium eius corporis
+              esse sunt sed minus perferendis illo quod nesciunt cum eligendi!
             </MKTypography>
             <Container>
               <MKButton
+                size="large"
                 onClick={() => navigate("/register")}
                 style={{ margin: "10px" }}
-                color="default"
-                sx={{ color: ({ palette: { dark } }) => dark.main }}
+                variant="gradient"
+                color="info"
+                sx={{ color: ({ palette: { light } }) => light.main }}
               >
                 create account
               </MKButton>
               <MKButton
+                size="large"
                 onClick={() => navigate("/login")}
                 style={{ margin: "10px" }}
-                color="default"
-                sx={{ color: ({ palette: { dark } }) => dark.main }}
+                variant="gradient"
+                color="info"
+                sx={{ color: ({ palette: { light } }) => light.main }}
               >
                 log in
               </MKButton>
             </Container>
-            <MKTypography variant="h6" color="white" mt={8} mb={1}>
+            {/* <MKTypography variant="h6" color="white" mt={8} mb={1}>
               Find us on
-            </MKTypography>
+            </MKTypography> */}
             <MKBox display="flex" justifyContent="center" alignItems="center">
               <MKTypography
                 component="a"
