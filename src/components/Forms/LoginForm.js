@@ -131,7 +131,11 @@ const LoginForm = () => {
                       onClick={() => navigate("/")}
                       variant="gradient"
                       color="info"
-                      style={{ marginRight: "1.5rem", width: "8rem" }}
+                      style={{
+                        marginRight: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
                     >
                       Cancel
                     </MKButton>
@@ -140,7 +144,11 @@ const LoginForm = () => {
                       type="submit"
                       variant="gradient"
                       color="info"
-                      style={{ marginLeft: "1.5rem", width: "8rem" }}
+                      style={{
+                        marginLeft: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
                     >
                       Log In
                     </MKButton>

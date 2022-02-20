@@ -3,6 +3,7 @@ import { login } from "../logic/UserFunctions";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "components/Forms/LoginForm";
 import PageContainer from "components/Layout/PageContainer";
+import Header from "components/Layout/Header";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +28,7 @@ const Login = () => {
 
   return (
     <>
+      <Header />
       <LoginForm />
       <PageContainer />
     </>
