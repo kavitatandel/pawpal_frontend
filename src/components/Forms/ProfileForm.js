@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+// image
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -16,6 +17,7 @@ const ProfileForm = () => {
   const [loading, setLoading] = useState(true);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+
   const [edit, setEdit] = useState(false);
 
   const [user, setUser] = useState({});
@@ -26,23 +28,22 @@ const ProfileForm = () => {
       .then((res) => {
         setUser(res.data);
       })
-      .then(setLoading(false))
 
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
     getSingleUserInfo();
-    // if (user.profilePicture) {
-    //   setLoading(false);
-    // }
+    if (user) {
+      setLoading(false);
+    }
   }, []);
 
-  const editToggle = (e) => {
-    if (!edit) {
-      setEdit(!edit);
-    }
-  };
+  //   const editToggle = (e) => {
+  //     if (!edit) {
+  //       setEdit(!edit);
+  //     }
+  //   };
 
   if (loading) return <h1>Loading...</h1>;
   return (
@@ -63,9 +64,11 @@ const ProfileForm = () => {
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
+        style={{ border: "10px solid red" }}
       >
         {/* Container for top background Image */}
         <MKBox
+          style={{ border: "10px solid green" }}
           minHeight="20vh"
           width="100%"
           //   style={{ border: "3px solid green" }}
@@ -84,6 +87,7 @@ const ProfileForm = () => {
             placeItems: "center",
           }}
         />
+
         {/* Container for body area below featured img */}
         <MKBox
           display="flex"
@@ -93,7 +97,7 @@ const ProfileForm = () => {
           minHeight="80vh"
           top={0}
           width="100%"
-          //   style={{ border: "3px solid red" }}
+          style={{ border: "10px solid blue" }}
           //   style={{ border: "3px solid green" }}
         >
           <Card
@@ -127,7 +131,8 @@ const ProfileForm = () => {
                 top={-50}
                 zIndex={2}
                 // Hard coded for now
-                src="https://res.cloudinary.com/kavita-project/image/upload/v1645350736/lqhvjqlevlaqxpzw7hqq.png"
+                src={`${user.profile_pic}`}
+                // src="https://res.cloudinary.com/kavita-project/image/upload/v1645350736/lqhvjqlevlaqxpzw7hqq.png"
                 alt="Burce Mars"
                 shadow="xl"
                 sx={{ width: "13rem", height: "13rem" }}
@@ -135,123 +140,6 @@ const ProfileForm = () => {
               />
             </MKBox>
             {/* ************************* Text Container */}
-            <Container>
-              {/* Heading (User's Name) */}
-              <MKTypography
-                variant="h3"
-                fontWeight="large"
-                color="dark"
-                textAlign="center"
-              >
-                {`${user.first_name} ${user.last_name}`}
-              </MKTypography>
-              {/* ************************** User Details */}
-              <MKBox pt={4} pb={3} px={3}>
-                <MKBox
-                  component="form"
-                  method="post"
-                  autocomplete="off"
-                  role="form"
-                  //   onSubmit={createUser}
-                  p={6}
-                >
-                  <MKBox mb={1} display="flex" justifyContent="space-between">
-                    <MKInput
-                      label="First Name"
-                      fullWidth
-                      type="text"
-                      name="first_name"
-                      placeholder={user.first_name}
-                      required
-                      //   value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                    />
-                    <MKButton
-                    //   onClick={(e) => setFirstName(e.target.value)}
-                    >
-                      Edit
-                    </MKButton>
-
-                    <MKInput
-                      fullWidth
-                      style={{ width: "48%" }}
-                      label="Last Name"
-                      type="text"
-                      name="last_name"
-                      placeholder="Enter your last name"
-                      required
-                      value={user.last_name}
-                      //   onChange={(e) => setLastName(e.target.value)}
-                    />
-                    <MKButton
-                    //   onClick={(e) => setFirstName(e.target.value)}
-                    >
-                      Edit
-                    </MKButton>
-                  </MKBox>
-
-                  <MKBox mb={2}>
-                    <MKInput
-                      fullWidth
-                      label="E-Mail"
-                      name="email"
-                      placeholder="Enter your email"
-                      type="email"
-                      required
-                      value={user.email}
-                      //   onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </MKBox>
-
-                  <MKBox mb={2}>
-                    <MKInput
-                      fullWidth
-                      label="Street Name"
-                      type="text"
-                      name="street"
-                      placeholder="Enter your street"
-                      required
-                      value={user.street}
-                      //   onChange={(e) => setStreet(e.target.value)}
-                    />
-                  </MKBox>
-                  <MKBox mb={2} display="flex" justifyContent="space-between">
-                    <MKInput
-                      style={{ width: "48%" }}
-                      label="Zip Code"
-                      type="text"
-                      name="zip_code"
-                      placeholder="Enter your zip code"
-                      required
-                      value={user.zipcode}
-                      //   onChange={(e) => setZipcode(e.target.value)}
-                    />
-                    <MKInput
-                      style={{ width: "48%" }}
-                      label="City"
-                      type="text"
-                      name="city"
-                      placeholder="Enter your city"
-                      required
-                      value={user.city}
-                      //   onChange={(e) => setCity(e.target.value)}
-                    />
-                  </MKBox>
-                  <MKBox mb={2}>
-                    <MKInput
-                      fullWidth
-                      label="Country"
-                      type="text"
-                      name="country"
-                      placeholder="Enter your country"
-                      required
-                      value={user.country}
-                      //   onChange={(e) => setCountry(e.target.value)}
-                    />
-                  </MKBox>
-                </MKBox>
-              </MKBox>
-            </Container>
           </Card>
         </MKBox>
       </MKBox>
