@@ -140,6 +140,123 @@ const ProfileForm = () => {
               />
             </MKBox>
             {/* ************************* Text Container */}
+            <Container>
+              {/* Heading (User's Name) */}
+              <MKTypography
+                variant="h3"
+                fontWeight="large"
+                color="dark"
+                textAlign="center"
+              >
+                {`${user.first_name} ${user.last_name}`}
+              </MKTypography>
+              {/* ************************** User Details */}
+              <MKBox pt={4} pb={3} px={3}>
+                <MKBox
+                  component="form"
+                  method="post"
+                  autocomplete="off"
+                  role="form"
+                  //   onSubmit={createUser}
+                  p={6}
+                >
+                  <MKBox mb={1} display="flex" justifyContent="space-between">
+                    <MKInput
+                      label="First Name"
+                      fullWidth
+                      type="text"
+                      name="first_name"
+                      placeholder={user.first_name}
+                      required
+                      //   value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    />
+                    <MKButton
+                    //   onClick={(e) => setFirstName(e.target.value)}
+                    >
+                      Edit
+                    </MKButton>
+
+                    <MKInput
+                      fullWidth
+                      style={{ width: "48%" }}
+                      label="Last Name"
+                      type="text"
+                      name="last_name"
+                      placeholder="Enter your last name"
+                      required
+                      value={user.last_name}
+                      //   onChange={(e) => setLastName(e.target.value)}
+                    />
+                    <MKButton
+                    //   onClick={(e) => setFirstName(e.target.value)}
+                    >
+                      Edit
+                    </MKButton>
+                  </MKBox>
+
+                  <MKBox mb={2}>
+                    <MKInput
+                      fullWidth
+                      label="E-Mail"
+                      name="email"
+                      placeholder="Enter your email"
+                      type="email"
+                      required
+                      value={user.email}
+                      //   onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </MKBox>
+
+                  <MKBox mb={2}>
+                    <MKInput
+                      fullWidth
+                      label="Street Name"
+                      type="text"
+                      name="street"
+                      placeholder="Enter your street"
+                      required
+                      value={user.street}
+                      //   onChange={(e) => setStreet(e.target.value)}
+                    />
+                  </MKBox>
+                  <MKBox mb={2} display="flex" justifyContent="space-between">
+                    <MKInput
+                      style={{ width: "48%" }}
+                      label="Zip Code"
+                      type="text"
+                      name="zip_code"
+                      placeholder="Enter your zip code"
+                      required
+                      value={user.zipcode}
+                      //   onChange={(e) => setZipcode(e.target.value)}
+                    />
+                    <MKInput
+                      style={{ width: "48%" }}
+                      label="City"
+                      type="text"
+                      name="city"
+                      placeholder="Enter your city"
+                      required
+                      value={user.city}
+                      //   onChange={(e) => setCity(e.target.value)}
+                    />
+                  </MKBox>
+                  <MKBox mb={2}>
+                    <MKInput
+                      fullWidth
+                      label="Country"
+                      type="text"
+                      name="country"
+                      placeholder="Enter your country"
+                      required
+                      value={user.country}
+                      //   onChange={(e) => setCountry(e.target.value)}
+                    />
+                  </MKBox>
+                </MKBox>
+              </MKBox>
+            </Container>
           </Card>
         </MKBox>
       </MKBox>
