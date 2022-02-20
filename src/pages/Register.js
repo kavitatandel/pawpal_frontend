@@ -48,6 +48,7 @@ const Register = () => {
 
   return (
     <>
+      <Header />
       <RegisterForm />
       <PageContainer />
     </>

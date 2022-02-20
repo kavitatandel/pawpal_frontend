@@ -55,7 +55,7 @@ function RegisterForm() {
     };
 
     register(newUser).then((res) => {
-      navigate("/user");
+      navigate("/login");
     });
   };
 
@@ -335,7 +335,11 @@ function RegisterForm() {
                       onClick={() => navigate("/")}
                       variant="gradient"
                       color="info"
-                      style={{ marginRight: "1.5rem", width: "8rem" }}
+                      style={{
+                        marginRight: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
                     >
                       Cancel
                     </MKButton>
@@ -344,7 +348,11 @@ function RegisterForm() {
                       type="submit"
                       variant="gradient"
                       color="info"
-                      style={{ marginLeft: "1.5rem", width: "8rem" }}
+                      style={{
+                        marginLeft: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
                     >
                       Sign Up
                     </MKButton>

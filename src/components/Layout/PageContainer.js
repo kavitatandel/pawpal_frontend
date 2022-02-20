@@ -28,9 +28,7 @@ const PageContainer = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-      >
-        <Header />
-      </MKBox>
+      ></MKBox>
 
       <CenteredFooter minHeight="15vh" />
     </>
