@@ -58,17 +58,6 @@ const RegisterForm = () => {
       description: user.description,
       latitude: user.latitude,
       longitude: user.longitude,
-
-      // user_type: user,
-      // first_name: firstName,
-      // last_name: lastName,
-      // email: email,
-      // password: password,
-      // user_type: userType,
-      // street: street,
-      // zip_code: zipcode,
-      // city: city,
-      // country: country,
     };
 
     register(newUser).then((res) => {
@@ -267,7 +256,9 @@ const RegisterForm = () => {
                       placeholder="Enter your country"
                       required
                       value={user.country}
-                      onChange={(e) => setUser({ country: e.target.value })}
+                      onChange={(e) =>
+                        setUser({ ...user, country: e.target.value })
+                      }
                       // value={country}
                       // onChange={(e) => setCountry(e.target.value)}
                     />
