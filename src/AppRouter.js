@@ -5,6 +5,7 @@ import Login from "./pages/login";
 import Profile from "pages/Profile";
 import UserInfo from "./pages/UserInfo";
 import "./styles/layout.css";
+import SearchDog from "./pages/SearchDog";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/user" element={<UserInfo />}></Route>
         {/* <Route path="/profile" element={<Profile />}></Route> */}
+        <Route path="/user/searchdog" element={<SearchDog />}></Route>
       </Routes>
     </>
   );
