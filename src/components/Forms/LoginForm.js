@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../logic/UserFunctions";
-import Header from "components/Layout/Header";
+import { UserContext } from "context/UserContext";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -17,8 +17,11 @@ import MKButton from "../MKButton";
 import MKTypography from "../MKTypography";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useContext(UserContext);
+  // const [userValue, setUserValue] = user;
+
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   let navigate = useNavigate();
 
@@ -26,8 +29,8 @@ const LoginForm = () => {
     e.preventDefault();
 
     const user = {
-      email: email,
-      password: password,
+      email: user.email,
+      password: user.password,
     };
 
     login(user).then((res) => {
@@ -102,8 +105,9 @@ const LoginForm = () => {
                       placeholder="Enter your email"
                       type="email"
                       required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={user.email}
+                      // onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => setUser({ email: e.target.value })}
                     />
                   </MKBox>
                   <MKBox mb={2} mt={4}>
@@ -114,8 +118,9 @@ const LoginForm = () => {
                       placeholder="Enter your password"
                       type="password"
                       required
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      // value={password}
+                      value={user.password}
+                      onChange={(e) => setUser({ password: e.target.value })}
                     />
                   </MKBox>
 

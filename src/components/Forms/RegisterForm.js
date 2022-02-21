@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../logic/UserFunctions";
-import Header from "components/Layout/Header";
+import { UserContext } from "context/UserContext";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -23,19 +23,21 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-function RegisterForm() {
+const RegisterForm = () => {
+  const [user, setUser] = useContext(UserContext);
+  // const [userValue, setUserValue] = user;
   //const [rememberMe, setRememberMe] = useState(false);
   // const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [street, setStreet] = useState("");
-  const [zipcode, setZipcode] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [userType, setUserType] = useState("owner");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [street, setStreet] = useState("");
+  // const [zipcode, setZipcode] = useState("");
+  // const [city, setCity] = useState("");
+  // const [country, setCountry] = useState("");
+  // const [userType, setUserType] = useState("owner");
 
   let navigate = useNavigate();
 
@@ -43,15 +45,30 @@ function RegisterForm() {
     e.preventDefault();
 
     const newUser = {
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-      password: password,
-      user_type: userType,
-      street: street,
-      zip_code: zipcode,
-      city: city,
-      country: country,
+      first_name: user.first_name,
+      last_name: user.first_name,
+      email: user.email,
+      password: user.password,
+      user_type: user.user_type,
+      street: user.street,
+      city: user.city,
+      country: user.country,
+      zip_code: user.zip_code,
+      profile_pic: user.profile_pic,
+      description: user.description,
+      latitude: user.latitude,
+      longitude: user.longitude,
+
+      // user_type: user,
+      // first_name: firstName,
+      // last_name: lastName,
+      // email: email,
+      // password: password,
+      // user_type: userType,
+      // street: street,
+      // zip_code: zipcode,
+      // city: city,
+      // country: country,
     };
 
     register(newUser).then((res) => {
@@ -61,9 +78,9 @@ function RegisterForm() {
 
   //for radio group
   const handleChange = (event) => {
-    setUserType(event.target.value);
+    setUser({ user_type: event.target.value });
   };
-
+  console.log(user);
   return (
     <>
       <MKBox
@@ -107,7 +124,7 @@ function RegisterForm() {
               >
                 <MKTypography
                   variant="h3"
-                  fontWeight="large"
+                  fontWeight="regular"
                   color="white"
                   // mt={1}
                 >
@@ -138,8 +155,12 @@ function RegisterForm() {
                       name="first_name"
                       placeholder="Enter your first name"
                       required
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      // value={firstName}
+                      // onChange={(e) => setFirstName(e.target.value)}
+                      value={user.first_name}
+                      onChange={(e) =>
+                        setUser({ ...user, first_name: e.target.value })
+                      }
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -148,21 +169,17 @@ function RegisterForm() {
                       name="last_name"
                       placeholder="Enter your last name"
                       required
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
+                      value={user.last_name}
+                      onChange={(e) =>
+                        setUser({ ...user, last_name: e.target.value })
+                      }
+
+                      // value={lastName}
+                      // onChange={(e) => setLastName(e.target.value)}
                     />
                   </MKBox>
-                  <MKBox mb={2}>
-                    {/* <MKInput
-                      label="Last Name"
-                      type="text"
-                      name="last_name"
-                      placeholder="Enter your last name"
-                      required
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                    /> */}
-                  </MKBox>
+
+                  <MKBox mb={2}></MKBox>
                   <MKBox mb={2}>
                     <MKInput
                       fullWidth
@@ -171,8 +188,12 @@ function RegisterForm() {
                       placeholder="Enter your email"
                       type="email"
                       required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={user.email}
+                      onChange={(e) =>
+                        setUser({ ...user, email: e.target.value })
+                      }
+                      // value={email}
+                      // onChange={(e) => setEmail(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -183,8 +204,12 @@ function RegisterForm() {
                       placeholder="Enter your password"
                       type="password"
                       required
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={user.password}
+                      onChange={(e) =>
+                        setUser({ ...user, password: e.target.value })
+                      }
+                      // value={password}
+                      // onChange={(e) => setPassword(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -195,8 +220,12 @@ function RegisterForm() {
                       name="street"
                       placeholder="Enter your street"
                       required
-                      value={street}
-                      onChange={(e) => setStreet(e.target.value)}
+                      value={user.street}
+                      onChange={(e) =>
+                        setUser({ ...user, street: e.target.value })
+                      }
+                      // value={street}
+                      // onChange={(e) => setStreet(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2} display="flex" justifyContent="space-between">
@@ -207,8 +236,12 @@ function RegisterForm() {
                       name="zip_code"
                       placeholder="Enter your zip code"
                       required
-                      value={zipcode}
-                      onChange={(e) => setZipcode(e.target.value)}
+                      value={user.zip_code}
+                      onChange={(e) =>
+                        setUser({ ...user, zip_code: e.target.value })
+                      }
+                      // value={zipcode}
+                      // onChange={(e) => setZipcode(e.target.value)}
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -217,8 +250,12 @@ function RegisterForm() {
                       name="city"
                       placeholder="Enter your city"
                       required
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
+                      value={user.city}
+                      onChange={(e) =>
+                        setUser({ ...user, city: e.target.value })
+                      }
+                      // value={city}
+                      // onChange={(e) => setCity(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -229,36 +266,13 @@ function RegisterForm() {
                       name="country"
                       placeholder="Enter your country"
                       required
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
+                      value={user.country}
+                      onChange={(e) => setUser({ country: e.target.value })}
+                      // value={country}
+                      // onChange={(e) => setCountry(e.target.value)}
                     />
                   </MKBox>
-                  {/* <MKBox mb={2} >
-                    <Radio
-                      label="Owner"
-                      size="small"
-                      type="radio"
-                      name="account_type"
-                      value="owner"
-                      checked={userType === "owner"}
-                      onChange={(e) => {
-                        setUserType(e.target.value);
-                      }}
-                    />
 
-                    <Radio
-                      label="Dog Lover"
-                      size="small"
-                      type="radio"
-                      name="account_type"
-                      value="doglover"
-                      checked={userType === "doglover"}
-                      onChange={(e) => {
-                        setUserType(e.target.value);
-                      }}
-                    />
-
-                  </MKBox> */}
                   <MKBox
                     mt={4}
                     justifyContent="flex-start"
@@ -277,7 +291,8 @@ function RegisterForm() {
                       </FormLabel>
                       <RadioGroup
                         name="controlled-radio-buttons-group"
-                        value={userType}
+                        value={user.user_type}
+                        // value={userType}
                         onChange={handleChange}
                         size="small"
                         row
@@ -305,21 +320,7 @@ function RegisterForm() {
                       </RadioGroup>
                     </FormControl>
                   </MKBox>
-                  {/* <MKBox display="flex" alignItems="center" ml={-1}>
-                    <Switch
-                      checked={rememberMe}
-                      onChange={handleSetRememberMe}
-                    />
-                    <MKTypography
-                      variant="button"
-                      fontWeight="regular"
-                      color="text"
-                      onClick={handleSetRememberMe}
-                      sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
-                    >
-                      &nbsp;&nbsp;Remember me
-                    </MKTypography>
-                  </MKBox> */}
+
                   <MKBox
                     mt={2}
                     justifyContent="center"
@@ -327,9 +328,6 @@ function RegisterForm() {
                     textAlign="center"
                     width="100%"
                   >
-                    {/* <MKButton variant="gradient" color="info" fullWidth>
-                      Register
-                    </MKButton> */}
                     <MKButton
                       size="large"
                       onClick={() => navigate("/")}
@@ -392,156 +390,7 @@ function RegisterForm() {
         bottom="1.625rem"
       ></MKBox>
     </>
-
-    // OLD CODE BELOW
-    // <MKBox component="section" py={12}>
-    //   <Container>
-    //     <Grid
-    //       container
-    //       item
-    //       justifyContent="center"
-    //       xs={10}
-    //       lg={7}
-    //       mx="auto"
-    //       textAlign="center"
-    //     >
-    //       <MKTypography variant="h3" mb={1}>
-    //         Register
-    //       </MKTypography>
-    //     </Grid>
-    //     <Grid container item xs={12} lg={7} sx={{ mx: "auto" }}>
-    //       <MKBox
-    //         width="100%"
-    //         component="form"
-    //         method="post"
-    //         onSubmit={createUser}
-    //         autocomplete="off"
-    //       >
-    //         <MKBox p={3}>
-    //           {/* <form onSubmit={createUser}> */}
-    //           <Grid container spacing={3}>
-    //             <Grid item xs={12} md={6}>
-    //               <MKInput
-    //                 label="First Name"
-    //                 type="text"
-    //                 name="first_name"
-    //                 placeholder="Enter your first name"
-    //                 required
-    //                 value={firstName}
-    //                 onChange={(e) => setFirstName(e.target.value)}
-    //               />
-    //             </Grid>
-    //             <Grid item xs={12} md={6}>
-    //               <MKInput
-    //                 label="Last Name"
-    //                 type="text"
-    //                 name="last_name"
-    //                 placeholder="Enter your last name"
-    //                 required
-    //                 value={lastName}
-    //                 onChange={(e) => setLastName(e.target.value)}
-    //               />
-    //             </Grid>
-    //           </Grid>
-    //           <Container>
-    //             <MKInput
-    //               label="E-Mail"
-    //               name="email"
-    //               placeholder="Enter your email"
-    //               type="email"
-    //               required
-    //               value={email}
-    //               onChange={(e) => setEmail(e.target.value)}
-    //             />
-    //           </Container>
-    //           <Container>
-    //             <MKInput
-    //               label="Password"
-    //               name="password"
-    //               placeholder="Enter your password"
-    //               type="password"
-    //               required
-    //               value={password}
-    //               onChange={(e) => setPassword(e.target.value)}
-    //             />
-    //           </Container>
-    //           <Container>
-    //             <MKInput
-    //               label="Street Name"
-    //               type="text"
-    //               name="street"
-    //               placeholder="Enter your street"
-    //               required
-    //               value={street}
-    //               onChange={(e) => setStreet(e.target.value)}
-    //             />
-    //           </Container>
-    //           <Container>
-    //             <MKInput
-    //               label="Zip Code"
-    //               type="text"
-    //               name="zip_code"
-    //               placeholder="Enter your zip code"
-    //               required
-    //               value={zipcode}
-    //               onChange={(e) => setZipcode(e.target.value)}
-    //             />
-    //           </Container>
-    //           <Container>
-    //             <MKInput
-    //               label="City"
-    //               type="text"
-    //               name="city"
-    //               placeholder="Enter your city"
-    //               required
-    //               value={city}
-    //               onChange={(e) => setCity(e.target.value)}
-    //             />
-    //           </Container>
-    //           <Container>
-    //             <MKInput
-    //               label="Country"
-    //               type="text"
-    //               name="country"
-    //               placeholder="Enter your country"
-    //               required
-    //               value={country}
-    //               onChange={(e) => setCountry(e.target.value)}
-    //             />
-    //           </Container>
-    //           <Container>
-    //             <Radio
-    //               type="radio"
-    //               name="account_type"
-    //               value="owner"
-    //               checked={userType === "owner"}
-    //               onChange={(e) => {
-    //                 setUserType(e.target.value);
-    //               }}
-    //             />
-    //             Owner
-    //             <Radio
-    //               type="radio"
-    //               name="account_type"
-    //               value="doglover"
-    //               checked={userType === "doglover"}
-    //               onChange={(e) => {
-    //                 setUserType(e.target.value);
-    //               }}
-    //             />
-    //             Dog Lover
-    //           </Container>
-    //           <Container>
-    //             <MKButton type="submit">Sign Up</MKButton>
-    //             <MKButton onClick={() => navigate("/")}>Cancel</MKButton>
-    //           </Container>
-    //           {/* </form> */}
-    //         </MKBox>
-    //       </MKBox>
-    //     </Grid>
-    //   </Container>
-    // </MKBox>
   );
-}
+};
 
 export default RegisterForm;
