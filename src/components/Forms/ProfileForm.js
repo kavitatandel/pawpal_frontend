@@ -93,8 +93,8 @@ const ProfileForm = () => {
           minHeight="80vh"
           top={0}
           width="100%"
-          //   style={{ border: "3px solid red" }}
-          //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid red" }}
+        //   style={{ border: "3px solid green" }}
         >
           <Card
             // zIndex={0}
@@ -121,7 +121,7 @@ const ProfileForm = () => {
               p={5}
               display="flex"
               justifyContent="center"
-              //   style={{ border: "3px solid blue" }}
+            //   style={{ border: "3px solid blue" }}
             >
               <MKAvatar
                 top={-50}
@@ -181,7 +181,7 @@ const ProfileForm = () => {
                       placeholder="Enter your last name"
                       required
                       value={user.last_name}
-                      //   onChange={(e) => setLastName(e.target.value)}
+                    //   onChange={(e) => setLastName(e.target.value)}
                     />
                     <MKButton
                     //   onClick={(e) => setFirstName(e.target.value)}
@@ -199,7 +199,7 @@ const ProfileForm = () => {
                       type="email"
                       required
                       value={user.email}
-                      //   onChange={(e) => setEmail(e.target.value)}
+                    //   onChange={(e) => setEmail(e.target.value)}
                     />
                   </MKBox>
 
@@ -212,7 +212,7 @@ const ProfileForm = () => {
                       placeholder="Enter your street"
                       required
                       value={user.street}
-                      //   onChange={(e) => setStreet(e.target.value)}
+                    //   onChange={(e) => setStreet(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2} display="flex" justifyContent="space-between">
@@ -224,7 +224,7 @@ const ProfileForm = () => {
                       placeholder="Enter your zip code"
                       required
                       value={user.zipcode}
-                      //   onChange={(e) => setZipcode(e.target.value)}
+                    //   onChange={(e) => setZipcode(e.target.value)}
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -234,7 +234,7 @@ const ProfileForm = () => {
                       placeholder="Enter your city"
                       required
                       value={user.city}
-                      //   onChange={(e) => setCity(e.target.value)}
+                    //   onChange={(e) => setCity(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -246,7 +246,7 @@ const ProfileForm = () => {
                       placeholder="Enter your country"
                       required
                       value={user.country}
-                      //   onChange={(e) => setCountry(e.target.value)}
+                    //   onChange={(e) => setCountry(e.target.value)}
                     />
                   </MKBox>
                 </MKBox>

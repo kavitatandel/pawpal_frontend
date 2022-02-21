@@ -1,0 +1,402 @@
+[
+	{
+		"latitude": "-56.211222016",
+		"longitude": "60.8500988928",
+		"address1": "816-9850 Integer Ave",
+		"postalZip": "0215",
+		"city": "Yogyakarta",
+		"country": "Germany"
+	},
+	{
+		"latitude": "63.753217024",
+		"longitude": "-125.8660550656",
+		"address1": "Ap #854-3852 Varius Road",
+		"postalZip": "21952",
+		"city": "Hohenems",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-5.633142272",
+		"longitude": "-151.2682940416",
+		"address1": "P.O. Box 700, 3279 Faucibus Ave",
+		"postalZip": "62861",
+		"city": "Philadelphia",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-68.5515656192",
+		"longitude": "-98.7299595264",
+		"address1": "Ap #707-8164 Vestibulum Rd.",
+		"postalZip": "214288",
+		"city": "Sungai Penuh",
+		"country": "Germany"
+	},
+	{
+		"latitude": "0.0449035264",
+		"longitude": "140.5881078784",
+		"address1": "Ap #543-8231 Mi St.",
+		"postalZip": "1256",
+		"city": "Sant'Onofrio",
+		"country": "Germany"
+	},
+	{
+		"latitude": "36.841639424",
+		"longitude": "-65.2888717312",
+		"address1": "338-2958 Aliquet St.",
+		"postalZip": "33513883",
+		"city": "Tamworth",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-80.8701487104",
+		"longitude": "63.450891776",
+		"address1": "642-7798 Mauris Av.",
+		"postalZip": "87410",
+		"city": "Gillette",
+		"country": "Germany"
+	},
+	{
+		"latitude": "65.8543785984",
+		"longitude": "16.3018218496",
+		"address1": "408-8631 Purus St.",
+		"postalZip": "744052",
+		"city": "Stalowa Wola",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-82.587825664",
+		"longitude": "-163.887453696",
+		"address1": "8929 Magna. Street",
+		"postalZip": "34330",
+		"city": "Germersheim",
+		"country": "Germany"
+	},
+	{
+		"latitude": "24.3366188032",
+		"longitude": "-65.7836019712",
+		"address1": "Ap #799-8071 Vivamus Street",
+		"postalZip": "411992",
+		"city": "Caldera",
+		"country": "Germany"
+	},
+	{
+		"latitude": "10.1753888768",
+		"longitude": "-106.2600694784",
+		"address1": "Ap #245-7858 Nec, St.",
+		"postalZip": "356917",
+		"city": "Jelenia Góra",
+		"country": "Germany"
+	},
+	{
+		"latitude": "38.5906802688",
+		"longitude": "172.2357762048",
+		"address1": "1370 Pede, Rd.",
+		"postalZip": "60901",
+		"city": "Valparaíso de Goiás",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-21.0800132096",
+		"longitude": "143.9004918784",
+		"address1": "P.O. Box 864, 8989 Ipsum Rd.",
+		"postalZip": "424848",
+		"city": "Borlänge",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-87.0982682624",
+		"longitude": "-87.2130501632",
+		"address1": "494-2281 Aliquam Road",
+		"postalZip": "31133",
+		"city": "Banjarbaru",
+		"country": "Germany"
+	},
+	{
+		"latitude": "59.4536426496",
+		"longitude": "-96.8623489024",
+		"address1": "P.O. Box 370, 776 Cursus Av.",
+		"postalZip": "2098 IF",
+		"city": "Panihati",
+		"country": "Germany"
+	},
+	{
+		"latitude": "53.6330467328",
+		"longitude": "-123.8260539392",
+		"address1": "2711 Nunc Street",
+		"postalZip": "67574",
+		"city": "Oyo",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-33.242789376",
+		"longitude": "10.1479742464",
+		"address1": "Ap #912-1869 Commodo Rd.",
+		"postalZip": "6659",
+		"city": "Itapipoca",
+		"country": "Germany"
+	},
+	{
+		"latitude": "9.0611105792",
+		"longitude": "104.8677100544",
+		"address1": "Ap #579-8761 Non, Street",
+		"postalZip": "30797",
+		"city": "Maiduguri",
+		"country": "Germany"
+	},
+	{
+		"latitude": "28.9585004544",
+		"longitude": "54.5562074112",
+		"address1": "940-9376 Euismod Rd.",
+		"postalZip": "26381",
+		"city": "Whitehorse",
+		"country": "Germany"
+	},
+	{
+		"latitude": "23.166661632",
+		"longitude": "-151.5088432128",
+		"address1": "495-5142 Morbi St.",
+		"postalZip": "15371-26837",
+		"city": "Malvern",
+		"country": "Germany"
+	},
+	{
+		"latitude": "57.8575745024",
+		"longitude": "173.1962545152",
+		"address1": "P.O. Box 335, 661 Dictum Av.",
+		"postalZip": "X62 6LK",
+		"city": "Logroño",
+		"country": "Germany"
+	},
+	{
+		"latitude": "18.9039881216",
+		"longitude": "10.6712822784",
+		"address1": "564-4711 Ac Road",
+		"postalZip": "63937",
+		"city": "Cheongju",
+		"country": "Germany"
+	},
+	{
+		"latitude": "82.7765517312",
+		"longitude": "18.4461734912",
+		"address1": "850-6058 Elit Avenue",
+		"postalZip": "719073",
+		"city": "Hidalgo del Parral",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-38.7971622912",
+		"longitude": "-7.7408659456",
+		"address1": "738-9322 Curabitur Ave",
+		"postalZip": "7087 QC",
+		"city": "Sapele",
+		"country": "Germany"
+	},
+	{
+		"latitude": "81.0390992896",
+		"longitude": "-73.1246235648",
+		"address1": "P.O. Box 762, 2914 Semper Rd.",
+		"postalZip": "368345",
+		"city": "Kongsvinger",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-47.2236689408",
+		"longitude": "56.6500931584",
+		"address1": "447-1042 Venenatis Rd.",
+		"postalZip": "50107",
+		"city": "Nuevo Laredo",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-48.1714506752",
+		"longitude": "146.750070272",
+		"address1": "Ap #122-6440 Libero Av.",
+		"postalZip": "2802",
+		"city": "Deline",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-22.8930284544",
+		"longitude": "-106.8042534912",
+		"address1": "Ap #661-3507 Euismod Ave",
+		"postalZip": "6702",
+		"city": "Bad Vilbel",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-59.3430751232",
+		"longitude": "-33.1024303104",
+		"address1": "301-2606 Vestibulum Rd.",
+		"postalZip": "E8T 2J1",
+		"city": "Suncheon",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-58.1822969856",
+		"longitude": "-179.3660429312",
+		"address1": "Ap #538-6485 Aliquet St.",
+		"postalZip": "38132",
+		"city": "Kaduna",
+		"country": "Germany"
+	},
+	{
+		"latitude": "34.1253723136",
+		"longitude": "-135.4350893056",
+		"address1": "735-4235 A, Rd.",
+		"postalZip": "97306-40118",
+		"city": "Voitsberg",
+		"country": "Germany"
+	},
+	{
+		"latitude": "1.9436826624",
+		"longitude": "28.0024361984",
+		"address1": "7203 Tempus Road",
+		"postalZip": "12-873",
+		"city": "San Andrés",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-46.0304811008",
+		"longitude": "108.2697715712",
+		"address1": "2422 Magna. Ave",
+		"postalZip": "28535",
+		"city": "Victoria",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-27.4622225408",
+		"longitude": "-108.0863004672",
+		"address1": "Ap #780-8963 A, Ave",
+		"postalZip": "0018 FB",
+		"city": "Nanaimo",
+		"country": "Germany"
+	},
+	{
+		"latitude": "23.5403707392",
+		"longitude": "57.8762440704",
+		"address1": "928-9627 In Rd.",
+		"postalZip": "15562",
+		"city": "Mérida",
+		"country": "Germany"
+	},
+	{
+		"latitude": "54.2320297984",
+		"longitude": "-35.4359717888",
+		"address1": "P.O. Box 219, 5317 Luctus Street",
+		"postalZip": "2573",
+		"city": "Petit-Hallet",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-77.2212755456",
+		"longitude": "55.8000679936",
+		"address1": "Ap #369-7570 Est Av.",
+		"postalZip": "N46 9BY",
+		"city": "Seosan",
+		"country": "Germany"
+	},
+	{
+		"latitude": "40.7487212544",
+		"longitude": "-130.1191846912",
+		"address1": "P.O. Box 115, 3386 Vestibulum Rd.",
+		"postalZip": "6173 GE",
+		"city": "Verdalsøra",
+		"country": "Germany"
+	},
+	{
+		"latitude": "18.894381568",
+		"longitude": "-90.9844124672",
+		"address1": "P.O. Box 906, 7277 Fermentum Road",
+		"postalZip": "1952",
+		"city": "Lustenau",
+		"country": "Germany"
+	},
+	{
+		"latitude": "51.748318208",
+		"longitude": "7.0972732416",
+		"address1": "9488 Tempus, Av.",
+		"postalZip": "982546",
+		"city": "Santander",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-86.306935296",
+		"longitude": "-108.9056382976",
+		"address1": "Ap #720-8485 Est, Road",
+		"postalZip": "984354",
+		"city": "Chapecó",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-59.6658229248",
+		"longitude": "-88.0146354176",
+		"address1": "P.O. Box 107, 4290 Lorem Rd.",
+		"postalZip": "7512",
+		"city": "Newtonmore",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-64.1212254208",
+		"longitude": "-136.4719327232",
+		"address1": "Ap #291-378 Velit Rd.",
+		"postalZip": "1501",
+		"city": "Valleyview",
+		"country": "Germany"
+	},
+	{
+		"latitude": "19.8735519744",
+		"longitude": "174.7598431232",
+		"address1": "746-1654 Commodo Road",
+		"postalZip": "23777",
+		"city": "Tarma",
+		"country": "Germany"
+	},
+	{
+		"latitude": "58.3473522688",
+		"longitude": "6.5543174144",
+		"address1": "Ap #246-9348 Integer Rd.",
+		"postalZip": "65040",
+		"city": "Jecheon",
+		"country": "Germany"
+	},
+	{
+		"latitude": "9.8575439872",
+		"longitude": "-117.1081145344",
+		"address1": "431-8574 Penatibus Ave",
+		"postalZip": "152875",
+		"city": "Belfast",
+		"country": "Germany"
+	},
+	{
+		"latitude": "6.602572288",
+		"longitude": "-167.5319477248",
+		"address1": "Ap #466-3795 Facilisis Rd.",
+		"postalZip": "8584",
+		"city": "Bogotá",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-74.6441049088",
+		"longitude": "-161.704370688",
+		"address1": "107-4128 Amet Rd.",
+		"postalZip": "30Y 5M6",
+		"city": "Waiheke Island",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-16.3399650304",
+		"longitude": "-55.0647537664",
+		"address1": "Ap #540-6965 Vel St.",
+		"postalZip": "I1E 4Y8",
+		"city": "Oaxaca",
+		"country": "Germany"
+	},
+	{
+		"latitude": "-87.288840192",
+		"longitude": "-168.7906681856",
+		"address1": "883-6452 Habitant St.",
+		"postalZip": "7462",
+		"city": "Ashoknagar-Kalyangarh",
+		"country": "Germany"
+	}
+]
