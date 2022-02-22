@@ -31,6 +31,7 @@ const LoginForm = () => {
 
     login(newUser).then((res) => {
       if (res) {
+        //console.log(res);
         navigate("/user");
       }
     });
@@ -80,7 +81,7 @@ const LoginForm = () => {
                   variant="h3"
                   fontWeight="bold"
                   color="white"
-                  // mt={1}
+                // mt={1}
                 >
                   LOG IN
                 </MKTypography>

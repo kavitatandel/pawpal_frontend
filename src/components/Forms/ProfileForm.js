@@ -56,37 +56,43 @@ const ProfileForm = () => {
   // };
 
   useEffect(() => {
-
     getProfile();
-    console.log(user);
-  }, []);
+    //console.log(user);
+  }, [user]);
 
   const getProfile = async () => {
     // console.log(JSON.parse(localStorage.getItem("usertoken")));
-    const token = JSON.parse(localStorage.getItem("usertoken"));
+    //const token = await JSON.parse(localStorage.getItem("usertoken"));
 
-    // console.log(token);
-    if (token !== undefined) {
-      // const decoded = await jwt_decode(token, { header: true });
-      // console.log(decoded.user);
-      setUser({
-        ...user,
-        _id: token.user._id,
-        first_name: token.user.first_name,
-        last_name: token.user.last_name,
-        email: token.user.email,
-        street: token.user.street,
-        city: token.user.city,
-        country: token.user.country,
-        post_code: token.user.post_code,
-        user_type: token.user.user_type,
-        profile_pic: token.user.profile_pic,
-        description: token.user.description,
-        location: `{${token.user.coordinates}: [${token.user.latitude}, ${token.user.longitude}] }`,
-        latitude: token.user.latitude,
-        longitude: token.user.longitude,
-      });
-    }
+    const token = await localStorage.usertoken;
+    //console.log(token);
+    const decoded = await jwt_decode(token);
+    //console.log(decoded);
+
+    // if (token !== undefined) {
+    //const decoded = await jwt_decode(token, { header: true });
+    //console.log("after decoding");
+    //console.log(decoded.user);
+    setUser({
+      ...user,
+      _id: decoded.user._id,
+      first_name: decoded.user.first_name,
+      last_name: decoded.user.last_name,
+      email: decoded.user.email,
+      street: decoded.user.street,
+      city: decoded.user.city,
+      country: decoded.user.country,
+      zip_code: decoded.user.zip_code,
+      user_type: decoded.user.user_type,
+      profile_pic: decoded.user.profile_pic,
+      description: decoded.userdescription,
+      location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
+      latitude: decoded.user.latitude,
+      longitude: decoded.user.longitude,
+    });
+
+    console.log({ ...user });
+    //}
   };
 
 
@@ -110,7 +116,7 @@ const ProfileForm = () => {
         justifyContent="flex-start"
         alignItems="center"
 
-        // style={{ border: "10px solid red" }}
+      // style={{ border: "10px solid red" }}
       >
         {/* Container for top background Image */}
         <MKBox
@@ -146,9 +152,9 @@ const ProfileForm = () => {
           width="100%"
 
 
-          //   style={{ border: "3px solid red" }}
+        //   style={{ border: "3px solid red" }}
 
-          //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid green" }}
         >
           <Card
             // zIndex={0}
@@ -156,6 +162,7 @@ const ProfileForm = () => {
             sx={{
               width: "90%",
               height: "80%",
+              minHeight: "100%",
               p: 2,
               mt: -2,
               mx: { xs: 2, lg: 3 },
@@ -172,10 +179,10 @@ const ProfileForm = () => {
               zindex={2}
               mx={4}
               mt={-15}
-              p={5}
+              pt={5}
               display="flex"
               justifyContent="center"
-              //   style={{ border: "3px solid blue" }}
+            //   style={{ border: "3px solid blue" }}
             >
               <MKAvatar
                 top={-50}
@@ -185,7 +192,7 @@ const ProfileForm = () => {
                 // src="https://res.cloudinary.com/kavita-project/image/upload/v1645350736/lqhvjqlevlaqxpzw7hqq.png"
                 alt="Burce Mars"
                 shadow="xl"
-                sx={{ width: "13rem", height: "13rem" }}
+                sx={{ width: "10rem", height: "10rem" }}
                 style={{ border: "3px solid white", backgroundColor: "grey" }}
               />
             </MKBox>
@@ -194,14 +201,14 @@ const ProfileForm = () => {
               {/* Heading (User's Name) */}
               <MKTypography
                 variant="h3"
-                fontWeight="large"
+                fontWeight="medium"
                 color="dark"
                 textAlign="center"
               >
                 {`${user.first_name} ${user.last_name}`}
               </MKTypography>
               {/* ************************** User Details */}
-              <MKBox pt={4} pb={3} px={3}>
+              <MKBox pt={1} pb={3} px={3}>
                 <MKBox
                   component="form"
                   method="post"
@@ -210,13 +217,14 @@ const ProfileForm = () => {
                   //   onSubmit={createUser}
                   p={6}
                 >
-                  <MKBox mb={1} display="flex" justifyContent="space-between">
+                  <MKBox mb={2} display="flex" justifyContent="space-between">
                     <MKInput
                       label="First Name"
                       fullWidth
                       type="text"
                       name="first_name"
-                      placeholder={user.first_name}
+                      value={user.first_name}
+                      placeholder="Enter your first name"
                       required
                       //   value={firstName}
                       onChange={(e) =>
@@ -286,7 +294,7 @@ const ProfileForm = () => {
                       name="zip_code"
                       placeholder="Enter your zip code"
                       required
-                      value={user.zipcode}
+                      value={user.zip_code}
                       onChange={(e) =>
                         setUser({ ...user, zip_code: e.target.value })
                       }
