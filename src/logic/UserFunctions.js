@@ -2,7 +2,7 @@ import axios from "axios";
 
 //create user
 export const register = (user) => {
-  console.log(user);
+  // console.log(user);
   return axios
     .post("http://localhost:5000/register", {
       first_name: user.first_name,
@@ -31,7 +31,8 @@ export const login = (user) => {
     })
     .then((res) => {
       //put user token in local storage
-      localStorage.setItem("usertoken", res.data);
+      localStorage.setItem("usertoken", JSON.stringify(res.data));
+      // console.log(JSON.parse(localStorage.getItem("usertoken")));
       return res.data;
     })
     .catch((err) => console.error(err));

@@ -18,10 +18,6 @@ import MKTypography from "../MKTypography";
 
 const LoginForm = () => {
   const [user, setUser] = useContext(UserContext);
-  // const [userValue, setUserValue] = user;
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
 
   let navigate = useNavigate();
 
@@ -33,11 +29,8 @@ const LoginForm = () => {
       password: user.password,
     };
 
-    //console.log(newUser);
-
     login(newUser).then((res) => {
       if (res) {
-
         navigate("/user");
       }
     });
@@ -85,9 +78,9 @@ const LoginForm = () => {
               >
                 <MKTypography
                   variant="h3"
-                  fontWeight="large"
+                  fontWeight="bold"
                   color="white"
-                // mt={1}
+                  // mt={1}
                 >
                   LOG IN
                 </MKTypography>
@@ -110,7 +103,9 @@ const LoginForm = () => {
                       required
                       value={user.email}
                       // onChange={(e) => setEmail(e.target.value)}
-                      onChange={(e) => setUser({ ...user, email: e.target.value })}
+                      onChange={(e) =>
+                        setUser({ ...user, email: e.target.value })
+                      }
                     />
                   </MKBox>
                   <MKBox mb={2} mt={4}>
@@ -123,7 +118,9 @@ const LoginForm = () => {
                       required
                       // value={password}
                       value={user.password}
-                      onChange={(e) => setUser({ ...user, password: e.target.value })}
+                      onChange={(e) =>
+                        setUser({ ...user, password: e.target.value })
+                      }
                     />
                   </MKBox>
 

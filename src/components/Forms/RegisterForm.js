@@ -119,7 +119,7 @@ const RegisterForm = () => {
                   variant="h3"
                   fontWeight="regular"
                   color="white"
-                // mt={1}
+                  // mt={1}
                 >
                   REGISTER
                 </MKTypography>
@@ -167,8 +167,8 @@ const RegisterForm = () => {
                         setUser({ ...user, last_name: e.target.value })
                       }
 
-                    // value={lastName}
-                    // onChange={(e) => setLastName(e.target.value)}
+                      // value={lastName}
+                      // onChange={(e) => setLastName(e.target.value)}
                     />
                   </MKBox>
 
@@ -185,8 +185,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, email: e.target.value })
                       }
-                    // value={email}
-                    // onChange={(e) => setEmail(e.target.value)}
+                      // value={email}
+                      // onChange={(e) => setEmail(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -201,8 +201,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, password: e.target.value })
                       }
-                    // value={password}
-                    // onChange={(e) => setPassword(e.target.value)}
+                      // value={password}
+                      // onChange={(e) => setPassword(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -217,8 +217,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, street: e.target.value })
                       }
-                    // value={street}
-                    // onChange={(e) => setStreet(e.target.value)}
+                      // value={street}
+                      // onChange={(e) => setStreet(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2} display="flex" justifyContent="space-between">
@@ -233,8 +233,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, zip_code: e.target.value })
                       }
-                    // value={zipcode}
-                    // onChange={(e) => setZipcode(e.target.value)}
+                      // value={zipcode}
+                      // onChange={(e) => setZipcode(e.target.value)}
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -247,8 +247,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, city: e.target.value })
                       }
-                    // value={city}
-                    // onChange={(e) => setCity(e.target.value)}
+                      // value={city}
+                      // onChange={(e) => setCity(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -263,8 +263,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, country: e.target.value })
                       }
-                    // value={country}
-                    // onChange={(e) => setCountry(e.target.value)}
+                      // value={country}
+                      // onChange={(e) => setCountry(e.target.value)}
                     />
                   </MKBox>
 
