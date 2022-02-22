@@ -6,6 +6,7 @@ import Profile from "pages/Profile";
 import UserInfo from "./pages/UserInfo";
 import "./styles/layout.css";
 import SearchDog from "./pages/SearchDog";
+import SearchLocation from "./pages/SearchLocation";
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,8 @@ const AppRouter = () => {
         <Route path="/user" element={<UserInfo />}></Route>
         {/* <Route path="/profile" element={<Profile />}></Route> */}
         <Route path="/user/searchdog" element={<SearchDog />}></Route>
+        {/* added to check location based on address */}
+        <Route path="/location" element={<SearchLocation />}></Route>
       </Routes>
     </>
   );

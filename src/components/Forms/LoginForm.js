@@ -28,13 +28,16 @@ const LoginForm = () => {
   const testLogin = (e) => {
     e.preventDefault();
 
-    const user = {
+    const newUser = {
       email: user.email,
       password: user.password,
     };
 
-    login(user).then((res) => {
+    //console.log(newUser);
+
+    login(newUser).then((res) => {
       if (res) {
+
         navigate("/user");
       }
     });
@@ -84,7 +87,7 @@ const LoginForm = () => {
                   variant="h3"
                   fontWeight="large"
                   color="white"
-                  // mt={1}
+                // mt={1}
                 >
                   LOG IN
                 </MKTypography>
@@ -107,7 +110,7 @@ const LoginForm = () => {
                       required
                       value={user.email}
                       // onChange={(e) => setEmail(e.target.value)}
-                      onChange={(e) => setUser({ email: e.target.value })}
+                      onChange={(e) => setUser({ ...user, email: e.target.value })}
                     />
                   </MKBox>
                   <MKBox mb={2} mt={4}>
@@ -120,7 +123,7 @@ const LoginForm = () => {
                       required
                       // value={password}
                       value={user.password}
-                      onChange={(e) => setUser({ password: e.target.value })}
+                      onChange={(e) => setUser({ ...user, password: e.target.value })}
                     />
                   </MKBox>
 
