@@ -1,5 +1,6 @@
+import { UserContext } from "../../context/UserContext";
 import axios from "axios";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useContext } from "react";
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -39,6 +40,7 @@ import { searchDogByCity } from "../../logic/SearchFunctions.js";
 import SearchedDog from "./SearchedDog";
 
 const SearchForm = () => {
+  const [user, setUser] = useContext(UserContext);
   //set location to show markers on map
   //const [locations, setLocations] = useState([]);
   const [locations, setLocations] = useState(data);
