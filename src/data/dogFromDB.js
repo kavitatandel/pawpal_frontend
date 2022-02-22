@@ -21,7 +21,7 @@ export default [
         "dogs_info": {
             "_id": "6213991d80cb783c7b7ab090",
             "user_id": "6210129324b8382ab358e574",
-            "name": "kiki",
+            "name": "mimi",
             "breed": "Bulldog",
             "age_years": 2,
             "age_months": 5,
