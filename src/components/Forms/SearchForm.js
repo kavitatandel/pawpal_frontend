@@ -1,15 +1,10 @@
 import { UserContext } from "../../context/UserContext";
-import axios from "axios";
 import { useEffect, useState, useCallback, useContext } from "react";
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
-import MKTypography from "../MKTypography";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
-// @mui material components
-import Container from "@mui/material/Container";
-import Card from "@mui/material/Card";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -28,53 +23,35 @@ import SearchedDog from "./SearchedDog";
 
 const SearchForm = () => {
 
-  const [user, setUser] = useContext(UserContext);
-  //set location to show markers on map
-  //const [locations, setLocations] = useState([]);
-  const [locations, setLocations] = useState(data);
-  const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(true);
-
-
+    const [user, setUser] = useContext(UserContext);
+    //set location to show markers on map
+    //const [locations, setLocations] = useState([]);
+    const [locations, setLocations] = useState(data);
+    const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
 
     //handle search click event
     const handleSearch = (e) => {
         e.preventDefault();
-        //getSearchResult(search);
-        console.log("search click event occured");
-        //getSearchResult('weilimdorf')
-        console.log(`search text ${search}`);
         searchDogByCity(search).then((res) => {
-            // searchDogByCity('weilimdorf').then((res) => {
             if (res) {
-                // console.log('calling search dog after');
-                // console.log(res);
-                if (dogData !== undefined) {
-                    setLoading(false);
-                    //setLocations(dogData);
-                    setLocations(res);
-                    console.log(locations);
-                }
+                // if (dogData !== undefined) {
+                setLoading(false);
+                //setLocations(dogData);
+                setLocations(res);
+                console.log(locations);
+                //}
             } else {
                 alert("No search result found");
             }
         });
     };
 
-    let dogData = [];
+    //let dogData = [];
     useEffect(() => {
-        // getSearchResult('weilimdorf')
-        //     .then((res) => {
-        //         console.log("inside response search form")
-        //         if (res) {
-        //             console.log('calling search dog after');
-        //             setLocations(dogData);
-        //             console.log(dogData);
-        //             if (dogData !== undefined) {
-        //                 setLoading(false);
-        //             }
-        //         }
-        //     });
+        console.log(user); // getting only latitude and longitude inside user
+        //setLocations(user);
+        // }, [locations]);
     }, []);
 
     //if (loading) return <h1>Loading......</h1>
