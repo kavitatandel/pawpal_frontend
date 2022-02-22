@@ -6,7 +6,7 @@ import MapDesignTest from "./components/TestComponents/MapDesignTest";
 import UserInfo from "./pages/UserInfo";
 import "./styles/layout.css";
 import SearchDog from "./pages/SearchDog";
-import SearchLocation from "./pages/SearchLocation";
+import DogInfo from "./pages/DogInfo";
 
 const AppRouter = () => {
   return (
@@ -19,7 +19,7 @@ const AppRouter = () => {
         {/* <Route path="/profile" element={<Profile />}></Route> */}
         <Route path="/user/searchdog" element={<SearchDog />}></Route>
         {/* added to check location based on address */}
-        <Route path="/location" element={<SearchLocation />}></Route>
+        <Route path="/doginfo/:dogid" element={<DogInfo />}></Route>
         <Route path="/test" element={<MapDesignTest />}></Route>
       </Routes>
     </>

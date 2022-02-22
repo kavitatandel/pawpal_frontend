@@ -15,7 +15,7 @@ import Card from "@mui/material/Card";
 // const mapContainerStyle = {
 //     width: "100%",
 //     height: "100%",
-//     zIndex: 0,
+//     zindex: 0,
 //     border: "5px solid red",
 // };
 // const center = {
@@ -134,7 +134,7 @@ const SearchForm = () => {
                 mr={0}
                 ml={0}
                 position="relative"
-                zIndex={-1}
+                zindex={-1}
                 sx={{ padding: "0" }}
                 display="flex"
                 flexDirection="column"
@@ -174,7 +174,7 @@ const SearchForm = () => {
                     style={{ border: "3px solid green" }}
                 >
                     {/* <Card
-                        // zIndex={0}
+                        // zindex={0}
                         display="flex"
                         flexDirection="column"
                         justifyContent="center"
@@ -252,7 +252,7 @@ const SearchForm = () => {
                             mr={0}
                             ml={0}
                             position="fixed"
-                            zIndex={-1}
+                            zindex={-1}
                             sx={{ padding: "0" }}
                             display="flex"
                             flexDirection="column"
@@ -273,7 +273,7 @@ const SearchForm = () => {
                             mr={0}
                             ml={30}
                             position="fixed"
-                            zIndex={-1}
+                            zindex={-1}
                             sx={{ padding: "0" }}
                             display="flex"
                             flexDirection="column"

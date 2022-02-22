@@ -4,6 +4,8 @@ import '../../styles/Map.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
 
+import { Link } from 'react-router-dom';
+
 // Fixes Leaflet Error loading Icons
 const icon = new Icon({
     iconUrl: markerIconPng,
@@ -27,12 +29,16 @@ const LeafletMap = ({ locations, setLocations }) => {
                             <Popup key={index}>I am a pop-up!</Popup>
                         </Marker> */}
                         <Marker position={[point.latitude, point.longitude]} icon={icon} key={index}>
-                            <Popup key={index}>I am a pop-up!</Popup>
+                            <Popup key={index} style={{ width: "200px" }}>
+                                <img src={point.dogs_info.profile_photo} alt={`${point.dogs_info.name}`} style={{ width: "20px", height: "20px" }} />
+                                {/* <a href="/doginfo">{point.dogs_info.name}</a> */}
+                                <Link to={`/doginfo/${point.dogs_info._id}`}><h3>{point.dogs_info.name}</h3></Link>
+                            </Popup>
                         </Marker>
                     </>
                 );
             })}
-        </MapContainer>
+        </MapContainer >
     );
 };
 

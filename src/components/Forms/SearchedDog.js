@@ -1,19 +1,140 @@
+import { useNavigate } from 'react-router-dom';
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
-import Stack from "@mui/material/Stack";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
+import Card from "@mui/material/Card";
+import MKButton from "../MKButton";
+import MKAvatar from "components/MKAvatar";
 
 // import DefaultBlogCard from "examples/Cards/BlogCards/DefaultBlogCard";
-import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
+//import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 
 const SearchedDog = ({ locations, setLocations }) => {
+
+    const navigate = useNavigate();
+
     return (
         <>
-            <Grid container width="100%">
+            {/* map thru searched dogs */}
+            {locations.map((dog, index) => {
+                return (
+                    <Card style={{ width: "95%", height: "5rem", marginBottom: "1rem" }}>
+                        <div
+                            className="mainContainer"
+                            style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignContent: "center",
+                                padding: "1rem",
+                            }}
+                        >
+                            <div
+                                className="Avatar"
+                                style={{
+                                    width: "15%",
+                                    marginLeft: "0.5rem",
+                                    marginRight: "0.5rem",
+                                    justifyContent: "flex-start",
+                                    alignItems: "center"
+                                }}
+                            >
+                                <MKAvatar
+                                    top={-50}
+                                    zIndex={2}
+                                    src={`${dog.dogs_info.profile_photo}`}
+                                    alt={`${dog.dogs_info.name}`}
+                                    shadow="xl"
+                                    sx={{ width: "2.5rem", height: "2.5rem" }}
+                                    style={{ border: "3.2px solid white", marginRight: "1rem" }}
+                                />
+                            </div>
+                            <div
+                                className="DogName"
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "flex-start",
+                                    //   border: "2px solid red",
+                                    width: "25%",
+                                }}
+                            >
+                                <MKTypography
+                                    variant="p"
+                                    fontWeight="medium"
+                                    style={{ fontSize: "0.90rem" }}
+                                >
+                                    {dog.dogs_info.name}
+                                </MKTypography>
+                            </div>
+                            <div
+                                className="DogType"
+                                style={{
+                                    fontSize: "0.8rem",
+                                    width: "20%",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "flex-start",
+                                    width: "20%",
+                                }}
+                            >
+                                <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                    {dog.dogs_info.breed}
+                                </MKTypography>
+                            </div>
+                            <div
+                                className="Age"
+                                style={{
+                                    //   border: "2px solid red",
+                                    width: "20%",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "flex-start",
+                                    width: "25%",
+                                }}
+                            >
+                                {/* <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                    {dog.dogs_info.age_years} yrs {dog.dogs_info.age_months} mon.
+                                </MKTypography> */}
+                                <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                    {dog.dogs_info.size}
+                                </MKTypography>
+                            </div>
+                            <div
+                                className="ButtonContainer"
+                                style={{
+                                    width: "20%",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "flex-end ",
+                                    //   border: "2px solid red",
+                                    width: "15%",
+                                    marginRight: "1rem",
+                                }}
+                            >
+                                <MKButton
+                                    size="small"
+                                    type="submit"
+                                    variant="gradient"
+                                    color="info"
+                                    style={{
+                                        minWidth: "1rem",
+                                    }}
+                                    onClick={() => navigate(`/doginfo/${dog.dogs_info._id}`)}>
+                                    Info
+                                </MKButton>
+                            </div>
+                        </div>
+                    </Card>
+                )
+            })}
+
+
+
+            {/* <Grid container width="100%">
 
                 <Grid item xs={12} lg={6} sx={{ mt: { xs: 6, lg: 0 } }}>
                     <Stack>
@@ -79,9 +200,9 @@ const SearchedDog = ({ locations, setLocations }) => {
                             </MKTypography>
                         </MKBox>
                     </Stack>
-                </Grid>
+                </Grid> */}
 
-                {/* {locations.map((dog, index) => {
+            {/* {locations.map((dog, index) => {
                     return (
                         <TransparentBlogCard
                             image="https://bit.ly/3HH2M6E"
@@ -100,7 +221,7 @@ const SearchedDog = ({ locations, setLocations }) => {
                 })} */}
 
 
-            </Grid>
+            {/* </Grid> */}
 
 
         </>
