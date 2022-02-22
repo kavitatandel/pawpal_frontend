@@ -18,6 +18,7 @@
     "cloudinary": "^1.28.1",
     "flatpickr": "4.6.9",
     "geo-coder": "^1.0.2",
+    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "leaflet": "^1.7.1",
     "multer": "^1.4.4",
