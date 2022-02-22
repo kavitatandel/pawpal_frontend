@@ -13,13 +13,25 @@ import MKTypography from "components/MKTypography";
 
 const Header = () => {
   const { pathname } = useLocation();
+  // const { pathname } = useParams();
 
   return (
-    <MKBox component="header" position="relative" height="100%">
-      <MKBox component="nav" position="absolute" top="0rem" width="100%">
+    <MKBox
+      component="header"
+      position="relative"
+      height="100%"
+      style={{ zIndex: 2 }}
+    >
+      <MKBox
+        component="nav"
+        position="absolute"
+        top="0rem"
+        width="100%"
+        style={{ zIndex: 2 }}
+      >
         <div
           style={{
-            zIndex: 1,
+            zIndex: 2,
             display: "flex",
             width: "100%",
             height: "100px",
@@ -27,7 +39,7 @@ const Header = () => {
             justifyContent: "space-around",
 
             boxShadow:
-              pathname === "/somthing"
+              pathname === "/something"
                 ? "0rem 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%), 0rem 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%)"
                 : "none",
           }}
@@ -36,11 +48,11 @@ const Header = () => {
             component={Link}
             href="#"
             variant="button"
-            style={{
-              color: pathname === "/somthing" ? "dark" : "white",
-            }}
-            fontSize="1rem"
             fontWeight="medium"
+            style={{
+              color: pathname === "/user/searchdog" ? "dark" : "white",
+              fontSize: "1rem",
+            }}
             py={0.8125}
             mx={12}
           >
@@ -66,7 +78,8 @@ const Header = () => {
               style={{
                 paddingRight: "2rem",
                 paddingLeft: "2rem",
-                color: pathname === "/somthing" ? "dark" : "white",
+
+                color: pathname === "/user/searchdog" ? "dark" : "white",
               }}
               onClick={(e) => e.preventDefault()}
             >
@@ -77,13 +90,14 @@ const Header = () => {
               component={Link}
               href="#"
               variant="button"
-              fontSize="1.1rem"
-              fontWeight="regular"
               p={1}
+              fontWeight="regular"
               style={{
+                fontSize: "1.1rem",
+
                 paddingRight: "2rem",
                 paddingLeft: "2rem",
-                color: pathname === "/somthing" ? "dark" : "white",
+                color: pathname === "/user/searchdog" ? "dark" : "white",
               }}
               onClick={(e) => e.preventDefault()}
             >
@@ -94,13 +108,14 @@ const Header = () => {
               component={Link}
               href="#"
               variant="button"
-              fontSize="1.1rem"
-              fontWeight="regular"
               p={1}
+              fontWeight="regular"
               style={{
+                fontSize: "1.1rem",
+
                 paddingRight: "2rem",
                 paddingLeft: "2rem",
-                color: pathname === "/somthing" ? "dark" : "white",
+                color: pathname === "/user/searchdog" ? "dark" : "white",
               }}
               onClick={(e) => e.preventDefault()}
             >

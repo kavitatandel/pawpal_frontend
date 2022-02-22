@@ -1,5 +1,9 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "context/UserContext";
+import jwt_decode from "jwt-decode";
+
 // image
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
@@ -13,42 +17,83 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 
 const ProfileForm = () => {
+  const [user, setUser] = useContext(UserContext);
   // TEMP STATES TO CHANGE TO CONTEXT
-  const [loading, setLoading] = useState(true);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
 
-  const [edit, setEdit] = useState(false);
+  // const [loading, setLoading] = useState(true);
 
-  const [user, setUser] = useState({});
-  // get User Info (ONLY TEMPORARY)
-  const getSingleUserInfo = () => {
-    return axios
-      .get("http://localhost:5000/users/620fe18eb4b35e6f7117b11c")
-      .then((res) => {
-        setUser(res.data);
-      })
+  // const [details, setDetails] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  // });
 
-      .catch((err) => console.error(err));
-  };
+
+  // const getProfile = async () => {
+  //   const token = await localStorage.getItem("usertoken");
+  //   if (token) {
+  //     const decoded = await jwt_decode(token, { header: true });
+
+  //     console.log(decoded);
+  //     setUser({
+  //       ...user,
+  //       _id: decoded.user._id,
+  //       first_name: decoded.user.first_name,
+  //       last_name: decoded.user.last_name,
+  //       email: decoded.user.email,
+  //       street: decoded.user.street,
+  //       city: decoded.user.city,
+  //       country: decoded.user.country,
+  //       post_code: decoded.user.post_code,
+  //       user_type: decoded.user.user_type,
+  //       profile_pic: decoded.user.profile_pic,
+  //       description: decoded.user.description,
+  //       location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
+  //       latitude: decoded.user.latitude,
+  //       longitude: decoded.user.longitude,
+  //     });
+  //   }
+  // };
 
   useEffect(() => {
-    getSingleUserInfo();
-    if (user) {
-      setLoading(false);
-    }
+
+    getProfile();
+    console.log(user);
   }, []);
 
-  //   const editToggle = (e) => {
-  //     if (!edit) {
-  //       setEdit(!edit);
-  //     }
-  //   };
+  const getProfile = async () => {
+    // console.log(JSON.parse(localStorage.getItem("usertoken")));
+    const token = JSON.parse(localStorage.getItem("usertoken"));
 
-  if (loading) return <h1>Loading...</h1>;
+    // console.log(token);
+    if (token !== undefined) {
+      // const decoded = await jwt_decode(token, { header: true });
+      // console.log(decoded.user);
+      setUser({
+        ...user,
+        _id: token.user._id,
+        first_name: token.user.first_name,
+        last_name: token.user.last_name,
+        email: token.user.email,
+        street: token.user.street,
+        city: token.user.city,
+        country: token.user.country,
+        post_code: token.user.post_code,
+        user_type: token.user.user_type,
+        profile_pic: token.user.profile_pic,
+        description: token.user.description,
+        location: `{${token.user.coordinates}: [${token.user.latitude}, ${token.user.longitude}] }`,
+        latitude: token.user.latitude,
+        longitude: token.user.longitude,
+      });
+    }
+  };
+
+
+  // if (loading) return <h1>Loading...</h1>;
   return (
     <>
-      {/* Container between top & Footer */}
+      {/* // Container between top & Footer */}
       <MKBox
         px={1}
         width="100%"
@@ -58,17 +103,19 @@ const ProfileForm = () => {
         mr={0}
         ml={0}
         position="relative"
-        zIndex={-1}
+        zindex={-1}
         sx={{ padding: "0" }}
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
-        style={{ border: "10px solid red" }}
+
+        // style={{ border: "10px solid red" }}
       >
         {/* Container for top background Image */}
         <MKBox
-          style={{ border: "10px solid green" }}
+          // style={{ border: "10px solid green" }}
+
           minHeight="20vh"
           width="100%"
           //   style={{ border: "3px solid green" }}
@@ -97,7 +144,10 @@ const ProfileForm = () => {
           minHeight="80vh"
           top={0}
           width="100%"
-          style={{ border: "10px solid blue" }}
+
+
+          //   style={{ border: "3px solid red" }}
+
           //   style={{ border: "3px solid green" }}
         >
           <Card
@@ -119,7 +169,7 @@ const ProfileForm = () => {
           >
             {/* Container for Profile Pic */}
             <MKBox
-              zIndex={2}
+              zindex={2}
               mx={4}
               mt={-15}
               p={5}
@@ -129,14 +179,14 @@ const ProfileForm = () => {
             >
               <MKAvatar
                 top={-50}
-                zIndex={2}
+                zindex={2}
                 // Hard coded for now
                 src={`${user.profile_pic}`}
                 // src="https://res.cloudinary.com/kavita-project/image/upload/v1645350736/lqhvjqlevlaqxpzw7hqq.png"
                 alt="Burce Mars"
                 shadow="xl"
                 sx={{ width: "13rem", height: "13rem" }}
-                style={{ border: "3px solid white" }}
+                style={{ border: "3px solid white", backgroundColor: "grey" }}
               />
             </MKBox>
             {/* ************************* Text Container */}
@@ -169,7 +219,9 @@ const ProfileForm = () => {
                       placeholder={user.first_name}
                       required
                       //   value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      onChange={(e) =>
+                        setUser({ ...user, first_name: e.target.value })
+                      }
                     />
                     <MKButton
                     //   onClick={(e) => setFirstName(e.target.value)}
@@ -186,7 +238,9 @@ const ProfileForm = () => {
                       placeholder="Enter your last name"
                       required
                       value={user.last_name}
-                      //   onChange={(e) => setLastName(e.target.value)}
+                      onChange={(e) =>
+                        setUser({ ...user, last_name: e.target.value })
+                      }
                     />
                     <MKButton
                     //   onClick={(e) => setFirstName(e.target.value)}
@@ -204,7 +258,9 @@ const ProfileForm = () => {
                       type="email"
                       required
                       value={user.email}
-                      //   onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) =>
+                        setUser({ ...user, email: e.target.value })
+                      }
                     />
                   </MKBox>
 
@@ -217,7 +273,9 @@ const ProfileForm = () => {
                       placeholder="Enter your street"
                       required
                       value={user.street}
-                      //   onChange={(e) => setStreet(e.target.value)}
+                      onChange={(e) =>
+                        setUser({ ...user, street: e.target.value })
+                      }
                     />
                   </MKBox>
                   <MKBox mb={2} display="flex" justifyContent="space-between">
@@ -229,7 +287,9 @@ const ProfileForm = () => {
                       placeholder="Enter your zip code"
                       required
                       value={user.zipcode}
-                      //   onChange={(e) => setZipcode(e.target.value)}
+                      onChange={(e) =>
+                        setUser({ ...user, zip_code: e.target.value })
+                      }
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -239,7 +299,9 @@ const ProfileForm = () => {
                       placeholder="Enter your city"
                       required
                       value={user.city}
-                      //   onChange={(e) => setCity(e.target.value)}
+                      onChange={(e) =>
+                        setUser({ ...user, city: e.target.value })
+                      }
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -251,7 +313,9 @@ const ProfileForm = () => {
                       placeholder="Enter your country"
                       required
                       value={user.country}
-                      //   onChange={(e) => setCountry(e.target.value)}
+                      onChange={(e) =>
+                        setUser({ ...user, country: e.target.value })
+                      }
                     />
                   </MKBox>
                 </MKBox>

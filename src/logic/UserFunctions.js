@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useState } from "react";
 
 //create user
 export const register = (user) => {
+  // console.log(user);
   return axios
     .post("http://localhost:5000/register", {
       first_name: user.first_name,
@@ -15,6 +14,10 @@ export const register = (user) => {
       zip_code: user.zip_code,
       city: user.city,
       country: user.country,
+      profile_pic: user.profile_pic,
+      description: user.description,
+      latitude: user.latitude,
+      longitude: user.longitude,
     })
     .then((res) => console.log("User is successfully Registered"))
     .catch((err) => console.log(err));
@@ -28,7 +31,8 @@ export const login = (user) => {
     })
     .then((res) => {
       //put user token in local storage
-      localStorage.setItem("usertoken", res.data);
+      localStorage.setItem("usertoken", JSON.stringify(res.data));
+      // console.log(JSON.parse(localStorage.getItem("usertoken")));
       return res.data;
     })
     .catch((err) => console.error(err));
