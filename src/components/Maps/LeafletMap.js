@@ -11,11 +11,11 @@ const icon = new Icon({
     iconAnchor: [12, 41],
 });
 
-
 const LeafletMap = ({ locations, setLocations }) => {
     const startPosition = [51.0647, 12.0128];
     return (
-        <MapContainer center={[startPosition[0], startPosition[1]]} zoom={5}>
+        // <MapContainer center={[startPosition[0], startPosition[1]]} zoom={6}>
+        <MapContainer center={[locations[0].latitude, locations[0].longitude]} zoom={6} style={{ width: "100%" }} >
             <TileLayer
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
