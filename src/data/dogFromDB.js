@@ -39,7 +39,8 @@ export default [
                 ""
             ],
             "pd_counter": 0,
-            "__v": 0
+            "__v": 0,
+            "size": "medium",
         }
     },
     {
@@ -80,7 +81,8 @@ export default [
                 ""
             ],
             "pd_counter": 0,
-            "__v": 0
+            "__v": 0,
+            "size": "small",
         }
     }
 ]
