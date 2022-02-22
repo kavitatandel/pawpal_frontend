@@ -1,7 +1,9 @@
 import axios from "axios";
+
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
 import jwt_decode from "jwt-decode";
+
 // image
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
@@ -17,6 +19,7 @@ import Card from "@mui/material/Card";
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
   // TEMP STATES TO CHANGE TO CONTEXT
+
   // const [loading, setLoading] = useState(true);
 
   // const [details, setDetails] = useState({
@@ -24,6 +27,7 @@ const ProfileForm = () => {
   //   lastName: "",
   //   email: "",
   // });
+
 
   // const getProfile = async () => {
   //   const token = await localStorage.getItem("usertoken");
@@ -52,6 +56,7 @@ const ProfileForm = () => {
   // };
 
   useEffect(() => {
+
     getProfile();
     console.log(user);
   }, []);
@@ -84,6 +89,7 @@ const ProfileForm = () => {
     }
   };
 
+
   // if (loading) return <h1>Loading...</h1>;
   return (
     <>
@@ -103,11 +109,13 @@ const ProfileForm = () => {
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
+
         // style={{ border: "10px solid red" }}
       >
         {/* Container for top background Image */}
         <MKBox
           // style={{ border: "10px solid green" }}
+
           minHeight="20vh"
           width="100%"
           //   style={{ border: "3px solid green" }}
@@ -137,7 +145,9 @@ const ProfileForm = () => {
           top={0}
           width="100%"
 
+
           //   style={{ border: "3px solid red" }}
+
           //   style={{ border: "3px solid green" }}
         >
           <Card
