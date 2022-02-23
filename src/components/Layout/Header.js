@@ -1,4 +1,6 @@
 import { useLocation, useParams, Link } from "react-router-dom";
+import { UserContext } from "context/UserContext";
+import { useContext } from 'react';
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -14,6 +16,7 @@ import MKTypography from "components/MKTypography";
 const Header = () => {
   const { pathname } = useLocation();
   // const { pathname } = useParams();
+  const [user, setUser] = useContext(UserContext);
 
   return (
     <MKBox
@@ -110,6 +113,23 @@ const Header = () => {
               >
                 Search Dogs
               </MKTypography>
+            </Link>
+            <Link to="/" onClick={() => setUser({})}>
+              {/* <MKButton onClick={() => setUser({})}> */}
+              <MKTypography
+                p={1}
+                fontWeight="regular"
+                style={{
+                  fontSize: "1.1rem",
+                  paddingRight: "2rem",
+                  paddingLeft: "2rem",
+                  color: pathname === "/something" ? "dark" : "white",
+                  //color: "dark",
+                }}
+              >
+                Log Out
+              </MKTypography>
+              {/* </MKButton> */}
             </Link>
           </MKBox>
         </div>

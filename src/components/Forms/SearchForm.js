@@ -5,6 +5,7 @@ import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI
 import MKBox from "components/MKBox";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
+import MKTypography from "../MKTypography";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -24,26 +25,41 @@ import SearchedDog from "./SearchedDog";
 const SearchForm = () => {
   const [user, setUser] = useContext(UserContext);
   //set location to show markers on map
-  //const [locations, setLocations] = useState([]);
-  const [locations, setLocations] = useState(data);
+  const [locations, setLocations] = useState([]);
+  //const [locations, setLocations] = useState(data);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
+
+
+  //added to check if user has searched dog or not
+  const [isSearched, setIsSearched] = useState(false);
 
   //handle search click event
   const handleSearch = (e) => {
     e.preventDefault();
     searchDogByCity(search).then((res) => {
+      console.log("Inside searcg dog by city")
+      console.log(res);
       if (res) {
-        // if (dogData !== undefined) {
-        setLoading(false);
-        //setLocations(dogData);
-        setLocations(res);
-        console.log(locations);
-        //}
+        if (res.length !== 0) {
+          setLoading(false);
+          setLocations(res);
+          console.log(locations.length);
+          //set isSearched true
+          setIsSearched(true);
+        } else {
+          setIsSearched(false);
+          setLocations([]);
+        }
+
       } else {
-        alert("No search result found");
+        alert("Please enter city to search");
       }
-    });
+    })
+      .catch(err => {
+        setIsSearched(false);
+        console.log(err)
+      });
   };
 
   //let dogData = [];
@@ -99,6 +115,7 @@ const SearchForm = () => {
               flexDirection: "row",
               justifyContent: "right",
               alignItems: "right",
+              marginTop: "10px",
             }}
           >
             {/* search input container */}
@@ -131,7 +148,7 @@ const SearchForm = () => {
             style={{
               minWidth: "90%",
               minHeight: "90%",
-              border: "3px solid yellow",
+              // border: "3px solid yellow",
               display: "flex",
               flexDirection: "row",
               zindex: "0",
@@ -154,14 +171,17 @@ const SearchForm = () => {
               justifyContent="flex-start"
               alignItems="center"
               style={{
-                border: "3px solid blue",
+                // border: "3px solid blue",
                 backgroundColor: "rgba(39, 46, 245, 0.2)",
               }}
               float="left"
               minheight="80vh"
             >
-              <SearchedDog locations={locations} setLocations={setLocations} />
-              {/* <MKTypography>Searched Dogs Goes Here</MKTypography> */}
+              {(isSearched && locations.length > 0) ?
+
+                <SearchedDog locations={locations} setLocations={setLocations} />
+                : <MKTypography>No Dogs Found</MKTypography>
+              }
             </MKBox>
             <MKBox
               pt={0}
@@ -181,26 +201,19 @@ const SearchForm = () => {
               justifyContent="flex-start"
               alignItems="center"
               style={{
-                border: "3px solid red",
+                // border: "3px solid red",
                 backgroundColor: "rgba(39, 46, 245, 0.2)",
               }}
               float="right"
               minheight="80vh"
             >
-              {/* added code to display may using leaflet */}
-              {
-                // (loading)
-                //     ? <h1>Loading Map.....</h1>
-                //     :
-                <LeafletMap
-                  locations={locations}
-                  setLocations={setLocations}
-                  style={{ width: "100%" }}
-                />
-              }
+              <LeafletMap
+                locations={locations}
+                style={{ width: "100%" }}
+                isSearched={isSearched}
+              />
             </MKBox>
           </div>
-          {/* </Card> */}
         </div>
       </div>
     </>

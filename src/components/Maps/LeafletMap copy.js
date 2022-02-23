@@ -1,5 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "../../styles/Map.css";
+import { useContext } from "react";
+import { UserContext } from "context/UserContext";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
 
@@ -12,10 +14,13 @@ const icon = new Icon({
   iconAnchor: [12, 41],
 });
 
-const LeafletMap = ({ locations, isSearched }) => {
-  const startPosition = [51.0647, 12.0128];
+const LeafletMap = ({ locations, setLocations }) => {
+  const [user, setUser] = useContext(UserContext);
 
-  if (isSearched === true) return (
+  const startPosition = [51.0647, 12.0128];
+  console.log(locations[0]);
+  return (
+    // <MapContainer center={[startPosition[0], startPosition[1]]} zoom={6}>
     <MapContainer
       center={[locations[0].latitude, locations[0].longitude]}
       zoom={6}
@@ -28,6 +33,9 @@ const LeafletMap = ({ locations, isSearched }) => {
       {locations.map((point, index) => {
         return (
           <>
+            {/* <Marker position={[point.lat, point.lng]} icon={icon} key={index}>
+                            <Popup key={index}>I am a pop-up!</Popup>
+                        </Marker> */}
             <Marker
               position={[point.latitude, point.longitude]}
               icon={icon}
@@ -39,6 +47,7 @@ const LeafletMap = ({ locations, isSearched }) => {
                   alt={`${point.dogs_info.name}`}
                   style={{ width: "20px", height: "20px" }}
                 />
+                {/* <a href="/doginfo">{point.dogs_info.name}</a> */}
                 <Link to={`/doginfo/${point.dogs_info._id}`}>
                   <h3>{point.dogs_info.name}</h3>
                 </Link>
@@ -47,19 +56,6 @@ const LeafletMap = ({ locations, isSearched }) => {
           </>
         );
       })}
-    </MapContainer>
-  );
-
-  return (
-    <MapContainer
-      center={[startPosition[0], startPosition[1]]}
-      zoom={6}
-      style={{ width: "100%" }}
-    >
-      <TileLayer
-        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
     </MapContainer>
   );
 };
