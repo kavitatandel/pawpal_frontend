@@ -17,7 +17,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/user" element={<UserInfo />}></Route>
         {/* <Route path="/profile" element={<Profile />}></Route> */}
-        <Route path="/user/searchdog" element={<SearchDog />}></Route>
+        <Route exact path="/user/searchdog" element={<SearchDog />}></Route>
         {/* added to check location based on address */}
         <Route path="/doginfo/:dogid" element={<DogInfo />}></Route>
         <Route path="/test" element={<MapDesignTest />}></Route>

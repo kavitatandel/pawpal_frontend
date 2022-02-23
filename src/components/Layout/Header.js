@@ -1,9 +1,9 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
 // Material Kit 2 React components
@@ -25,18 +25,19 @@ const Header = () => {
       <MKBox
         component="nav"
         position="absolute"
-        top="0rem"
+        top="0"
         width="100%"
         style={{ zIndex: 2 }}
       >
         <div
           style={{
+            marginTop: "2rem",
             zIndex: 2,
             display: "flex",
             width: "100%",
-            height: "100px",
+            height: "auto",
             alignItems: "center",
-            justifyContent: "space-around",
+            justifyContent: "space-between",
 
             boxShadow:
               pathname === "/something"
@@ -44,20 +45,19 @@ const Header = () => {
                 : "none",
           }}
         >
-          <MKTypography
-            component={Link}
-            href="#"
-            variant="button"
-            fontWeight="medium"
-            style={{
-              color: pathname === "/user/searchdog" ? "dark" : "white",
-              fontSize: "1rem",
-            }}
-            py={0.8125}
-            mx={12}
-          >
-            LOGO HERE
-          </MKTypography>
+          <Link to="/">
+            <MKTypography
+              fontWeight="bold"
+              style={{
+                color: pathname === "/something" ? "dark" : "white",
+                fontSize: "1rem",
+              }}
+              py={0.8125}
+              mx={12}
+            >
+              LOGO HERE
+            </MKTypography>
+          </Link>
 
           <MKBox
             component="ul"
@@ -68,59 +68,49 @@ const Header = () => {
             mx={8}
             sx={{ listStyle: "none" }}
           >
-            <MKTypography
-              component={Link}
-              href="#"
-              variant="button"
-              fontSize="1.1rem"
-              fontWeight="regular"
-              p={1}
-              style={{
-                paddingRight: "2rem",
-                paddingLeft: "2rem",
+            <Link to="/">
+              <MKTypography
+                fontSize="1.1rem"
+                fontWeight="regular"
+                p={1}
+                style={{
+                  paddingRight: "2rem",
+                  paddingLeft: "2rem",
+                  color: pathname === "/something" ? "dark" : "white",
+                }}
+              >
+                Home
+              </MKTypography>
+            </Link>
 
-                color: pathname === "/user/searchdog" ? "dark" : "white",
-              }}
-              onClick={(e) => e.preventDefault()}
-            >
-              Home
-            </MKTypography>
-
-            <MKTypography
-              component={Link}
-              href="#"
-              variant="button"
-              p={1}
-              fontWeight="regular"
-              style={{
-                fontSize: "1.1rem",
-
-                paddingRight: "2rem",
-                paddingLeft: "2rem",
-                color: pathname === "/user/searchdog" ? "dark" : "white",
-              }}
-              onClick={(e) => e.preventDefault()}
-            >
-              About Us
-            </MKTypography>
-
-            <MKTypography
-              component={Link}
-              href="#"
-              variant="button"
-              p={1}
-              fontWeight="regular"
-              style={{
-                fontSize: "1.1rem",
-
-                paddingRight: "2rem",
-                paddingLeft: "2rem",
-                color: pathname === "/user/searchdog" ? "dark" : "white",
-              }}
-              onClick={(e) => e.preventDefault()}
-            >
-              Contact Us
-            </MKTypography>
+            <Link to="/user">
+              <MKTypography
+                p={1}
+                fontWeight="regular"
+                style={{
+                  fontSize: "1.1rem",
+                  paddingRight: "2rem",
+                  paddingLeft: "2rem",
+                  color: pathname === "/something" ? "dark" : "white",
+                }}
+              >
+                My Profile
+              </MKTypography>
+            </Link>
+            <Link to="/user/searchdog">
+              <MKTypography
+                p={1}
+                fontWeight="regular"
+                style={{
+                  fontSize: "1.1rem",
+                  paddingRight: "2rem",
+                  paddingLeft: "2rem",
+                  color: pathname === "/something" ? "dark" : "white",
+                }}
+              >
+                Search Dogs
+              </MKTypography>
+            </Link>
           </MKBox>
         </div>
       </MKBox>
