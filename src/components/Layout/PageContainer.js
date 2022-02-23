@@ -14,7 +14,7 @@ const PageContainer = () => {
         left={0}
         zIndex={-1}
         width="100%"
-        minHeight="85vh"
+        minHeight="90vh"
         sx={{
           backgroundImage: ({
             functions: { linearGradient, rgba },
@@ -30,7 +30,7 @@ const PageContainer = () => {
         }}
       ></MKBox>
 
-      <CenteredFooter minHeight="15vh" />
+      <CenteredFooter minHeight="10vh" />
     </>
   );
 };

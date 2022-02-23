@@ -23,7 +23,7 @@ const ProfileForm = () => {
 
   useEffect(async () => {
     await getProfile();
-    console.log("get profile use effect ")
+    console.log("get profile use effect ");
     console.log(user);
   }, []);
 
@@ -35,10 +35,7 @@ const ProfileForm = () => {
     const userId = decoded.user._id;
     const fname = decoded.user.first_name;
 
-    console.log(userId);
-    console.log(fname);
-
-    setUser(user => ({
+    setUser((user) => ({
       ...user,
       _id: userId,
       first_name: fname,
@@ -52,9 +49,7 @@ const ProfileForm = () => {
       latitude: decoded.user.latitude,
       longitude: decoded.user.longitude,
     }));
-    console.log(user)
   };
-
 
   // if (loading) return <h1>Loading...</h1>;
   return (
@@ -64,7 +59,7 @@ const ProfileForm = () => {
         px={1}
         width="100%"
         top={0}
-        height="85vh"
+        height="auto"
         mx="auto"
         mr={0}
         ml={0}
@@ -75,8 +70,6 @@ const ProfileForm = () => {
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
-
-      // style={{ border: "10px solid red" }}
       >
         {/* Container for top background Image */}
         <MKBox
@@ -107,22 +100,19 @@ const ProfileForm = () => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
-          minHeight="80vh"
+          minHeight="auto"
           top={0}
           width="100%"
+          style={{ border: "3px solid red" }}
 
-
-        //   style={{ border: "3px solid red" }}
-
-        //   style={{ border: "3px solid green" }}
+          //   style={{ border: "3px solid green" }}
         >
           <Card
             // zIndex={0}
-            style={{ position: "relative" }}
+            style={{ position: "relative", border: "3px solid green" }}
             sx={{
               width: "90%",
-              height: "80%",
-              minHeight: "100%",
+              height: "auto",
               p: 2,
               mt: -2,
               mx: { xs: 2, lg: 3 },
@@ -142,15 +132,13 @@ const ProfileForm = () => {
               pt={5}
               display="flex"
               justifyContent="center"
-            //   style={{ border: "3px solid blue" }}
+              //   style={{ border: "3px solid blue" }}
             >
               <MKAvatar
                 top={-50}
                 zindex={2}
-                // Hard coded for now
                 src={`${user.profile_pic}`}
-                // src="https://res.cloudinary.com/kavita-project/image/upload/v1645350736/lqhvjqlevlaqxpzw7hqq.png"
-                alt="Burce Mars"
+                alt={`${user.first_name}`}
                 shadow="xl"
                 sx={{ width: "10rem", height: "10rem" }}
                 style={{ border: "3px solid white", backgroundColor: "grey" }}

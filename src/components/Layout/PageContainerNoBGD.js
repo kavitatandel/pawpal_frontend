@@ -14,7 +14,7 @@ const PageContainerNoBGD = () => {
         left={0}
         zIndex={-1}
         width="100%"
-        minHeight="85vh"
+        minHeight="100%"
         // sx={{
         //   backgroundImage: ({
         //     functions: { linearGradient, rgba },
@@ -32,7 +32,7 @@ const PageContainerNoBGD = () => {
         <Header />
       </MKBox>
 
-      <CenteredFooter minHeight="15vh" />
+      <CenteredFooter minHeight="10vh" />
     </>
   );
 };

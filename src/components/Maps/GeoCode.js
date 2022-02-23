@@ -1,6 +1,6 @@
 import { setSelectionRange } from "@testing-library/user-event/dist/utils";
-import axios from "axios";
 
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 const GeoCode = ({ address }) => {
@@ -18,7 +18,7 @@ const GeoCode = ({ address }) => {
       .then((response) => {
         // console.log(response.data.lat);
         setGeo(response.data[0]);
-        console.log('Geo code response')
+        console.log("Geo code response");
         console.log(response.data[0]);
         console.log(`latitude : ${response.data[0].lat}`);
         console.log(`longitude : ${response.data[0].lon}`);

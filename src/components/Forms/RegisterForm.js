@@ -1,13 +1,12 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../logic/UserFunctions";
-import { UserContext } from "context/UserContext";
+
 import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
 // @mui material components
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -23,7 +22,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
 //import GeoCode component
-import GeoCode from '../../components/Maps/GeoCode';
+import GeoCode from "../../components/Maps/GeoCode";
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -46,37 +45,34 @@ const RegisterForm = () => {
     console.log(address);
 
     // get the coordinates
-    await fetchCoordinates(address).then((res) => {
-      console.log(res);
-      if (res) {
+    await fetchCoordinates(address)
+      .then((res) => {
+        console.log(res);
+        if (res) {
+          const lat = res.lat;
+          const lon = res.lon;
 
-        const lat = res.lat;
-        const lon = res.lon;
+          //create new user
+          const newUser = {
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            password: password,
+            user_type: userType,
+            street: street,
+            city: city,
+            country: country,
+            zipcode: zipcode,
+            latitude: lat,
+            longitude: lon,
+          };
 
-        //create new user
-        const newUser = {
-          first_name: firstName,
-          last_name: lastName,
-          email: email,
-          password: password,
-          user_type: userType,
-          street: street,
-          city: city,
-          country: country,
-          zipcode: zipcode,
-          latitude: lat,
-          longitude: lon,
-        };
-
-
-        register(newUser).then((res) => {
-          navigate("/login");
-        });
-      }
-    })
-      .catch((err) => console.log(err))
-
-
+          register(newUser).then((res) => {
+            navigate("/login");
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   //for radio group
@@ -130,7 +126,7 @@ const RegisterForm = () => {
                   variant="h3"
                   fontWeight="regular"
                   color="white"
-                // mt={1}
+                  // mt={1}
                 >
                   REGISTER
                 </MKTypography>
@@ -161,11 +157,10 @@ const RegisterForm = () => {
                       required
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                    // value={user.first_name}
-                    // onChange={(e) =>
-                    //   setUser({ ...user, first_name: e.target.value })
-                    // }
-
+                      // value={user.first_name}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, first_name: e.target.value })
+                      // }
                     />
                     <MKInput
                       style={{ width: "48%" }}
