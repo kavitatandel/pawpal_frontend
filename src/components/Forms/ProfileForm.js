@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 
 // image
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
@@ -18,42 +18,6 @@ import Card from "@mui/material/Card";
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
-  // TEMP STATES TO CHANGE TO CONTEXT
-
-  // const [loading, setLoading] = useState(true);
-
-  // const [details, setDetails] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  // });
-
-
-  // const getProfile = async () => {
-  //   const token = await localStorage.getItem("usertoken");
-  //   if (token) {
-  //     const decoded = await jwt_decode(token, { header: true });
-
-  //     console.log(decoded);
-  //     setUser({
-  //       ...user,
-  //       _id: decoded.user._id,
-  //       first_name: decoded.user.first_name,
-  //       last_name: decoded.user.last_name,
-  //       email: decoded.user.email,
-  //       street: decoded.user.street,
-  //       city: decoded.user.city,
-  //       country: decoded.user.country,
-  //       post_code: decoded.user.post_code,
-  //       user_type: decoded.user.user_type,
-  //       profile_pic: decoded.user.profile_pic,
-  //       description: decoded.user.description,
-  //       location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
-  //       latitude: decoded.user.latitude,
-  //       longitude: decoded.user.longitude,
-  //     });
-  //   }
-  // };
 
   useEffect(() => {
     getProfile();
@@ -64,35 +28,32 @@ const ProfileForm = () => {
     // console.log(JSON.parse(localStorage.getItem("usertoken")));
     //const token = await JSON.parse(localStorage.getItem("usertoken"));
 
-    const token = await localStorage.usertoken;
-    //console.log(token);
-    const decoded = await jwt_decode(token);
-    //console.log(decoded);
+    // const token = localStorage.getItem("usertoken");
+    // //console.log(token);
+    // const decoded = jwt_decode(token);
 
-    // if (token !== undefined) {
-    //const decoded = await jwt_decode(token, { header: true });
-    //console.log("after decoding");
-    //console.log(decoded.user);
-    setUser({
-      ...user,
-      _id: decoded.user._id,
-      first_name: decoded.user.first_name,
-      last_name: decoded.user.last_name,
-      email: decoded.user.email,
-      street: decoded.user.street,
-      city: decoded.user.city,
-      country: decoded.user.country,
-      zip_code: decoded.user.zip_code,
-      user_type: decoded.user.user_type,
-      profile_pic: decoded.user.profile_pic,
-      description: decoded.userdescription,
-      location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
-      latitude: decoded.user.latitude,
-      longitude: decoded.user.longitude,
-    });
 
-    console.log({ ...user });
-    //}
+    // setUser({
+    //   ...user,
+    //   _id: decoded.user._id,
+    //   first_name: decoded.user.first_name,
+    //   last_name: decoded.user.last_name,
+    //   email: decoded.user.email,
+    //   street: decoded.user.street,
+    //   city: decoded.user.city,
+    //   country: decoded.user.country,
+    //   zip_code: decoded.user.zip_code,
+    //   user_type: decoded.user.user_type,
+    //   profile_pic: decoded.user.profile_pic,
+    //   description: decoded.user.description,
+    //   location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
+    //   latitude: decoded.user.latitude,
+    //   longitude: decoded.user.longitude,
+    // });
+
+    // console.log({ ...user });
+    // console.log(user);
+
   };
 
 
