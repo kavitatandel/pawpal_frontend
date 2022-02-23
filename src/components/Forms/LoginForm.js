@@ -59,6 +59,8 @@ const LoginForm = () => {
         country: decoded.user.country,
         zip_code: decoded.user.zip_code,
         user_type: decoded.user.user_type,
+        latitude: decoded.user.latitude,
+        longitude: decoded.user.longitude,
       }));
 
       //setUser into context
