@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../logic/UserFunctions";
 import { UserContext } from "context/UserContext";
@@ -26,6 +26,9 @@ const LoginForm = () => {
   const testLogin = (e) => {
     e.preventDefault();
 
+    // console.log(user.email);
+    // console.log(user.password);
+
     const newUser = {
       email: user.email,
       password: user.password,
@@ -34,8 +37,35 @@ const LoginForm = () => {
     login(newUser).then((res) => {
       //console.log(res);
       // if (res) {
-      //const decoded = jwt_decode(res);
-      //console.log(decoded)
+      const decoded = jwt_decode(res);
+      //console.log(decoded.user)
+
+      const userId = decoded.user._id;
+      const fname = decoded.user.first_name;
+
+      console.log(userId);
+      console.log(fname);
+
+      setUser(user => ({
+        ...user,
+        // _id: decoded.user._id,
+        // first_name: decoded.user.first_name,
+        _id: userId,
+        first_name: fname,
+        last_name: decoded.user.last_name,
+        email: decoded.user.email,
+        street: decoded.user.street,
+        city: decoded.user.city,
+        country: decoded.user.country,
+        zip_code: decoded.user.zip_code,
+        user_type: decoded.user.user_type,
+      }));
+
+      //setUser into context
+      //setUser(decoded);
+
+      //console.log(user);
+
       // setUser({
       //   ...user,
       //   _id: decoded.user._id,
@@ -53,35 +83,39 @@ const LoginForm = () => {
       //   // latitude: decoded.user.latitude,
       //   // longitude: decoded.user.longitude,
       // });
-      console.log(res._id);
-      console.log(res.first_name);
-
-      setUser({
-        ...user,
-        _id: res._id,
-        first_name: res.first_name,
-        last_name: res.last_name,
-        email: res.email,
-        street: res.street,
-        city: res.city,
-        country: res.country,
-        zip_code: res.zip_code,
-        user_type: res.user_type,
-        // profile_pic: decoded.user.profile_pic,
-        // description: decoded.user.description,
-        // location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
-        // latitude: decoded.user.latitude,
-        // longitude: decoded.user.longitude,
-      });
 
 
-      // console.log({ ...user });
+      // console.log(decoded.user._id);
+      // console.log(decoded.user.first_name);
+
+      // setUser({
+      //   ...user,
+      //   _id: res._id,
+      //   first_name: res.first_name,
+      //   last_name: res.last_name,
+      //   email: res.email,
+      //   street: res.street,
+      //   city: res.city,
+      //   country: res.country,
+      //   zip_code: res.zip_code,
+      //   user_type: res.user_type,
+      //   // profile_pic: decoded.user.profile_pic,
+      //   // description: decoded.user.description,
+      //   // location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
+      //   // latitude: decoded.user.latitude,
+      //   // longitude: decoded.user.longitude,
+      // });
+
       console.log(user);
-      //console.log(res);
+
       navigate("/user");
 
     });
   };
+
+  // useEffect(() => {
+
+  // }, [user]);
 
   return (
     <>
@@ -148,12 +182,15 @@ const LoginForm = () => {
                       placeholder="Enter your email"
                       type="email"
                       required
-                      value={user.email}
+                      value={user?.email}
                       // onChange={(e) => setEmail(e.target.value)}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, email: e.target.value })
+                      // }
                       onChange={(e) =>
-                        setUser({ ...user, email: e.target.value })
+                        setUser(user => ({ ...user, email: e.target.value }))
                       }
-                    />
+                    ></MKInput>
                   </MKBox>
                   <MKBox mb={2} mt={4}>
                     <MKInput
@@ -164,10 +201,14 @@ const LoginForm = () => {
                       type="password"
                       required
                       // value={password}
-                      value={user.password}
+                      value={user?.password}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, password: e.target.value })
+                      // }
                       onChange={(e) =>
-                        setUser({ ...user, password: e.target.value })
+                        setUser(user => ({ ...user, password: e.target.value }))
                       }
+
                     />
                   </MKBox>
 

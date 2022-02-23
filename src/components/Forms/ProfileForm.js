@@ -20,8 +20,9 @@ const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
 
   useEffect(() => {
-    getProfile();
-    //console.log(user);
+    //getProfile();
+    console.log("get profile use effect ")
+    console.log(user);
   }, [user]);
 
   const getProfile = async () => {
