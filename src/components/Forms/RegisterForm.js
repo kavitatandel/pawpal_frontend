@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../logic/UserFunctions";
 import { UserContext } from "context/UserContext";
+import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -23,6 +24,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
+//import GeoCode component
+import GeoCode from '../../components/Maps/GeoCode';
+
 const RegisterForm = () => {
   const [user, setUser] = useContext(UserContext);
   // const [userValue, setUserValue] = user;
@@ -43,6 +47,22 @@ const RegisterForm = () => {
 
   const createUser = (e) => {
     e.preventDefault();
+
+    const address = "Fellbacher Straße, Fellbach,70736,Germany";
+
+    //get the coordinates
+    fetchCoordinates(address).then((res) => {
+      if (res) {
+        console.log(res);
+        const lat = res.lat;
+        const lon = res.lon;
+        console.log(`latitude : ${lat}`);
+        //setUser({ ...user, latitude: ${lat} );
+        console.log(`longitude : ${lon}`);
+        // setUser({ ...user, longitude: ${lon} );
+      }
+    })
+      .catch((err) => console.log(err))
 
     const newUser = {
       first_name: user.first_name,
@@ -76,6 +96,7 @@ const RegisterForm = () => {
   console.log(user);
   return (
     <>
+      {/* <GeoCode address="Fellbacher Straße, Fellbach,70736,Germany" /> */}
       <MKBox
         px={1}
         width="100%"
@@ -119,7 +140,7 @@ const RegisterForm = () => {
                   variant="h3"
                   fontWeight="regular"
                   color="white"
-                  // mt={1}
+                // mt={1}
                 >
                   REGISTER
                 </MKTypography>
@@ -167,8 +188,8 @@ const RegisterForm = () => {
                         setUser({ ...user, last_name: e.target.value })
                       }
 
-                      // value={lastName}
-                      // onChange={(e) => setLastName(e.target.value)}
+                    // value={lastName}
+                    // onChange={(e) => setLastName(e.target.value)}
                     />
                   </MKBox>
 
@@ -185,8 +206,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, email: e.target.value })
                       }
-                      // value={email}
-                      // onChange={(e) => setEmail(e.target.value)}
+                    // value={email}
+                    // onChange={(e) => setEmail(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -201,8 +222,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, password: e.target.value })
                       }
-                      // value={password}
-                      // onChange={(e) => setPassword(e.target.value)}
+                    // value={password}
+                    // onChange={(e) => setPassword(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -217,8 +238,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, street: e.target.value })
                       }
-                      // value={street}
-                      // onChange={(e) => setStreet(e.target.value)}
+                    // value={street}
+                    // onChange={(e) => setStreet(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2} display="flex" justifyContent="space-between">
@@ -233,8 +254,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, zip_code: e.target.value })
                       }
-                      // value={zipcode}
-                      // onChange={(e) => setZipcode(e.target.value)}
+                    // value={zipcode}
+                    // onChange={(e) => setZipcode(e.target.value)}
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -247,8 +268,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, city: e.target.value })
                       }
-                      // value={city}
-                      // onChange={(e) => setCity(e.target.value)}
+                    // value={city}
+                    // onChange={(e) => setCity(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -263,8 +284,8 @@ const RegisterForm = () => {
                       onChange={(e) =>
                         setUser({ ...user, country: e.target.value })
                       }
-                      // value={country}
-                      // onChange={(e) => setCountry(e.target.value)}
+                    // value={country}
+                    // onChange={(e) => setCountry(e.target.value)}
                     />
                   </MKBox>
 

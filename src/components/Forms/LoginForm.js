@@ -16,6 +16,8 @@ import MKInput from "../MKInput";
 import MKButton from "../MKButton";
 import MKTypography from "../MKTypography";
 
+import jwt_decode from "jwt-decode";
+
 const LoginForm = () => {
   const [user, setUser] = useContext(UserContext);
 
@@ -30,10 +32,54 @@ const LoginForm = () => {
     };
 
     login(newUser).then((res) => {
-      if (res) {
-        //console.log(res);
-        navigate("/user");
-      }
+      //console.log(res);
+      // if (res) {
+      //const decoded = jwt_decode(res);
+      //console.log(decoded)
+      // setUser({
+      //   ...user,
+      //   _id: decoded.user._id,
+      //   first_name: decoded.user.first_name,
+      //   last_name: decoded.user.last_name,
+      //   email: decoded.user.email,
+      //   street: decoded.user.street,
+      //   city: decoded.user.city,
+      //   country: decoded.user.country,
+      //   zip_code: decoded.user.zip_code,
+      //   user_type: decoded.user.user_type,
+      //   // profile_pic: decoded.user.profile_pic,
+      //   // description: decoded.user.description,
+      //   // location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
+      //   // latitude: decoded.user.latitude,
+      //   // longitude: decoded.user.longitude,
+      // });
+      console.log(res._id);
+      console.log(res.first_name);
+
+      setUser({
+        ...user,
+        _id: res._id,
+        first_name: res.first_name,
+        last_name: res.last_name,
+        email: res.email,
+        street: res.street,
+        city: res.city,
+        country: res.country,
+        zip_code: res.zip_code,
+        user_type: res.user_type,
+        // profile_pic: decoded.user.profile_pic,
+        // description: decoded.user.description,
+        // location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
+        // latitude: decoded.user.latitude,
+        // longitude: decoded.user.longitude,
+      });
+
+
+      // console.log({ ...user });
+      console.log(user);
+      //console.log(res);
+      navigate("/user");
+
     });
   };
 
