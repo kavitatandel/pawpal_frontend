@@ -63,6 +63,8 @@ const LoginForm = () => {
         longitude: decoded.user.longitude,
       }));
 
+
+
       //setUser into context
       //setUser(decoded);
 
