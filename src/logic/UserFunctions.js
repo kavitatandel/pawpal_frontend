@@ -35,7 +35,7 @@ export const login = (user) => {
       //put user token in local storage
       //localStorage.setItem("usertoken", JSON.stringify(res.data));
       // console.log(JSON.parse(localStorage.getItem("usertoken")));
-      localStorage.setItem('usertoken', JSON.stringify(res.data))
+      localStorage.setItem('usertoken', res.data)
       console.log(res.data);
       return res.data;
     })

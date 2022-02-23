@@ -2,6 +2,8 @@ import axios from "axios";
 
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
+import jwt_decode from "jwt-decode";
+
 // import jwt_decode from "jwt-decode";
 
 // image
@@ -19,42 +21,38 @@ import Card from "@mui/material/Card";
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
 
-  useEffect(() => {
-    //getProfile();
+  useEffect(async () => {
+    await getProfile();
     console.log("get profile use effect ")
     console.log(user);
-  }, [user]);
+  }, []);
 
   const getProfile = async () => {
-    // console.log(JSON.parse(localStorage.getItem("usertoken")));
-    //const token = await JSON.parse(localStorage.getItem("usertoken"));
+    const token = localStorage.getItem("usertoken");
 
-    // const token = localStorage.getItem("usertoken");
-    // //console.log(token);
-    // const decoded = jwt_decode(token);
+    const decoded = jwt_decode(token);
 
+    const userId = decoded.user._id;
+    const fname = decoded.user.first_name;
 
-    // setUser({
-    //   ...user,
-    //   _id: decoded.user._id,
-    //   first_name: decoded.user.first_name,
-    //   last_name: decoded.user.last_name,
-    //   email: decoded.user.email,
-    //   street: decoded.user.street,
-    //   city: decoded.user.city,
-    //   country: decoded.user.country,
-    //   zip_code: decoded.user.zip_code,
-    //   user_type: decoded.user.user_type,
-    //   profile_pic: decoded.user.profile_pic,
-    //   description: decoded.user.description,
-    //   location: `{${decoded.user.coordinates}: [${decoded.user.latitude}, ${decoded.user.longitude}] }`,
-    //   latitude: decoded.user.latitude,
-    //   longitude: decoded.user.longitude,
-    // });
+    console.log(userId);
+    console.log(fname);
 
-    // console.log({ ...user });
-    // console.log(user);
-
+    setUser(user => ({
+      ...user,
+      _id: userId,
+      first_name: fname,
+      last_name: decoded.user.last_name,
+      email: decoded.user.email,
+      street: decoded.user.street,
+      city: decoded.user.city,
+      country: decoded.user.country,
+      zip_code: decoded.user.zip_code,
+      user_type: decoded.user.user_type,
+      latitude: decoded.user.latitude,
+      longitude: decoded.user.longitude,
+    }));
+    console.log(user)
   };
 
 
