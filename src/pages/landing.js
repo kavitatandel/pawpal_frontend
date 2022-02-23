@@ -1,23 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-
-// const Landing = () => {
-//     const navigate = useNavigate();
-//     return (
-//         <>
-//             <div>
-//                 <h1> Welcome to PawPal</h1>
-//                 <div>
-//                     <button onClick={() => navigate('/register')}>Register</button>
-//                     <button onClick={() => navigate('/login')}>Login</button>
-//                 </div>
-//             </div>
-
-//         </>
-//     )
-// }
-
-// export default Landing;
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -32,8 +14,29 @@ import MKButton from "components/MKButton";
 // Images
 import bgImage from "assets/images/backgrounds/patrick-hendry-jd0hS7Vhn_A-unsplash.jpeg";
 
+
 const Landing = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
+  //set localstorage empty and also set userContext to empty
+  useEffect(() => {
+    localStorage.removeItem("usertoken");
+    setUser((user) => ({
+      ...user,
+      _id: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      street: "",
+      city: "",
+      country: "",
+      zip_code: "",
+      user_type: "",
+      latitude: "",
+      longitude: "",
+    }));
+  }, [user]);
+
   return (
     <>
       <MKBox

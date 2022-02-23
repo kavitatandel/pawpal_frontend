@@ -20,7 +20,7 @@ const SearchedDog = ({ locations, setLocations }) => {
     return (
         <>
             {/* map thru searched dogs */}
-            {locations.map((dog, index) => {
+            {locations && locations.map((dog, index) => {
                 return (
                     <Card style={{ width: "95%", height: "5rem", marginBottom: "1rem" }}>
                         <div
