@@ -1,15 +1,13 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../logic/UserFunctions";
 import { UserContext } from "context/UserContext";
 import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
 // @mui material components
-import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
-import Switch from "@mui/material/Switch";
 import Grid from "@mui/material/Grid";
-import MuiLink from "@mui/material/Link";
+
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -28,72 +26,64 @@ import FormLabel from "@mui/material/FormLabel";
 import GeoCode from '../../components/Maps/GeoCode';
 
 const RegisterForm = () => {
-  const [user, setUser] = useContext(UserContext);
-  // const [userValue, setUserValue] = user;
-  //const [rememberMe, setRememberMe] = useState(false);
-  // const handleSetRememberMe = () => setRememberMe(!rememberMe);
-
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [street, setStreet] = useState("");
-  // const [zipcode, setZipcode] = useState("");
-  // const [city, setCity] = useState("");
-  // const [country, setCountry] = useState("");
-  // const [userType, setUserType] = useState("owner");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [street, setStreet] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [userType, setUserType] = useState("owner");
 
   let navigate = useNavigate();
 
-  const createUser = (e) => {
+  const createUser = async (e) => {
     e.preventDefault();
 
-    const address = "Fellbacher Straße, Fellbach,70736,Germany";
+    const address = `${street},${zipcode},${city},${country}`;
 
-    //get the coordinates
-    fetchCoordinates(address).then((res) => {
+    console.log(address);
+
+    // get the coordinates
+    await fetchCoordinates(address).then((res) => {
+      console.log(res);
       if (res) {
-        console.log(res);
+
         const lat = res.lat;
         const lon = res.lon;
-        console.log(`latitude : ${lat}`);
-        //setUser({ ...user, latitude: ${lat} );
-        console.log(`longitude : ${lon}`);
-        // setUser({ ...user, longitude: ${lon} );
+
+        //create new user
+        const newUser = {
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+          password: password,
+          user_type: userType,
+          street: street,
+          city: city,
+          country: country,
+          zipcode: zipcode,
+          latitude: lat,
+          longitude: lon,
+        };
+
+
+        register(newUser).then((res) => {
+          navigate("/login");
+        });
       }
     })
       .catch((err) => console.log(err))
 
-    const newUser = {
-      first_name: user.first_name,
-      last_name: user.first_name,
-      email: user.email,
-      password: user.password,
-      user_type: user.user_type,
-      street: user.street,
-      city: user.city,
-      country: user.country,
-      zip_code: user.zip_code,
-      profile_pic: user.profile_pic,
-      description: user.description,
-      latitude: user.latitude,
-      longitude: user.longitude,
-    };
 
-    register(newUser).then((res) => {
-      //set email and password empty once user is successfully registred
-      //and navigate user to login page
-      setUser({ ...user, email: "" });
-      setUser({ ...user, password: "" });
-      navigate("/login");
-    });
   };
 
   //for radio group
   const handleChange = (event) => {
-    setUser({ ...user, user_type: event.target.value });
+    setUserType(event.target.value);
   };
-  console.log(user);
+
   return (
     <>
       {/* <GeoCode address="Fellbacher Straße, Fellbach,70736,Germany" /> */}
@@ -169,12 +159,13 @@ const RegisterForm = () => {
                       name="first_name"
                       placeholder="Enter your first name"
                       required
-                      // value={firstName}
-                      // onChange={(e) => setFirstName(e.target.value)}
-                      value={user.first_name}
-                      onChange={(e) =>
-                        setUser({ ...user, first_name: e.target.value })
-                      }
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    // value={user.first_name}
+                    // onChange={(e) =>
+                    //   setUser({ ...user, first_name: e.target.value })
+                    // }
+
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -183,13 +174,13 @@ const RegisterForm = () => {
                       name="last_name"
                       placeholder="Enter your last name"
                       required
-                      value={user.last_name}
-                      onChange={(e) =>
-                        setUser({ ...user, last_name: e.target.value })
-                      }
+                      // value={user.last_name}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, last_name: e.target.value })
+                      // }
 
-                    // value={lastName}
-                    // onChange={(e) => setLastName(e.target.value)}
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                     />
                   </MKBox>
 
@@ -202,12 +193,12 @@ const RegisterForm = () => {
                       placeholder="Enter your email"
                       type="email"
                       required
-                      value={user.email}
-                      onChange={(e) =>
-                        setUser({ ...user, email: e.target.value })
-                      }
-                    // value={email}
-                    // onChange={(e) => setEmail(e.target.value)}
+                      // value={user.email}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, email: e.target.value })
+                      // }
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -218,12 +209,12 @@ const RegisterForm = () => {
                       placeholder="Enter your password"
                       type="password"
                       required
-                      value={user.password}
-                      onChange={(e) =>
-                        setUser({ ...user, password: e.target.value })
-                      }
-                    // value={password}
-                    // onChange={(e) => setPassword(e.target.value)}
+                      // value={user.password}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, password: e.target.value })
+                      // }
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -234,12 +225,12 @@ const RegisterForm = () => {
                       name="street"
                       placeholder="Enter your street"
                       required
-                      value={user.street}
-                      onChange={(e) =>
-                        setUser({ ...user, street: e.target.value })
-                      }
-                    // value={street}
-                    // onChange={(e) => setStreet(e.target.value)}
+                      // value={user.street}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, street: e.target.value })
+                      // }
+                      value={street}
+                      onChange={(e) => setStreet(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2} display="flex" justifyContent="space-between">
@@ -250,12 +241,12 @@ const RegisterForm = () => {
                       name="zip_code"
                       placeholder="Enter your zip code"
                       required
-                      value={user.zip_code}
-                      onChange={(e) =>
-                        setUser({ ...user, zip_code: e.target.value })
-                      }
-                    // value={zipcode}
-                    // onChange={(e) => setZipcode(e.target.value)}
+                      // value={user.zip_code}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, zip_code: e.target.value })
+                      // }
+                      value={zipcode}
+                      onChange={(e) => setZipcode(e.target.value)}
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -264,12 +255,12 @@ const RegisterForm = () => {
                       name="city"
                       placeholder="Enter your city"
                       required
-                      value={user.city}
-                      onChange={(e) =>
-                        setUser({ ...user, city: e.target.value })
-                      }
-                    // value={city}
-                    // onChange={(e) => setCity(e.target.value)}
+                      // value={user.city}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, city: e.target.value })
+                      // }
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
                     />
                   </MKBox>
                   <MKBox mb={2}>
@@ -280,12 +271,12 @@ const RegisterForm = () => {
                       name="country"
                       placeholder="Enter your country"
                       required
-                      value={user.country}
-                      onChange={(e) =>
-                        setUser({ ...user, country: e.target.value })
-                      }
-                    // value={country}
-                    // onChange={(e) => setCountry(e.target.value)}
+                      // value={user.country}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, country: e.target.value })
+                      // }
+                      value={country}
+                      onChange={(e) => setCountry(e.target.value)}
                     />
                   </MKBox>
 
@@ -307,8 +298,8 @@ const RegisterForm = () => {
                       </FormLabel>
                       <RadioGroup
                         name="controlled-radio-buttons-group"
-                        value={user.user_type}
-                        // value={userType}
+                        //value={user.user_type}
+                        value={userType}
                         onChange={handleChange}
                         size="small"
                         row
