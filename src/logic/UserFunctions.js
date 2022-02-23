@@ -36,7 +36,7 @@ export const login = (user) => {
       //localStorage.setItem("usertoken", JSON.stringify(res.data));
       // console.log(JSON.parse(localStorage.getItem("usertoken")));
       localStorage.setItem('usertoken', JSON.stringify(res.data))
-
+      console.log(res.data);
       return res.data;
     })
     .catch((err) => console.error(err));
