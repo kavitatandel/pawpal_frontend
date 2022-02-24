@@ -7,6 +7,7 @@ import UserInfo from "./pages/UserInfo";
 import "./styles/layout.css";
 import SearchDog from "./pages/SearchDog";
 import DogInfo from "./pages/DogInfo";
+import UserInfoKavita from "./pages/UserInfoKavita";
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AppRouter = () => {
         {/* added to check location based on address */}
         <Route path="/doginfo/:dogid" element={<DogInfo />}></Route>
         <Route path="/test" element={<MapDesignTest />}></Route>
+        <Route path="/testModal" element={<UserInfoKavita />}></Route>
       </Routes>
     </>
   );
