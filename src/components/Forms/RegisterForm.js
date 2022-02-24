@@ -62,7 +62,7 @@ const RegisterForm = () => {
             street: street,
             city: city,
             country: country,
-            zipcode: zipcode,
+            zip_code: zipcode,
             latitude: lat,
             longitude: lon,
           };

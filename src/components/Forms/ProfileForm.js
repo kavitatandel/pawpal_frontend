@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { useEffect, useState, useContext } from "react";
-import { UserContext } from "context/UserContext";
+import { UserContext } from "../../context/UserContext";
 import jwt_decode from "jwt-decode";
 
 // import jwt_decode from "jwt-decode";
@@ -9,17 +9,20 @@ import jwt_decode from "jwt-decode";
 // image
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
-import MKBox from "components/MKBox";
-import MKAvatar from "components/MKAvatar";
+import MKBox from "../MKBox";
+import MKAvatar from "../MKAvatar";
 import MKTypography from "../MKTypography";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
 // @mui material components
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
+import UploadPicModal from "../Modals/UploadPicModal";
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
+  const [show, setShow] = useState(false);
+  const toggleModal = () => setShow(!show);
 
   useEffect(async () => {
     await getProfile();
@@ -32,13 +35,13 @@ const ProfileForm = () => {
 
     const decoded = jwt_decode(token);
 
-    const userId = decoded.user._id;
-    const fname = decoded.user.first_name;
+    // const userId = decoded.user._id;
+    // const fname = decoded.user.first_name;
 
     setUser((user) => ({
       ...user,
-      _id: userId,
-      first_name: fname,
+      _id: decoded.user._id,
+      first_name: decoded.user.first_name,
       last_name: decoded.user.last_name,
       email: decoded.user.email,
       street: decoded.user.street,
@@ -48,6 +51,7 @@ const ProfileForm = () => {
       user_type: decoded.user.user_type,
       latitude: decoded.user.latitude,
       longitude: decoded.user.longitude,
+      profile_pic: null,
     }));
   };
 
@@ -124,14 +128,21 @@ const ProfileForm = () => {
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
             }}
           >
+            <UploadPicModal
+              show={show}
+              setShow={setShow}
+              toggleModal={toggleModal}
+            />
             {/* Container for Profile Pic */}
             <MKBox
               zindex={2}
               mx={4}
               mt={-15}
+              mb={4}
               pt={5}
               display="flex"
               justifyContent="center"
+              alignItems="flex-end"
               //   style={{ border: "3px solid blue" }}
             >
               <MKAvatar
@@ -143,6 +154,12 @@ const ProfileForm = () => {
                 sx={{ width: "10rem", height: "10rem" }}
                 style={{ border: "3px solid white", backgroundColor: "grey" }}
               />
+              <MKButton
+                onClick={toggleModal}
+                style={{ width: "3rem", height: "2rem" }}
+              >
+                EDIT
+              </MKButton>
             </MKBox>
             {/* ************************* Text Container */}
             <Container>
