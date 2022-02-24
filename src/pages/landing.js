@@ -19,23 +19,23 @@ const Landing = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   //set localstorage empty and also set userContext to empty
-  useEffect(() => {
-    localStorage.removeItem("usertoken");
-    setUser((user) => ({
-      ...user,
-      _id: "",
-      first_name: "",
-      last_name: "",
-      email: "",
-      street: "",
-      city: "",
-      country: "",
-      zip_code: "",
-      user_type: "",
-      latitude: "",
-      longitude: "",
-    }));
-  }, [user]);
+  // useEffect(() => {
+  //   localStorage.removeItem("usertoken");
+  //   setUser((user) => ({
+  //     ...user,
+  //     _id: "",
+  //     first_name: "",
+  //     last_name: "",
+  //     email: "",
+  //     street: "",
+  //     city: "",
+  //     country: "",
+  //     zip_code: "",
+  //     user_type: "",
+  //     latitude: "",
+  //     longitude: "",
+  //   }));
+  // }, [user]);
 
   return (
     <>

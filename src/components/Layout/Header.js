@@ -18,6 +18,11 @@ const Header = () => {
   // const { pathname } = useParams();
   const [user, setUser] = useContext(UserContext);
 
+  const handleLagOut = () => {
+    setUser({});
+    localStorage.removeItem("usertoken");
+  }
+
   return (
     <MKBox
       component="header"
@@ -114,7 +119,8 @@ const Header = () => {
                 Search Dogs
               </MKTypography>
             </Link>
-            <Link to="/" onClick={() => setUser({})}>
+            {/* <Link to="/" onClick={() => setUser({})}> */}
+            <Link to="/" onClick={handleLagOut}>
               {/* <MKButton onClick={() => setUser({})}> */}
               <MKTypography
                 p={1}
