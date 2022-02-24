@@ -126,7 +126,7 @@ const RegisterForm = () => {
                   variant="h3"
                   fontWeight="regular"
                   color="white"
-                  // mt={1}
+                // mt={1}
                 >
                   REGISTER
                 </MKTypography>
@@ -157,10 +157,10 @@ const RegisterForm = () => {
                       required
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      // value={user.first_name}
-                      // onChange={(e) =>
-                      //   setUser({ ...user, first_name: e.target.value })
-                      // }
+                    // value={user.first_name}
+                    // onChange={(e) =>
+                    //   setUser({ ...user, first_name: e.target.value })
+                    // }
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -358,26 +358,6 @@ const RegisterForm = () => {
                     </MKButton>
                   </MKBox>
                   <MKBox mt={3} mb={1} textAlign="center">
-                    {/* <MKTypography variant="button" color="text">
-                      Don&apos;t have an account?{" "}
-                      <MKButton
-                        onClick={() => navigate("/")}
-                        variant="gradient"
-                        color="info"
-                      >
-                        Cancel
-                      </MKButton> */}
-                    {/* <MKTypography
-                        component={Link}
-                        to="/authentication/sign-up/cover"
-                        variant="button"
-                        color="info"
-                        fontWeight="medium"
-                        textGradient
-                      >
-                        Sign up
-                      </MKTypography> */}
-                    {/* </MKTypography> */}
                   </MKBox>
                 </MKBox>
               </MKBox>
