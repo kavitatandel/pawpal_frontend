@@ -23,20 +23,18 @@ const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [show, setShow] = useState(false);
   const toggleModal = () => setShow(!show);
+  const [uploadedImageURL, setUploadedImageURL] = useState("");
 
   useEffect(async () => {
     await getProfile();
     console.log("get profile use effect ");
     console.log(user);
-  }, []);
+  }, [uploadedImageURL]);
 
   const getProfile = async () => {
     const token = localStorage.getItem("usertoken");
 
     const decoded = jwt_decode(token);
-
-    // const userId = decoded.user._id;
-    // const fname = decoded.user.first_name;
 
     setUser((user) => ({
       ...user,
@@ -51,7 +49,8 @@ const ProfileForm = () => {
       user_type: decoded.user.user_type,
       latitude: decoded.user.latitude,
       longitude: decoded.user.longitude,
-      profile_pic: null,
+      profile_pic: uploadedImageURL,
+      description: "",
     }));
   };
 
@@ -132,6 +131,8 @@ const ProfileForm = () => {
               show={show}
               setShow={setShow}
               toggleModal={toggleModal}
+              uploadedImageURL={uploadedImageURL}
+              setUploadedImageURL={setUploadedImageURL}
             />
             {/* Container for Profile Pic */}
             <MKBox
