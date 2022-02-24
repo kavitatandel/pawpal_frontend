@@ -7,10 +7,8 @@ import UserInfo from "./pages/UserInfo";
 import "./styles/layout.css";
 import SearchDog from "./pages/SearchDog";
 import DogInfo from "./pages/DogInfo";
-
-
 import AddDog from "./pages/AddDog";
-
+import OwnerDogs from "./pages/OwnerDogs";
 
 const AppRouter = () => {
   return (
@@ -26,8 +24,9 @@ const AppRouter = () => {
         <Route path="/doginfo/:dogid" element={<DogInfo />}></Route>
 
         <Route path="/test" element={<MapDesignTest />}></Route>
-       
-        <Route path="/user/adddog" element={<AddDog />}></Route>
+
+        <Route exact path="/owner/adddog" element={<AddDog />}></Route>
+        <Route exact path="/owner/ownerdogs" element={<OwnerDogs />}></Route>
         {/* <Route path="/test" element={<MapDesignTest />}></Route> */}
 
       </Routes>
