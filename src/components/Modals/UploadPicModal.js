@@ -19,23 +19,22 @@ import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
 
-const UploadPicModal = ({ show, setShow, toggleModal }) => {
+const UploadPicModal = ({
+  show,
+  setShow,
+  toggleModal,
+  uploadedImageURL,
+  setUploadedImageURL,
+}) => {
   const [user, setUser] = useContext(UserContext);
-  //   const [show, setShow] = useState(false);
-  //   const toggleModal = () => setShow(!show);
 
   //******************Upload Single File************ */
   const API_URL = "http://localhost:5000";
 
-  //   const [desc, setDesc] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [uploadedImageURL, setUploadedImageURL] = useState("");
 
   const handleFileUpload = (e) => {
-    //const uploadData = new FormData();
-    //uploadData.append("file", e.target.files[0], "file");
-    //cloudinaryUpload(uploadData)
     setSelectedFile(e.target.files[0]);
     console.log(e.target.files[0]);
     console.log(`User ID: ${user._id} , User FirstName: ${user.first_name} `);
@@ -51,53 +50,28 @@ const UploadPicModal = ({ show, setShow, toggleModal }) => {
     await axios
       .post(API_URL + `/users/${user._id}`, uploadData)
       .then((res) => {
-        console.log("after uploading file");
-        console.log(res.data.secure_url);
-        console.log(res.data);
+        // console.log("after uploading file");
+        // console.log(res.data.secure_url);
+        // console.log(res.data);
+
         setUploadedImageURL(res.data.secure_url);
+        // console.log(res.data.secure_url);
       })
-      .then(() => {
-        if (uploadedImageURL) {
-          setUser({ ...user, profile_pic: uploadedImageURL });
-        }
-      })
+
       .then(() => {
         if (uploadedImageURL !== "undefined") {
           console.log(`Uploaded ${uploadedImageURL}!!`);
-          setLoading(false);
+          setUser({ ...user, profile_pic: uploadedImageURL });
+          // setLoading(false);
         }
-      })
-      .then(() => {
         toggleModal();
-        setLoading(true);
       })
 
       .catch((err) => console.log(err));
   };
 
-  // // //get profile data
-  // const getProfil = async () => {
-  //   if (show) {
-  //     setId(user._id);
-  //     console.log(user);
-  //     // if (uploadedImageURL === "") {
-  //     //   setUploadedImageURL(user.profile_pic);
-  //     // }
-  //     // console.log(`Check User State: ${user}`);
-  //   }
-
-  //   // setUser({ ...user, profile_pic: setUploadedImageURL });
-  // };
-
-  // const handleSubmitUpload = (e) => {
-  //   e.preventDefault();
-  //   setUser({ ...user, profile_pic: uploadedImageURL });
-  // };
-
-  useEffect(() => {
-    // getProfil();
-  }, [show, uploadedImageURL, selectedFile]);
-
+  useEffect(() => {}, [show, uploadedImageURL, selectedFile]);
+  console.log(uploadedImageURL);
   return (
     <MKBox component="section" py={6}>
       <Container>
@@ -132,15 +106,8 @@ const UploadPicModal = ({ show, setShow, toggleModal }) => {
               ) : (
                 <MKBox p={2}>
                   <form onSubmit={handleSubmit}>
-                    {/* <div>
                     <input type="file" onChange={(e) => handleFileUpload(e)} />
-                  </div> */}
-                    <input type="file" onChange={(e) => handleFileUpload(e)} />
-                    <CloseIcon
-                      fontSize="medium"
-                      sx={{ cursor: "pointer" }}
-                      // onClick={() => setSelectedFile("")}
-                    />
+                    <CloseIcon fontSize="medium" sx={{ cursor: "pointer" }} />
                     <Divider sx={{ my: 0 }} />
                     <MKBox
                       display="flex"
