@@ -119,7 +119,7 @@ const Header = () => {
                 Search Dogs
               </MKTypography>
             </Link>
-            <Link to="/user/adddog">
+            <Link to="/owner/ownerdogs">
               <MKTypography
                 p={1}
                 fontWeight="regular"

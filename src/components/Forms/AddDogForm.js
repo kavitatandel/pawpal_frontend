@@ -138,7 +138,7 @@ const AddDogForm = () => {
         uploadData.append("can_play_fetch", dogCanPlay)
 
         await addDog(uploadData).then((res) => {
-            navigate('/user')
+            navigate('/owner/ownerdogs')
         })
             .catch((err) => console.log(err));
     }

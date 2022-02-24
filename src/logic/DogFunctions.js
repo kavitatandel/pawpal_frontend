@@ -38,3 +38,11 @@ export const addDog = (uploadData) => {
         .then((res) => console.log("Dog is added."))
         .catch((err) => console.log(err));
 };
+
+//add dog
+export const dogsByOwner = (user_id) => {
+    return axios
+        .get("http://localhost:5000/dogsbyowner")
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
+};
