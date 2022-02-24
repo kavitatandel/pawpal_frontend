@@ -119,6 +119,20 @@ const Header = () => {
                 Search Dogs
               </MKTypography>
             </Link>
+            <Link to="/user/adddog">
+              <MKTypography
+                p={1}
+                fontWeight="regular"
+                style={{
+                  fontSize: "1.1rem",
+                  paddingRight: "2rem",
+                  paddingLeft: "2rem",
+                  color: pathname === "/something" ? "dark" : "white",
+                }}
+              >
+                My Dogs
+              </MKTypography>
+            </Link>
             {/* <Link to="/" onClick={() => setUser({})}> */}
             <Link to="/" onClick={handleLagOut}>
               {/* <MKButton onClick={() => setUser({})}> */}
