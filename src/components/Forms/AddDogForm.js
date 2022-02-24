@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 import MKBox from "components/MKBox";
-//import MKAvatar from "components/MKAvatar";
+import MKAvatar from "components/MKAvatar";
 import MKTypography from "../MKTypography";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
@@ -20,7 +20,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { addDog } from "../../logic/DogFunctions";
 import { useNavigate } from "react-router";
-
+import UploadDogPicModal from "../Modals/UploadDogPicModal";
 
 const AddDogForm = () => {
     const [user, setUser] = useContext(UserContext);
@@ -38,6 +38,11 @@ const AddDogForm = () => {
     const [dogCanStayHome, setDogCanStayHome] = useState(3);
     const [dogExercise, setDogExercise] = useState(3);
     const [dogDescription, setDogDescription] = useState('');
+
+    //for dog pic modal
+    const [show, setShow] = useState(false);
+    const toggleModal = () => setShow(!show);
+    const [dogPic, setDogPic] = useState(null);
 
     const navigate = useNavigate();
 
@@ -80,33 +85,59 @@ const AddDogForm = () => {
         setDogExercise(newValue);
     };
 
+    useEffect(() => {
+        console.log(dogPic);
+    }, [dogPic])
+
     //add dog
     const addNewDog = async (e) => {
         e.preventDefault();
 
-        const newDog = {
-            user_id: user._id,
-            name: dogName,
-            breed: dogBreed,
-            age_years: dogAgeYears,
-            age_months: dogAgeMonths,
-            size: dogSize,
-            description: dogDescription,
-            energy: dogEnergy,
-            kid_friendly: dogKidFriendly,
-            cat_friendly: dogCatFriendly,
-            dog_friendly: dogFriendly,
-            obedience: dogObedience,
-            can_stay_home: dogCanStayHome,
-            exercise_type: dogExercise,
-            can_play_fetch: dogCanPlay,
-            // photo_gallery: req.body.photo_gallery,
-            // pd_counter: req.body.pd_counter
-        }
+        ///*************commented to check for uploaded image */
+        // const newDog = {
+        //     user_id: user._id,
+        //     name: dogName,
+        //     breed: dogBreed,
+        //     age_years: dogAgeYears,
+        //     age_months: dogAgeMonths,
+        //     size: dogSize,
+        //     description: dogDescription,
+        //     energy: dogEnergy,
+        //     kid_friendly: dogKidFriendly,
+        //     cat_friendly: dogCatFriendly,
+        //     dog_friendly: dogFriendly,
+        //     obedience: dogObedience,
+        //     can_stay_home: dogCanStayHome,
+        //     exercise_type: dogExercise,
+        //     can_play_fetch: dogCanPlay,
+        //     profile_photo: dogPic,         
+        // }  
+        // await addDog(newDog).then((res) => {
+        //     navigate('/user')
+        // })
+        //     .catch((err) => console.log(err));
+        ///*************commented to check for uploaded image */
 
-        //console.log(newDog);
+        const uploadData = new FormData();
 
-        await addDog(newDog).then((res) => {
+        uploadData.append("file", dogPic, "file");
+        uploadData.append("user_id", user._id);
+        uploadData.append("name", dogName);
+        uploadData.append("breed", dogBreed)
+        uploadData.append("age_years", dogAgeYears)
+        uploadData.append("age_months", dogAgeMonths)
+        uploadData.append("size", dogSize)
+        uploadData.append("description", dogDescription)
+        uploadData.append("energy", dogEnergy)
+        uploadData.append("kid_friendly", dogKidFriendly)
+        uploadData.append("cat_friendly", dogCatFriendly)
+        uploadData.append("dog_friendly", dogFriendly)
+        uploadData.append("obedience", dogObedience)
+        uploadData.append("can_stay_home", dogCanStayHome)
+        uploadData.append("exercise_type", dogExercise)
+        uploadData.append("can_play_fetch", dogCanPlay)
+
+        await addDog(uploadData).then((res) => {
             navigate('/user')
         })
             .catch((err) => console.log(err));
@@ -185,6 +216,40 @@ const AddDogForm = () => {
                             boxShadow: ({ boxShadows: { xxl } }) => xxl,
                         }}
                     >
+                        <UploadDogPicModal
+                            show={show}
+                            setShow={setShow}
+                            toggleModal={toggleModal}
+                            dogPic={dogPic}
+                            setDogPic={setDogPic}
+                        />
+                        {/* Container for Profile Pic */}
+                        <MKBox
+                            zindex={2}
+                            mx={4}
+                            mt={-15}
+                            mb={4}
+                            pt={5}
+                            display="flex"
+                            justifyContent="center"
+                            alignItems="flex-end"
+                        //   style={{ border: "3px solid blue" }}
+                        >
+                            <MKAvatar
+                                top={-50}
+                                zindex={2}
+                                src=''
+                                shadow="xl"
+                                sx={{ width: "10rem", height: "10rem" }}
+                                style={{ border: "3px solid white", backgroundColor: "grey" }}
+                            />
+                            <MKButton
+                                onClick={toggleModal}
+                                style={{ width: "3rem", height: "2rem" }}
+                            >
+                                ADD
+                            </MKButton>
+                        </MKBox>
                         <Container>
                             {/* ************************** Dog Details */}
                             <MKBox pt={1} pb={3} px={3}>
