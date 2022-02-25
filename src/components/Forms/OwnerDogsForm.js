@@ -136,7 +136,7 @@ const OwnerDogsForm = () => {
                                         width: "8rem",
                                         minWidth: "180px",
                                     }}
-                                    // onClick={navigate('/owner/adddog')}
+                                    //onClick={navigate('/owner/adddog')}
                                     onClick={handleChangeAdd}
                                 >
                                     Add Dogs
@@ -166,7 +166,7 @@ const OwnerDogsForm = () => {
                                 }}
                                 minheight="80vh">
                                 {/* map thru searched dogs */}
-                                {dogs.length > 0 && dogs.map((dog, index) => {
+                                {dogs !== undefined && dogs.map((dog, index) => {
                                     return (
                                         <Card flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
                                             <div

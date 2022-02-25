@@ -26,17 +26,17 @@ const AddDogForm = () => {
     const [user, setUser] = useContext(UserContext);
     const [dogName, setDogName] = useState('');
     const [dogBreed, setDogBreed] = useState('');
-    const [dogAgeYears, setDogAgeYears] = useState(0);
-    const [dogAgeMonths, setDogAgeMonths] = useState(0);
+    const [dogAgeYears, setDogAgeYears] = useState(null);
+    const [dogAgeMonths, setDogAgeMonths] = useState(null);
     const [dogSize, setDogSize] = useState('small');
     const [dogEnergy, setDogEnergy] = useState('low');
     const [dogCanPlay, setDogCanPlay] = useState(true);
-    const [dogKidFriendly, setDogKidFriendly] = useState(3);
-    const [dogCatFriendly, setDogCatFriendly] = useState(3);
-    const [dogFriendly, setDogFriendly] = useState(3);
-    const [dogObedience, setDogObedience] = useState(3);
-    const [dogCanStayHome, setDogCanStayHome] = useState(3);
-    const [dogExercise, setDogExercise] = useState(3);
+    const [dogKidFriendly, setDogKidFriendly] = useState(0);
+    const [dogCatFriendly, setDogCatFriendly] = useState(0);
+    const [dogFriendly, setDogFriendly] = useState(0);
+    const [dogObedience, setDogObedience] = useState(0);
+    const [dogCanStayHome, setDogCanStayHome] = useState(0);
+    const [dogExercise, setDogExercise] = useState(0);
     const [dogDescription, setDogDescription] = useState('');
 
     //for dog pic modal
@@ -119,8 +119,12 @@ const AddDogForm = () => {
         ///*************commented to check for uploaded image */
 
         const uploadData = new FormData();
-
-        uploadData.append("file", dogPic, "file");
+        //console.log(dogPic)
+        if (dogPic !== null) {
+            uploadData.append("file", dogPic, "file");
+            // console.log("after appending ")
+        }
+        //uploadData.append("file", dogPic, "file");
         uploadData.append("user_id", user._id);
         uploadData.append("name", dogName);
         uploadData.append("breed", dogBreed)
@@ -274,12 +278,14 @@ const AddDogForm = () => {
                                             //     setDog({ ...dog, dogname: e.target.value })
                                             // }
                                             onChange={(e) => setDogName(e.target.value)}
-                                            style={{ width: "48%" }}
+                                            style={{ width: "38%" }}
+                                            autofocus
+                                            tabIndex={1}
                                         />
 
                                         <MKInput
                                             fullWidth
-                                            style={{ width: "48%" }}
+                                            style={{ width: "38%" }}
                                             label="Breed"
                                             type="text"
                                             name="breed"
@@ -290,10 +296,42 @@ const AddDogForm = () => {
                                             //     setDog({ ...dog, breed: e.target.value })
                                             // }
                                             onChange={(e) => setDogBreed(e.target.value)}
+                                            tabIndex={2}
                                         />
+                                        <MKInput
+                                            fullWidth
+                                            label="Age Years"
+                                            name="age_years"
+                                            placeholder="Enter age in years"
+                                            type="number"
+                                            value={dogAgeYears}
+                                            // onChange={(e) =>
+                                            //     setDog({ ...dog, age_years: e.target.value })
+                                            // }
+                                            onChange={(e) => setDogAgeYears(e.target.value)}
+                                            style={{ width: "10%" }}
+                                            InputProps={{ inputProps: { min: 0, max: 30 } }}
+                                            tabIndex={3}
+                                        />
+                                        <MKInput
+                                            fullWidth
+                                            label="Age Months"
+                                            name="age_months"
+                                            placeholder="Enter age in months"
+                                            type="number"
+                                            value={dogAgeMonths}
+                                            // onChange={(e) =>
+                                            //     setDog({ ...dog, age_months: e.target.value })
+                                            // }
+                                            onChange={(e) => setDogAgeMonths(e.target.value)}
+                                            style={{ width: "10%" }}
+                                            InputProps={{ inputProps: { min: 0, max: 11 } }}
+                                            tabIndex={4}
+                                        />
+
                                     </MKBox>
                                     <MKBox mb={2} display="flex" justifyContent="space-between">
-                                        <MKInput
+                                        {/* <MKInput
                                             fullWidth
                                             label="Age Years"
                                             name="age_years"
@@ -318,9 +356,9 @@ const AddDogForm = () => {
                                             // }
                                             onChange={(e) => setDogAgeMonths(e.target.value)}
                                             style={{ width: "30%" }}
-                                        />
+                                        /> */}
 
-                                        <FormControl>
+                                        {/* <FormControl>
                                             <FormLabel
                                                 style={{ fontSize: "0.70em", color: "Gray" }}
                                                 size="small"
@@ -367,9 +405,61 @@ const AddDogForm = () => {
                                                     label="Large"
                                                 />
                                             </RadioGroup>
-                                        </FormControl>
+                                        </FormControl> */}
                                     </MKBox>
-                                    <MKBox mb={2} display="flex" justifyContent="flex-start">
+                                    <MKBox mb={2} display="flex" justifyContent="space-between">
+                                        <FormControl>
+                                            <FormLabel
+                                                style={{ fontSize: "0.70em", color: "Gray" }}
+                                                size="small"
+                                            >
+                                                Size
+                                            </FormLabel>
+                                            <RadioGroup
+                                                name="controlled-radio-buttons-group"
+                                                //value={user.user_type}
+                                                value={dogSize}
+                                                onChange={handleChangeSize}
+                                                size="small"
+                                                row
+
+                                            >
+                                                <FormControlLabel
+                                                    value="small"
+                                                    control={
+                                                        <Radio
+                                                            size="small"
+                                                            style={{ fontSize: "0.70em" }}
+                                                        />
+                                                    }
+                                                    label="Small"
+
+                                                />
+                                                <FormControlLabel
+                                                    value="medium"
+                                                    control={
+                                                        <Radio
+                                                            size="small"
+                                                            style={{ fontSize: "0.70em" }}
+                                                            tabIndex={5}
+                                                        />
+                                                    }
+                                                    label="Medium"
+
+                                                />
+                                                <FormControlLabel
+                                                    value="large"
+                                                    control={
+                                                        <Radio
+                                                            size="small"
+                                                            style={{ fontSize: "0.70em" }}
+                                                        />
+                                                    }
+                                                    label="Large"
+
+                                                />
+                                            </RadioGroup>
+                                        </FormControl>
                                         <FormControl>
                                             <FormLabel
                                                 style={{ fontSize: "0.70em", color: "Gray" }}
@@ -395,6 +485,7 @@ const AddDogForm = () => {
                                                         />
                                                     }
                                                     label="low"
+
                                                 />
                                                 <FormControlLabel
                                                     value="medium"
@@ -405,6 +496,7 @@ const AddDogForm = () => {
                                                         />
                                                     }
                                                     label="Medium"
+
                                                 />
                                                 <FormControlLabel
                                                     value="high"
@@ -415,6 +507,7 @@ const AddDogForm = () => {
                                                         />
                                                     }
                                                     label="High"
+
                                                 />
                                             </RadioGroup>
                                         </FormControl>
@@ -459,31 +552,31 @@ const AddDogForm = () => {
                                     </MKBox>
                                     <MKBox mb={2} display="flex" justifyContent="space-between">
                                         <MKBox sx={{ width: 280 }}>
-                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Kid Friendly (1- 5)</MKTypography>
-                                            <Slider defaultValue={3}
+                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Kid Friendly (0 - 5)</MKTypography>
+                                            <Slider defaultValue={0}
                                                 value={dogKidFriendly}
                                                 onChange={handleChangeKidFreindly}
-                                                min={1}
+                                                min={0}
                                                 max={5}
                                                 size="medium"
                                             />
                                         </MKBox>
                                         <MKBox sx={{ width: 280 }}>
-                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Cat Friendly (1- 5)</MKTypography>
-                                            <Slider defaultValue={3}
+                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Cat Friendly (0 - 5)</MKTypography>
+                                            <Slider defaultValue={0}
                                                 value={dogCatFriendly}
                                                 onChange={handleChangeDogCatFreindly}
-                                                min={1}
+                                                min={0}
                                                 max={5}
                                                 size="medium"
                                             />
                                         </MKBox>
                                         <MKBox sx={{ width: 280 }}>
-                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Dog Friendly (1- 5)</MKTypography>
-                                            <Slider defaultValue={3}
+                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Dog Friendly (0 - 5)</MKTypography>
+                                            <Slider defaultValue={0}
                                                 value={dogFriendly}
                                                 onChange={handleChangeDogFreindly}
-                                                min={1}
+                                                min={0}
                                                 max={5}
                                                 size="medium"
                                             />
@@ -492,32 +585,32 @@ const AddDogForm = () => {
                                     <MKBox mb={2} display="flex" justifyContent="space-between">
 
                                         <MKBox sx={{ width: 280 }}>
-                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Obedience (1- 5)</MKTypography>
-                                            <Slider defaultValue={3}
+                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Obedience (0 - 5)</MKTypography>
+                                            <Slider defaultValue={0}
                                                 value={dogObedience}
                                                 onChange={handleChangeDogObedience}
-                                                min={1}
+                                                min={0}
                                                 max={5}
                                                 size="medium"
                                             />
                                         </MKBox>
 
                                         <MKBox sx={{ width: 280 }}>
-                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Can Stay Home (1- 5)</MKTypography>
-                                            <Slider defaultValue={3}
+                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Can Stay Home (0 - 5)</MKTypography>
+                                            <Slider defaultValue={0}
                                                 value={dogCanStayHome}
                                                 onChange={handleChangeDogCanStayHome}
-                                                min={1}
+                                                min={0}
                                                 max={5}
                                                 size="medium"
                                             />
                                         </MKBox>
                                         <MKBox sx={{ width: 280 }}>
-                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Can Exercise (1- 5)</MKTypography>
-                                            <Slider defaultValue={3}
+                                            <MKTypography gutterBottom style={{ fontSize: "0.70em", color: "Gray" }}>Can Exercise (0 - 5)</MKTypography>
+                                            <Slider defaultValue={0}
                                                 value={dogExercise}
                                                 onChange={handleChangeDogExercise}
-                                                min={1}
+                                                min={0}
                                                 max={5}
                                                 size="medium"
                                             />

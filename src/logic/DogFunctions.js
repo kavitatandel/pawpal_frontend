@@ -31,8 +31,8 @@ import axios from "axios";
 
 //add dog
 export const addDog = (uploadData) => {
-    console.log("inside dog function")
-    console.log(uploadData.profile_photo);
+    // console.log("inside dog function")
+    // console.log(uploadData.profile_photo);
     return axios
         .post("http://localhost:5000/adddog", uploadData)
         .then((res) => console.log("Dog is added."))
@@ -41,8 +41,11 @@ export const addDog = (uploadData) => {
 
 //add dog
 export const dogsByOwner = (user_id) => {
+    console.log("inside dogs by owner")
+    console.log(user_id);
     return axios
-        .get("http://localhost:5000/dogsbyowner")
+        //.get("http://localhost:5000/getDogsByUserId", { user_id: user_id })
+        .get(`http://localhost:5000/getDogsByUserId/${user_id}`)
         .then((res) => res.data)
         .catch((err) => console.log(err));
 };
