@@ -11,7 +11,7 @@ const DogInfo = () => {
         <>
             <Header />
             <DogInfoForm dogid={dogid} />
-            <PageContainerNoBGD />
+            {/* <PageContainerNoBGD /> */}
         </>
     )
 }
