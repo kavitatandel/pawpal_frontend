@@ -49,3 +49,13 @@ export const dogsByOwner = (user_id) => {
         .then((res) => res.data)
         .catch((err) => console.log(err));
 };
+
+
+//get dog info by id
+export const getDogInfoById = (dog_id) => {
+
+    return axios
+        .get(`http://localhost:5000/getDogInfoById/${dog_id}`)
+        .then((res) => res.data[0])
+        .catch((err) => console.log(err));
+};

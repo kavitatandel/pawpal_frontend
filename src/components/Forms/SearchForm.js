@@ -44,7 +44,7 @@ const SearchForm = () => {
         if (res.length !== 0) {
           setLoading(false);
           setLocations(res);
-          console.log(locations.length);
+          // console.log(locations.length);
           //set isSearched true
           setIsSearched(true);
         } else {

@@ -7,7 +7,7 @@ const SearchDog = () => {
     <>
       <Header />
       <SearchForm />
-      <PageContainerNoBGD />
+      {/* <PageContainerNoBGD /> */}
     </>
   );
 };
