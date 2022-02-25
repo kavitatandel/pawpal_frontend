@@ -14,16 +14,16 @@ const AppRouter = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Landing />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/user" element={<UserInfo />}></Route>
+        <Route exact path="/" element={<Landing />}></Route>
+        <Route exact path="/register" element={<Register />}></Route>
+        <Route exact path="/login" element={<Login />}></Route>
+        <Route exact path="/user" element={<UserInfo />}></Route>
         {/* <Route path="/profile" element={<Profile />}></Route> */}
         <Route exact path="/user/searchdog" element={<SearchDog />}></Route>
         {/* added to check location based on address */}
-        <Route path="/doginfo/:dogid" element={<DogInfo />}></Route>
+        <Route exact path="/doginfo/:dogid" element={<DogInfo />}></Route>
 
-        <Route path="/test" element={<MapDesignTest />}></Route>
+        <Route exact path="/test" element={<MapDesignTest />}></Route>
 
         <Route exact path="/owner/adddog" element={<AddDog />}></Route>
         <Route exact path="/owner/ownerdogs" element={<OwnerDogs />}></Route>
