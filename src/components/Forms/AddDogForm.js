@@ -444,7 +444,7 @@ const AddDogForm = () => {
                                                             tabIndex={5}
                                                         />
                                                     }
-                                                    label="Medium"
+                                                    label="Medium"  
 
                                                 />
                                                 <FormControlLabel
