@@ -18,6 +18,7 @@ import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
+import UserInfo from "pages/UserInfoKavita";
 
 const UploadPicModal = ({
   show,
@@ -25,53 +26,57 @@ const UploadPicModal = ({
   toggleModal,
   uploadedImageURL,
   setUploadedImageURL,
+  selectedFile,
+  setSelectedFile,
 }) => {
   const [user, setUser] = useContext(UserContext);
 
   //******************Upload Single File************ */
   const API_URL = "http://localhost:5000";
 
-  const [selectedFile, setSelectedFile] = useState(null);
+  // const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const handleFileUpload = (e) => {
     setSelectedFile(e.target.files[0]);
     console.log(e.target.files[0]);
+  };
+
+  // //get profile data
+  const getProfil = async () => {
     console.log(`User ID: ${user._id} , User FirstName: ${user.first_name} `);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const uploadData = new FormData();
-
+    //const uploadData = new FormData();
     uploadData.append("file", selectedFile, "file");
 
-    console.log(user._id);
-    await axios
+    axios
       .post(API_URL + `/users/${user._id}`, uploadData)
       .then((res) => {
-        // console.log("after uploading file");
-        // console.log(res.data.secure_url);
+        console.log("after uploading file");
+        console.log(res.data.secure_url);
         // console.log(res.data);
-
         setUploadedImageURL(res.data.secure_url);
-        // console.log(res.data.secure_url);
       })
-
       .then(() => {
-        if (uploadedImageURL !== "undefined") {
-          console.log(`Uploaded ${uploadedImageURL}!!`);
+        if (user.profile_pic !== uploadedImageURL) {
+          console.log(uploadedImageURL);
           setUser({ ...user, profile_pic: uploadedImageURL });
-          // setLoading(false);
         }
-        toggleModal();
       })
-
+      .then(() => toggleModal())
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {}, [show, uploadedImageURL, selectedFile]);
-  console.log(uploadedImageURL);
+  useEffect(() => {
+    getProfil();
+  }, [uploadedImageURL, selectedFile]);
+
+  console.log(user);
+
   return (
     <MKBox component="section" py={6}>
       <Container>

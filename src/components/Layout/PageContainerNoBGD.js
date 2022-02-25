@@ -14,7 +14,7 @@ const PageContainerNoBGD = () => {
         left={0}
         zIndex={-1}
         width="100%"
-        minHeight="100%"
+        height="100%"
         // sx={{
         //   backgroundImage: ({
         //     functions: { linearGradient, rgba },
@@ -29,7 +29,7 @@ const PageContainerNoBGD = () => {
         //   backgroundRepeat: "no-repeat",
         // }}
       >
-        <Header />
+        <CenteredFooter minHeight="200px" />
       </MKBox>
 
       <CenteredFooter minHeight="10vh" />

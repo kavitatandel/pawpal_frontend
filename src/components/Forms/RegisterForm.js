@@ -65,6 +65,7 @@ const RegisterForm = () => {
             zip_code: zipcode,
             latitude: lat,
             longitude: lon,
+            description: "",
           };
 
           register(newUser).then((res) => {
@@ -126,7 +127,7 @@ const RegisterForm = () => {
                   variant="h3"
                   fontWeight="regular"
                   color="white"
-                // mt={1}
+                  // mt={1}
                 >
                   REGISTER
                 </MKTypography>
@@ -157,10 +158,10 @@ const RegisterForm = () => {
                       required
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                    // value={user.first_name}
-                    // onChange={(e) =>
-                    //   setUser({ ...user, first_name: e.target.value })
-                    // }
+                      // value={user.first_name}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, first_name: e.target.value })
+                      // }
                     />
                     <MKInput
                       style={{ width: "48%" }}
@@ -357,8 +358,7 @@ const RegisterForm = () => {
                       Sign Up
                     </MKButton>
                   </MKBox>
-                  <MKBox mt={3} mb={1} textAlign="center">
-                  </MKBox>
+                  <MKBox mt={3} mb={1} textAlign="center"></MKBox>
                 </MKBox>
               </MKBox>
             </Card>

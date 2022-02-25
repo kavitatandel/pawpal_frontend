@@ -1,5 +1,4 @@
-import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import jwt_decode from "jwt-decode";
@@ -14,26 +13,38 @@ import MKAvatar from "../MKAvatar";
 import MKTypography from "../MKTypography";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
+
 // @mui material components
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import UploadPicModal from "../Modals/UploadPicModal";
+import TextField from "@mui/material/TextField";
+import axios from "axios";
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [show, setShow] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
   const toggleModal = () => setShow(!show);
   const [uploadedImageURL, setUploadedImageURL] = useState("");
+  let navigate = useNavigate();
 
   useEffect(async () => {
     await getProfile();
+    await getImage();
     console.log("get profile use effect ");
+
     console.log(user);
-  }, [uploadedImageURL]);
+  }, [uploadedImageURL, selectedFile]);
+
+  const getImage = async () => {
+    axios.get(`http://localhost:5000/users/${user._id}`).then((res) => {
+      setUser({ ...user, profile_pic: res.data.profile_pic });
+    });
+  };
 
   const getProfile = async () => {
     const token = localStorage.getItem("usertoken");
-
     const decoded = jwt_decode(token);
 
     setUser((user) => ({
@@ -49,12 +60,13 @@ const ProfileForm = () => {
       user_type: decoded.user.user_type,
       latitude: decoded.user.latitude,
       longitude: decoded.user.longitude,
-      profile_pic: uploadedImageURL,
-      description: "",
     }));
   };
 
-  // if (loading) return <h1>Loading...</h1>;
+  const onSaveHandler = () => {
+    navigate("/user/searchdog");
+  };
+
   return (
     <>
       {/* // Container between top & Footer */}
@@ -103,16 +115,16 @@ const ProfileForm = () => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
-          minHeight="auto"
+          height="auto"
           top={0}
           width="100%"
-          style={{ border: "3px solid red" }}
+          // style={{ border: "3px solid red" }}
 
           //   style={{ border: "3px solid green" }}
         >
           <Card
             // zIndex={0}
-            style={{ position: "relative", border: "3px solid green" }}
+            style={{ position: "relative" }}
             sx={{
               width: "90%",
               height: "auto",
@@ -120,7 +132,7 @@ const ProfileForm = () => {
               mt: -2,
               mx: { xs: 2, lg: 3 },
               position: "relative",
-              mb: 4,
+              mb: 24,
               backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
                 rgba(white.main, 0.8),
               backdropFilter: "saturate(200%) blur(30px)",
@@ -133,12 +145,14 @@ const ProfileForm = () => {
               toggleModal={toggleModal}
               uploadedImageURL={uploadedImageURL}
               setUploadedImageURL={setUploadedImageURL}
+              selectedFile={selectedFile}
+              setSelectedFile={setSelectedFile}
             />
             {/* Container for Profile Pic */}
             <MKBox
               zindex={2}
               mx={4}
-              mt={-15}
+              mt={-25}
               mb={4}
               pt={5}
               display="flex"
@@ -152,7 +166,7 @@ const ProfileForm = () => {
                 src={`${user.profile_pic}`}
                 alt={`${user.first_name}`}
                 shadow="xl"
-                sx={{ width: "10rem", height: "10rem" }}
+                sx={{ width: "12rem", height: "12rem" }}
                 style={{ border: "3px solid white", backgroundColor: "grey" }}
               />
               <MKButton
@@ -291,6 +305,55 @@ const ProfileForm = () => {
                         setUser({ ...user, country: e.target.value })
                       }
                     />
+                  </MKBox>
+                  <MKBox mb={2}>
+                    <TextField
+                      id="outlined-multiline-flexible"
+                      fullWidth
+                      // style={{ width: "48%" }}
+                      label="About"
+                      type="text"
+                      name="description"
+                      placeholder="Tell us about yourself..."
+                      value={user.description}
+                      onChange={(e) =>
+                        setUser({ ...user, description: e.target.value })
+                      }
+                    />
+                  </MKBox>
+                  <MKBox
+                    mt={10}
+                    justifyContent="center"
+                    display="flex"
+                    textAlign="center"
+                    width="100%"
+                  >
+                    <MKButton
+                      size="large"
+                      onClick={() => navigate("/")}
+                      variant="gradient"
+                      color="info"
+                      style={{
+                        marginRight: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
+                    >
+                      Cancel
+                    </MKButton>
+                    <MKButton
+                      size="large"
+                      onClick={onSaveHandler}
+                      variant="gradient"
+                      color="info"
+                      style={{
+                        marginLeft: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
+                    >
+                      Save
+                    </MKButton>
                   </MKBox>
                 </MKBox>
               </MKBox>

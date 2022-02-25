@@ -1,5 +1,32 @@
-body{
-    margin:0 auto;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1em;
+body {
+  margin: 0 auto;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1em;
+  min-height: 100vh;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.header {
+  height: 100px;
+  top: 0;
+}
+.footer {
+  height: 200px;
+  bottom: 0;
+  position: absolute;
+}
+
+.content {
+  height: 100%;
+  overflow-y: auto;
 }
