@@ -18,64 +18,36 @@ import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
-import UserInfo from "pages/UserInfoKavita";
 
-const UploadPicModal = ({
-  show,
-  setShow,
-  toggleModal,
-  uploadedImageURL,
-  setUploadedImageURL,
-  selectedFile,
-  setSelectedFile,
-}) => {
+const UploadDogPicModal = ({ show, setShow, toggleModal, dogPic, setDogPic }) => {
   const [user, setUser] = useContext(UserContext);
 
   //******************Upload Single File************ */
   const API_URL = "http://localhost:5000";
 
-  // const [selectedFile, setSelectedFile] = useState(null);
+  //   const [desc, setDesc] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [uploadedImageURL, setUploadedImageURL] = useState("");
 
   const handleFileUpload = (e) => {
+    //const uploadData = new FormData();
+    //uploadData.append("file", e.target.files[0], "file");
+    //cloudinaryUpload(uploadData)
     setSelectedFile(e.target.files[0]);
     console.log(e.target.files[0]);
+    //console.log(`User ID: ${user._id} , User FirstName: ${user.first_name} `);
   };
 
-  // //get profile data
-  const getProfil = async () => {
-    console.log(`User ID: ${user._id} , User FirstName: ${user.first_name} `);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const uploadData = new FormData();
-    //const uploadData = new FormData();
-    uploadData.append("file", selectedFile, "file");
-
-    axios
-      .post(API_URL + `/users/${user._id}`, uploadData)
-      .then((res) => {
-        console.log("after uploading file");
-        console.log(res.data.secure_url);
-        // console.log(res.data);
-        setUploadedImageURL(res.data.secure_url);
-      })
-      .then(() => {
-        if (user.profile_pic !== uploadedImageURL) {
-          console.log(uploadedImageURL);
-          setUser({ ...user, profile_pic: uploadedImageURL });
-        }
-      })
-      .then(() => toggleModal())
-      .catch((err) => console.log(err));
+    toggleModal();
+    setDogPic(selectedFile);
   };
+
 
   useEffect(() => {
-    getProfil();
-  }, [uploadedImageURL, selectedFile]);
-
-  console.log(user);
+  }, [show, uploadedImageURL, selectedFile]);
 
   return (
     <MKBox component="section" py={6}>
@@ -111,8 +83,15 @@ const UploadPicModal = ({
               ) : (
                 <MKBox p={2}>
                   <form onSubmit={handleSubmit}>
+                    {/* <div>
                     <input type="file" onChange={(e) => handleFileUpload(e)} />
-                    <CloseIcon fontSize="medium" sx={{ cursor: "pointer" }} />
+                  </div> */}
+                    <input type="file" onChange={(e) => handleFileUpload(e)} />
+                    <CloseIcon
+                      fontSize="medium"
+                      sx={{ cursor: "pointer" }}
+                    // onClick={() => setSelectedFile("")}
+                    />
                     <Divider sx={{ my: 0 }} />
                     <MKBox
                       display="flex"
@@ -141,4 +120,4 @@ const UploadPicModal = ({
   );
 };
 
-export default UploadPicModal;
+export default UploadDogPicModal;

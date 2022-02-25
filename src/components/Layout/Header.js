@@ -1,6 +1,6 @@
 import { useLocation, useParams, Link } from "react-router-dom";
 import { UserContext } from "context/UserContext";
-import { useContext } from 'react';
+import { useContext } from "react";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -21,14 +21,14 @@ const Header = () => {
   const handleLagOut = () => {
     setUser({});
     localStorage.removeItem("usertoken");
-  }
+  };
 
   return (
     <MKBox
       component="header"
       position="relative"
-      height="100%"
-      style={{ zIndex: 2 }}
+      // height="100px"
+      style={{ zIndex: 4, backgroundColor: "black" }}
     >
       <MKBox
         component="nav"
@@ -43,7 +43,7 @@ const Header = () => {
             zIndex: 2,
             display: "flex",
             width: "100%",
-            height: "auto",
+            // height: "auto",
             alignItems: "center",
             justifyContent: "space-between",
 
@@ -61,7 +61,7 @@ const Header = () => {
                 fontSize: "1rem",
               }}
               py={0.8125}
-              mx={12}
+              ml={10}
             >
               LOGO HERE
             </MKTypography>
@@ -78,7 +78,7 @@ const Header = () => {
           >
             <Link to="/">
               <MKTypography
-                fontSize="1.1rem"
+                fontSize="1rem"
                 fontWeight="regular"
                 p={1}
                 style={{
@@ -96,7 +96,7 @@ const Header = () => {
                 p={1}
                 fontWeight="regular"
                 style={{
-                  fontSize: "1.1rem",
+                  fontSize: "1rem",
                   paddingRight: "2rem",
                   paddingLeft: "2rem",
                   color: pathname === "/something" ? "dark" : "white",
@@ -110,7 +110,7 @@ const Header = () => {
                 p={1}
                 fontWeight="regular"
                 style={{
-                  fontSize: "1.1rem",
+                  fontSize: "1rem",
                   paddingRight: "2rem",
                   paddingLeft: "2rem",
                   color: pathname === "/something" ? "dark" : "white",
@@ -124,7 +124,7 @@ const Header = () => {
                 p={1}
                 fontWeight="regular"
                 style={{
-                  fontSize: "1.1rem",
+                  fontSize: "1rem",
                   paddingRight: "2rem",
                   paddingLeft: "2rem",
                   color: pathname === "/something" ? "dark" : "white",
@@ -137,10 +137,11 @@ const Header = () => {
             <Link to="/" onClick={handleLagOut}>
               {/* <MKButton onClick={() => setUser({})}> */}
               <MKTypography
+                mr={5}
                 p={1}
                 fontWeight="regular"
                 style={{
-                  fontSize: "1.1rem",
+                  fontSize: "1rem",
                   paddingRight: "2rem",
                   paddingLeft: "2rem",
                   color: pathname === "/something" ? "dark" : "white",

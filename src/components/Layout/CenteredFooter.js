@@ -51,19 +51,21 @@ function CenteredFooter({ company, links, socials, light }) {
   return (
     <MKBox
       component="footer"
-      py={6}
-      style={{ height: "15vh", width: "100%" }}
-      position="absolute"
+      style={{ width: "100%" }}
+      position="relative"
       bottom={0}
     >
-      <Grid container justifyContent="center">
+      <Grid
+        container
+        justifyContent="center"
+        style={{ padding: "40px 0", height: "200px" }}
+      >
         <Grid item xs={10} lg={8}>
           <Stack
             direction="row"
             flexWrap="wrap"
             justifyContent="center"
             spacing={{ xs: 2, lg: 3, xl: 6 }}
-            mb={3}
           >
             {renderLinks}
           </Stack>
