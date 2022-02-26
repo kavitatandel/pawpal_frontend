@@ -9,6 +9,7 @@ import SearchDog from "./pages/SearchDog";
 import DogInfo from "./pages/DogInfo";
 import AddDog from "./pages/AddDog";
 import OwnerDogs from "./pages/OwnerDogs";
+import SliderTest from "components/TestComponents/SliderTest";
 
 const AppRouter = () => {
   return (
@@ -27,8 +28,7 @@ const AppRouter = () => {
 
         <Route exact path="/owner/adddog" element={<AddDog />}></Route>
         <Route exact path="/owner/ownerdogs" element={<OwnerDogs />}></Route>
-        {/* <Route path="/test" element={<MapDesignTest />}></Route> */}
-
+        <Route path="/testslider" element={<SliderTest />}></Route>
       </Routes>
     </>
   );
