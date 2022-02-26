@@ -1,24 +1,3 @@
-/**
-=========================================================
-* Material Kit 2 React - v2.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-/**
- * The base colors for the Material Kit 2 React.
- * You can add new color using this file.
- * You can customized the colors for the entire Material Kit 2 React using thie file.
- */
-
 export default {
   background: {
     default: "#f0f2f5",
@@ -45,23 +24,25 @@ export default {
   },
 
   primary: {
-    main: "#e91e63",
-    focus: "#e91e63",
+    main: "#ff8282",
+    state: "#f64362",
   },
 
   secondary: {
-    main: "#7b809a",
-    focus: "#8f93a9",
+    secondary: {
+      main: "#00dbc2",
+      state: " #69ffee",
+    },
   },
 
   info: {
-    main: "#1A73E8",
-    focus: "#1662C4",
+    main: "#5c7ed8",
+    state: "#5ba3fc",
   },
 
   success: {
-    main: "#4CAF50",
-    focus: "#67bb6a",
+    main: "#1ac975",
+    focus: "#81ffc4",
   },
 
   warning: {
@@ -70,8 +51,8 @@ export default {
   },
 
   error: {
-    main: "#F44335",
-    focus: "#f65f53",
+    main: "#ff0000",
+    focus: "#ff5029",
   },
 
   light: {
@@ -80,8 +61,8 @@ export default {
   },
 
   dark: {
-    main: "#344767",
-    focus: "#2c3c58",
+    main: "#233247",
+    focus: "#506a8d",
   },
 
   grey: {
@@ -96,45 +77,58 @@ export default {
     900: "#212529",
   },
 
+  coloredShadows: {
+    primary: "#f64362",
+    secondary: "#3ad9cd",
+    info: "#5c7ed8",
+    success: "#1ac975",
+    warning: "#fb8c00",
+    error: "#f44336",
+    light: "#adb5bd",
+    dark: "#233247",
+  },
+
   gradients: {
     primary: {
-      main: "#EC407A",
-      state: "#D81B60",
+      main: "#ff8282",
+      state: "#f64362",
     },
 
     secondary: {
-      main: "#747b8a",
-      state: "#495361",
+      secondary: {
+        main: "#00dbc2",
+        state: " #69ffee",
+      },
     },
 
     info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
+      main: "#5c7ed8",
+      state: "#5ba3fc",
     },
 
     success: {
-      main: "#66BB6A",
-      state: "#43A047",
+      main: "#1ac975",
+      focus: "#81ffc4",
     },
 
     warning: {
-      main: "#FFA726",
-      state: "#FB8C00",
+      main: "#fb8c00",
+      focus: "#fc9d26",
     },
 
     error: {
-      main: "#EF5350",
-      state: "#E53935",
+      main: "#ff0000",
+      focus: "#ff5029",
     },
 
     light: {
-      main: "#EBEFF4",
-      state: "#CED4DA",
+      main: "#f0f2f5",
+      focus: "#f0f2f5",
     },
 
     dark: {
-      main: "#42424a",
-      state: "#191919",
+      main: "#233247",
+      focus: "#506a8d",
     },
   },
 
@@ -228,7 +222,7 @@ export default {
 
     error: {
       background: "#fcd3d0",
-      text: "#f61200",
+      text: "#ff0000",
     },
 
     light: {
@@ -240,17 +234,6 @@ export default {
       background: "#8097bf",
       text: "#1e2e4a",
     },
-  },
-
-  coloredShadows: {
-    primary: "#e91e62",
-    secondary: "#110e0e",
-    info: "#00bbd4",
-    success: "#4caf4f",
-    warning: "#ff9900",
-    error: "#f44336",
-    light: "#adb5bd",
-    dark: "#404040",
   },
 
   inputBorderColor: "#d2d6da",
