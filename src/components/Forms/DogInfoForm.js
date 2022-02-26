@@ -30,12 +30,18 @@ import FormLabel from "@mui/material/FormLabel";
 import { getDogInfoById } from "../../logic/DogFunctions";
 import { useNavigate, useParams } from "react-router";
 import { DogIconsGrid } from "components/Blocks/DogIconsGrid";
+import DogRequestModal from "../Modals/DogRequestModal";
 
 const DogInfoForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogInfo, setDogInfo] = useState("");
   const [dogKidFriendly, setDogKidFriendly] = useState(0);
   const [dogCatFriendly, setDogCatFriendly] = useState(0);
+  const [dogId, setDogId] = useState();
+
+  //for modal
+  const [show, setShow] = useState(false);
+  const toggleModal = () => setShow(!show);
 
   const navigate = useNavigate();
 
@@ -62,6 +68,10 @@ const DogInfoForm = () => {
   const handleChangeDogCatFreindly = (event, newValue) => {
     setDogCatFriendly(newValue);
   };
+
+  const handleClickGoBack = () => {
+    navigate('/user/searchdog')
+  }
 
   return (
     <>
@@ -116,7 +126,7 @@ const DogInfoForm = () => {
           width="100%"
           style={{ border: "3px solid red" }}
 
-          //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid green" }}
         >
           <Card
             // zIndex={0}
@@ -135,6 +145,15 @@ const DogInfoForm = () => {
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
             }}
           >
+
+            <DogRequestModal
+              show={show}
+              setShow={setShow}
+              toggleModal={toggleModal}
+              // dogLoverId={dogLoverId}
+              // setDogLoverId={setDogLoverId}
+              dogId={dogId} setDogId={setDogId}
+            />
             {/* Container for Profile Pic */}
             <MKBox
               zindex={2}
@@ -145,7 +164,7 @@ const DogInfoForm = () => {
               display="flex"
               justifyContent="center"
               alignItems="flex-end"
-              //   style={{ border: "3px solid blue" }}
+            //   style={{ border: "3px solid blue" }}
             >
               {/* dog pic */}
               <MKAvatar
@@ -176,6 +195,36 @@ const DogInfoForm = () => {
                   role="form"
                   p={6}
                 ></MKBox>
+                <MKBox width="100%" mb={2} display="flex" jistifyContent="flex-end">
+                  <MKButton
+                    onClick={toggleModal}
+                    size="small"
+                    type="submit"
+                    variant="gradient"
+                    color="info"
+                    style={{
+                      marginLeft: "1.5rem",
+                      width: "8rem",
+                      minWidth: "120px",
+                    }}
+                  >
+                    Play Date Request
+                  </MKButton>
+                  <MKButton
+                    onClick={handleClickGoBack}
+                    size="small"
+                    type="submit"
+                    variant="gradient"
+                    color="info"
+                    style={{
+                      marginLeft: "1.5rem",
+                      width: "8rem",
+                      minWidth: "120px",
+                    }}
+                  >
+                    Find More Dogs
+                  </MKButton>
+                </MKBox>
                 <MKBox mb={2} display="flex" justifyContent="space-between">
                   <MKTypography color="dark" textAlign="center">
                     Breed:
