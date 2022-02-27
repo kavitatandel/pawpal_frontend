@@ -13,33 +13,49 @@ import Box from '@mui/material/Box';
 
 import { GetPlayDateRequestsForOwner } from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
+import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
+
 
 const OwnerDogRequestsForm = () => {
     const [user, setUser] = useContext(UserContext);
-    const [dogRequests, setDogRequests] = useState([]);
+    const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
+    const [selectedDogRequest, setSelectedDogRequest] = useState([]);
     const navigate = useNavigate();
+
+    //for modal
+    const [show, setShow] = useState(false);
+    const toggleModal = () => setShow(!show);
+
 
     const { dogid } = useParams();
     // console.log(dogid);
-    console.log("DOG ID")
-    console.log(dogid);
+    //console.log("DOG ID")
+    //console.log(dogid);
 
     useEffect(() => {
         //getDogsByOwner(user._id);
-        console.log("owner dog request page - used id")
-        console.log(user._id);
+        //console.log("owner dog request page - used id")
+        //console.log(user._id);
         const owner_id = user._id;
         GetPlayDateRequestsForOwner(owner_id).then((res) => {
-            console.log(res)
-            setDogRequests(res);
+            // console.log(res)
+            setDogRequestsInfo(res);
         })
             .catch((err) => console.log(err));
 
     }, [])
 
-    // const handleChangeAdd = () => {
-    //     navigate('/owner/adddog')
-    // }
+    const handleApproveReject = (e) => {
+        e.preventDefault();
+
+        //get the clicked item id
+        const selectedRequestId = e.target.value;
+        //find selected request id data
+        const selectedRequest = dogRequestsInfo.find(dogRequest => dogRequest._id === selectedRequestId)
+        setSelectedDogRequest(selectedRequest);
+
+        toggleModal();
+    }
 
 
     return (
@@ -114,6 +130,14 @@ const OwnerDogRequestsForm = () => {
                             boxShadow: ({ boxShadows: { xxl } }) => xxl,
                         }}
                     >
+                        <DogApproveRejectModal
+                            show={show}
+                            setShow={setShow}
+                            toggleModal={toggleModal}
+                            selectedDogRequest={selectedDogRequest}
+                            setSelectedDogRequest={setSelectedDogRequest}
+                        />
+
                         <Container>
                             <MKBox>
                                 <MKTypography
@@ -165,7 +189,7 @@ const OwnerDogRequestsForm = () => {
                                 }}
                                 minheight="80vh">
                                 {/* map thru searched dogs */}
-                                {dogRequests !== undefined && dogRequests.map((request, index) => {
+                                {dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
                                     return (
                                         <Card key={index} flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
                                             <div
@@ -188,18 +212,31 @@ const OwnerDogRequestsForm = () => {
                                                         alignItems: "center"
                                                     }}
                                                 >
-                                                    <MKAvatar
-                                                        top={-50}
-                                                        zIndex={2}
-                                                        // src={`${dog.profile_photo}`}
-                                                        // alt={`${dog.name}`}
-                                                        shadow="xl"
-                                                        sx={{ width: "2.5rem", height: "2.5rem" }}
-                                                        style={{ border: "3.2px solid white", marginRight: "1rem" }}
-                                                    />
+                                                    {request.DogLovers.profile_pic !== undefined ?
+                                                        <MKAvatar
+                                                            top={-50}
+                                                            zIndex={2}
+                                                            src={`${request.DogLovers.profile_pic}`}
+                                                            alt={`${request.DogLovers.first_name}`}
+                                                            shadow="xl"
+                                                            sx={{ width: "2.5rem", height: "2.5rem" }}
+                                                            style={{ border: "3.2px solid white", marginRight: "1rem" }}
+                                                        />
+                                                        :
+                                                        <MKAvatar
+                                                            top={-50}
+                                                            zIndex={2}
+                                                            src=''
+                                                            alt={`${request.DogLovers.first_name}`}
+                                                            shadow="xl"
+                                                            sx={{ width: "2.5rem", height: "2.5rem" }}
+                                                            style={{ border: "3.2px solid white", marginRight: "1rem" }}
+                                                        />
+                                                    }
+
                                                 </div>
                                                 <div
-                                                    className="DogName"
+                                                    className="DogLoverName"
                                                     style={{
                                                         display: "flex",
                                                         alignItems: "center",
@@ -213,12 +250,11 @@ const OwnerDogRequestsForm = () => {
                                                         fontWeight="medium"
                                                         style={{ fontSize: "0.90rem" }}
                                                     >
-                                                        lucky
-                                                        {/* {dog.name} */}
+                                                        {request.DogLovers.first_name} {request.DogLovers.last_name}
                                                     </MKTypography>
                                                 </div>
                                                 <div
-                                                    className="DogType"
+                                                    className="StartDate"
                                                     style={{
                                                         fontSize: "0.8rem",
                                                         width: "20%",
@@ -229,12 +265,12 @@ const OwnerDogRequestsForm = () => {
                                                     }}
                                                 >
                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {/* {dog.breed} */}
-                                                        poodler
+                                                        {new Date(request.start_date).toLocaleDateString()}
+
                                                     </MKTypography>
                                                 </div>
                                                 <div
-                                                    className="Age"
+                                                    className="StartTime"
                                                     style={{
                                                         //   border: "2px solid red",
                                                         width: "20%",
@@ -246,12 +282,12 @@ const OwnerDogRequestsForm = () => {
                                                 >
 
                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {/* {dog.size} */}
-                                                        small
+                                                        {request.start_time}
+
                                                     </MKTypography>
                                                 </div>
                                                 <div
-                                                    className="Age"
+                                                    className="EndTime"
                                                     style={{
                                                         //   border: "2px solid red",
                                                         width: "20%",
@@ -262,13 +298,13 @@ const OwnerDogRequestsForm = () => {
                                                     }}
                                                 >
                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {/* {dog.age_years} yrs {dog.age_months} mon. */}
+                                                        {request.end_time}
                                                     </MKTypography>
                                                 </div>
                                                 <div
                                                     className="ButtonContainer"
                                                     style={{
-                                                        width: "20%",
+
                                                         display: "flex",
                                                         alignItems: "center",
                                                         justifyContent: "flex-end ",
@@ -283,10 +319,12 @@ const OwnerDogRequestsForm = () => {
                                                         variant="gradient"
                                                         color="info"
                                                         style={{
-                                                            minWidth: "1rem",
+                                                            // minWidth: "1rem",
+                                                            width: "50rem"
                                                         }}
-                                                        onClick={() => navigate(`/owner/ownerdogrequests/${dogid}`)}>
-                                                        Approve
+                                                        value={request._id}
+                                                        onClick={handleApproveReject}>
+                                                        Approve / Reject
                                                     </MKButton>
                                                 </div>
                                                 <div
