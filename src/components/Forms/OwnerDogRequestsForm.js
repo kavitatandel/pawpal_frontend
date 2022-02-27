@@ -11,36 +11,35 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import Box from '@mui/material/Box';
 
-import { dogsByOwner } from "../../logic/DogFunctions";
-import { useNavigate } from "react-router";
+import { GetPlayDateRequestsForOwner } from "../../logic/PlayDateFunctions";
+import { useNavigate, useParams } from "react-router";
 
-const OwnerDogsForm = () => {
+const OwnerDogRequestsForm = () => {
     const [user, setUser] = useContext(UserContext);
-    const [dogs, setDogs] = useState([]);
+    const [dogRequests, setDogRequests] = useState([]);
     const navigate = useNavigate();
 
-    // const getDogsByOwner = (user_id) => {
-    //     dogsByOwner(user_id).then((res) => {
-    //         console.log(res)
-    //         setDogs(res);
-    //     })
-    //         .catch((err) => console.log(err));
-    // }
+    const { dogid } = useParams();
+    // console.log(dogid);
+    console.log("DOG ID")
+    console.log(dogid);
 
     useEffect(() => {
         //getDogsByOwner(user._id);
-
-        dogsByOwner(user._id).then((res) => {
+        console.log("owner dog request page - used id")
+        console.log(user._id);
+        const owner_id = user._id;
+        GetPlayDateRequestsForOwner(owner_id).then((res) => {
             console.log(res)
-            setDogs(res);
+            setDogRequests(res);
         })
             .catch((err) => console.log(err));
 
     }, [])
 
-    const handleChangeAdd = () => {
-        navigate('/owner/adddog')
-    }
+    // const handleChangeAdd = () => {
+    //     navigate('/owner/adddog')
+    // }
 
 
     return (
@@ -123,11 +122,11 @@ const OwnerDogsForm = () => {
                                     color="dark"
                                     textAlign="center"
                                 >
-                                    My Dogs
+                                    My Dogs Requests
                                 </MKTypography>
                             </MKBox>
-                            <MKBox mb={2} mt={2} display="flex" justifyContent="flex-end">
-                                <MKButton
+                            {/* <MKBox mb={2} mt={2} display="flex" justifyContent="flex-end"> */}
+                            {/* <MKButton
                                     size="large"
                                     variant="gradient"
                                     color="info"
@@ -142,7 +141,7 @@ const OwnerDogsForm = () => {
                                     Add Dogs
                                 </MKButton>
 
-                            </MKBox>
+                            </MKBox> */}
 
                             {/* ************************** Dog Details */}
                             <MKBox px={0}
@@ -166,9 +165,9 @@ const OwnerDogsForm = () => {
                                 }}
                                 minheight="80vh">
                                 {/* map thru searched dogs */}
-                                {dogs !== undefined && dogs.map((dog, index) => {
+                                {dogRequests !== undefined && dogRequests.map((request, index) => {
                                     return (
-                                        <Card flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
+                                        <Card key={index} flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
                                             <div
                                                 className="mainContainer"
                                                 style={{
@@ -192,8 +191,8 @@ const OwnerDogsForm = () => {
                                                     <MKAvatar
                                                         top={-50}
                                                         zIndex={2}
-                                                        src={`${dog.profile_photo}`}
-                                                        alt={`${dog.name}`}
+                                                        // src={`${dog.profile_photo}`}
+                                                        // alt={`${dog.name}`}
                                                         shadow="xl"
                                                         sx={{ width: "2.5rem", height: "2.5rem" }}
                                                         style={{ border: "3.2px solid white", marginRight: "1rem" }}
@@ -214,7 +213,8 @@ const OwnerDogsForm = () => {
                                                         fontWeight="medium"
                                                         style={{ fontSize: "0.90rem" }}
                                                     >
-                                                        {dog.name}
+                                                        lucky
+                                                        {/* {dog.name} */}
                                                     </MKTypography>
                                                 </div>
                                                 <div
@@ -229,7 +229,8 @@ const OwnerDogsForm = () => {
                                                     }}
                                                 >
                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {dog.breed}
+                                                        {/* {dog.breed} */}
+                                                        poodler
                                                     </MKTypography>
                                                 </div>
                                                 <div
@@ -243,11 +244,10 @@ const OwnerDogsForm = () => {
                                                         width: "25%",
                                                     }}
                                                 >
-                                                    {/* <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                    {dog.dogs_info.age_years} yrs {dog.dogs_info.age_months} mon.
-                                </MKTypography> */}
+
                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {dog.size}
+                                                        {/* {dog.size} */}
+                                                        small
                                                     </MKTypography>
                                                 </div>
                                                 <div
@@ -262,7 +262,7 @@ const OwnerDogsForm = () => {
                                                     }}
                                                 >
                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {dog.age_years} yrs {dog.age_months} mon.
+                                                        {/* {dog.age_years} yrs {dog.age_months} mon. */}
                                                     </MKTypography>
                                                 </div>
                                                 <div
@@ -285,8 +285,8 @@ const OwnerDogsForm = () => {
                                                         style={{
                                                             minWidth: "1rem",
                                                         }}
-                                                        onClick={() => navigate(`/owner/ownerdogrequests/${dog._id}`)}>
-                                                        Requests
+                                                        onClick={() => navigate(`/owner/ownerdogrequests/${dogid}`)}>
+                                                        Approve
                                                     </MKButton>
                                                 </div>
                                                 <div
@@ -310,7 +310,7 @@ const OwnerDogsForm = () => {
                                                             minWidth: "1rem",
                                                         }}
                                                     >
-                                                        Edit
+                                                        Reject
                                                     </MKButton>
                                                 </div>
                                             </div>
@@ -327,4 +327,4 @@ const OwnerDogsForm = () => {
     );
 };
 
-export default OwnerDogsForm;
+export default OwnerDogRequestsForm;
