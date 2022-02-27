@@ -46,10 +46,14 @@ const DogInfoForm = () => {
   const navigate = useNavigate();
 
   const { dogid } = useParams();
+  // console.log(dogid);
+  console.log("DOG ID")
   console.log(dogid);
 
   useEffect(async () => {
     console.log(user);
+    console.log("inside use effect of dog info")
+    console.log(dogid);
     await getDogInfoById(dogid)
       .then((res) => {
         console.log(res);
@@ -57,6 +61,8 @@ const DogInfoForm = () => {
         setDogKidFriendly(res.kid_friendly);
         console.log("Kid Friendly");
         console.log(res.kid_friendly);
+        setDogId(res._id);
+        console.log(res._id);
       })
       .catch((err) => console.log(err));
   }, []);
