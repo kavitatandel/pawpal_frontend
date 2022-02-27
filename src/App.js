@@ -11,6 +11,7 @@ function App() {
       <UserContextProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+
           <AppRouter />
         </ThemeProvider>
       </UserContextProvider>

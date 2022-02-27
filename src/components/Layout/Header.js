@@ -27,7 +27,6 @@ const Header = () => {
     <MKBox
       component="header"
       position="relative"
-      // height="100px"
       style={{ zIndex: 4, backgroundColor: "black" }}
     >
       <MKBox

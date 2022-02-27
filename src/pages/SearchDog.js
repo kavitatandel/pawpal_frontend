@@ -1,13 +1,16 @@
 import Header from "components/Layout/Header";
-import PageContainerNoBGD from "components/Layout/PageContainerNoBGD";
+import Body from "components/Custom/CustomContainers";
+import CenteredFooter from "components/Layout/CenteredFooter";
 import SearchForm from "components/Forms/SearchForm";
 
 const SearchDog = () => {
   return (
     <>
       <Header />
-      <SearchForm />
-      {/* <PageContainerNoBGD /> */}
+      <Body>
+        <SearchForm />
+      </Body>
+      <CenteredFooter />
     </>
   );
 };

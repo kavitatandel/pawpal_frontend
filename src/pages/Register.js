@@ -5,9 +5,7 @@ import PageContainer from "components/Layout/PageContainer";
 const Register = () => {
   return (
     <>
-      <Header />
       <RegisterForm />
-      <PageContainer />
     </>
   );
 };

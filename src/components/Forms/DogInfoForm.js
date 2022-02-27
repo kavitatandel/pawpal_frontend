@@ -9,6 +9,7 @@ import MKButton from "../MKButton";
 // @mui material componentsF
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
+import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import Rating from "@mui/material/Rating";
@@ -86,7 +87,9 @@ const DogInfoForm = () => {
         <MKBox
           // style={{ border: "10px solid green" }}
 
-          minHeight="20vh"
+          minHeight="300px"
+          maxHeight="600px"
+          top={0}
           width="100%"
           //   style={{ border: "3px solid green" }}
           sx={{
@@ -107,25 +110,23 @@ const DogInfoForm = () => {
 
         {/* Container for body area below featured img */}
         <MKBox
+          pb={12}
+          mt={5}
           display="flex"
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
           minHeight="auto"
-          top={0}
           width="100%"
-          style={{ border: "3px solid red" }}
-
-          //   style={{ border: "3px solid green" }}
         >
-          <Card
-            // zIndex={0}
-            style={{ position: "relative", border: "3px solid green" }}
+          <Paper
+            elevation={24}
+            style={{ position: "relative", borderRadius: "2rem" }}
             sx={{
-              width: "90%",
+              width: "80%",
               height: "auto",
-              p: 2,
-              mt: -2,
+
+              mt: -4,
               mx: { xs: 2, lg: 3 },
               position: "relative",
               mb: 4,
@@ -135,107 +136,139 @@ const DogInfoForm = () => {
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
             }}
           >
-            {/* Container for Profile Pic */}
             <MKBox
-              zindex={2}
-              mx={4}
-              mt={-15}
-              mb={4}
-              pt={5}
-              display="flex"
-              justifyContent="center"
-              alignItems="flex-end"
-              //   style={{ border: "3px solid blue" }}
+              color="white"
+              bgColor="error"
+              variant="gradient"
+              borderRadius="lg"
+              shadow="lg"
+              opacity={1}
+              m={0}
+              style={{
+                height: "30rem",
+                borderRadius: "5% 5% 40% 90%",
+                background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
+              }}
             >
-              {/* dog pic */}
-              <MKAvatar
-                top={-50}
+              {/* Container for Profile Pic */}
+              <MKBox
                 zindex={2}
-                src={`${dogInfo.profile_photo}`}
-                alt={`${dogInfo.name}`}
-                shadow="xl"
-                sx={{ width: "10rem", height: "10rem" }}
-                style={{ border: "3px solid white", backgroundColor: "grey" }}
-              />
-            </MKBox>
-            <Container>
-              <MKTypography
-                variant="h3"
-                fontWeight="medium"
-                color="dark"
-                textAlign="center"
+                mx={4}
+                mt={-8}
+                mb={4}
+                pt={5}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                //   style={{ border: "3px solid blue" }}
               >
-                {`${dogInfo.name}`}
-              </MKTypography>
-              {/* ************************** Dog Details */}
-              <MKBox pt={1} pb={3} px={3}>
-                <MKBox
-                  component="form"
-                  method="post"
-                  autocomplete="off"
-                  role="form"
-                  p={6}
-                ></MKBox>
-                <MKBox mb={2} display="flex" justifyContent="space-between">
-                  <MKTypography color="dark" textAlign="center">
-                    Breed:
-                  </MKTypography>
-                  <MKTypography
-                    fontWeight="regular"
-                    color="dark"
-                    textAlign="center"
-                  >
-                    {`${dogInfo.breed}`}
-                  </MKTypography>
-                  <MKTypography
-                    fontWeight="regular"
-                    color="dark"
-                    textAlign="center"
-                  >
-                    Age:
-                  </MKTypography>
-                  <MKTypography
-                    fontWeight="regular"
-                    color="dark"
-                    textAlign="center"
-                  >
-                    {`${dogInfo.age_years}`} yrs. {`${dogInfo.age_months}`}{" "}
-                    months
-                  </MKTypography>
-                  {/* <MKTypography
-                    fontWeight="regular"
-                    color="dark"
-                    textAlign="center"
-                  >
-                    Size:
-                  </MKTypography>
-                  <MKTypography
-                    fontWeight="regular"
-                    color="dark"
-                    textAlign="center"
-                  >
-                    {`${dogInfo.size}`}
-                  </MKTypography>
-                  <MKTypography
-                    fontWeight="regular"
-                    color="dark"
-                    textAlign="center"
-                  >
-                    Energy:
-                  </MKTypography>
-                  <MKTypography
-                    fontWeight="regular"
-                    color="dark"
-                    textAlign="center"
-                  >
-                    {`${dogInfo.energy}`}
-                  </MKTypography> */}
-                </MKBox>
-
-                <DogIconsGrid dogInfo={dogInfo} />
+                {/* dog pic */}
+                <MKAvatar
+                  zindex={2}
+                  src={`${dogInfo.profile_photo}`}
+                  alt={`${dogInfo.name}`}
+                  shadow="xl"
+                  sx={{ width: "10rem", height: "10rem" }}
+                  style={{
+                    border: "3px solid white",
+                    backgroundColor: "white",
+                    marginTop: "-6rem",
+                  }}
+                />
+                <MKTypography
+                  pt={2}
+                  variant="h1"
+                  fontWeight="medium"
+                  color="light"
+                  textAlign="center"
+                >
+                  {`${dogInfo.name}`}
+                </MKTypography>
               </MKBox>
-            </Container>
-          </Card>
+              {/* Breed & Age Container */}
+              <Grid container spacing={2} style={{ padding: "0 5rem" }}>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  display="flex"
+                  justifyContent="flex-end"
+                >
+                  <MKBox
+                    variant="outlined"
+                    color="white"
+                    style={{
+                      width: "15rem",
+                      borderRadius: "1rem",
+                      padding: "1rem",
+                      backgroundColor: "rgba(255, 171, 149, 0.5)",
+                      minimumWidth: "100px",
+                    }}
+                  >
+                    <MKTypography
+                      variant="h6"
+                      fontWeight="medium"
+                      color="light"
+                      textAlign="left"
+                    >
+                      BREED
+                    </MKTypography>
+
+                    <MKTypography
+                      variant="h4"
+                      fontWeight="medium"
+                      color="light"
+                      textAlign="left"
+                    >
+                      {`${dogInfo.breed}`}
+                    </MKTypography>
+                  </MKBox>
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  display="flex"
+                  justifyContent="flex-start"
+                >
+                  <MKBox
+                    variant="outlined"
+                    color="white"
+                    style={{
+                      width: "15rem",
+                      borderRadius: "1rem",
+                      padding: "1rem",
+                      backgroundColor: "rgba(255, 171, 149, 0.5)",
+                      minimumWidth: "100px",
+                    }}
+                  >
+                    <MKTypography
+                      variant="h6"
+                      fontWeight="medium"
+                      color="light"
+                      textAlign="left"
+                    >
+                      AGE
+                    </MKTypography>
+
+                    <MKTypography
+                      variant="h4"
+                      fontWeight="medium"
+                      color="light"
+                      textAlign="left"
+                    >
+                      {`${dogInfo.age_years}`}y {`${dogInfo.age_months}`}m
+                    </MKTypography>
+                  </MKBox>
+                </Grid>
+              </Grid>
+            </MKBox>
+
+            {/* ************************** Dog Details */}
+
+            <DogIconsGrid dogInfo={dogInfo} />
+          </Paper>
         </MKBox>
       </MKBox>
     </>

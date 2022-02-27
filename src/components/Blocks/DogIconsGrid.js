@@ -71,7 +71,16 @@ export const DogIconsGrid = ({ dogInfo }) => {
 
   return (
     <div>
-      <Grid container spacing={2} style={{ border: "2px solid blue" }}>
+      <Grid
+        container
+        spacing={2}
+        mt={3}
+        mb={6}
+        mx={0}
+        style={{ padding: "2rem" }}
+        display="flex"
+        justifyContent="center"
+      >
         <Grid
           item
           xs={12}
@@ -79,15 +88,16 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="left">
+          <Typography component="legend" variant="h6" textAlign="center">
             Can play fetch
           </Typography>
           <div
             style={{
               display: "flex",
-              justifyContent: "flex-start",
+              justifyContent: "center",
               height: "3rem",
               paddingTop: "1rem",
             }}
@@ -139,16 +149,19 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="left">
+          <Typography component="legend" variant="h6" textAlign="center">
             Size
           </Typography>
           <div
             style={{
               display: "flex",
-              justifyContent: "flex-start",
+              justifyContent: "center",
               alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
             }}
           >
             <StyledRating
@@ -157,9 +170,9 @@ export const DogIconsGrid = ({ dogInfo }) => {
               defaultValue={dogInfo.size === "small" ? 1 : 0}
               precision={1}
               max={1}
-              icon={<FaDog fontSize="1rem" style={{ marginRight: "0.2rem" }} />}
+              icon={<FaDog fontSize="1rem" style={{ marginRight: "0.5rem" }} />}
               emptyIcon={
-                <FaDog fontSize="inherit" style={{ marginRight: "0.2rem" }} />
+                <FaDog fontSize="inherit" style={{ marginRight: "0.5rem" }} />
               }
             />
             <StyledRating
@@ -168,9 +181,9 @@ export const DogIconsGrid = ({ dogInfo }) => {
               defaultValue={dogInfo.size === "medium" ? 1 : 0}
               precision={1}
               max={1}
-              icon={<FaDog fontSize="2rem" style={{ marginRight: "0.2rem" }} />}
+              icon={<FaDog fontSize="2rem" style={{ marginRight: "0.5rem" }} />}
               emptyIcon={
-                <FaDog fontSize="2rem" style={{ marginRight: "0.2rem" }} />
+                <FaDog fontSize="2rem" style={{ marginRight: "0.5rem" }} />
               }
             />
             <StyledRating
@@ -179,15 +192,9 @@ export const DogIconsGrid = ({ dogInfo }) => {
               defaultValue={dogInfo.size === "large" ? 1 : 0}
               precision={1}
               max={1}
-              icon={
-                <FaDog fontSize="3rem" style={{ marginRight: "0.2rem" }} />
-                // <PetsIcon
-                //   fontSize="inherit"
-                //   style={{ marginRight: "0.2rem" }}
-                // />
-              }
+              icon={<FaDog fontSize="3rem" style={{ marginRight: "0.5rem" }} />}
               emptyIcon={
-                <FaDog fontSize="2.5rem" style={{ marginRight: "0.2rem" }} />
+                <FaDog fontSize="2.5rem" style={{ marginRight: "0.5rem" }} />
               }
             />
           </div>
@@ -200,47 +207,52 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography
-            component="legend"
-            variant="h6"
-            textAlign="center"
-            style={{ padding: "1rem" }}
-          >
+          <Typography component="legend" variant="h6" textAlign="center">
             Energy Level
           </Typography>
-
-          <EnergyRating
-            readOnly
-            name="energy_low"
-            defaultValue={dogInfo.energy === "low" ? 1 : 0}
-            precision={1}
-            max={1}
-            style={{ marginRight: "0.7rem", fontSize: "1.5rem" }}
-            icon={<BoltIcon style={{ marginRight: "-0.8rem" }} />}
-            emptyIcon={<BoltIcon style={{ marginRight: "-0.8rem" }} />}
-          />
-          <EnergyRating
-            readOnly
-            name="energy_medium"
-            defaultValue={dogInfo.energy === "medium" ? 2 : 0}
-            precision={2}
-            max={2}
-            style={{ marginRight: "0.7rem", fontSize: "1.8rem" }}
-            icon={<BoltIcon style={{ marginRight: "-1rem" }} />}
-            emptyIcon={<BoltIcon style={{ marginRight: "-1rem" }} />}
-          />
-          <EnergyRating
-            readOnly
-            name="energy_high"
-            defaultValue={dogInfo.energy === "high" ? 3 : 0}
-            precision={3}
-            max={3}
-            style={{ marginRight: "0.7rem", fontSize: "2.2rem" }}
-            icon={<BoltIcon style={{ marginRight: "-1.2rem" }} />}
-            emptyIcon={<BoltIcon style={{ marginRight: "-1.2rem" }} />}
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <EnergyRating
+              readOnly
+              name="energy_low"
+              defaultValue={dogInfo.energy === "low" ? 1 : 0}
+              precision={1}
+              max={1}
+              style={{ marginRight: "1rem", fontSize: "1.5rem" }}
+              icon={<BoltIcon style={{ marginRight: "-0.8rem" }} />}
+              emptyIcon={<BoltIcon style={{ marginRight: "-0.8rem" }} />}
+            />
+            <EnergyRating
+              readOnly
+              name="energy_medium"
+              defaultValue={dogInfo.energy === "medium" ? 2 : 0}
+              precision={2}
+              max={2}
+              style={{ marginRight: "1rem", fontSize: "1.8rem" }}
+              icon={<BoltIcon style={{ marginRight: "-1rem" }} />}
+              emptyIcon={<BoltIcon style={{ marginRight: "-1rem" }} />}
+            />
+            <EnergyRating
+              readOnly
+              name="energy_high"
+              defaultValue={dogInfo.energy === "high" ? 3 : 0}
+              precision={3}
+              max={3}
+              style={{ marginRight: "1rem", fontSize: "2.2rem" }}
+              icon={<BoltIcon style={{ marginRight: "-1.2rem" }} />}
+              emptyIcon={<BoltIcon style={{ marginRight: "-1.2rem" }} />}
+            />
+          </div>
         </Grid>
         <Grid
           item
@@ -249,29 +261,40 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography
-            component="legend"
-            variant="h6"
-            textAlign="center"
-            style={{ padding: "1rem" }}
-          >
+          <Typography component="legend" variant="h6" textAlign="center">
             Kid Friendly
           </Typography>
-
-          <StyledRating
-            readOnly
-            name="kidfriendly"
-            defaultValue={dogInfo.kid_friendly}
-            precision={1}
-            icon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-            emptyIcon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <StyledRating
+              readOnly
+              name="kidfriendly"
+              defaultValue={dogInfo.kid_friendly}
+              precision={1}
+              icon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+              emptyIcon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+            />
+          </div>
         </Grid>
         <Grid
           item
@@ -280,28 +303,40 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography
-            component="legend"
-            variant="h6"
-            textAlign="center"
-            style={{ padding: "1rem" }}
-          >
+          <Typography component="legend" variant="h6" textAlign="center">
             Cat Friendly
           </Typography>
-          <StyledRating
-            readOnly
-            name="catfriendly"
-            defaultValue={dogInfo.cat_friendly}
-            precision={1}
-            icon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-            emptyIcon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <StyledRating
+              readOnly
+              name="catfriendly"
+              defaultValue={dogInfo.cat_friendly}
+              precision={1}
+              icon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+              emptyIcon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+            />
+          </div>
         </Grid>
         <Grid
           item
@@ -310,29 +345,40 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography
-            component="legend"
-            variant="h6"
-            textAlign="center"
-            style={{ padding: "1rem" }}
-          >
+          <Typography component="legend" variant="h6" textAlign="center">
             Dog Friendly
           </Typography>
-
-          <StyledRating
-            readOnly
-            name="dogfriendly"
-            defaultValue={dogInfo.dog_friendly}
-            precision={1}
-            icon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-            emptyIcon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <StyledRating
+              readOnly
+              name="dogfriendly"
+              defaultValue={dogInfo.dog_friendly}
+              precision={1}
+              icon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+              emptyIcon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+            />
+          </div>
         </Grid>
         <Grid
           item
@@ -341,29 +387,40 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography
-            component="legend"
-            variant="h6"
-            textAlign="center"
-            style={{ padding: "1rem" }}
-          >
+          <Typography component="legend" variant="h6" textAlign="center">
             Obedience
           </Typography>
-
-          <StyledRating
-            readOnly
-            name="dogfriendly"
-            defaultValue={dogInfo.obedience}
-            precision={1}
-            icon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-            emptyIcon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <StyledRating
+              readOnly
+              name="dogfriendly"
+              defaultValue={dogInfo.obedience}
+              precision={1}
+              icon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+              emptyIcon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+            />
+          </div>
         </Grid>
         <Grid
           item
@@ -372,29 +429,40 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography
-            component="legend"
-            variant="h6"
-            textAlign="center"
-            style={{ padding: "1rem" }}
-          >
+          <Typography component="legend" variant="h6" textAlign="center">
             Can stay home alone
           </Typography>
-
-          <StyledRating
-            readOnly
-            name="dogfriendly"
-            defaultValue={dogInfo.can_stay_home}
-            precision={1}
-            icon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-            emptyIcon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <StyledRating
+              readOnly
+              name="dogfriendly"
+              defaultValue={dogInfo.can_stay_home}
+              precision={1}
+              icon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+              emptyIcon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+            />
+          </div>
         </Grid>
         <Grid
           item
@@ -403,29 +471,40 @@ export const DogIconsGrid = ({ dogInfo }) => {
           md={4}
           lg={4}
           xl={3}
+          mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography
-            component="legend"
-            variant="h6"
-            textAlign="center"
-            style={{ padding: "1rem" }}
-          >
+          <Typography component="legend" variant="h6" textAlign="center">
             Exercise Needs
           </Typography>
-
-          <StyledRating
-            readOnly
-            name="dogfriendly"
-            defaultValue={dogInfo.exercise_type}
-            precision={1}
-            icon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-            emptyIcon={
-              <PetsIcon fontSize="inherit" style={{ marginRight: "0.2rem" }} />
-            }
-          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "3rem",
+              paddingTop: "1rem",
+            }}
+          >
+            <StyledRating
+              readOnly
+              name="dogfriendly"
+              defaultValue={dogInfo.exercise_type}
+              precision={1}
+              icon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+              emptyIcon={
+                <PetsIcon
+                  fontSize="inherit"
+                  style={{ marginRight: "0.2rem" }}
+                />
+              }
+            />
+          </div>
         </Grid>
       </Grid>
     </div>
