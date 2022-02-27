@@ -72,9 +72,10 @@ function DogRequestModal({
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(startDate.toDateString())
-        console.log(startTime.toTimeString())
-        console.log(endTime.toTimeString())
+        // console.log(startDate.toDateString())
+        //console.log(startTime.toTimeString())
+        //console.log(endTime.toTimeString())
+        //console.log(dogId);
 
         const playDayRequest = {
             dog_id: dogId,
