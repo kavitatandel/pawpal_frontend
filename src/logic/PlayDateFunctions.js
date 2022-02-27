@@ -17,3 +17,17 @@ export const addPlayDateRequest = (playDayRequest) => {
         .catch((err) => console.log(err));
 };
 
+//insert dog request
+export const GetPlayDateRequestsForOwner = (owner_id) => {
+    console.log("inside play date reqeust owner id")
+    console.log(owner_id);
+    return axios
+        .get("http://localhost:5000/GetPlayDateRequestsForOwner", {
+            owner_id: owner_id,
+        })
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};
+
