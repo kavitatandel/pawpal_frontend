@@ -11,8 +11,12 @@ import { styled } from "@mui/material/styles";
 const ProfileInputsGrid = () => {
   const [user, setUser] = useContext(UserContext);
   let navigate = useNavigate();
+
   const onSaveHandler = () => {
-    navigate("/user/searchdog");
+    if (user.user_type === "doglover") {
+      navigate("/user/searchdog");
+    }
+    navigate("/owner/ownerdogs");
   };
 
   const handleLogOut = () => {
@@ -20,6 +24,7 @@ const ProfileInputsGrid = () => {
     localStorage.removeItem("usertoken");
     navigate("/");
   };
+
   return (
     <>
       <Grid
