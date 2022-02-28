@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
-import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
+import TopBgImg from "components/Blocks/TopBgImg";
+
 import MKBox from "components/MKBox";
 import MKAvatar from "components/MKAvatar";
 import MKTypography from "../MKTypography";
@@ -83,31 +84,7 @@ const DogInfoForm = () => {
         justifyContent="flex-start"
         alignItems="center"
       >
-        {/* Container for top background Image */}
-        <MKBox
-          // style={{ border: "10px solid green" }}
-
-          minHeight="300px"
-          maxHeight="600px"
-          top={0}
-          width="100%"
-          //   style={{ border: "3px solid green" }}
-          sx={{
-            backgroundImage: ({
-              functions: { linearGradient, rgba },
-              palette: { gradients },
-            }) =>
-              `${linearGradient(
-                rgba(gradients.dark.main, 0.2),
-                rgba(gradients.dark.state, 0.2)
-              )}, url(${bgImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            display: "grid",
-            placeItems: "center",
-          }}
-        />
-
+        <TopBgImg />
         {/* Container for body area below featured img */}
         <MKBox
           pb={12}
@@ -125,7 +102,6 @@ const DogInfoForm = () => {
             sx={{
               width: "80%",
               height: "auto",
-
               mt: -4,
               mx: { xs: 2, lg: 3 },
               position: "relative",
@@ -136,6 +112,7 @@ const DogInfoForm = () => {
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
             }}
           >
+            {/* ________Pink Shape */}
             <MKBox
               color="white"
               bgColor="error"
@@ -169,7 +146,7 @@ const DogInfoForm = () => {
                   src={`${dogInfo.profile_photo}`}
                   alt={`${dogInfo.name}`}
                   shadow="xl"
-                  sx={{ width: "10rem", height: "10rem" }}
+                  sx={{ width: "12rem", height: "12rem" }}
                   style={{
                     border: "3px solid white",
                     backgroundColor: "white",

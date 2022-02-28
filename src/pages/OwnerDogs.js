@@ -1,5 +1,5 @@
 import OwnerDogsForm from "components/Forms/OwnerDogsForm";
-import Header from "components/Layout/Header";
+import OwnerHeader from "components/Layout/OwnerHeader";
 import Body from "components/Custom/CustomContainers";
 import CenteredFooter from "components/Layout/CenteredFooter";
 
@@ -7,7 +7,7 @@ import CenteredFooter from "components/Layout/CenteredFooter";
 const OwnerDogs = () => {
   return (
     <>
-      <Header />
+      <OwnerHeader />
       <Body>
         <OwnerDogsForm />
       </Body>

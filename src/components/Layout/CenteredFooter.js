@@ -81,7 +81,7 @@ function CenteredFooter({ company, links, socials, light }) {
         </Grid>
         <Grid item xs={12} lg={8} sx={{ textAlign: "center" }}>
           <MKTypography variant="body2" color={light ? "white" : "secondary"}>
-            Copyright &copy; {year} Material by{" "}
+            Copyright &copy; {year} Made by{" "}
             <MKTypography
               component={Link}
               href={href}
@@ -90,7 +90,7 @@ function CenteredFooter({ company, links, socials, light }) {
               variant="body2"
               color={light ? "white" : "secondary"}
             >
-              {name}
+              Kavita & Coralee
             </MKTypography>
             .
           </MKTypography>

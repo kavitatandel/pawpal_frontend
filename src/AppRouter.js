@@ -11,7 +11,6 @@ import DogInfo from "./pages/DogInfo";
 import AddDog from "./pages/AddDog";
 import OwnerDogs from "./pages/OwnerDogs";
 import LayoutTest from "components/Layout/LayoutTest";
-import HeaderBuild from "./components/Layout/HeaderBuild";
 
 const AppRouter = () => {
   return (

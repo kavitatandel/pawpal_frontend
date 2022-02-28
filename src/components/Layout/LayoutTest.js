@@ -1,4 +1,4 @@
-import ResponsiveAppBar from "./HeaderBuild";
+import OwnerHeader from "./OwnerHeader";
 import Body from "../../components/Custom/CustomContainers";
 import * as React from "react";
 import CenteredFooter from "../../components/Layout/CenteredFooter";
@@ -15,7 +15,7 @@ import Container from "@mui/material/Container";
 const LayoutTest = () => {
   return (
     <div>
-      <ResponsiveAppBar />
+      <OwnerHeader />
 
       <Body></Body>
 

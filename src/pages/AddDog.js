@@ -1,4 +1,4 @@
-import Header from "components/Layout/Header";
+import OwnerHeader from "components/Layout/OwnerHeader";
 import Body from "components/Custom/CustomContainers";
 import CenteredFooter from "components/Layout/CenteredFooter";
 import AddDogForm from "components/Forms/AddDogForm";
@@ -7,7 +7,7 @@ import AddDogForm from "components/Forms/AddDogForm";
 const AddDog = () => {
   return (
     <>
-      <Header />
+      <OwnerHeader />
       <Body>
         <AddDogForm />
       </Body>

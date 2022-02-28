@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import jwt_decode from "jwt-decode";
-
-// import jwt_decode from "jwt-decode";
+import TopBgImg from "components/Blocks/TopBgImg";
+import Paper from "@mui/material/Paper";
+import { Grid } from "@mui/material";
 
 // image
 import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
@@ -20,6 +21,7 @@ import Card from "@mui/material/Card";
 import UploadPicModal from "../Modals/UploadPicModal";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import ProfileInputsGrid from "components/Blocks/ProfileInputsGrid";
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -63,10 +65,6 @@ const ProfileForm = () => {
     }));
   };
 
-  const onSaveHandler = () => {
-    navigate("/user/searchdog");
-  };
-
   return (
     <>
       {/* // Container between top & Footer */}
@@ -86,53 +84,28 @@ const ProfileForm = () => {
         justifyContent="flex-start"
         alignItems="center"
       >
-        {/* Container for top background Image */}
-        <MKBox
-          // style={{ border: "10px solid green" }}
-
-          minHeight="20vh"
-          width="100%"
-          //   style={{ border: "3px solid green" }}
-          sx={{
-            backgroundImage: ({
-              functions: { linearGradient, rgba },
-              palette: { gradients },
-            }) =>
-              `${linearGradient(
-                rgba(gradients.dark.main, 0.2),
-                rgba(gradients.dark.state, 0.2)
-              )}, url(${bgImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            display: "grid",
-            placeItems: "center",
-          }}
-        />
-
+        <TopBgImg />
         {/* Container for body area below featured img */}
         <MKBox
+          pb={12}
+          mt={5}
           display="flex"
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
-          height="auto"
-          top={0}
+          minHeight="auto"
           width="100%"
-          // style={{ border: "3px solid red" }}
-
-          //   style={{ border: "3px solid green" }}
         >
-          <Card
-            // zIndex={0}
-            style={{ position: "relative" }}
+          <Paper
+            elevation={24}
+            style={{ position: "relative", borderRadius: "2rem" }}
             sx={{
-              width: "90%",
+              width: { xs: "90%", md: "70%", xl: "40%" },
               height: "auto",
-              p: 2,
-              mt: -2,
+              mt: -12,
               mx: { xs: 2, lg: 3 },
               position: "relative",
-              mb: 24,
+              mb: 4,
               backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
                 rgba(white.main, 0.8),
               backdropFilter: "saturate(200%) blur(30px)",
@@ -148,217 +121,84 @@ const ProfileForm = () => {
               selectedFile={selectedFile}
               setSelectedFile={setSelectedFile}
             />
-            {/* Container for Profile Pic */}
+            {/* ________Pink Shape */}
             <MKBox
-              zindex={2}
-              mx={4}
-              mt={-25}
-              mb={4}
-              pt={5}
-              display="flex"
-              justifyContent="center"
-              alignItems="flex-end"
-              //   style={{ border: "3px solid blue" }}
+              color="white"
+              bgColor="error"
+              variant="gradient"
+              borderRadius="lg"
+              shadow="lg"
+              opacity={1}
+              mt={-12}
+              style={{
+                height: "20rem",
+                borderRadius: "5% 5% 40% 90%",
+                background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
+              }}
             >
-              <MKAvatar
-                top={-50}
-                zindex={2}
-                src={`${user.profile_pic}`}
-                alt={`${user.first_name}`}
-                shadow="xl"
-                sx={{ width: "12rem", height: "12rem" }}
-                style={{ border: "3px solid white", backgroundColor: "grey" }}
-              />
-              <MKButton
-                onClick={toggleModal}
-                style={{ width: "3rem", height: "2rem" }}
-              >
-                EDIT
-              </MKButton>
-            </MKBox>
-            {/* ************************* Text Container */}
-            <Container>
-              {/* Heading (User's Name) */}
-              <MKTypography
-                variant="h3"
-                fontWeight="medium"
-                color="dark"
-                textAlign="center"
-              >
-                {`${user.first_name} ${user.last_name}`}
-              </MKTypography>
-              {/* ************************** User Details */}
-              <MKBox pt={1} pb={3} px={3}>
-                <MKBox
-                  component="form"
-                  method="post"
-                  autocomplete="off"
-                  role="form"
-                  //   onSubmit={createUser}
-                  p={6}
-                >
-                  <MKBox mb={2} display="flex" justifyContent="space-between">
-                    <MKInput
-                      label="First Name"
-                      fullWidth
-                      type="text"
-                      name="first_name"
-                      value={user.first_name}
-                      placeholder="Enter your first name"
-                      required
-                      //   value={firstName}
-                      onChange={(e) =>
-                        setUser({ ...user, first_name: e.target.value })
-                      }
-                    />
-                    <MKButton
-                    //   onClick={(e) => setFirstName(e.target.value)}
-                    >
-                      Edit
-                    </MKButton>
-
-                    <MKInput
-                      fullWidth
-                      style={{ width: "48%" }}
-                      label="Last Name"
-                      type="text"
-                      name="last_name"
-                      placeholder="Enter your last name"
-                      required
-                      value={user.last_name}
-                      onChange={(e) =>
-                        setUser({ ...user, last_name: e.target.value })
-                      }
-                    />
-                    <MKButton
-                    //   onClick={(e) => setFirstName(e.target.value)}
-                    >
-                      Edit
-                    </MKButton>
-                  </MKBox>
-
-                  <MKBox mb={2}>
-                    <MKInput
-                      fullWidth
-                      label="E-Mail"
-                      name="email"
-                      placeholder="Enter your email"
-                      type="email"
-                      required
-                      value={user.email}
-                      onChange={(e) =>
-                        setUser({ ...user, email: e.target.value })
-                      }
-                    />
-                  </MKBox>
-
-                  <MKBox mb={2}>
-                    <MKInput
-                      fullWidth
-                      label="Street Name"
-                      type="text"
-                      name="street"
-                      placeholder="Enter your street"
-                      required
-                      value={user.street}
-                      onChange={(e) =>
-                        setUser({ ...user, street: e.target.value })
-                      }
-                    />
-                  </MKBox>
-                  <MKBox mb={2} display="flex" justifyContent="space-between">
-                    <MKInput
-                      style={{ width: "48%" }}
-                      label="Zip Code"
-                      type="text"
-                      name="zip_code"
-                      placeholder="Enter your zip code"
-                      required
-                      value={user.zip_code}
-                      onChange={(e) =>
-                        setUser({ ...user, zip_code: e.target.value })
-                      }
-                    />
-                    <MKInput
-                      style={{ width: "48%" }}
-                      label="City"
-                      type="text"
-                      name="city"
-                      placeholder="Enter your city"
-                      required
-                      value={user.city}
-                      onChange={(e) =>
-                        setUser({ ...user, city: e.target.value })
-                      }
-                    />
-                  </MKBox>
-                  <MKBox mb={2}>
-                    <MKInput
-                      fullWidth
-                      label="Country"
-                      type="text"
-                      name="country"
-                      placeholder="Enter your country"
-                      required
-                      value={user.country}
-                      onChange={(e) =>
-                        setUser({ ...user, country: e.target.value })
-                      }
-                    />
-                  </MKBox>
-                  <MKBox mb={2}>
-                    <TextField
-                      id="outlined-multiline-flexible"
-                      fullWidth
-                      // style={{ width: "48%" }}
-                      label="About"
-                      type="text"
-                      name="description"
-                      placeholder="Tell us about yourself..."
-                      value={user.description}
-                      onChange={(e) =>
-                        setUser({ ...user, description: e.target.value })
-                      }
-                    />
-                  </MKBox>
+              {/* Container for Profile Pic */}
+              <Grid container>
+                <Grid item xs={12}>
                   <MKBox
-                    mt={10}
-                    justifyContent="center"
+                    ml={6}
                     display="flex"
-                    textAlign="center"
-                    width="100%"
+                    justifyContent="center"
+                    alignItems="flex-end"
                   >
-                    <MKButton
-                      size="large"
-                      onClick={() => navigate("/")}
-                      variant="gradient"
-                      color="info"
+                    <MKAvatar
+                      top={-50}
+                      zindex={2}
+                      src={`${user.profile_pic}`}
+                      alt={`${user.first_name}`}
+                      shadow="xl"
+                      sx={{ width: "12rem", height: "12rem" }}
                       style={{
-                        marginRight: "1.5rem",
-                        width: "8rem",
-                        minWidth: "120px",
+                        border: "3px solid white",
+                        backgroundColor: "white",
+                        marginTop: "-6rem",
+                      }}
+                    />
+                    <MKButton
+                      variant="text"
+                      onClick={toggleModal}
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        marginLeft: -12,
                       }}
                     >
-                      Cancel
-                    </MKButton>
-                    <MKButton
-                      size="large"
-                      onClick={onSaveHandler}
-                      variant="gradient"
-                      color="info"
-                      style={{
-                        marginLeft: "1.5rem",
-                        width: "8rem",
-                        minWidth: "120px",
-                      }}
-                    >
-                      Save
+                      EDIT
                     </MKButton>
                   </MKBox>
-                </MKBox>
-              </MKBox>
-            </Container>
-          </Card>
+                </Grid>
+
+                <Grid item xs={12} mt={5}>
+                  {/* ************************* User Full Name */}
+                  <MKTypography
+                    variant="h1"
+                    fontWeight="medium"
+                    color="light"
+                    textAlign="center"
+                  >
+                    {`${user.first_name} ${user.last_name}`}
+                  </MKTypography>
+                </Grid>
+              </Grid>
+            </MKBox>
+
+            {/* ************************** User Details */}
+            <MKBox
+              component="form"
+              method="post"
+              autocomplete="off"
+              role="form"
+              //   onSubmit={createUser}
+              p={6}
+            >
+              {/* ___________________ Input Grid */}
+              <ProfileInputsGrid />
+            </MKBox>
+          </Paper>
         </MKBox>
       </MKBox>
     </>

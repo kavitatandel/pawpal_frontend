@@ -33,7 +33,7 @@ const Header = () => {
         component="nav"
         position="absolute"
         top="0"
-        width="100%"
+        width="auto"
         style={{ zIndex: 2 }}
       >
         <div
@@ -41,7 +41,7 @@ const Header = () => {
             marginTop: "2rem",
             zIndex: 2,
             display: "flex",
-            width: "100%",
+            width: "auto",
             // height: "auto",
             alignItems: "center",
             justifyContent: "space-between",
@@ -65,93 +65,102 @@ const Header = () => {
               LOGO HERE
             </MKTypography>
           </Link>
+          <Grid container spacing={2} style={{}}>
+            <MKBox
+              component="ul"
+              display="flex"
+              justifyContent="flex-end"
+              p={0}
+              my={0}
+              mx={8}
+              sx={{ listStyle: "none" }}
+            >
+              <Grid
+                item
+                xs={12}
+                md={6}
+                display="flex"
+                justifyContent="flex-end"
+              >
+                <Link to="/">
+                  <MKTypography
+                    fontSize="1rem"
+                    fontWeight="regular"
+                    p={1}
+                    style={{
+                      paddingRight: "2rem",
+                      paddingLeft: "2rem",
+                      color: pathname === "/something" ? "dark" : "white",
+                    }}
+                  >
+                    Home
+                  </MKTypography>
+                </Link>
+              </Grid>
 
-          <MKBox
-            component="ul"
-            display="flex"
-            justifyContent="flex-end"
-            p={0}
-            my={0}
-            mx={8}
-            sx={{ listStyle: "none" }}
-          >
-            <Link to="/">
-              <MKTypography
-                fontSize="1rem"
-                fontWeight="regular"
-                p={1}
-                style={{
-                  paddingRight: "2rem",
-                  paddingLeft: "2rem",
-                  color: pathname === "/something" ? "dark" : "white",
-                }}
-              >
-                Home
-              </MKTypography>
-            </Link>
-
-            <Link to="/user">
-              <MKTypography
-                p={1}
-                fontWeight="regular"
-                style={{
-                  fontSize: "1rem",
-                  paddingRight: "2rem",
-                  paddingLeft: "2rem",
-                  color: pathname === "/something" ? "dark" : "white",
-                }}
-              >
-                My Profile
-              </MKTypography>
-            </Link>
-            <Link to="/user/searchdog">
-              <MKTypography
-                p={1}
-                fontWeight="regular"
-                style={{
-                  fontSize: "1rem",
-                  paddingRight: "2rem",
-                  paddingLeft: "2rem",
-                  color: pathname === "/something" ? "dark" : "white",
-                }}
-              >
-                Search Dogs
-              </MKTypography>
-            </Link>
-            <Link to="/owner/ownerdogs">
-              <MKTypography
-                p={1}
-                fontWeight="regular"
-                style={{
-                  fontSize: "1rem",
-                  paddingRight: "2rem",
-                  paddingLeft: "2rem",
-                  color: pathname === "/something" ? "dark" : "white",
-                }}
-              >
-                My Dogs
-              </MKTypography>
-            </Link>
-            {/* <Link to="/" onClick={() => setUser({})}> */}
-            <Link to="/" onClick={handleLagOut}>
-              {/* <MKButton onClick={() => setUser({})}> */}
-              <MKTypography
-                mr={5}
-                p={1}
-                fontWeight="regular"
-                style={{
-                  fontSize: "1rem",
-                  paddingRight: "2rem",
-                  paddingLeft: "2rem",
-                  color: pathname === "/something" ? "dark" : "white",
-                  //color: "dark",
-                }}
-              >
-                Log Out
-              </MKTypography>
-              {/* </MKButton> */}
-            </Link>
-          </MKBox>
+              <Link to="/user">
+                <MKTypography
+                  p={1}
+                  fontWeight="regular"
+                  style={{
+                    fontSize: "1rem",
+                    paddingRight: "2rem",
+                    paddingLeft: "2rem",
+                    color: pathname === "/something" ? "dark" : "white",
+                  }}
+                >
+                  My Profile
+                </MKTypography>
+              </Link>
+              <Link to="/user/searchdog">
+                <MKTypography
+                  p={1}
+                  fontWeight="regular"
+                  style={{
+                    fontSize: "1rem",
+                    paddingRight: "2rem",
+                    paddingLeft: "2rem",
+                    color: pathname === "/something" ? "dark" : "white",
+                  }}
+                >
+                  Search Dogs
+                </MKTypography>
+              </Link>
+              <Link to="/owner/ownerdogs">
+                <MKTypography
+                  p={1}
+                  fontWeight="regular"
+                  style={{
+                    fontSize: "1rem",
+                    paddingRight: "2rem",
+                    paddingLeft: "2rem",
+                    color: pathname === "/something" ? "dark" : "white",
+                  }}
+                >
+                  My Dogs
+                </MKTypography>
+              </Link>
+              {/* <Link to="/" onClick={() => setUser({})}> */}
+              <Link to="/" onClick={handleLagOut}>
+                {/* <MKButton onClick={() => setUser({})}> */}
+                <MKTypography
+                  mr={5}
+                  p={1}
+                  fontWeight="regular"
+                  style={{
+                    fontSize: "1rem",
+                    paddingRight: "2rem",
+                    paddingLeft: "2rem",
+                    color: pathname === "/something" ? "dark" : "white",
+                    //color: "dark",
+                  }}
+                >
+                  Log Out
+                </MKTypography>
+                {/* </MKButton> */}
+              </Link>
+            </MKBox>
+          </Grid>
         </div>
       </MKBox>
     </MKBox>
