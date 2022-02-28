@@ -6,9 +6,6 @@ import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 
-// image
-import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
-// Material Kit 2 React components
 import MKBox from "../MKBox";
 import MKAvatar from "../MKAvatar";
 import MKTypography from "../MKTypography";
@@ -21,7 +18,7 @@ import Card from "@mui/material/Card";
 import UploadPicModal from "../Modals/UploadPicModal";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
-import ProfileInputsGrid from "components/Blocks/ProfileInputsGrid";
+import ProfileInputsGrid from "components/Forms/ProfileInputsGrid";
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);

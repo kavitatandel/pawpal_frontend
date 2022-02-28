@@ -177,6 +177,10 @@ const DogInputsGrid = ({
       .catch((err) => console.log(err));
   };
 
+  const onSaveHandler = () => {
+    navigate("/owner/ownerdogs");
+  };
+
   return (
     <>
       <MKBox
@@ -611,7 +615,7 @@ const DogInputsGrid = ({
             >
               <MKButton
                 size="large"
-                onClick={() => navigate("/user")}
+                onClick={() => navigate("/owner/ownerdogs")}
                 variant="gradient"
                 color="info"
                 style={{
@@ -624,7 +628,7 @@ const DogInputsGrid = ({
               </MKButton>
               <MKButton
                 size="large"
-                // onClick={onSaveHandler}
+                onClick={onSaveHandler}
                 variant="gradient"
                 color="info"
                 style={{

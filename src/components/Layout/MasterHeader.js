@@ -1,31 +1,20 @@
 import { useContext, useEffect, useState } from "react";
+import { useLocation, useNagivate, useParams, Link } from "react-router-dom";
+import { UserContext } from "context/UserContext";
+// MUI & Material Kit 2 React components
+import MKBox from "components/MKBox";
+import MKButton from "components/MKButton";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { useLocation, useNagivate, useParams, Link } from "react-router-dom";
-import { UserContext } from "context/UserContext";
-
+// Temp Logo
 import TempLogo from "../../assets/logos/logo_paw_light.png";
-
-// @mui material components
-
-import Grid from "@mui/material/Grid";
-// import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-
-// Material Kit 2 React components
-import MKBox from "components/MKBox";
-import MKButton from "components/MKButton";
-import MKTypography from "components/MKTypography";
 
 const MasterHeader = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -33,7 +22,7 @@ const MasterHeader = () => {
 
   const { pathname } = useLocation();
   const { navigate } = useLocation();
-  // const { pathname } = useParams();
+  const { dogId } = useParams();
   const [user, setUser] = useContext(UserContext);
   const [userType, setUserType] = useState("");
 
@@ -89,7 +78,6 @@ const MasterHeader = () => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        // border: " 2px solid red",
         top: 0,
         left: "auto !important",
       }}
@@ -97,19 +85,14 @@ const MasterHeader = () => {
       <Toolbar
         sx={{
           width: { xs: "90%", md: "80%", xl: "60" },
-          //   mx: { xs: "2rem !important", xl: "6rem !important" },
         }}
         disableGutters
         style={{
-          //   border: " 2px solid yellow",
           top: 0,
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-
           left: "auto !important",
-          // left: "auto !important",
-          // right: "auto !important",
         }}
       >
         {/* _______________________ MAIN LOGO */}
@@ -158,7 +141,7 @@ const MasterHeader = () => {
                 }}
               >
                 <MenuItem>
-                  <Link to="/">
+                  <Link to="/" onClick={handleLogOut}>
                     <MKButton
                       onClick={handleCloseNavMenu}
                       size="medium"
@@ -209,7 +192,7 @@ const MasterHeader = () => {
                 }}
               >
                 <MenuItem>
-                  <Link to="/">
+                  <Link to="/" onClick={handleLogOut}>
                     <MKButton
                       onClick={handleCloseNavMenu}
                       size="medium"
@@ -237,7 +220,7 @@ const MasterHeader = () => {
                   </Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/">
+                  <Link to={`/owner/ownerdogrequests/${dogId}`}>
                     <MKButton
                       onClick={handleCloseNavMenu}
                       size="medium"
@@ -292,7 +275,7 @@ const MasterHeader = () => {
                   My Dogs
                 </MKButton>
               </Link>
-              <Link to="/">
+              <Link to={`/owner/ownerdogrequests/${dogId}`}>
                 <MKButton
                   variant="text"
                   color="light"
