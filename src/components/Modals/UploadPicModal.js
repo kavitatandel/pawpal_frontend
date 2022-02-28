@@ -37,26 +37,28 @@ const UploadPicModal = ({
   // const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const handleFileUpload = (e) => {
-    setSelectedFile(e.target.files[0]);
-    console.log(e.target.files[0]);
+  const handleFileUpload = async (e) => {
+    await setSelectedFile(e.target.files[0]);
+    await console.log(e.target.files[0]);
   };
 
   // //get profile data
-  const getProfil = async () => {
-    console.log(`User ID: ${user._id} , User FirstName: ${user.first_name} `);
+  const getProfile = async () => {
+    await console.log(
+      `User ID: ${user._id} , User FirstName: ${user.first_name} `
+    );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const uploadData = new FormData();
     //const uploadData = new FormData();
     uploadData.append("file", selectedFile, "file");
 
-    axios
+    await axios
       .post(API_URL + `/users/${user._id}`, uploadData)
       .then((res) => {
-        console.log("after uploading file");
+        console.log("File Uploaded:");
         console.log(res.data.secure_url);
         // console.log(res.data);
         setUploadedImageURL(res.data.secure_url);
@@ -72,7 +74,7 @@ const UploadPicModal = ({
   };
 
   useEffect(() => {
-    getProfil();
+    getProfile();
   }, [uploadedImageURL, selectedFile]);
 
   console.log(user);
