@@ -54,12 +54,9 @@ function CenteredFooter({ company, links, socials, light }) {
       style={{ width: "100%" }}
       position="relative"
       bottom={0}
+      style={{ height: "auto" }}
     >
-      <Grid
-        container
-        justifyContent="center"
-        style={{ padding: "40px 0", height: "200px" }}
-      >
+      <Grid container justifyContent="center" style={{ padding: "40px 0" }}>
         <Grid item xs={10} lg={8}>
           <Stack
             direction="row"
@@ -84,7 +81,7 @@ function CenteredFooter({ company, links, socials, light }) {
         </Grid>
         <Grid item xs={12} lg={8} sx={{ textAlign: "center" }}>
           <MKTypography variant="body2" color={light ? "white" : "secondary"}>
-            Copyright &copy; {year} Material by{" "}
+            Copyright &copy; {year} Made by{" "}
             <MKTypography
               component={Link}
               href={href}
@@ -93,7 +90,7 @@ function CenteredFooter({ company, links, socials, light }) {
               variant="body2"
               color={light ? "white" : "secondary"}
             >
-              {name}
+              Kavita & Coralee
             </MKTypography>
             .
           </MKTypography>

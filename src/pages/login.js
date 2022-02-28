@@ -30,12 +30,7 @@ const Login = () => {
 
   return (
     <>
-      {/* <MasterPageContainer>
-        <LoginForm />
-      </MasterPageContainer> */}
-      <Header />
       <LoginForm />
-      <PageContainer />
     </>
   );
 };

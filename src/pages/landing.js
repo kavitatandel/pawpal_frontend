@@ -14,7 +14,6 @@ import MKButton from "components/MKButton";
 // Images
 import bgImage from "assets/images/backgrounds/patrick-hendry-jd0hS7Vhn_A-unsplash.jpeg";
 
-
 const Landing = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
@@ -41,6 +40,7 @@ const Landing = () => {
     <>
       <MKBox
         minHeight="100vh"
+        height="auto"
         width="100%"
         sx={{
           backgroundImage: ({
@@ -113,9 +113,9 @@ const Landing = () => {
                 log in
               </MKButton>
             </Container>
-            {/* <MKTypography variant="h6" color="white" mt={8} mb={1}>
+            <MKTypography variant="h6" color="white" mt={8} mb={1}>
               Find us on
-            </MKTypography> */}
+            </MKTypography>
             <MKBox display="flex" justifyContent="center" alignItems="center">
               <MKTypography
                 component="a"

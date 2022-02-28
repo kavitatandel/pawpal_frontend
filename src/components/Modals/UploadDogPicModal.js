@@ -19,7 +19,13 @@ import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
 
-const UploadDogPicModal = ({ show, setShow, toggleModal, dogPic, setDogPic }) => {
+const UploadDogPicModal = ({
+  show,
+  setShow,
+  toggleModal,
+  dogPic,
+  setDogPic,
+}) => {
   const [user, setUser] = useContext(UserContext);
 
   //******************Upload Single File************ */
@@ -45,9 +51,7 @@ const UploadDogPicModal = ({ show, setShow, toggleModal, dogPic, setDogPic }) =>
     setDogPic(selectedFile);
   };
 
-
-  useEffect(() => {
-  }, [show, uploadedImageURL, selectedFile]);
+  useEffect(() => {}, [show, uploadedImageURL, selectedFile]);
 
   return (
     <MKBox component="section" py={6}>
@@ -73,7 +77,7 @@ const UploadDogPicModal = ({ show, setShow, toggleModal, dogPic, setDogPic }) =>
                 justifyContent="space-between"
                 p={2}
               >
-                <MKTypography variant="h5">Upload Profile Image</MKTypography>
+                <MKTypography variant="h5">Upload Dog Image</MKTypography>
               </MKBox>
               <Divider sx={{ my: 0 }} />
               {!loading ? (
@@ -90,7 +94,7 @@ const UploadDogPicModal = ({ show, setShow, toggleModal, dogPic, setDogPic }) =>
                     <CloseIcon
                       fontSize="medium"
                       sx={{ cursor: "pointer" }}
-                    // onClick={() => setSelectedFile("")}
+                      // onClick={() => setSelectedFile("")}
                     />
                     <Divider sx={{ my: 0 }} />
                     <MKBox
