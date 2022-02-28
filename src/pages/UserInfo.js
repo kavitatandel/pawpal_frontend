@@ -1,14 +1,12 @@
 import ProfileForm from "components/Forms/ProfileForm";
-import OwnerHeader from "components/Layout/OwnerHeader";
-import DLHeader from "components/Layout/DLHeader";
+import MasterHeader from "components/Layout/MasterHeader";
 import Body from "components/Custom/CustomContainers";
 import CenteredFooter from "components/Layout/CenteredFooter";
 
 const UserInfo = () => {
   return (
     <>
-      {/* <OwnerHeader /> */}
-      <DLHeader />
+      <MasterHeader />
       <Body>
         <ProfileForm />
       </Body>

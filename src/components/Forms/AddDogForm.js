@@ -171,6 +171,7 @@ const AddDogForm = () => {
         alignItems="center"
       >
         {/* Container for top background Image */}
+
         <MKBox
           px={1}
           width="100%"
@@ -203,9 +204,9 @@ const AddDogForm = () => {
               elevation={24}
               style={{ position: "relative", borderRadius: "2rem" }}
               sx={{
-                width: "80%",
+                width: { xs: "90%", md: "70%", xl: "40%" },
                 height: "auto",
-                mt: -4,
+                mt: -12,
                 mx: { xs: 2, lg: 3 },
                 position: "relative",
                 mb: 4,
@@ -233,50 +234,62 @@ const AddDogForm = () => {
                 borderRadius="lg"
                 shadow="lg"
                 opacity={1}
-                m={0}
+                mt={-12}
                 style={{
-                  height: "30rem",
+                  height: "20rem",
                   borderRadius: "5% 5% 40% 90%",
                   background:
                     "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
                 }}
-              ></MKBox>
-              {/* Container for Dog Pic */}
-              <Grid container>
-                <Grid item xs={12}>
-                  <MKBox
-                    ml={6}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="flex-end"
-                  >
-                    <MKAvatar
-                      top={-50}
-                      zindex={2}
-                      src=""
-                      shadow="xl"
-                      sx={{ width: "12rem", height: "12rem" }}
-                      style={{
-                        border: "3px solid white",
-                        backgroundColor: "white",
-                        marginTop: "-6rem",
-                      }}
-                    />
-
-                    <MKButton
-                      variant="text"
-                      onClick={toggleModal}
-                      style={{
-                        width: "2rem",
-                        height: "2rem",
-                        marginLeft: -12,
-                      }}
+              >
+                {/* Container for Dog Pic */}
+                <Grid container>
+                  <Grid item xs={12}>
+                    <MKBox
+                      ml={6}
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="flex-end"
                     >
-                      ADD
-                    </MKButton>
-                  </MKBox>
+                      <MKAvatar
+                        top={-50}
+                        zindex={2}
+                        src=""
+                        shadow="xl"
+                        sx={{ width: "12rem", height: "12rem" }}
+                        style={{
+                          border: "3px solid white",
+                          backgroundColor: "white",
+                          marginTop: "-6rem",
+                        }}
+                      />
+
+                      <MKButton
+                        variant="text"
+                        onClick={toggleModal}
+                        style={{
+                          width: "2rem",
+                          height: "2rem",
+                          marginLeft: -12,
+                        }}
+                      >
+                        ADD
+                      </MKButton>
+                    </MKBox>
+                    <Grid item xs={12} mt={5}>
+                      {/* ************************* HEADING */}
+                      <MKTypography
+                        variant="h1"
+                        fontWeight="medium"
+                        color="light"
+                        textAlign="center"
+                      >
+                        Dog Details
+                      </MKTypography>
+                    </Grid>
+                  </Grid>
                 </Grid>
-              </Grid>
+              </MKBox>
 
               <DogInputsGrid
                 dogName={dogName}

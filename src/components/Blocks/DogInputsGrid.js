@@ -115,15 +115,15 @@ const DogInputsGrid = ({
     setDogCanPlay(e.target.value);
   };
 
-  const handleChangeKidFreindly = (event, newValue) => {
+  const handleChangeKidFriendly = (event, newValue) => {
     setDogKidFriendly(newValue);
   };
 
-  const handleChangeDogCatFreindly = (event, newValue) => {
+  const handleChangeDogCatFriendly = (event, newValue) => {
     setDogCatFriendly(newValue);
   };
 
-  const handleChangeDogFreindly = (event, newValue) => {
+  const handleChangeDogFriendly = (event, newValue) => {
     setDogFriendly(newValue);
   };
 
@@ -419,6 +419,7 @@ const DogInputsGrid = ({
               }}
             >
               <StyledRating
+                onChange={handleChangeKidFriendly}
                 name="kidfriendly"
                 defaultValue={dogKidFriendly}
                 precision={1}

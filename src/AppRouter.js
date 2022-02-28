@@ -12,7 +12,6 @@ import AddDog from "./pages/AddDog";
 import OwnerDogs from "./pages/OwnerDogs";
 import OwnerDogRequests from "./pages/OwnerDogRequests";
 
-
 const AppRouter = () => {
   return (
     <>
@@ -25,13 +24,14 @@ const AppRouter = () => {
         <Route exact path="/user/searchdog" element={<SearchDog />}></Route>
         {/* added to check location based on address */}
         <Route exact path="/doginfo/:dogid" element={<DogInfo />}></Route>
-        <Route exact path="/test" element={<LayoutTest />}></Route>
         <Route exact path="/owner/adddog" element={<AddDog />}></Route>
         <Route exact path="/owner/ownerdogs" element={<OwnerDogs />}></Route>
 
-        <Route exact path="/owner/ownerdogrequests/:dogid" element={<OwnerDogRequests />}></Route>
-      
-
+        <Route
+          exact
+          path="/owner/ownerdogrequests/:dogid"
+          element={<OwnerDogRequests />}
+        ></Route>
       </Routes>
     </>
   );
