@@ -31,3 +31,16 @@ export const GetPlayDateRequestsForOwner = (owner_id) => {
         .catch((err) => console.log(err));
 };
 
+//insert dog request
+export const UpdatePlayDateRequest = (requestid, status, owner_message, owner_reason) => {
+    return axios
+        .get("http://localhost:5000/UpdatePlayDateRequest", {
+            requestid: requestid,
+            status: status,
+            owner_message: owner_message,
+            owner_reason: owner_reason,
+        })
+        .then((res) => console.log("Request has been updated."))
+        .catch((err) => console.log(err));
+};
+
