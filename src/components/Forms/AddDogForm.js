@@ -6,12 +6,11 @@ import MKAvatar from "components/MKAvatar";
 import MKTypography from "../MKTypography";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
-import { Grid } from "@mui/material";
-// @mui material components
-import Container from "@mui/material/Container";
-import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
+import { Grid, TextField } from "@mui/material";
+import Rating from "@mui/material/Rating";
+import PetsIcon from "@mui/icons-material/Pets";
+import { styled } from "@mui/material/styles";
+import { Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 
 //for radio button
@@ -23,8 +22,6 @@ import FormLabel from "@mui/material/FormLabel";
 import { addDog } from "../../logic/DogFunctions";
 import { useNavigate } from "react-router";
 import UploadDogPicModal from "../Modals/UploadDogPicModal";
-import { DogIconsGrid } from "components/Blocks/DogIconsGrid";
-import DogInputsGrid from "components/Blocks/DogInputsGrid";
 
 const AddDogForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -50,107 +47,125 @@ const AddDogForm = () => {
 
   const navigate = useNavigate();
 
-  //   //for radio group
-  //   const handleChangeSize = (e) => {
-  //     setDogSize(e.target.value);
-  //   };
+  //for radio group
+  const handleChangeSize = (e) => {
+    setDogSize(e.target.value);
+  };
 
-  //   //for energy radio group
-  //   const handleChangeEnergy = (e) => {
-  //     setDogEnergy(e.target.value);
-  //   };
+  //for energy radio group
+  const handleChangeEnergy = (e) => {
+    setDogEnergy(e.target.value);
+  };
 
-  //   //for can play fetch
-  //   const handleCanPlay = (e) => {
-  //     setDogCanPlay(e.target.value);
-  //   };
+  //for can play fetch
+  const handleCanPlay = (e) => {
+    setDogCanPlay(e.target.value);
+  };
 
-  //   const handleChangeKidFreindly = (event, newValue) => {
-  //     setDogKidFriendly(newValue);
-  //   };
+  ////////////////////// Rating
 
-  //   const handleChangeDogCatFreindly = (event, newValue) => {
-  //     setDogCatFriendly(newValue);
-  //   };
+  const StyledRating = styled(Rating)({
+    "& .MuiRating-iconFilled": {
+      color: "#ff6d75",
+    },
+    "& .MuiRating-iconHover": {
+      color: "#ff3d47",
+    },
+  });
 
-  //   const handleChangeDogFreindly = (event, newValue) => {
-  //     setDogFriendly(newValue);
-  //   };
+  const TrueRating = styled(Rating)({
+    "& .MuiRating-iconFilled": {
+      color: "#81ffc4",
+    },
+    "& .MuiRating-iconHover": {
+      color: "#1ac975",
+    },
+  });
 
-  //   const handleChangeDogObedience = (event, newValue) => {
-  //     setDogObedience(newValue);
-  //   };
+  const FalseRating = styled(Rating)({
+    "& .MuiRating-iconFilled": {
+      color: "#ff6d75",
+    },
+    "& .MuiRating-iconHover": {
+      color: "#ff3d47",
+    },
+  });
 
-  //   const handleChangeDogCanStayHome = (event, newValue) => {
-  //     setDogCanStayHome(newValue);
-  //   };
+  const EnergyRating = styled(Rating)({
+    "& .MuiRating-iconFilled": {
+      color: "#ffcb5a",
+    },
+    "& .MuiRating-iconHover": {
+      color: "#fb8c00",
+    },
+  });
 
-  //   const handleChangeDogExercise = (event, newValue) => {
-  //     setDogExercise(newValue);
-  //   };
+  const onSaveHandler = () => {
+    navigate("/owner/ownerdogs");
+  };
 
-  //   useEffect(() => {
-  //     console.log(dogPic);
-  //   }, [dogPic]);
+  useEffect(() => {
+    console.log(dogPic);
+  }, [dogPic]);
 
-  //   //add dog
-  //   const addNewDog = async (e) => {
-  //     e.preventDefault();
+  //add dog
+  const addNewDog = async (e) => {
+    e.preventDefault();
 
-  //     ///*************commented to check for uploaded image */
-  //     // const newDog = {
-  //     //     user_id: user._id,
-  //     //     name: dogName,
-  //     //     breed: dogBreed,
-  //     //     age_years: dogAgeYears,
-  //     //     age_months: dogAgeMonths,
-  //     //     size: dogSize,
-  //     //     description: dogDescription,
-  //     //     energy: dogEnergy,
-  //     //     kid_friendly: dogKidFriendly,
-  //     //     cat_friendly: dogCatFriendly,
-  //     //     dog_friendly: dogFriendly,
-  //     //     obedience: dogObedience,
-  //     //     can_stay_home: dogCanStayHome,
-  //     //     exercise_type: dogExercise,
-  //     //     can_play_fetch: dogCanPlay,
-  //     //     profile_photo: dogPic,
-  //     // }
-  //     // await addDog(newDog).then((res) => {
-  //     //     navigate('/user')
-  //     // })
-  //     //     .catch((err) => console.log(err));
-  //     ///*************commented to check for uploaded image */
+    ///*************commented to check for uploaded image */
+    // const newDog = {
+    //     user_id: user._id,
+    //     name: dogName,
+    //     breed: dogBreed,
+    //     age_years: dogAgeYears,
+    //     age_months: dogAgeMonths,
+    //     size: dogSize,
+    //     description: dogDescription,
+    //     energy: dogEnergy,
+    //     kid_friendly: dogKidFriendly,
+    //     cat_friendly: dogCatFriendly,
+    //     dog_friendly: dogFriendly,
+    //     obedience: dogObedience,
+    //     can_stay_home: dogCanStayHome,
+    //     exercise_type: dogExercise,
+    //     can_play_fetch: dogCanPlay,
+    //     profile_photo: dogPic,
+    // }
+    // await addDog(newDog).then((res) => {
+    //     navigate('/user')
+    // })
+    //     .catch((err) => console.log(err));
+    ///*************commented to check for uploaded image */
 
-  //     const uploadData = new FormData();
-  //     //console.log(dogPic)
-  //     if (dogPic !== null) {
-  //       uploadData.append("file", dogPic, "file");
-  //       // console.log("after appending ")
-  //     }
-  //     //uploadData.append("file", dogPic, "file");
-  //     uploadData.append("user_id", user._id);
-  //     uploadData.append("name", dogName);
-  //     uploadData.append("breed", dogBreed);
-  //     uploadData.append("age_years", dogAgeYears);
-  //     uploadData.append("age_months", dogAgeMonths);
-  //     uploadData.append("size", dogSize);
-  //     uploadData.append("description", dogDescription);
-  //     uploadData.append("energy", dogEnergy);
-  //     uploadData.append("kid_friendly", dogKidFriendly);
-  //     uploadData.append("cat_friendly", dogCatFriendly);
-  //     uploadData.append("dog_friendly", dogFriendly);
-  //     uploadData.append("obedience", dogObedience);
-  //     uploadData.append("can_stay_home", dogCanStayHome);
-  //     uploadData.append("exercise_type", dogExercise);
-  //     uploadData.append("can_play_fetch", dogCanPlay);
+    const uploadData = new FormData();
+    //console.log(dogPic)
+    if (dogPic !== null) {
+      uploadData.append("file", dogPic, "file");
+      // console.log("after appending ")
+    }
+    //uploadData.append("file", dogPic, "file");
+    uploadData.append("user_id", user._id);
+    uploadData.append("name", dogName);
+    uploadData.append("breed", dogBreed);
+    uploadData.append("age_years", dogAgeYears);
+    uploadData.append("age_months", dogAgeMonths);
+    uploadData.append("size", dogSize);
+    uploadData.append("description", dogDescription);
+    uploadData.append("energy", dogEnergy);
+    uploadData.append("kid_friendly", dogKidFriendly);
+    uploadData.append("cat_friendly", dogCatFriendly);
+    uploadData.append("dog_friendly", dogFriendly);
+    uploadData.append("obedience", dogObedience);
+    uploadData.append("can_stay_home", dogCanStayHome);
+    uploadData.append("exercise_type", dogExercise);
+    uploadData.append("can_play_fetch", dogCanPlay);
 
-  //     await addDog(uploadData)
-  //       .then((res) => {
-  //         navigate("/owner/ownerdogs");
-  //       })
-  //       .catch((err) => console.log(err));
-  //   };
+    await addDog(uploadData)
+      .then((res) => {
+        navigate("/owner/ownerdogs");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -290,36 +305,518 @@ const AddDogForm = () => {
                   </Grid>
                 </Grid>
               </MKBox>
+              {/* ************************* DOG DETAILS */}
+              <MKBox
+                width="auto"
+                component="form"
+                method="post"
+                autocomplete="off"
+                role="form"
+                onSubmit={addNewDog}
+              >
+                <Grid
+                  container
+                  spacing={2}
+                  p={4}
+                  style={{ padding: "2rem", boxSizing: "border-box" }}
+                  display="flex"
+                  justifyContent="center"
+                  margin={0}
+                >
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{ padding: "1rem" }}
+                    display="flex"
+                    justifyContent="flex-end"
+                  >
+                    <MKInput
+                      label="Name"
+                      fullWidth
+                      style={{ width: "80%" }}
+                      type="text"
+                      name="name"
+                      value={dogName}
+                      placeholder="Enter dog name"
+                      required
+                      onChange={(e) => setDogName(e.target.value)}
+                      autofocus
+                      tabIndex={1}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{ padding: "1rem" }}
+                    display="flex"
+                    justifyContent="flex-start"
+                  >
+                    <MKInput
+                      fullWidth
+                      style={{ width: "80%" }}
+                      label="Breed"
+                      type="text"
+                      name="breed"
+                      placeholder="Enter breed"
+                      required
+                      value={dogBreed}
+                      onChange={(e) => setDogBreed(e.target.value)}
+                      tabIndex={2}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{ padding: "1rem" }}
+                    display="flex"
+                    justifyContent="flex-end"
+                  >
+                    <MKInput
+                      fullWidth
+                      style={{ width: "80%" }}
+                      label="Age Years"
+                      name="age_years"
+                      placeholder="Enter age in years"
+                      type="number"
+                      value={dogAgeYears}
+                      onChange={(e) => setDogAgeYears(e.target.value)}
+                      InputProps={{ inputProps: { min: 0, max: 30 } }}
+                      tabIndex={3}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    style={{ padding: "1rem" }}
+                    display="flex"
+                    justifyContent="flex-start"
+                  >
+                    <MKInput
+                      fullWidth
+                      style={{ width: "80%" }}
+                      label="Age Months"
+                      name="age_months"
+                      placeholder="Enter age in months"
+                      type="number"
+                      value={dogAgeMonths}
+                      onChange={(e) => setDogAgeMonths(e.target.value)}
+                      InputProps={{ inputProps: { min: 0, max: 11 } }}
+                      tabIndex={4}
+                    />
+                  </Grid>
 
-              <DogInputsGrid
-                dogName={dogName}
-                setDogName={setDogName}
-                dogBreed={dogBreed}
-                setDogBreed={setDogBreed}
-                dogAgeYears={dogAgeYears}
-                setDogAgeYears={setDogAgeYears}
-                dogAgeMonths={dogAgeMonths}
-                setDogAgeMonths={setDogAgeMonths}
-                dogSize={dogSize}
-                setDogSize={setDogSize}
-                dogEnergy={dogEnergy}
-                setDogEnergy={setDogEnergy}
-                dogCanPlay={dogCanPlay}
-                setDogCanPlay={setDogCanPlay}
-                dogKidFriendly={dogKidFriendly}
-                setDogKidFriendly={setDogKidFriendly}
-                dogCatFriendly={dogCatFriendly}
-                setDogCatFriendly={setDogCatFriendly}
-                dogFriendly={dogFriendly}
-                setDogFriendly={setDogFriendly}
-                dogObedience={dogObedience}
-                setDogObedience={setDogObedience}
-                dogCanStayHome={dogCanStayHome}
-                dogExercise={dogExercise}
-                setDogExercise={setDogExercise}
-                dogDescription={dogDescription}
-                setDogDescription={setDogDescription}
-              />
+                  <Grid item xs={12} lg={4} style={{ padding: "1rem" }}>
+                    <MKBox display="flex" justifyContent="center">
+                      <FormControl>
+                        <FormLabel
+                          style={{ fontSize: "0.70em", color: "Gray" }}
+                          size="small"
+                        >
+                          Size
+                        </FormLabel>
+                        <RadioGroup
+                          name="controlled-radio-buttons-group"
+                          //value={user.user_type}
+                          value={dogSize}
+                          onChange={handleChangeSize}
+                          size="small"
+                          row
+                        >
+                          <FormControlLabel
+                            value="small"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="Small"
+                          />
+                          <FormControlLabel
+                            value="medium"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                                tabIndex={5}
+                              />
+                            }
+                            label="Medium"
+                          />
+                          <FormControlLabel
+                            value="large"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="Large"
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </MKBox>
+                  </Grid>
+                  <Grid item xs={12} lg={4} style={{ padding: "1rem" }}>
+                    <MKBox display="flex" justifyContent="center">
+                      <FormControl style={{ paddingLeft: "8%" }}>
+                        <FormLabel
+                          style={{ fontSize: "0.70em", color: "Gray" }}
+                          size="small"
+                        >
+                          Can Play Fetch
+                        </FormLabel>
+                        <RadioGroup
+                          name="controlled-radio-buttons-group"
+                          //value={user.user_type}
+                          value={dogCanPlay}
+                          onChange={handleCanPlay}
+                          size="small"
+                          row
+                        >
+                          <FormControlLabel
+                            value="true"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="Yes"
+                          />
+                          <FormControlLabel
+                            value="false"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="No"
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </MKBox>
+                  </Grid>
+                  <Grid item xs={12} lg={4} style={{ padding: "1rem" }}>
+                    <MKBox display="flex" justifyContent="center">
+                      <FormControl>
+                        <FormLabel
+                          style={{ fontSize: "0.70em", color: "Gray" }}
+                          size="small"
+                        >
+                          Energy
+                        </FormLabel>
+                        <RadioGroup
+                          name="controlled-radio-buttons-group"
+                          //value={user.user_type}
+                          value={dogEnergy}
+                          onChange={handleChangeEnergy}
+                          size="small"
+                          row
+                        >
+                          <FormControlLabel
+                            value="low"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="low"
+                          />
+                          <FormControlLabel
+                            value="medium"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="Medium"
+                          />
+                          <FormControlLabel
+                            value="high"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="High"
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </MKBox>
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
+                    <Typography
+                      component="legend"
+                      variant="h6"
+                      textAlign="center"
+                    >
+                      Kid Friendly
+                    </Typography>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-end",
+                        height: "3rem",
+                        paddingTop: "1rem",
+                      }}
+                    >
+                      <StyledRating
+                        onChange={(e) => setDogKidFriendly(e.target.value)}
+                        name="kidfriendly"
+                        defaultValue={dogKidFriendly}
+                        precision={1}
+                        icon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                        emptyIcon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                      />
+                    </div>
+                  </Grid>
+
+                  <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
+                    <Typography
+                      component="legend"
+                      variant="h6"
+                      textAlign="center"
+                    >
+                      Cat Friendly
+                    </Typography>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-end",
+                        height: "3rem",
+                        paddingTop: "1rem",
+                      }}
+                    >
+                      <StyledRating
+                        onChange={(e) => setDogCatFriendly(e.target.value)}
+                        name="catfriendly"
+                        defaultValue={dogCatFriendly}
+                        precision={1}
+                        icon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                        emptyIcon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
+                    <Typography
+                      component="legend"
+                      variant="h6"
+                      textAlign="center"
+                    >
+                      Dog Friendly
+                    </Typography>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-end",
+                        height: "3rem",
+                        paddingTop: "1rem",
+                      }}
+                    >
+                      <StyledRating
+                        onChange={(e) => setDogFriendly(e.target.value)}
+                        name="dogfriendly"
+                        defaultValue={dogFriendly}
+                        precision={1}
+                        icon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                        emptyIcon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
+                    <Typography
+                      component="legend"
+                      variant="h6"
+                      textAlign="center"
+                    >
+                      Obedience
+                    </Typography>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-end",
+                        height: "3rem",
+                        paddingTop: "1rem",
+                      }}
+                    >
+                      <StyledRating
+                        onChange={(e) => setDogObedience(e.target.value)}
+                        name="dogfriendly"
+                        defaultValue={dogObedience}
+                        precision={1}
+                        icon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                        emptyIcon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
+                    <Typography
+                      component="legend"
+                      variant="h6"
+                      textAlign="center"
+                    >
+                      Can stay home alone
+                    </Typography>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-end",
+                        height: "3rem",
+                        paddingTop: "1rem",
+                      }}
+                    >
+                      <StyledRating
+                        onChange={(e) => setDogCanStayHome(e.target.value)}
+                        name="dogfriendly"
+                        defaultValue={dogCanStayHome}
+                        precision={1}
+                        icon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                        emptyIcon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
+                    <Typography
+                      component="legend"
+                      variant="h6"
+                      textAlign="center"
+                    >
+                      Exercise Needs
+                    </Typography>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-end",
+                        height: "3rem",
+                        paddingTop: "1rem",
+                      }}
+                    >
+                      <StyledRating
+                        onChange={(e) => setDogExercise(e.target.value)}
+                        name="dogfriendly"
+                        defaultValue={dogExercise}
+                        precision={1}
+                        icon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                        emptyIcon={
+                          <PetsIcon
+                            fontSize="inherit"
+                            style={{ marginRight: "0.2rem" }}
+                          />
+                        }
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item xs={12} style={{ padding: "1rem" }}>
+                    {/* _______________________ Buttons */}
+                    <MKBox
+                      mt={5}
+                      mb={5}
+                      justifyContent="center"
+                      sx={{ display: { xs: "block", md: "flex" } }}
+                      textAlign="center"
+                      width="100%"
+                    >
+                      <MKButton
+                        size="large"
+                        onClick={() => navigate("/owner/ownerdogs")}
+                        variant="gradient"
+                        color="info"
+                        style={{
+                          width: "8rem",
+                          minWidth: "120px",
+                          margin: "1rem",
+                        }}
+                      >
+                        Cancel
+                      </MKButton>
+                      <MKButton
+                        type="submit"
+                        size="large"
+                        // onClick={onSaveHandler}
+                        variant="gradient"
+                        color="info"
+                        style={{
+                          width: "8rem",
+                          minWidth: "120px",
+                          margin: "1rem",
+                        }}
+                      >
+                        Save
+                      </MKButton>
+                    </MKBox>
+                  </Grid>
+                </Grid>
+              </MKBox>
             </Paper>
           </MKBox>
         </MKBox>
