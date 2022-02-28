@@ -11,7 +11,7 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import Box from '@mui/material/Box';
 
-import { GetPlayDateRequestsForOwner } from "../../logic/PlayDateFunctions";
+import { GetPlayDateRequestsForOwner, UpdatePlayDateRequest } from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
 import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
 
@@ -53,7 +53,7 @@ const OwnerDogRequestsForm = () => {
         //find selected request id data
         const selectedRequest = dogRequestsInfo.find(dogRequest => dogRequest._id === selectedRequestId)
         setSelectedDogRequest(selectedRequest);
-
+        console.log(selectedRequest)
         toggleModal();
     }
 

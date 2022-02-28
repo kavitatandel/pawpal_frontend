@@ -110,7 +110,7 @@ function DogApproveRejectModal({
                                         </MKTypography>
                                         <MKTypography>
 
-                                            {selectedDogRequest.DogLovers.first_name} {selectedDogRequest.DogLovers.last_name}
+                                            {/* {selectedDogRequest.DogLovers.first_name} {selectedDogRequest.DogLovers.last_name} */}
                                         </MKTypography>
                                     </MKBox>
                                     <MKBox
