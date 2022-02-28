@@ -116,7 +116,7 @@ const DogInfoForm = () => {
             elevation={24}
             style={{ position: "relative", borderRadius: "2rem" }}
             sx={{
-              width: { xs: "90%", md: "70%", xl: "40%" },
+              width: { xs: "90%", sm: "95%", md: "80%", lg: "70%", xl: "50%" },
               height: "auto",
               mt: -12,
               mx: { xs: 2, lg: 3 },

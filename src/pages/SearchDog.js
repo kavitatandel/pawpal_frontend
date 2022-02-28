@@ -1,4 +1,4 @@
-import DLHeader from "components/Layout/DLHeader";
+import MasterHeader from "components/Layout/MasterHeader";
 import Body from "components/Custom/CustomContainers";
 import CenteredFooter from "components/Layout/CenteredFooter";
 import SearchForm from "components/Forms/SearchForm";
@@ -6,7 +6,7 @@ import SearchForm from "components/Forms/SearchForm";
 const SearchDog = () => {
   return (
     <>
-      <DLHeader />
+      <MasterHeader />
       <Body>
         <SearchForm />
       </Body>

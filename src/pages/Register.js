@@ -1,11 +1,12 @@
-import Header from "components/Layout/Header";
 import RegisterForm from "components/Forms/RegisterForm";
-import PageContainer from "components/Layout/PageContainer";
+import Body from "../components/Custom/CustomContainers";
 
 const Register = () => {
   return (
     <>
-      <RegisterForm />
+      <Body>
+        <RegisterForm />
+      </Body>
     </>
   );
 };

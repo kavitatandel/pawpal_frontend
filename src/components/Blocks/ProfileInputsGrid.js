@@ -14,6 +14,12 @@ const ProfileInputsGrid = () => {
   const onSaveHandler = () => {
     navigate("/user/searchdog");
   };
+
+  const handleLogOut = () => {
+    setUser({});
+    localStorage.removeItem("usertoken");
+    navigate("/");
+  };
   return (
     <>
       <Grid
@@ -211,7 +217,7 @@ const ProfileInputsGrid = () => {
           >
             <MKButton
               size="large"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/searchdogs")}
               variant="gradient"
               color="info"
               style={{

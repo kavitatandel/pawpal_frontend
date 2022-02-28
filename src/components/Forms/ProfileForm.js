@@ -65,6 +65,11 @@ const ProfileForm = () => {
     }));
   };
 
+  const handleLogOut = () => {
+    setUser({});
+    localStorage.removeItem("usertoken");
+  };
+
   return (
     <>
       {/* // Container between top & Footer */}
