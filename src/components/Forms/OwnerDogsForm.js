@@ -259,6 +259,7 @@ const OwnerDogsForm = () => {
                             {/* <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
                                     {dog.dogs_info.age_years} yrs {dog.dogs_info.age_months} mon.
                                 </MKTypography> */}
+
                             <MKTypography
                               variant="p"
                               style={{ fontSize: "0.90rem" }}
@@ -344,6 +345,87 @@ const OwnerDogsForm = () => {
       </MKBox>
     </>
   );
+//
+//                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+//                                                         {dog.size}
+//                                                     </MKTypography>
+//                                                 </div>
+//                                                 <div
+//                                                     className="Age"
+//                                                     style={{
+//                                                         //   border: "2px solid red",
+//                                                         width: "20%",
+//                                                         display: "flex",
+//                                                         alignItems: "center",
+//                                                         justifyContent: "flex-start",
+//                                                         width: "25%",
+//                                                     }}
+//                                                 >
+//                                                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+//                                                         {dog.age_years} yrs {dog.age_months} mon.
+//                                                     </MKTypography>
+//                                                 </div>
+//                                                 <div
+//                                                     className="ButtonContainer"
+//                                                     style={{
+//                                                         width: "20%",
+//                                                         display: "flex",
+//                                                         alignItems: "center",
+//                                                         justifyContent: "flex-end ",
+//                                                         //   border: "2px solid red",
+//                                                         width: "15%",
+//                                                         marginRight: "1rem",
+//                                                     }}
+//                                                 >
+//                                                     <MKButton
+//                                                         size="small"
+//                                                         type="submit"
+//                                                         variant="gradient"
+//                                                         color="info"
+//                                                         style={{
+//                                                             minWidth: "1rem",
+//                                                         }}
+//                                                         onClick={() => navigate(`/owner/ownerdogrequests/${dog._id}`)}>
+//                                                         Requests
+//                                                     </MKButton>
+//                                                 </div>
+//                                                 <div
+//                                                     className="ButtonContainer"
+//                                                     style={{
+//                                                         width: "20%",
+//                                                         display: "flex",
+//                                                         alignItems: "center",
+//                                                         justifyContent: "flex-end ",
+//                                                         //   border: "2px solid red",
+//                                                         width: "15%",
+//                                                         marginRight: "1rem",
+//                                                     }}
+//                                                 >
+//                                                     <MKButton
+//                                                         size="small"
+//                                                         type="submit"
+//                                                         variant="gradient"
+//                                                         color="info"
+//                                                         style={{
+//                                                             minWidth: "1rem",
+//                                                         }}
+//                                                     >
+//                                                         Edit
+//                                                     </MKButton>
+//                                                 </div>
+//                                             </div>
+//                                         </Card>
+//                                     )
+//                                 })}
+
+//                             </MKBox>
+//                         </Container>
+//                     </Card>
+//                 </MKBox>
+//             </MKBox>
+//         </>
+//     );
+
 };
 
 export default OwnerDogsForm;

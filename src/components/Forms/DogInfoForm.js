@@ -32,20 +32,30 @@ import FormLabel from "@mui/material/FormLabel";
 import { getDogInfoById } from "../../logic/DogFunctions";
 import { useNavigate, useParams } from "react-router";
 import { DogIconsGrid } from "components/Blocks/DogIconsGrid";
+import DogRequestModal from "../Modals/DogRequestModal";
 
 const DogInfoForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogInfo, setDogInfo] = useState("");
   const [dogKidFriendly, setDogKidFriendly] = useState(0);
   const [dogCatFriendly, setDogCatFriendly] = useState(0);
+  const [dogId, setDogId] = useState();
+
+  //for modal
+  const [show, setShow] = useState(false);
+  const toggleModal = () => setShow(!show);
 
   const navigate = useNavigate();
 
   const { dogid } = useParams();
+  // console.log(dogid);
+  console.log("DOG ID")
   console.log(dogid);
 
   useEffect(async () => {
     console.log(user);
+    console.log("inside use effect of dog info")
+    console.log(dogid);
     await getDogInfoById(dogid)
       .then((res) => {
         console.log(res);
@@ -53,6 +63,8 @@ const DogInfoForm = () => {
         setDogKidFriendly(res.kid_friendly);
         console.log("Kid Friendly");
         console.log(res.kid_friendly);
+        setDogId(res._id);
+        console.log(res._id);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -64,6 +76,10 @@ const DogInfoForm = () => {
   const handleChangeDogCatFreindly = (event, newValue) => {
     setDogCatFriendly(newValue);
   };
+
+  const handleClickGoBack = () => {
+    navigate('/user/searchdog')
+  }
 
   return (
     <>
@@ -95,7 +111,7 @@ const DogInfoForm = () => {
           alignItems="center"
           minHeight="auto"
           width="100%"
-        >
+    >
           <Paper
             elevation={24}
             style={{ position: "relative", borderRadius: "2rem" }}
@@ -112,6 +128,7 @@ const DogInfoForm = () => {
               boxShadow: ({ boxShadows: { xxl } }) => xxl,
             }}
           >
+
             {/* ________Pink Shape */}
             <MKBox
               color="white"
@@ -126,20 +143,41 @@ const DogInfoForm = () => {
                 borderRadius: "5% 5% 40% 90%",
                 background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
               }}
+
+
+            <DogRequestModal
+              show={show}
+              setShow={setShow}
+              toggleModal={toggleModal}
+              // dogLoverId={dogLoverId}
+              // setDogLoverId={setDogLoverId}
+              dogId={dogId} setDogId={setDogId}
+            />
+            {/* Container for Profile Pic */}
+            <MKBox
+              zindex={2}
+              mx={4}
+              mt={-15}
+              mb={4}
+              pt={5}
+              display="flex"
+              justifyContent="center"
+              alignItems="flex-end"
             >
               {/* Container for Profile Pic */}
-              <MKBox
-                zindex={2}
-                mx={4}
-                mt={-8}
-                mb={4}
-                pt={5}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                //   style={{ border: "3px solid blue" }}
-              >
+//               <MKBox
+//                 zindex={2}
+//                 mx={4}
+//                 mt={-8}
+//                 mb={4}
+//                 pt={5}
+//                 display="flex"
+//                 flexDirection="column"
+//                 justifyContent="center"
+//                 alignItems="center"
+//                   style={{ border: "3px solid blue" }}
+//               >
+
                 {/* dog pic */}
                 <MKAvatar
                   zindex={2}
@@ -182,6 +220,93 @@ const DogInfoForm = () => {
                       backgroundColor: "rgba(255, 171, 149, 0.5)",
                       minimumWidth: "100px",
                     }}
+
+//                 {`${dogInfo.name}`}
+//               </MKTypography>
+//               {/* ************************** Dog Details */}
+//               <MKBox pt={1} pb={3} px={3}>
+//                 <MKBox
+//                   component="form"
+//                   method="post"
+//                   autocomplete="off"
+//                   role="form"
+//                   p={6}
+//                 ></MKBox>
+//                 <MKBox width="100%" mb={2} display="flex" jistifyContent="flex-end">
+//                   <MKButton
+//                     onClick={toggleModal}
+//                     size="small"
+//                     type="submit"
+//                     variant="gradient"
+//                     color="info"
+//                     style={{
+//                       marginLeft: "1.5rem",
+//                       width: "8rem",
+//                       minWidth: "120px",
+//                     }}
+//                   >
+//                     Play Date Request
+//                   </MKButton>
+//                   <MKButton
+//                     onClick={handleClickGoBack}
+//                     size="small"
+//                     type="submit"
+//                     variant="gradient"
+//                     color="info"
+//                     style={{
+//                       marginLeft: "1.5rem",
+//                       width: "8rem",
+//                       minWidth: "120px",
+//                     }}
+//                   >
+//                     Find More Dogs
+//                   </MKButton>
+//                 </MKBox>
+//                 <MKBox mb={2} display="flex" justifyContent="space-between">
+//                   <MKTypography color="dark" textAlign="center">
+//                     Breed:
+//                   </MKTypography>
+//                   <MKTypography
+//                     fontWeight="regular"
+//                     color="dark"
+//                     textAlign="center"
+//                   >
+//                     {`${dogInfo.breed}`}
+//                   </MKTypography>
+//                   <MKTypography
+//                     fontWeight="regular"
+//                     color="dark"
+//                     textAlign="center"
+//                   >
+//                     Age:
+//                   </MKTypography>
+//                   <MKTypography
+//                     fontWeight="regular"
+//                     color="dark"
+//                     textAlign="center"
+//                   >
+//                     {`${dogInfo.age_years}`} yrs. {`${dogInfo.age_months}`}{" "}
+//                     months
+//                   </MKTypography>
+//                   {/* <MKTypography
+//                     fontWeight="regular"
+//                     color="dark"
+//                     textAlign="center"
+//                   >
+//                     Size:
+//                   </MKTypography>
+//                   <MKTypography
+//                     fontWeight="regular"
+//                     color="dark"
+//                     textAlign="center"
+//                   >
+//                     {`${dogInfo.size}`}
+//                   </MKTypography>
+//                   <MKTypography
+//                     fontWeight="regular"
+//                     color="dark"
+//                     textAlign="center"
+
                   >
                     <MKTypography
                       variant="h6"

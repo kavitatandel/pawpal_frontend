@@ -10,7 +10,8 @@ import SearchDog from "./pages/SearchDog";
 import DogInfo from "./pages/DogInfo";
 import AddDog from "./pages/AddDog";
 import OwnerDogs from "./pages/OwnerDogs";
-import LayoutTest from "components/Layout/LayoutTest";
+import OwnerDogRequests from "./pages/OwnerDogRequests";
+
 
 const AppRouter = () => {
   return (
@@ -27,6 +28,10 @@ const AppRouter = () => {
         <Route exact path="/test" element={<LayoutTest />}></Route>
         <Route exact path="/owner/adddog" element={<AddDog />}></Route>
         <Route exact path="/owner/ownerdogs" element={<OwnerDogs />}></Route>
+
+        <Route exact path="/owner/ownerdogrequests/:dogid" element={<OwnerDogRequests />}></Route>
+      
+
       </Routes>
     </>
   );
