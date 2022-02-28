@@ -31,7 +31,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { getDogInfoById } from "../../logic/DogFunctions";
 import { useNavigate, useParams } from "react-router";
-import { DogIconsGrid } from "components/Blocks/DogIconsGrid";
+import { DogIconsGrid } from "components/Forms/DogIconsGrid";
 import DogRequestModal from "../Modals/DogRequestModal";
 
 const DogInfoForm = () => {

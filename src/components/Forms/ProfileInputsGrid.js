@@ -16,7 +16,9 @@ const ProfileInputsGrid = () => {
     if (user.user_type === "doglover") {
       navigate("/user/searchdog");
     }
-    navigate("/owner/ownerdogs");
+    if (user.user_type === "owner") {
+      navigate("/owner/ownerdogs");
+    }
   };
 
   const handleLogOut = () => {

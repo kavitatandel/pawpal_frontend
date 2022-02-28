@@ -66,6 +66,7 @@ const ProfileForm = () => {
       latitude: decoded.user.latitude,
       longitude: decoded.user.longitude,
       profile_pic: decoded.user.profile_pic,
+      description: decoded.user.description,
     }));
   };
 
