@@ -7,8 +7,8 @@ import CenteredFooter from "components/Layout/CenteredFooter";
 const UserInfo = () => {
   return (
     <>
-      {/* <OwnerHeader /> */}
-      <DLHeader />
+      <OwnerHeader />
+      {/* <DLHeader /> */}
       <Body>
         <ProfileForm />
       </Body>
