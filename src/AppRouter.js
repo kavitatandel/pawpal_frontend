@@ -11,6 +11,7 @@ import DogInfo from "./pages/DogInfo";
 import AddDog from "./pages/AddDog";
 import OwnerDogs from "./pages/OwnerDogs";
 import OwnerDogRequests from "./pages/OwnerDogRequests";
+import DogLoverRequests from "./pages/DogLoverRequests";
 
 const AppRouter = () => {
   return (
@@ -22,6 +23,7 @@ const AppRouter = () => {
         <Route exact path="/user" element={<UserInfo />}></Route>
         {/* <Route path="/profile" element={<Profile />}></Route> */}
         <Route exact path="/user/searchdog" element={<SearchDog />}></Route>
+        <Route exact path="/user/dogloverrequests" element={<DogLoverRequests />}></Route>
         {/* added to check location based on address */}
         <Route exact path="/doginfo/:dogid" element={<DogInfo />}></Route>
         <Route exact path="/owner/adddog" element={<AddDog />}></Route>
