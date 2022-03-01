@@ -2,6 +2,8 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import MKBox from "components/MKBox";
+import bgImage from "../../assets/images/backgrounds/waves_1.png";
 
 export default function Body(props) {
   return (
@@ -18,7 +20,26 @@ export default function Body(props) {
           width: "100%",
         }}
       >
-        <Box sx={{ height: "auto" }}>{props.children}</Box>
+        {/* <Box sx={{ height: "auto" }}>{props.children}</Box> */}
+        <MKBox
+          height="auto"
+          sx={{
+            backgroundImage: ({
+              functions: { linearGradient, rgba },
+              palette: { gradients },
+            }) =>
+              `${linearGradient(
+                rgba(gradients.dark.main, 0),
+                rgba(gradients.dark.state, 0)
+              )}, url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            display: "grid",
+            placeItems: "center",
+          }}
+        >
+          {props.children}
+        </MKBox>
       </div>
     </>
   );
