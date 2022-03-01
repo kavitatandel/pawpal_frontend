@@ -19,8 +19,6 @@ export const addPlayDateRequest = (playDayRequest) => {
 
 //get 'Pending' dog request for owner
 export const GetPlayDateRequestsForOwner = (owner_id) => {
-    console.log("inside get play date request")
-    console.log(owner_id)
     return axios
         .get(`http://localhost:5000/GetPlayDateRequestsForOwner/${owner_id}`)
         .then((res) => {
@@ -32,8 +30,6 @@ export const GetPlayDateRequestsForOwner = (owner_id) => {
 
 //get 'Approved' dog request for owner
 export const GetApprovedRequestsForOwner = (owner_id) => {
-    console.log("inside get play date request")
-    console.log(owner_id)
     return axios
         .get(`http://localhost:5000/GetApprovedRequestsForOwner/${owner_id}`)
         .then((res) => {
@@ -41,6 +37,29 @@ export const GetApprovedRequestsForOwner = (owner_id) => {
         })
         .catch((err) => console.log(err));
 };
+
+//get 'Pending' dog request for dog lover
+export const getDogLoverRequests = (user_id) => {
+    console.log("inside dog lover request method" + user_id)
+    return axios
+        .get(`http://localhost:5000/getDogLoverRequests/${user_id}`)
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};
+
+
+//get 'Approved' dog request for dog lover
+export const getDogLoverApprovedRequests = (user_id) => {
+    return axios
+        .get(`http://localhost:5000/getDogLoverApprovedRequests/${user_id}`)
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};
+
 
 //insert dog request
 export const UpdatePlayDateRequest = (playDateRequest) => {

@@ -265,7 +265,7 @@ const MasterHeader = () => {
                   Search Dogs
                 </MKButton>
               </Link>
-              <Link to="/">
+              <Link to="/user/dogloverrequests">
                 <MKButton
                   variant="text"
                   color="dark"
@@ -344,7 +344,7 @@ const MasterHeader = () => {
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Link to="/">
+                  <Link to="/user/dogloverrequests">
                     <MKButton
                       onClick={handleCloseNavMenu}
                       size="medium"
