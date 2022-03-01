@@ -10,7 +10,7 @@ const SearchDog = () => {
       <Body>
         <SearchForm />
       </Body>
-      <CenteredFooter />
+      {/* <CenteredFooter /> */}
     </>
   );
 };

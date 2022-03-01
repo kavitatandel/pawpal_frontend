@@ -11,7 +11,7 @@ const AddDog = () => {
       <Body>
         <AddDogForm />
       </Body>
-      <CenteredFooter />
+      {/* <CenteredFooter /> */}
     </>
   );
 };

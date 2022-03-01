@@ -73,96 +73,85 @@ const ProfileForm = () => {
 
   return (
     <>
-      {/* // Container between top & Footer */}
+      {/* Entire Page Container (without footer) */}
       <MKBox
         px={1}
         width="100%"
         top={0}
-        height="auto"
+        minHeight="100%"
         mx="auto"
         mr={0}
         ml={0}
         position="relative"
         zindex={-1}
-        sx={{ padding: "0" }}
+        // sx={{ padding: "0", border: "2px solid blue" }}
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
       >
-        <TopBgImg />
-        {/* Container for body area below featured img */}
-        <MKBox
-          pb={12}
-          mt={5}
-          display="flex"
-          flexDirection="column"
-          justifyContent="flex-start"
-          alignItems="center"
-          minHeight="auto"
-          width="100%"
+        <Paper
+          className="neuCard"
+          elevation={24}
+          style={{
+            position: "relative",
+            borderRadius: "2rem",
+            // glass effect
+            background: "rgba( 255, 255, 255, 0.7 )",
+            boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+            backdropFilter: "blur( 12px )",
+          }}
+          sx={{
+            // NEED TO FIX THIS OVERFLOW ISSUE LATER (Coralee)
+            // overflow: "hidden",
+            width: { xs: "95%", sm: "90%", md: "80%", xl: "70%" },
+            maxWidth: "1000px",
+            height: "auto",
+            mt: 35,
+            mx: { xs: 2, lg: 3 },
+            position: "relative",
+            mb: 10,
+            // backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
+            //   rgba(white.main, 0.85),
+            // backdropFilter: "saturate(200%) blur(30px)",
+            // boxShadow: ({ boxShadows: { xxl } }) => xxl,
+          }}
         >
-          <Paper
-            className="neuCard"
-            elevation={24}
+          <UploadPicModal
+            show={show}
+            setShow={setShow}
+            toggleModal={toggleModal}
+            uploadedImageURL={uploadedImageURL}
+            setUploadedImageURL={setUploadedImageURL}
+            selectedFile={selectedFile}
+            setSelectedFile={setSelectedFile}
+          />
+          {/* ________Pink Shape */}
+          <MKBox
+            color="white"
+            bgColor="error"
+            variant="gradient"
+            borderRadius="lg"
+            shadow="lg"
+            opacity={1}
+            mt={-12}
             style={{
-              position: "relative",
-              borderRadius: "2rem",
-              // glass effect
-              background: "rgba( 255, 255, 255, 0.7 )",
-              boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-              backdropFilter: "blur( 12px )",
-            }}
-            sx={{
-              // NEED TO FIX THIS OVERFLOW ISSUE LATER (Coralee)
-              // overflow: "hidden",
-              width: { xs: "90%", md: "70%", xl: "50%" },
-              height: "auto",
-              mt: -12,
-              mx: { xs: 2, lg: 3 },
-              position: "relative",
-              mb: 4,
-              // backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-              //   rgba(white.main, 0.85),
-              // backdropFilter: "saturate(200%) blur(30px)",
-              // boxShadow: ({ boxShadows: { xxl } }) => xxl,
+              height: "20rem",
+              borderRadius: "5% 5% 40% 90%",
+              background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
             }}
           >
-            <UploadPicModal
-              show={show}
-              setShow={setShow}
-              toggleModal={toggleModal}
-              uploadedImageURL={uploadedImageURL}
-              setUploadedImageURL={setUploadedImageURL}
-              selectedFile={selectedFile}
-              setSelectedFile={setSelectedFile}
-            />
-            {/* ________Pink Shape */}
-            <MKBox
-              color="white"
-              bgColor="error"
-              variant="gradient"
-              borderRadius="lg"
-              shadow="lg"
-              opacity={1}
-              mt={-12}
-              style={{
-                height: "20rem",
-                borderRadius: "5% 5% 40% 90%",
-                background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
-              }}
-            >
-              {/* Container for Profile Pic */}
-              <Grid container>
-                <Grid item xs={12}>
-                  <MKBox
-                    ml={6}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="flex-end"
-                  >
-                    {/* LogIn Box */}
-                    {/* <MKBox
+            {/* Container for Profile Pic */}
+            <Grid container>
+              <Grid item xs={12}>
+                <MKBox
+                  ml={6}
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="flex-end"
+                >
+                  {/* LogIn Box */}
+                  {/* <MKBox
                       variant="gradient"
                       bgColor="info"
                       borderRadius="lg"
@@ -183,64 +172,63 @@ const ProfileForm = () => {
                       </MKTypography>
                     </MKBox> */}
 
-                    {/* TEST BORDER: */}
+                  {/* TEST BORDER: */}
 
-                    <MKAvatar
-                      top={-50}
-                      zindex={2}
-                      src={`${user.profile_pic}`}
-                      alt={`${user.first_name}`}
-                      shadow="xl"
-                      sx={{ width: "12rem", height: "12rem" }}
-                      style={{
-                        borderStyle: "ridge",
-                        border: "5px solid white",
-                        backgroundColor: "white",
-                        marginTop: "-6rem",
-                      }}
-                    />
-                    <MKButton
-                      variant="text"
-                      onClick={toggleModal}
-                      style={{
-                        width: "2rem",
-                        height: "2rem",
-                        marginLeft: -12,
-                      }}
-                    >
-                      EDIT
-                    </MKButton>
-                  </MKBox>
-                </Grid>
-
-                <Grid item xs={12} mt={5}>
-                  {/* ************************* User Full Name */}
-                  <MKTypography
-                    variant="h1"
-                    fontWeight="medium"
-                    color="light"
-                    textAlign="center"
+                  <MKAvatar
+                    top={-50}
+                    zindex={2}
+                    src={`${user.profile_pic}`}
+                    alt={`${user.first_name}`}
+                    shadow="xl"
+                    sx={{ width: "12rem", height: "12rem" }}
+                    style={{
+                      borderStyle: "ridge",
+                      border: "5px solid white",
+                      backgroundColor: "white",
+                      marginTop: "-6rem",
+                    }}
+                  />
+                  <MKButton
+                    variant="text"
+                    onClick={toggleModal}
+                    style={{
+                      width: "2rem",
+                      height: "2rem",
+                      marginLeft: -12,
+                    }}
                   >
-                    {`${user.first_name} ${user.last_name}`}
-                  </MKTypography>
-                </Grid>
+                    EDIT
+                  </MKButton>
+                </MKBox>
               </Grid>
-            </MKBox>
 
-            {/* ************************** User Details */}
-            <MKBox
-              component="form"
-              method="post"
-              autocomplete="off"
-              role="form"
-              //   onSubmit={createUser}
-              p={6}
-            >
-              {/* ___________________ Input Grid */}
-              <ProfileInputsGrid />
-            </MKBox>
-          </Paper>
-        </MKBox>
+              <Grid item xs={12} mt={5}>
+                {/* ************************* User Full Name */}
+                <MKTypography
+                  variant="h1"
+                  fontWeight="medium"
+                  color="light"
+                  textAlign="center"
+                >
+                  {`${user.first_name} ${user.last_name}`}
+                </MKTypography>
+              </Grid>
+            </Grid>
+          </MKBox>
+
+          {/* ************************** User Details */}
+          <MKBox
+            component="form"
+            method="post"
+            autocomplete="off"
+            role="form"
+            //   onSubmit={createUser}
+            p={6}
+          >
+            {/* ___________________ Input Grid */}
+            <ProfileInputsGrid />
+          </MKBox>
+        </Paper>
       </MKBox>
     </>
   );

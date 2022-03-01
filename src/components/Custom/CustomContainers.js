@@ -1,5 +1,5 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
+import CenteredFooter from "../Layout/CenteredFooter";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import MKBox from "components/MKBox";
@@ -15,14 +15,17 @@ export default function Body(props) {
           padding: 0,
           top: 0,
           left: 0,
-          // border: " 2px solid red",
-          height: "auto",
+
+          // border: " 10px solid red",
+          maxHeight: "100%",
+          minHeight: "100vh",
           width: "100%",
         }}
       >
         {/* <Box sx={{ height: "auto" }}>{props.children}</Box> */}
         <MKBox
-          height="auto"
+          minHeight="90vh"
+          // style={{ border: " 2px solid blue" }}
           sx={{
             backgroundImage: ({
               functions: { linearGradient, rgba },
@@ -40,6 +43,7 @@ export default function Body(props) {
         >
           {props.children}
         </MKBox>
+        <CenteredFooter minHeight="10vh" />
       </div>
     </>
   );

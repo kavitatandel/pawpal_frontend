@@ -6,6 +6,10 @@ import MKBox from "components/MKBox";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
 import MKTypography from "../MKTypography";
+import TopBgImg from "components/Blocks/TopBgImg";
+import Paper from "@mui/material/Paper";
+import { Grid } from "@mui/material";
+import "../../styles/Map.css";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -30,35 +34,34 @@ const SearchForm = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
-
   //added to check if user has searched dog or not
   const [isSearched, setIsSearched] = useState(false);
 
   //handle search click event
   const handleSearch = (e) => {
     e.preventDefault();
-    searchDogByCity(search).then((res) => {
-      console.log("Inside searcg dog by city")
-      console.log(res);
-      if (res) {
-        if (res.length !== 0) {
-          setLoading(false);
-          setLocations(res);
-          // console.log(locations.length);
-          //set isSearched true
-          setIsSearched(true);
+    searchDogByCity(search)
+      .then((res) => {
+        console.log("Inside search dog by city");
+        console.log(res);
+        if (res) {
+          if (res.length !== 0) {
+            setLoading(false);
+            setLocations(res);
+            // console.log(locations.length);
+            //set isSearched true
+            setIsSearched(true);
+          } else {
+            setIsSearched(false);
+            setLocations([]);
+          }
         } else {
-          setIsSearched(false);
-          setLocations([]);
+          alert("Please enter city to search");
         }
-
-      } else {
-        alert("Please enter city to search");
-      }
-    })
-      .catch(err => {
+      })
+      .catch((err) => {
         setIsSearched(false);
-        console.log(err)
+        console.log(err);
       });
   };
 
@@ -72,150 +75,153 @@ const SearchForm = () => {
   //if (loading) return <h1>Loading......</h1>
   return (
     <>
-      {/* Container between top & Footer */}
-      <div>
-        {/* Container for top background Image */}
-        <MKBox
-          minHeight="20vh"
-          width="100%"
-          //   style={{ border: "3px solid green" }}
-          sx={{
-            backgroundImage: ({
-              functions: { linearGradient, rgba },
-              palette: { gradients },
-            }) =>
-              `${linearGradient(
-                rgba(gradients.dark.main, 0.2),
-                rgba(gradients.dark.state, 0.2)
-              )}, url(${bgImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            display: "grid",
-            placeItems: "center",
-          }}
-        />
-
-        {/* Container for body area below featured img */}
-        <div
+      {/* Entire Page Container (without footer) */}
+      <MKBox
+        px={1}
+        width="100%"
+        top={0}
+        minHeight="100%"
+        mx="auto"
+        mr={0}
+        ml={0}
+        position="relative"
+        zindex={-1}
+        // sx={{ padding: "0", border: "2px solid blue" }}
+        display="flex"
+        flexDirection="column"
+        justifyContent="flex-start"
+        alignItems="center"
+      >
+        <Paper
+          className="neuCard"
+          elevation={24}
           style={{
-            zindex: "-2",
-            border: "3px solid green",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            minHeight: "85vh",
-            top: "0",
-            width: "100%",
+            position: "relative",
+            borderRadius: "2rem",
+            // glass effect
+            background: "rgba( 255, 255, 255, 0.7 )",
+            boxShadow: "12px 30px 40px 0 rgba(255, 61, 46, 0.5)",
+            backdropFilter: "blur( 12px )",
+            padding: "0",
+            // border: "2px solid blue",
+          }}
+          sx={{
+            // BREAKPOINTS:
+            // xs: 0,
+            // sm: 576,
+            // md: 768,
+            // lg: 992,
+            // xl: 1200,
+            // xxl: 1400,
+            // xxxl: 1800,
+            width: {
+              xs: "95%",
+              lg: "90%",
+            },
+            maxWidth: "2000px",
+            height: "auto",
+            mt: 20,
+            mx: { xs: 2, lg: 3 },
+            position: "relative",
+            mb: 18,
           }}
         >
-          <div
+          {/* Top Search Bar Area */}
+          <Grid container>
+            <Grid item xs={12} style={{ padding: "1rem" }}>
+              <form onSubmit={handleSearch}>
+                <MKInput
+                  label="Search by City"
+                  type="text"
+                  name="searchCity"
+                  placeholder={search}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <MKButton
+                  size="large"
+                  type="submit"
+                  variant="gradient"
+                  color="info"
+                  style={{
+                    marginLeft: "1.5rem",
+                    width: "8rem",
+                    minWidth: "120px",
+                  }}
+                >
+                  Search
+                </MKButton>
+              </form>
+            </Grid>
+          </Grid>
+          {/* Section below the search area */}
+          <Grid
+            container
+            mx={0}
             style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "right",
-              alignItems: "right",
-              marginTop: "10px",
+              borderRadius: "0 0 30px 30px",
             }}
+            display="flex"
+            justifyContent="center"
+            overflow="hidden"
           >
-            {/* search input container */}
-            <form onSubmit={handleSearch}>
-              <MKInput
-                label="Search by City"
-                type="text"
-                name="searchCity"
-                placeholder={search}
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <MKButton
-                size="large"
-                type="submit"
-                variant="gradient"
-                color="info"
+            {/* **************** SEARCH RESULTS */}
+            <div
+              className="container-fluid"
+              style={{
+                width: "100%",
+              }}
+            >
+              <div
+                className="mapbox"
                 style={{
-                  marginLeft: "1.5rem",
-                  width: "8rem",
-                  minWidth: "120px",
+                  width: "100%",
+                  diplay: "flex",
+                  flexDirection: "column",
+
+                  // border: "2px solid green",
                 }}
               >
-                Search
-              </MKButton>
-            </form>
-          </div>
-          {/* <Container display="flex" flexDirection="row" style={{ minWidth: "90%", minHeight: "90%", border: "3px solid yellow" }}> */}
-          <div
-            style={{
-              minWidth: "90%",
-              minHeight: "90%",
-              // border: "3px solid yellow",
-              display: "flex",
-              flexDirection: "row",
-              zindex: "0",
-            }}
-          >
-            {/* Box to show searched Dogs */}
-            <MKBox
-              px={0}
-              width="45%"
-              top={10}
-              height="auto"
-              mx="auto"
-              mr={0}
-              ml={0}
-              position="relative"
-              zindex={1}
-              sx={{ padding: "0" }}
-              display="flex"
-              flexDirection="column"
-              justifyContent="flex-start"
-              alignItems="center"
-              style={{
-                // border: "3px solid blue",
-                backgroundColor: "rgba(39, 46, 245, 0.2)",
-              }}
-              float="left"
-              minheight="80vh"
-            >
-              {(isSearched && locations.length > 0) ?
-
-                <SearchedDog locations={locations} setLocations={setLocations} />
-                : <MKTypography>No Dogs Found</MKTypography>
-              }
-            </MKBox>
-            <MKBox
-              pt={0}
-              pb={0}
-              px={0}
-              px={0}
-              width="55%"
-              top={10}
-              mx="auto"
-              mr={0}
-              ml={0}
-              position="relative"
-              zindex={1}
-              sx={{ padding: "0" }}
-              display="flex"
-              flexDirection="column"
-              justifyContent="flex-start"
-              alignItems="center"
-              style={{
-                // border: "3px solid red",
-                backgroundColor: "rgba(39, 46, 245, 0.2)",
-              }}
-              float="right"
-              minheight="80vh"
-            >
-              <LeafletMap
-                locations={locations}
-                style={{ width: "100%" }}
-                isSearched={isSearched}
-              />
-            </MKBox>
-          </div>
-        </div>
-      </div>
+                <div className="row-fluid some" id="map">
+                  <LeafletMap
+                    locations={locations}
+                    style={{ width: "100%", position: "absolute" }}
+                    isSearched={isSearched}
+                  />
+                </div>
+                <MKBox
+                  className="row-fluid overlay"
+                  sx={{
+                    width: {
+                      md: "50%",
+                      lg: "45%",
+                      xl: "40%",
+                      xxxl: "35%",
+                    },
+                  }}
+                >
+                  <MKBox
+                    id="results"
+                    style={{
+                      height: "auto",
+                      // backgroundColor: "rgba(255, 41, 41, 0.4)",
+                    }}
+                  >
+                    {isSearched && locations.length > 0 ? (
+                      <SearchedDog
+                        locations={locations}
+                        setLocations={setLocations}
+                      />
+                    ) : (
+                      <MKTypography>No Dogs Found</MKTypography>
+                    )}
+                  </MKBox>
+                </MKBox>
+              </div>
+            </div>
+          </Grid>
+        </Paper>
+      </MKBox>
     </>
   );
 };

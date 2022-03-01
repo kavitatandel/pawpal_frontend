@@ -51,18 +51,28 @@ function CenteredFooter({ company, links, socials, light }) {
   return (
     <MKBox
       component="footer"
-      style={{ width: "100%" }}
       position="relative"
-      bottom={0}
+      bottom="0 !important"
       style={{
-        height: "auto",
+        // height: "auto",
         // glass effect
-        background: "rgba( 255, 255, 255, 0.3 )",
+        background: "rgba( 255, 255, 255, 0.5 )",
         boxShadow: "0 -10px 40px 0 rgba(255, 61, 46, 0.3)",
         backdropFilter: "blur( 8.5px )",
+        minWidth: "100%",
       }}
     >
-      <Grid container justifyContent="center" style={{ padding: "40px 0" }}>
+      <Grid
+        container
+        justifyContent="center"
+        style={{
+          bottom: 0,
+          padding: "40px 0",
+          minWidth: "100%",
+          mb: 0,
+          // border: "2px solid green",
+        }}
+      >
         <Grid item xs={10} lg={8}>
           <Stack
             direction="row"

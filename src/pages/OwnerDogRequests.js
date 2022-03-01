@@ -12,7 +12,7 @@ const OwnerDogRequests = () => {
       <Body>
         <OwnerDogRequestsForm />
       </Body>
-      <CenteredFooter />
+      {/* <CenteredFooter /> */}
     </>
   );
 };

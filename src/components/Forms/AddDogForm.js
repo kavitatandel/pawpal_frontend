@@ -62,44 +62,6 @@ const AddDogForm = () => {
     setDogCanPlay(e.target.value);
   };
 
-  ////////////////////// Rating
-
-  const StyledRating = styled(Rating)({
-    "& .MuiRating-iconFilled": {
-      color: "#ff6d75",
-    },
-    "& .MuiRating-iconHover": {
-      color: "#ff3d47",
-    },
-  });
-
-  const TrueRating = styled(Rating)({
-    "& .MuiRating-iconFilled": {
-      color: "#81ffc4",
-    },
-    "& .MuiRating-iconHover": {
-      color: "#1ac975",
-    },
-  });
-
-  const FalseRating = styled(Rating)({
-    "& .MuiRating-iconFilled": {
-      color: "#ff6d75",
-    },
-    "& .MuiRating-iconHover": {
-      color: "#ff3d47",
-    },
-  });
-
-  const EnergyRating = styled(Rating)({
-    "& .MuiRating-iconFilled": {
-      color: "#ffcb5a",
-    },
-    "& .MuiRating-iconHover": {
-      color: "#fb8c00",
-    },
-  });
-
   const onSaveHandler = () => {
     navigate("/owner/ownerdogs");
   };
@@ -826,3 +788,41 @@ const AddDogForm = () => {
 };
 
 export default AddDogForm;
+
+////////////////////// Rating
+
+const StyledRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "#ff6d75",
+  },
+  "& .MuiRating-iconHover": {
+    color: "#ff3d47",
+  },
+});
+
+const TrueRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "#81ffc4",
+  },
+  "& .MuiRating-iconHover": {
+    color: "#1ac975",
+  },
+});
+
+const FalseRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "#ff6d75",
+  },
+  "& .MuiRating-iconHover": {
+    color: "#ff3d47",
+  },
+});
+
+const EnergyRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "#ffcb5a",
+  },
+  "& .MuiRating-iconHover": {
+    color: "#fb8c00",
+  },
+});
