@@ -11,14 +11,16 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import Box from '@mui/material/Box';
 
-import { GetPlayDateRequestsForOwner, UpdatePlayDateRequest } from "../../logic/PlayDateFunctions";
+import { GetPlayDateRequestsForOwner, UpdatePlayDateRequest, GetApprovedRequestsForOwner } from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
 import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
+import OwnerApprovedRequests from "./OwnerApprovedRequests";
 
 
 const OwnerDogRequestsForm = () => {
     const [user, setUser] = useContext(UserContext);
     const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
+    const [dogApprovedRequestsInfo, setDogApprovedRequestsInfo] = useState([]);
     const [selectedDogRequest, setSelectedDogRequest] = useState([]);
     const navigate = useNavigate();
 
@@ -27,21 +29,37 @@ const OwnerDogRequestsForm = () => {
     //commented to get request again when user approve/reject
     const toggleModal = () => setShow(!show);
 
+    //to show Approved component
+    const [showApproved, setShowApproved] = useState(true);
 
+    //get dog 'Pending' requests
     const getReuqestData = () => {
         const owner_id = user._id;
         GetPlayDateRequestsForOwner(owner_id).then((res) => {
-            // console.log(res)
             setDogRequestsInfo(res);
-            // console.log(dogRequestsInfo)
         })
             .catch((err) => console.log(err));
+    }
 
+    //get dog 'Approved' request
+    const getApprovedReuqestData = () => {
+        const owner_id = user._id;
+        GetApprovedRequestsForOwner(owner_id).then((res) => {
+            // console.log(res)
+            setDogApprovedRequestsInfo(res);
+        })
+            .catch((err) => console.log(err));
     }
 
     useEffect(() => {
         getReuqestData();
-    }, [show, toggleModal])
+
+        getApprovedReuqestData();
+        //to show Approved Component
+        // if (show) {
+        //     window.location.reload(true)
+        // }
+    }, [toggleModal])
 
     const handleApproveReject = (e) => {
         e.preventDefault();
@@ -139,12 +157,12 @@ const OwnerDogRequestsForm = () => {
                         <Container>
                             <MKBox>
                                 <MKTypography
-                                    variant="h3"
+                                    variant="h5"
                                     fontWeight="medium"
                                     color="dark"
                                     textAlign="center"
                                 >
-                                    My Dogs Requests
+                                    Pending Requests
                                 </MKTypography>
                             </MKBox>
 
@@ -170,7 +188,7 @@ const OwnerDogRequestsForm = () => {
                                 }}
                                 minheight="80vh">
                                 {/* map thru searched dogs */}
-                                {dogRequestsInfo.length === 0 ? <h3>No Playdate Requests Found. </h3> : ""}
+                                {dogRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
                                 {
                                     dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
 
@@ -219,6 +237,7 @@ const OwnerDogRequestsForm = () => {
                                                         }
 
                                                     </div>
+
                                                     <div
                                                         className="DogLoverName"
                                                         style={{
@@ -236,6 +255,23 @@ const OwnerDogRequestsForm = () => {
                                                         >
                                                             {request.DogLovers.first_name} {request.DogLovers.last_name}
                                                         </MKTypography>
+                                                    </div>
+                                                    <div
+                                                        className="DogName"
+                                                        style={{
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "flex-start",
+                                                            //   border: "2px solid red",
+                                                            width: "25%",
+                                                        }}
+                                                    >
+                                                        <MKTypography
+                                                            variant="p"
+                                                            fontWeight="medium"
+                                                            style={{ fontSize: "0.90rem" }}
+                                                        >
+                                                            {request.DogsRequests.name}                                                         </MKTypography>
                                                     </div>
                                                     <div
                                                         className="StartDate"
@@ -319,6 +355,8 @@ const OwnerDogRequestsForm = () => {
 
                             </MKBox>
                         </Container>
+                        <br />
+                        <OwnerApprovedRequests dogApprovedRequestsInfo={dogApprovedRequestsInfo} setDogApprovedRequestsInfo={setDogApprovedRequestsInfo} />
                     </Card>
                 </MKBox>
             </MKBox>

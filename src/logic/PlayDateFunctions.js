@@ -17,12 +17,25 @@ export const addPlayDateRequest = (playDayRequest) => {
         .catch((err) => console.log(err));
 };
 
-//insert dog request
+//get 'Pending' dog request for owner
 export const GetPlayDateRequestsForOwner = (owner_id) => {
     console.log("inside get play date request")
     console.log(owner_id)
     return axios
         .get(`http://localhost:5000/GetPlayDateRequestsForOwner/${owner_id}`)
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};
+
+
+//get 'Approved' dog request for owner
+export const GetApprovedRequestsForOwner = (owner_id) => {
+    console.log("inside get play date request")
+    console.log(owner_id)
+    return axios
+        .get(`http://localhost:5000/GetApprovedRequestsForOwner/${owner_id}`)
         .then((res) => {
             return res.data
         })
