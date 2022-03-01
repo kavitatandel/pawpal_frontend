@@ -28,6 +28,12 @@ const ProfileForm = () => {
   const [uploadedImageURL, setUploadedImageURL] = useState("");
   let navigate = useNavigate();
 
+  const handleLogOut = () => {
+    setUser({});
+    localStorage.removeItem("usertoken");
+  };
+
+  // **************************** Original Code
   useEffect(async () => {
     await getProfile();
     await getImage();
@@ -59,12 +65,9 @@ const ProfileForm = () => {
       user_type: decoded.user.user_type,
       latitude: decoded.user.latitude,
       longitude: decoded.user.longitude,
+      profile_pic: decoded.user.profile_pic,
+      description: decoded.user.description,
     }));
-  };
-
-  const handleLogOut = () => {
-    setUser({});
-    localStorage.removeItem("usertoken");
   };
 
   return (
