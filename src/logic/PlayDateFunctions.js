@@ -19,12 +19,10 @@ export const addPlayDateRequest = (playDayRequest) => {
 
 //insert dog request
 export const GetPlayDateRequestsForOwner = (owner_id) => {
-    console.log("inside play date reqeust owner id")
-    console.log(owner_id);
+    console.log("inside get play date request")
+    console.log(owner_id)
     return axios
-        .get("http://localhost:5000/GetPlayDateRequestsForOwner", {
-            owner_id: owner_id,
-        })
+        .get(`http://localhost:5000/GetPlayDateRequestsForOwner/${owner_id}`)
         .then((res) => {
             return res.data
         })
@@ -32,13 +30,13 @@ export const GetPlayDateRequestsForOwner = (owner_id) => {
 };
 
 //insert dog request
-export const UpdatePlayDateRequest = (requestid, status, owner_message, owner_reason) => {
+export const UpdatePlayDateRequest = (playDateRequest) => {
     return axios
-        .get("http://localhost:5000/UpdatePlayDateRequest", {
-            requestid: requestid,
-            status: status,
-            owner_message: owner_message,
-            owner_reason: owner_reason,
+        .post("http://localhost:5000/UpdatePlayDateRequest", {
+            requestid: playDateRequest.requestid,
+            status: playDateRequest.requestStatus,
+            owner_message: playDateRequest.owner_message,
+            owner_reason: playDateRequest.owner_reason,
         })
         .then((res) => console.log("Request has been updated."))
         .catch((err) => console.log(err));

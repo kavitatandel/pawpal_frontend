@@ -26,7 +26,8 @@ const AppRouter = () => {
         <Route exact path="/doginfo/:dogid" element={<DogInfo />}></Route>
         <Route exact path="/owner/adddog" element={<AddDog />}></Route>
         <Route exact path="/owner/ownerdogs" element={<OwnerDogs />}></Route>
-
+        {/* <Route exact path="/owner/ownerdogrequests/:dogid" element={<OwnerDogRequests />}></Route> */}
+        <Route exact path="/owner/ownerdogrequests" element={<OwnerDogRequests />}></Route>
         <Route
           exact
           path="/owner/ownerdogrequests/:dogid"
