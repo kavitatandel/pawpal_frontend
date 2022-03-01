@@ -11,7 +11,7 @@ const OwnerDogs = () => {
       <Body>
         <OwnerDogsForm />
       </Body>
-      <CenteredFooter />
+      {/* <CenteredFooter /> */}
     </>
   );
 };

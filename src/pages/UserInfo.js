@@ -6,11 +6,11 @@ import CenteredFooter from "components/Layout/CenteredFooter";
 const UserInfo = () => {
   return (
     <>
-      <MasterHeader boxShadow={5} />
+      <MasterHeader />
       <Body>
         <ProfileForm />
       </Body>
-      <CenteredFooter />
+      {/* <CenteredFooter /> */}
     </>
   );
 };

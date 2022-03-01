@@ -14,7 +14,7 @@ const DogInfo = () => {
       <Body>
         <DogInfoForm dogid={dogid} style={{ zIndex: "3" }} />
       </Body>
-      <CenteredFooter />
+      {/* <CenteredFooter /> */}
     </>
   );
 };
