@@ -233,7 +233,8 @@ const MasterHeader = () => {
                   </Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to={`/owner/ownerdogrequests/${dogId}`}>
+                  {/* <Link to={`/owner/ownerdogrequests/${dogId}`}> */}
+                  <Link to={`/owner/ownerdogrequests`}>
                     <MKButton
                       onClick={handleCloseNavMenu}
                       size="medium"
@@ -288,7 +289,7 @@ const MasterHeader = () => {
                   My Dogs
                 </MKButton>
               </Link>
-              <Link to={`/owner/ownerdogrequests/${dogId}`}>
+              <Link to={`/owner/ownerdogrequests`}>
                 <MKButton
                   variant="text"
                   color="dark"

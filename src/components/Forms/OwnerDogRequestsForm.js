@@ -24,26 +24,24 @@ const OwnerDogRequestsForm = () => {
 
     //for modal
     const [show, setShow] = useState(false);
+    //commented to get request again when user approve/reject
     const toggleModal = () => setShow(!show);
 
 
-    const { dogid } = useParams();
-    // console.log(dogid);
-    //console.log("DOG ID")
-    //console.log(dogid);
-
-    useEffect(() => {
-        //getDogsByOwner(user._id);
-        //console.log("owner dog request page - used id")
-        //console.log(user._id);
+    const getReuqestData = () => {
         const owner_id = user._id;
         GetPlayDateRequestsForOwner(owner_id).then((res) => {
             // console.log(res)
             setDogRequestsInfo(res);
+            // console.log(dogRequestsInfo)
         })
             .catch((err) => console.log(err));
 
-    }, [])
+    }
+
+    useEffect(() => {
+        getReuqestData();
+    }, [show, toggleModal])
 
     const handleApproveReject = (e) => {
         e.preventDefault();
@@ -53,7 +51,7 @@ const OwnerDogRequestsForm = () => {
         //find selected request id data
         const selectedRequest = dogRequestsInfo.find(dogRequest => dogRequest._id === selectedRequestId)
         setSelectedDogRequest(selectedRequest);
-        console.log(selectedRequest)
+
         toggleModal();
     }
 
@@ -149,23 +147,6 @@ const OwnerDogRequestsForm = () => {
                                     My Dogs Requests
                                 </MKTypography>
                             </MKBox>
-                            {/* <MKBox mb={2} mt={2} display="flex" justifyContent="flex-end"> */}
-                            {/* <MKButton
-                                    size="large"
-                                    variant="gradient"
-                                    color="info"
-                                    style={{
-                                        marginLeft: "1.5rem",
-                                        width: "8rem",
-                                        minWidth: "180px",
-                                    }}
-                                    //onClick={navigate('/owner/adddog')}
-                                    onClick={handleChangeAdd}
-                                >
-                                    Add Dogs
-                                </MKButton>
-
-                            </MKBox> */}
 
                             {/* ************************** Dog Details */}
                             <MKBox px={0}
@@ -189,172 +170,152 @@ const OwnerDogRequestsForm = () => {
                                 }}
                                 minheight="80vh">
                                 {/* map thru searched dogs */}
-                                {dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
-                                    return (
-                                        <Card key={index} flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
-                                            <div
-                                                className="mainContainer"
-                                                style={{
-                                                    display: "flex",
-                                                    justifyContent: "space-between",
-                                                    alignContent: "center",
-                                                    padding: "1rem",
+                                {dogRequestsInfo.length === 0 ? <h3>No Playdate Requests Found. </h3> : ""}
+                                {
+                                    dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
 
-                                                }}
-                                            >
+                                        return (
+                                            <Card key={index} flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
                                                 <div
-                                                    className="Avatar"
-                                                    style={{
-                                                        width: "15%",
-                                                        marginLeft: "0.5rem",
-                                                        marginRight: "0.5rem",
-                                                        justifyContent: "flex-start",
-                                                        alignItems: "center"
-                                                    }}
-                                                >
-                                                    {request.DogLovers.profile_pic !== undefined ?
-                                                        <MKAvatar
-                                                            top={-50}
-                                                            zIndex={2}
-                                                            src={`${request.DogLovers.profile_pic}`}
-                                                            alt={`${request.DogLovers.first_name}`}
-                                                            shadow="xl"
-                                                            sx={{ width: "2.5rem", height: "2.5rem" }}
-                                                            style={{ border: "3.2px solid white", marginRight: "1rem" }}
-                                                        />
-                                                        :
-                                                        <MKAvatar
-                                                            top={-50}
-                                                            zIndex={2}
-                                                            src=''
-                                                            alt={`${request.DogLovers.first_name}`}
-                                                            shadow="xl"
-                                                            sx={{ width: "2.5rem", height: "2.5rem" }}
-                                                            style={{ border: "3.2px solid white", marginRight: "1rem" }}
-                                                        />
-                                                    }
-
-                                                </div>
-                                                <div
-                                                    className="DogLoverName"
+                                                    className="mainContainer"
                                                     style={{
                                                         display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: "flex-start",
-                                                        //   border: "2px solid red",
-                                                        width: "25%",
-                                                    }}
-                                                >
-                                                    <MKTypography
-                                                        variant="p"
-                                                        fontWeight="medium"
-                                                        style={{ fontSize: "0.90rem" }}
-                                                    >
-                                                        {request.DogLovers.first_name} {request.DogLovers.last_name}
-                                                    </MKTypography>
-                                                </div>
-                                                <div
-                                                    className="StartDate"
-                                                    style={{
-                                                        fontSize: "0.8rem",
-                                                        width: "20%",
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: "flex-start",
-                                                        width: "20%",
-                                                    }}
-                                                >
-                                                    <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {new Date(request.start_date).toLocaleDateString()}
+                                                        justifyContent: "space-between",
+                                                        alignContent: "center",
+                                                        padding: "1rem",
 
-                                                    </MKTypography>
-                                                </div>
-                                                <div
-                                                    className="StartTime"
-                                                    style={{
-                                                        //   border: "2px solid red",
-                                                        width: "20%",
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: "flex-start",
-                                                        width: "25%",
                                                     }}
                                                 >
-
-                                                    <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {request.start_time}
-
-                                                    </MKTypography>
-                                                </div>
-                                                <div
-                                                    className="EndTime"
-                                                    style={{
-                                                        //   border: "2px solid red",
-                                                        width: "20%",
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: "flex-start",
-                                                        width: "25%",
-                                                    }}
-                                                >
-                                                    <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                        {request.end_time}
-                                                    </MKTypography>
-                                                </div>
-                                                <div
-                                                    className="ButtonContainer"
-                                                    style={{
-
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: "flex-end ",
-                                                        //   border: "2px solid red",
-                                                        width: "15%",
-                                                        marginRight: "1rem",
-                                                    }}
-                                                >
-                                                    <MKButton
-                                                        size="small"
-                                                        type="submit"
-                                                        variant="gradient"
-                                                        color="info"
+                                                    <div
+                                                        className="Avatar"
                                                         style={{
-                                                            // minWidth: "1rem",
-                                                            width: "50rem"
-                                                        }}
-                                                        value={request._id}
-                                                        onClick={handleApproveReject}>
-                                                        Approve / Reject
-                                                    </MKButton>
-                                                </div>
-                                                <div
-                                                    className="ButtonContainer"
-                                                    style={{
-                                                        width: "20%",
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: "flex-end ",
-                                                        //   border: "2px solid red",
-                                                        width: "15%",
-                                                        marginRight: "1rem",
-                                                    }}
-                                                >
-                                                    <MKButton
-                                                        size="small"
-                                                        type="submit"
-                                                        variant="gradient"
-                                                        color="info"
-                                                        style={{
-                                                            minWidth: "1rem",
+                                                            width: "15%",
+                                                            marginLeft: "0.5rem",
+                                                            marginRight: "0.5rem",
+                                                            justifyContent: "flex-start",
+                                                            alignItems: "center"
                                                         }}
                                                     >
-                                                        Reject
-                                                    </MKButton>
+                                                        {request.DogLovers.profile_pic !== undefined ?
+                                                            <MKAvatar
+                                                                top={-50}
+                                                                zIndex={2}
+                                                                src={`${request.DogLovers.profile_pic}`}
+                                                                alt={`${request.DogLovers.first_name}`}
+                                                                shadow="xl"
+                                                                sx={{ width: "2.5rem", height: "2.5rem" }}
+                                                                style={{ border: "3.2px solid white", marginRight: "1rem" }}
+                                                            />
+                                                            :
+                                                            <MKAvatar
+                                                                top={-50}
+                                                                zIndex={2}
+                                                                src=''
+                                                                alt={`${request.DogLovers.first_name}`}
+                                                                shadow="xl"
+                                                                sx={{ width: "2.5rem", height: "2.5rem" }}
+                                                                style={{ border: "3.2px solid white", marginRight: "1rem" }}
+                                                            />
+                                                        }
+
+                                                    </div>
+                                                    <div
+                                                        className="DogLoverName"
+                                                        style={{
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "flex-start",
+                                                            //   border: "2px solid red",
+                                                            width: "25%",
+                                                        }}
+                                                    >
+                                                        <MKTypography
+                                                            variant="p"
+                                                            fontWeight="medium"
+                                                            style={{ fontSize: "0.90rem" }}
+                                                        >
+                                                            {request.DogLovers.first_name} {request.DogLovers.last_name}
+                                                        </MKTypography>
+                                                    </div>
+                                                    <div
+                                                        className="StartDate"
+                                                        style={{
+                                                            fontSize: "0.8rem",
+                                                            width: "20%",
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "flex-start",
+                                                            width: "20%",
+                                                        }}
+                                                    >
+                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                                            {new Date(request.start_date).toLocaleDateString()}
+
+                                                        </MKTypography>
+                                                    </div>
+                                                    <div
+                                                        className="StartTime"
+                                                        style={{
+                                                            //   border: "2px solid red",
+                                                            width: "20%",
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "flex-start",
+                                                            width: "25%",
+                                                        }}
+                                                    >
+
+                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                                            {request.start_time}
+
+                                                        </MKTypography>
+                                                    </div>
+                                                    <div
+                                                        className="EndTime"
+                                                        style={{
+                                                            //   border: "2px solid red",
+                                                            width: "20%",
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "flex-start",
+                                                            width: "25%",
+                                                        }}
+                                                    >
+                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                                            {request.end_time}
+                                                        </MKTypography>
+                                                    </div>
+                                                    <div
+                                                        className="ButtonContainer"
+                                                        style={{
+
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "flex-end ",
+                                                            //   border: "2px solid red",
+                                                            width: "20%",
+                                                            marginRight: "1rem",
+                                                        }}
+                                                    >
+                                                        <MKButton
+                                                            size="small"
+                                                            type="submit"
+                                                            variant="gradient"
+                                                            color="info"
+                                                            style={{
+                                                                // minWidth: "1rem",
+                                                                width: "70rem"
+                                                            }}
+                                                            value={request._id}
+                                                            onClick={handleApproveReject}>
+                                                            Approve / Reject
+                                                        </MKButton>
+                                                    </div>
+
                                                 </div>
-                                            </div>
-                                        </Card>
-                                    )
-                                })}
+                                            </Card>
+                                        )
+                                    })}
 
                             </MKBox>
                         </Container>

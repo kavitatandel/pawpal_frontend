@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useContext, useEffect } from "react";
 import axios from 'axios';
 import { UserContext } from "../../context/UserContext";
-import { addPlayDateRequest } from "../../logic/PlayDateFunctions";
+import { UpdatePlayDateRequest } from "../../logic/PlayDateFunctions";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -36,32 +36,47 @@ function DogApproveRejectModal({
     const [message, setMessage] = useState('');
     const [action, setAction] = useState('Approved');
 
+
     //for radio group
     const handleChange = (event) => {
         setAction(event.target.value);
     };
 
-
     const handleCancel = () => {
+        //clear states
+        setAction('Approved')
+        setMessage('')
         toggleModal();
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        //  const playDayRequest = {
-        //     dog_id: dogId,
-        //     dog_lover_id: user._id,
-        //     start_date: startDate.toLocaleDateString(),
-        //     start_time: startTime.toLocaleTimeString(), //insert in AM/PM format :"10:00:34 AM"
-        //     //end_time: endTime.toTimeString(), // 24 hour format :"11:01:34 GMT+0100 (Central European Standard Time)"
-        //     end_time: endTime.toLocaleTimeString(),
-        //     meeting_location: location,
-        //     dl_message: message,
-        // };
+        let ownerMessage;
+        let ownerReason;
 
-        // addPlayDateRequest(playDayRequest).then(res => console.log(res))
-        //     .catch(err => console.log(err));
+        if (action === 'Approved') {
+            ownerMessage = message;
+            ownerReason = '';
+        }
+        else {
+            ownerMessage = '';
+            ownerReason = message;
+        }
+
+        const playDateRequest = {
+            requestid: selectedDogRequest._id,
+            requestStatus: action,
+            owner_message: ownerMessage,
+            owner_reason: ownerReason,
+        };
+
+        UpdatePlayDateRequest(playDateRequest).then(res => console.log(res))
+            .catch(err => console.log(err));
+
+        //clear states
+        setAction('Approved')
+        setMessage('')
 
         toggleModal();
     };
