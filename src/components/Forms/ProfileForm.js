@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode";
 import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
+import "../../styles/layout.css";
 
 import MKBox from "../MKBox";
 import MKAvatar from "../MKAvatar";
@@ -102,19 +103,29 @@ const ProfileForm = () => {
           width="100%"
         >
           <Paper
+            className="neuCard"
             elevation={24}
-            style={{ position: "relative", borderRadius: "2rem" }}
+            style={{
+              position: "relative",
+              borderRadius: "2rem",
+              // glass effect
+              background: "rgba( 255, 255, 255, 0.7 )",
+              boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+              backdropFilter: "blur( 12px )",
+            }}
             sx={{
-              width: { xs: "90%", md: "70%", xl: "40%" },
+              // NEED TO FIX THIS OVERFLOW ISSUE LATER (Coralee)
+              // overflow: "hidden",
+              width: { xs: "90%", md: "70%", xl: "50%" },
               height: "auto",
               mt: -12,
               mx: { xs: 2, lg: 3 },
               position: "relative",
               mb: 4,
-              backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-                rgba(white.main, 0.8),
-              backdropFilter: "saturate(200%) blur(30px)",
-              boxShadow: ({ boxShadows: { xxl } }) => xxl,
+              // backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
+              //   rgba(white.main, 0.85),
+              // backdropFilter: "saturate(200%) blur(30px)",
+              // boxShadow: ({ boxShadows: { xxl } }) => xxl,
             }}
           >
             <UploadPicModal
@@ -150,6 +161,30 @@ const ProfileForm = () => {
                     justifyContent="center"
                     alignItems="flex-end"
                   >
+                    {/* LogIn Box */}
+                    {/* <MKBox
+                      variant="gradient"
+                      bgColor="info"
+                      borderRadius="lg"
+                      coloredShadow="info"
+                      mx={4}
+                      mt={-5}
+                      p={5}
+                      mb={-2}
+                      textAlign="center"
+                    >
+                      <MKTypography
+                        variant="h3"
+                        fontWeight="bold"
+                        color="white"
+                        // mt={1}
+                      >
+                        LOG IN
+                      </MKTypography>
+                    </MKBox> */}
+
+                    {/* TEST BORDER: */}
+
                     <MKAvatar
                       top={-50}
                       zindex={2}
@@ -158,7 +193,8 @@ const ProfileForm = () => {
                       shadow="xl"
                       sx={{ width: "12rem", height: "12rem" }}
                       style={{
-                        border: "3px solid white",
+                        borderStyle: "ridge",
+                        border: "5px solid white",
                         backgroundColor: "white",
                         marginTop: "-6rem",
                       }}

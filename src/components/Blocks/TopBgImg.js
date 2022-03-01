@@ -12,20 +12,20 @@ const TopBgImg = () => {
         maxHeight="600px"
         top={0}
         minWidth="100vw"
-        sx={{
-          backgroundImage: ({
-            functions: { linearGradient, rgba },
-            palette: { gradients },
-          }) =>
-            `${linearGradient(
-              rgba(gradients.dark.main, 0.2),
-              rgba(gradients.dark.state, 0.2)
-            )}, url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "grid",
-          placeItems: "center",
-        }}
+        // sx={{
+        //   backgroundImage: ({
+        //     functions: { linearGradient, rgba },
+        //     palette: { gradients },
+        //   }) =>
+        //     `${linearGradient(
+        //       rgba(gradients.dark.main, 0.2),
+        //       rgba(gradients.dark.state, 0.2)
+        //     )}, url(${bgImage})`,
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        //   display: "grid",
+        //   placeItems: "center",
+        // }}
       />
     </div>
   );
