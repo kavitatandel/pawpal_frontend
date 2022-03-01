@@ -6,6 +6,7 @@ import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
@@ -70,16 +71,28 @@ const MasterHeader = () => {
   }, [user]);
 
   return (
+    // <AppBar
+    //   style={{
+    //     boxShadow: "5px 5px 15px rgba(84, 84, 84, 0.3)",
+    //     backgroundColor: "white",
+
+    //     display: "flex",
+    //     flexDirection: "row",
+    //     justifyContent: "center",
+    //     top: 0,
+    //     left: "auto !important",
+    //   }}
+    // >
     <AppBar
-      sx={{}}
       style={{
-        background: "transparent",
-        boxShadow: "none",
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         top: 0,
         left: "auto !important",
+        background: "rgba( 255, 255, 255, 0.3 )",
+        boxShadow: "0 7px 30px 5px rgba(255, 82, 0, 0.2)",
+        backdropFilter: "blur( 12.5px )",
       }}
     >
       <Toolbar
@@ -114,7 +127,7 @@ const MasterHeader = () => {
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleOpenNavMenu}
-            color="light"
+            color="primary"
           >
             <MenuIcon />
           </IconButton>
@@ -245,7 +258,7 @@ const MasterHeader = () => {
               <Link to="/user/searchdog">
                 <MKButton
                   variant="text"
-                  color="light"
+                  color="dark"
                   sx={{ my: 2, display: "block", fontSize: "1rem" }}
                 >
                   Search Dogs
@@ -254,7 +267,7 @@ const MasterHeader = () => {
               <Link to="/">
                 <MKButton
                   variant="text"
-                  color="light"
+                  color="dark"
                   sx={{ my: 2, display: "block", fontSize: "1rem" }}
                 >
                   My PlayDates
@@ -269,7 +282,7 @@ const MasterHeader = () => {
               <Link to="/owner/ownerdogs">
                 <MKButton
                   variant="text"
-                  color="light"
+                  color="dark"
                   sx={{ my: 2, display: "block", fontSize: "1rem" }}
                 >
                   My Dogs
@@ -278,7 +291,7 @@ const MasterHeader = () => {
               <Link to={`/owner/ownerdogrequests/${dogId}`}>
                 <MKButton
                   variant="text"
-                  color="light"
+                  color="dark"
                   sx={{ my: 2, display: "block", fontSize: "1rem" }}
                 >
                   My PlayDates

@@ -54,7 +54,13 @@ function CenteredFooter({ company, links, socials, light }) {
       style={{ width: "100%" }}
       position="relative"
       bottom={0}
-      style={{ height: "auto" }}
+      style={{
+        height: "auto",
+        // glass effect
+        background: "rgba( 255, 255, 255, 0.3 )",
+        boxShadow: "0 -10px 40px 0 rgba(255, 61, 46, 0.3)",
+        backdropFilter: "blur( 8.5px )",
+      }}
     >
       <Grid container justifyContent="center" style={{ padding: "40px 0" }}>
         <Grid item xs={10} lg={8}>

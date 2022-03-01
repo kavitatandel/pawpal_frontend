@@ -6,7 +6,7 @@ import CenteredFooter from "components/Layout/CenteredFooter";
 const UserInfo = () => {
   return (
     <>
-      <MasterHeader />
+      <MasterHeader boxShadow={5} />
       <Body>
         <ProfileForm />
       </Body>
