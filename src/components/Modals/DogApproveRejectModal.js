@@ -42,6 +42,8 @@ function DogApproveRejectModal({
         setAction(event.target.value);
     };
 
+    console.log(selectedDogRequest);
+
     const handleCancel = () => {
         //clear states
         setAction('Approved')
@@ -125,7 +127,7 @@ function DogApproveRejectModal({
                                         </MKTypography>
                                         <MKTypography>
 
-                                            {/* {selectedDogRequest.DogLovers.first_name} {selectedDogRequest.DogLovers.last_name} */}
+                                            {selectedDogRequest.DogLovers.first_name} {selectedDogRequest.DogLovers.last_name}
                                         </MKTypography>
                                     </MKBox>
                                     <MKBox
@@ -140,7 +142,7 @@ function DogApproveRejectModal({
                                                 Playdate Requester Address:
                                             </MKTypography>
                                             <MKTypography>
-                                                15/2, Arndtstrasse, 71229, Leonberg
+                                                {selectedDogRequest.DogLovers.street}  {selectedDogRequest.DogLovers.zip_code},  {selectedDogRequest.DogLovers.city},  {selectedDogRequest.DogLovers.country}
                                             </MKTypography>
                                         </MKBox>
 
@@ -194,7 +196,7 @@ function DogApproveRejectModal({
                                         </MKTypography>
                                         <MKTypography>
                                             {selectedDogRequest.meeting_location}
-                                            {/* {request.DogLovers.first_name} {request.DogLovers.last_name} */}
+
                                         </MKTypography>
                                     </MKBox>
                                     <MKBox
@@ -212,7 +214,7 @@ function DogApproveRejectModal({
                                         <MKTypography>
                                             {selectedDogRequest.dl_message === '' ? 'No message from requester.' : selectedDogRequest.dl_message}
 
-                                            {/* {request.DogLovers.first_name} {request.DogLovers.last_name} */}
+
                                         </MKTypography>
                                     </MKBox>
                                     <MKBox

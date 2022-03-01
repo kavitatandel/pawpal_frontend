@@ -146,13 +146,16 @@ const OwnerDogRequestsForm = () => {
                             boxShadow: ({ boxShadows: { xxl } }) => xxl,
                         }}
                     >
-                        <DogApproveRejectModal
-                            show={show}
-                            setShow={setShow}
-                            toggleModal={toggleModal}
-                            selectedDogRequest={selectedDogRequest}
-                            setSelectedDogRequest={setSelectedDogRequest}
-                        />
+                        {selectedDogRequest.length !== 0 ?
+                            <DogApproveRejectModal
+                                show={show}
+                                setShow={setShow}
+                                toggleModal={toggleModal}
+                                selectedDogRequest={selectedDogRequest}
+                                setSelectedDogRequest={setSelectedDogRequest}
+                            />
+                            : <h1></h1>
+                        }
 
                         <Container>
                             <MKBox>
