@@ -11,7 +11,7 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import Box from '@mui/material/Box';
 
-import { getDogLoverRequests, getDogLoverApprovedRequests } from "../../logic/PlayDateFunctions";
+import { getDogLoverRequests, getDogLoverApprovedRequests, deleteRequestById } from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
 import DogLoverApprovedRequests from "./DogLoverApprovedRequests";
 import DogLoverRequestInfoModal from "../Modals/DogLoverRequestInfoModal";
@@ -59,7 +59,7 @@ const DogLoverRequestsForm = () => {
 
     const handleInfo = (e) => {
         e.preventDefault();
-
+        console.log(e)
         //get the clicked item id
         const selectedRequestId = e.target.value;
         //find selected request id data
@@ -67,6 +67,18 @@ const DogLoverRequestsForm = () => {
         setSelectedDogRequest(selectedRequest);
 
         toggleModal();
+    }
+
+    //handle delete
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        console.log(e.target[1].value)
+        await deleteRequestById(e.target[1].value).then((res) => {
+            alert("Request has been deleted")
+            getRequestData();
+            getApprovedRequestData();
+        })
+            .catch((err) => console.log(err));
     }
 
     return (
@@ -192,191 +204,192 @@ const DogLoverRequestsForm = () => {
                                     dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
 
                                         return (
-                                            <Card key={index} flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
-                                                <div
-                                                    className="mainContainer"
-                                                    style={{
-                                                        display: "flex",
-                                                        justifyContent: "space-between",
-                                                        alignContent: "center",
-                                                        padding: "1rem",
-
-                                                    }}
-                                                >
+                                            <form onSubmit={handleDelete}>
+                                                <Card key={index} flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
                                                     <div
-                                                        className="Avatar"
-                                                        style={{
-                                                            width: "15%",
-                                                            marginLeft: "0.5rem",
-                                                            marginRight: "0.5rem",
-                                                            justifyContent: "flex-start",
-                                                            alignItems: "center"
-                                                        }}
-                                                    >
-                                                        {request.DogsRequests.profile_photo !== undefined ?
-                                                            <MKAvatar
-                                                                top={-50}
-                                                                zIndex={2}
-                                                                src={`${request.DogsRequests.profile_photo}`}
-                                                                alt={`${request.DogsRequests.name}`}
-                                                                shadow="xl"
-                                                                sx={{ width: "2.5rem", height: "2.5rem" }}
-                                                                style={{ border: "3.2px solid white", marginRight: "1rem" }}
-                                                            />
-                                                            :
-                                                            <MKAvatar
-                                                                top={-50}
-                                                                zIndex={2}
-                                                                src=''
-                                                                alt={`${request.DogsRequests.name}`}
-                                                                shadow="xl"
-                                                                sx={{ width: "2.5rem", height: "2.5rem" }}
-                                                                style={{ border: "3.2px solid white", marginRight: "1rem" }}
-                                                            />
-                                                        }
-
-                                                    </div>
-                                                    <div
-                                                        className="DogName"
+                                                        className="mainContainer"
                                                         style={{
                                                             display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            //   border: "2px solid red",
-                                                            width: "25%",
+                                                            justifyContent: "space-between",
+                                                            alignContent: "center",
+                                                            padding: "1rem",
+
                                                         }}
                                                     >
-                                                        <MKTypography
-                                                            variant="p"
-                                                            fontWeight="medium"
-                                                            style={{ fontSize: "0.90rem" }}
+                                                        <div
+                                                            className="Avatar"
+                                                            style={{
+                                                                width: "15%",
+                                                                marginLeft: "0.5rem",
+                                                                marginRight: "0.5rem",
+                                                                justifyContent: "flex-start",
+                                                                alignItems: "center"
+                                                            }}
                                                         >
-                                                            {request.DogsRequests.name}                                                         </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="MeetingLocation"
-                                                        style={{
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            //   border: "2px solid red",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-                                                        <MKTypography
-                                                            variant="p"
-                                                            fontWeight="medium"
-                                                            style={{ fontSize: "0.90rem" }}
+                                                            {request.DogsRequests.profile_photo !== undefined ?
+                                                                <MKAvatar
+                                                                    top={-50}
+                                                                    zIndex={2}
+                                                                    src={`${request.DogsRequests.profile_photo}`}
+                                                                    alt={`${request.DogsRequests.name}`}
+                                                                    shadow="xl"
+                                                                    sx={{ width: "2.5rem", height: "2.5rem" }}
+                                                                    style={{ border: "3.2px solid white", marginRight: "1rem" }}
+                                                                />
+                                                                :
+                                                                <MKAvatar
+                                                                    top={-50}
+                                                                    zIndex={2}
+                                                                    src=''
+                                                                    alt={`${request.DogsRequests.name}`}
+                                                                    shadow="xl"
+                                                                    sx={{ width: "2.5rem", height: "2.5rem" }}
+                                                                    style={{ border: "3.2px solid white", marginRight: "1rem" }}
+                                                                />
+                                                            }
+
+                                                        </div>
+                                                        <div
+                                                            className="DogName"
+                                                            style={{
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "flex-start",
+                                                                //   border: "2px solid red",
+                                                                width: "25%",
+                                                            }}
                                                         >
-                                                            {request.meeting_location}                                                         </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="StartDate"
-                                                        style={{
-                                                            fontSize: "0.8rem",
-                                                            width: "20%",
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            width: "20%",
-                                                        }}
-                                                    >
-                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {/* {(new Date(request.start_date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} */}
-                                                            {new Date(request.start_date).toLocaleDateString()}
+                                                            <MKTypography
+                                                                variant="p"
+                                                                fontWeight="medium"
+                                                                style={{ fontSize: "0.90rem" }}
+                                                            >
+                                                                {request.DogsRequests.name}                                                         </MKTypography>
+                                                        </div>
+                                                        <div
+                                                            className="MeetingLocation"
+                                                            style={{
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "flex-start",
+                                                                //   border: "2px solid red",
+                                                                width: "25%",
+                                                            }}
+                                                        >
+                                                            <MKTypography
+                                                                variant="p"
+                                                                fontWeight="medium"
+                                                                style={{ fontSize: "0.90rem" }}
+                                                            >
+                                                                {request.meeting_location}                                                         </MKTypography>
+                                                        </div>
+                                                        <div
+                                                            className="StartDate"
+                                                            style={{
+                                                                fontSize: "0.8rem",
+                                                                width: "20%",
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "flex-start",
+                                                                width: "20%",
+                                                            }}
+                                                        >
+                                                            <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                                                {/* {(new Date(request.start_date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} */}
+                                                                {new Date(request.start_date).toLocaleDateString()}
 
-                                                        </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="StartTime"
-                                                        style={{
-                                                            //   border: "2px solid red",
-                                                            width: "20%",
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-
-                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {request.start_time}
-                                                            {/* {(request.start_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} */}
-                                                        </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="EndTime"
-                                                        style={{
-                                                            //   border: "2px solid red",
-                                                            width: "20%",
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {request.end_time}
-                                                        </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="status"
-                                                        style={{
-                                                            //   border: "2px solid red",
-                                                            width: "20%",
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-                                                        {request.status === 'Pending' ?
-                                                            <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "blue" }}>
-                                                                {request.status}
                                                             </MKTypography>
-                                                            :
-                                                            request.status === 'Accepted'
-                                                                ?
-                                                                <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "green" }}>
+                                                        </div>
+                                                        <div
+                                                            className="StartTime"
+                                                            style={{
+                                                                //   border: "2px solid red",
+                                                                width: "20%",
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "flex-start",
+                                                                width: "25%",
+                                                            }}
+                                                        >
+
+                                                            <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                                                {request.start_time}
+                                                                {/* {(request.start_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} */}
+                                                            </MKTypography>
+                                                        </div>
+                                                        <div
+                                                            className="EndTime"
+                                                            style={{
+                                                                //   border: "2px solid red",
+                                                                width: "20%",
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "flex-start",
+                                                                width: "25%",
+                                                            }}
+                                                        >
+                                                            <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                                                                {request.end_time}
+                                                            </MKTypography>
+                                                        </div>
+                                                        <div
+                                                            className="status"
+                                                            style={{
+                                                                //   border: "2px solid red",
+                                                                width: "20%",
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "flex-start",
+                                                                width: "25%",
+                                                            }}
+                                                        >
+                                                            {request.status === 'Pending' ?
+                                                                <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "blue" }}>
                                                                     {request.status}
                                                                 </MKTypography>
                                                                 :
-                                                                <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "red" }}>
-                                                                    {request.status}
-                                                                </MKTypography>
-                                                        }
+                                                                request.status === 'Accepted'
+                                                                    ?
+                                                                    <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "green" }}>
+                                                                        {request.status}
+                                                                    </MKTypography>
+                                                                    :
+                                                                    <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "red" }}>
+                                                                        {request.status}
+                                                                    </MKTypography>
+                                                            }
 
-                                                    </div>
-                                                    <div
-                                                        className="ButtonContainer"
-                                                        style={{
-
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-end ",
-                                                            //   border: "2px solid red",
-                                                            width: "10%",
-                                                            marginRight: "1rem",
-                                                        }}
-                                                    >
-                                                        <MKButton
-                                                            size="small"
-                                                            type="submit"
-                                                            variant="gradient"
-                                                            color="info"
+                                                        </div>
+                                                        <div
+                                                            className="ButtonContainer"
                                                             style={{
-                                                                // minWidth: "1rem",
-                                                                width: "30rem",
 
+                                                                display: "flex",
+                                                                alignItems: "center",
+                                                                justifyContent: "flex-end ",
+                                                                //   border: "2px solid red",
+                                                                width: "10%",
+                                                                marginRight: "1rem",
                                                             }}
-                                                            value={request._id}
-                                                            onClick={handleInfo}
                                                         >
-                                                            INFO
-                                                        </MKButton>
+                                                            <MKButton
+                                                                size="small"
+                                                                type="submit"
+                                                                variant="gradient"
+                                                                color="info"
+                                                                style={{
+                                                                    // minWidth: "1rem",
+                                                                    width: "30rem",
 
-                                                        {request.status === 'Rejected' ?
-                                                            <>
+                                                                }}
+                                                                value={request._id}
+                                                                onClick={handleInfo}
+                                                            >
+                                                                INFO
+                                                            </MKButton>
+
+                                                            {request.status === 'Rejected' ?
+
                                                                 <MKButton
                                                                     size="small"
                                                                     type="submit"
@@ -384,24 +397,24 @@ const DogLoverRequestsForm = () => {
                                                                     color="info"
                                                                     style={{
                                                                         // minWidth: "1rem",
-                                                                        width: "30rem",
+                                                                        width: "5rem",
                                                                         marginLeft: "0.25rem"
                                                                     }}
-                                                                // value={request._id}
-                                                                // onClick={handleApproveReject}
+                                                                    value={request._id}
                                                                 >
                                                                     DELETE
                                                                 </MKButton>
-                                                            </>
-                                                            :
 
-                                                            ""
-                                                        }
+                                                                :
+
+                                                                ""
+                                                            }
+
+                                                        </div>
 
                                                     </div>
-
-                                                </div>
-                                            </Card>
+                                                </Card>
+                                            </form>
                                         )
                                     })}
 
