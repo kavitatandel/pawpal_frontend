@@ -74,3 +74,15 @@ export const UpdatePlayDateRequest = (playDateRequest) => {
         .catch((err) => console.log(err));
 };
 
+//get 'Approved' dog request for dog lover
+export const deleteRequestById = (requestid) => {
+    console.log("Request Id: " + requestid)
+    return axios
+        .delete(`http://localhost:5000/deleteRequestById/${requestid}`)
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};
+
+
