@@ -14,17 +14,23 @@ import Box from '@mui/material/Box';
 import { getDogLoverRequests, getDogLoverApprovedRequests } from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
 import DogLoverApprovedRequests from "./DogLoverApprovedRequests";
+import DogLoverRequestInfoModal from "../Modals/DogLoverRequestInfoModal";
 
 
 const DogLoverRequestsForm = () => {
     const [user, setUser] = useContext(UserContext);
     const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
     const [dogApprovedRequestsInfo, setDogApprovedRequestsInfo] = useState([]);
-    const navigate = useNavigate();
+    const [selectedDogRequest, setSelectedDogRequest] = useState([]);
+
+    //for modal
+    const [show, setShow] = useState(false);
+    //commented to get request again when user approve/reject
+    const toggleModal = () => setShow(!show);
 
 
     //get dog 'Pending' requests
-    const getReuqestData = () => {
+    const getRequestData = () => {
         const owner_id = user._id;
         getDogLoverRequests(owner_id).then((res) => {
             //console.log(res)
@@ -34,7 +40,7 @@ const DogLoverRequestsForm = () => {
     }
 
     //get dog 'Approved' request
-    const getApprovedReuqestData = () => {
+    const getApprovedRequestData = () => {
         const owner_id = user._id;
         getDogLoverApprovedRequests(owner_id).then((res) => {
             // console.log("Dog Lover Approved Request:")
@@ -46,10 +52,22 @@ const DogLoverRequestsForm = () => {
 
     useEffect(() => {
         // console.log("Dog lover request form")
-        getReuqestData();
-        getApprovedReuqestData();
+        getRequestData();
+        getApprovedRequestData();
 
     }, [])
+
+    const handleInfo = (e) => {
+        e.preventDefault();
+
+        //get the clicked item id
+        const selectedRequestId = e.target.value;
+        //find selected request id data
+        const selectedRequest = dogRequestsInfo.find(dogRequest => dogRequest._id === selectedRequestId)
+        setSelectedDogRequest(selectedRequest);
+
+        toggleModal();
+    }
 
     return (
         <>
@@ -124,6 +142,17 @@ const DogLoverRequestsForm = () => {
                             boxShadow: ({ boxShadows: { xxl } }) => xxl,
                         }}
                     >
+                        {selectedDogRequest.length !== 0 ?
+                            <DogLoverRequestInfoModal
+                                show={show}
+                                setShow={setShow}
+                                toggleModal={toggleModal}
+                                selectedDogRequest={selectedDogRequest}
+                                setSelectedDogRequest={setSelectedDogRequest}
+
+                            />
+                            : <h1></h1>
+                        }
                         <Container>
                             <MKBox>
                                 <MKTypography
@@ -132,7 +161,7 @@ const DogLoverRequestsForm = () => {
                                     color="dark"
                                     textAlign="center"
                                 >
-                                    Pending Requests
+                                    My Playdate Requests
                                 </MKTypography>
                             </MKBox>
 
@@ -253,8 +282,8 @@ const DogLoverRequestsForm = () => {
                                                         }}
                                                     >
                                                         <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {(new Date(request.start_date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                                            {/* {new Date(request.start_date).toLocaleDateString()} */}
+                                                            {/* {(new Date(request.start_date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} */}
+                                                            {new Date(request.start_date).toLocaleDateString()}
 
                                                         </MKTypography>
                                                     </div>
@@ -272,7 +301,7 @@ const DogLoverRequestsForm = () => {
 
                                                         <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
                                                             {request.start_time}
-
+                                                            {/* {(request.start_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} */}
                                                         </MKTypography>
                                                     </div>
                                                     <div
@@ -291,6 +320,34 @@ const DogLoverRequestsForm = () => {
                                                         </MKTypography>
                                                     </div>
                                                     <div
+                                                        className="status"
+                                                        style={{
+                                                            //   border: "2px solid red",
+                                                            width: "20%",
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: "flex-start",
+                                                            width: "25%",
+                                                        }}
+                                                    >
+                                                        {request.status === 'Pending' ?
+                                                            <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "blue" }}>
+                                                                {request.status}
+                                                            </MKTypography>
+                                                            :
+                                                            request.status === 'Accepted'
+                                                                ?
+                                                                <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "green" }}>
+                                                                    {request.status}
+                                                                </MKTypography>
+                                                                :
+                                                                <MKTypography variant="p" style={{ fontSize: "0.90rem", color: "red" }}>
+                                                                    {request.status}
+                                                                </MKTypography>
+                                                        }
+
+                                                    </div>
+                                                    <div
                                                         className="ButtonContainer"
                                                         style={{
 
@@ -298,10 +355,49 @@ const DogLoverRequestsForm = () => {
                                                             alignItems: "center",
                                                             justifyContent: "flex-end ",
                                                             //   border: "2px solid red",
-                                                            width: "20%",
+                                                            width: "10%",
                                                             marginRight: "1rem",
                                                         }}
                                                     >
+                                                        <MKButton
+                                                            size="small"
+                                                            type="submit"
+                                                            variant="gradient"
+                                                            color="info"
+                                                            style={{
+                                                                // minWidth: "1rem",
+                                                                width: "30rem",
+
+                                                            }}
+                                                            value={request._id}
+                                                            onClick={handleInfo}
+                                                        >
+                                                            INFO
+                                                        </MKButton>
+
+                                                        {request.status === 'Rejected' ?
+                                                            <>
+                                                                <MKButton
+                                                                    size="small"
+                                                                    type="submit"
+                                                                    variant="gradient"
+                                                                    color="info"
+                                                                    style={{
+                                                                        // minWidth: "1rem",
+                                                                        width: "30rem",
+                                                                        marginLeft: "0.25rem"
+                                                                    }}
+                                                                // value={request._id}
+                                                                // onClick={handleApproveReject}
+                                                                >
+                                                                    DELETE
+                                                                </MKButton>
+                                                            </>
+                                                            :
+
+                                                            ""
+                                                        }
+
                                                     </div>
 
                                                 </div>
@@ -312,7 +408,7 @@ const DogLoverRequestsForm = () => {
                             </MKBox>
                         </Container>
                         <br />
-                        <DogLoverApprovedRequests dogApprovedRequestsInfo={dogApprovedRequestsInfo} setDogApprovedRequestsInfo={setDogApprovedRequestsInfo} />
+                        {/* <DogLoverApprovedRequests dogApprovedRequestsInfo={dogApprovedRequestsInfo} setDogApprovedRequestsInfo={setDogApprovedRequestsInfo} /> */}
                     </Card>
                 </MKBox>
             </MKBox>
