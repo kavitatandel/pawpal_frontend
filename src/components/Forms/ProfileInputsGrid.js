@@ -29,15 +29,18 @@ const ProfileInputsGrid = () => {
 
   return (
     <>
+      {/* ********** PARENT GRID */}
       <Grid
-        container
+        container // "Container" Attribute makes this the parent Grid
         spacing={2}
         mx={0}
         style={{ padding: "2rem" }}
         display="flex"
         justifyContent="center"
       >
+        {/* ******************** CHILDREN CELLS  */}
         <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
+          {/* // "Item" Attribute makes this a child of parent Grid */}
           <MKBox display="flex">
             <MKInput
               label="First Name"
@@ -47,16 +50,8 @@ const ProfileInputsGrid = () => {
               value={user.first_name}
               placeholder="Enter your first name"
               required
-              //   value={firstName}
               onChange={(e) => setUser({ ...user, first_name: e.target.value })}
             />
-            {/* <MKButton
-              variant="text"
-              color="dark"
-              //   onClick={(e) => setFirstName(e.target.value)}
-            >
-              Edit
-            </MKButton> */}
           </MKBox>
         </Grid>
         <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
@@ -71,13 +66,6 @@ const ProfileInputsGrid = () => {
               value={user.last_name}
               onChange={(e) => setUser({ ...user, last_name: e.target.value })}
             />
-            {/* <MKButton
-              variant="text"
-              color="dark"
-              //   onClick={(e) => setFirstName(e.target.value)}
-            >
-              Edit
-            </MKButton> */}
           </MKBox>
         </Grid>
         <Grid item xs={12} style={{ padding: "1rem" }}>
@@ -92,13 +80,6 @@ const ProfileInputsGrid = () => {
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
-            {/* <MKButton
-              variant="text"
-              color="dark"
-              //   onClick={(e) => setFirstName(e.target.value)}
-            >
-              Edit
-            </MKButton> */}
           </MKBox>
         </Grid>
 
@@ -114,13 +95,6 @@ const ProfileInputsGrid = () => {
               value={user.street}
               onChange={(e) => setUser({ ...user, street: e.target.value })}
             />
-            {/* <MKButton
-              variant="text"
-              color="dark"
-              //   onClick={(e) => setFirstName(e.target.value)}
-            >
-              Edit
-            </MKButton> */}
           </MKBox>
         </Grid>
         <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
@@ -192,7 +166,6 @@ const ProfileInputsGrid = () => {
             <TextField
               id="outlined-multiline-flexible"
               fullWidth
-              // style={{ width: "48%" }}
               label="About"
               type="text"
               name="description"
