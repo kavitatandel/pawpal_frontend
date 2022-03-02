@@ -131,7 +131,7 @@ const MasterHeader = () => {
           >
             <MenuIcon />
           </IconButton>
-          {/* _______________________ DROP DOWN LIST ITEMS */}
+          {/* _______________________ LEFT SIDE DROP DOWN LIST ITEMS */}
           {userType === "doglover" ? (
             <>
               {/* __________DOGLOVER  */}
@@ -154,7 +154,7 @@ const MasterHeader = () => {
                 }}
               >
                 <MenuItem>
-                  <Link to="/" onClick={handleLogOut}>
+                  <Link to="/user/searchdog">
                     <MKButton
                       onClick={handleCloseNavMenu}
                       size="medium"
@@ -233,7 +233,6 @@ const MasterHeader = () => {
                   </Link>
                 </MenuItem>
                 <MenuItem>
-                  {/* <Link to={`/owner/ownerdogrequests/${dogId}`}> */}
                   <Link to={`/owner/ownerdogrequests`}>
                     <MKButton
                       onClick={handleCloseNavMenu}
@@ -251,7 +250,7 @@ const MasterHeader = () => {
             </>
           )}
         </Box>
-        {/* _______________________ NAV LINK ITEMS */}
+        {/* _______________________ NAV LINK ITEMS ON MAIN HEADER */}
         {userType === "doglover" ? (
           <>
             {/* ________DOGLOVER */}
@@ -302,7 +301,7 @@ const MasterHeader = () => {
           </>
         )}
 
-        {/* ______________________PROFILE MENU DROPDOWN */}
+        {/* ______________________PROFILE MENU DROPDOWN (RIGHT) */}
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -343,7 +342,7 @@ const MasterHeader = () => {
                     </MKButton>
                   </Link>
                 </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
+                {/* <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/user/dogloverrequests">
                     <MKButton
                       onClick={handleCloseNavMenu}
@@ -356,7 +355,7 @@ const MasterHeader = () => {
                       My Play Dates
                     </MKButton>
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/">
                     <MKButton
@@ -407,7 +406,7 @@ const MasterHeader = () => {
                   </Link>
                 </MenuItem>
 
-                <MenuItem onClick={handleCloseUserMenu}>
+                {/* <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/owner/ownerdogs">
                     <MKButton
                       onClick={handleCloseNavMenu}
@@ -420,8 +419,8 @@ const MasterHeader = () => {
                       My Dogs
                     </MKButton>
                   </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseUserMenu}>
+                </MenuItem> */}
+                {/* <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/">
                     <MKButton
                       onClick={handleCloseNavMenu}
@@ -434,9 +433,9 @@ const MasterHeader = () => {
                       Add Dog
                     </MKButton>
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
 
-                <MenuItem onClick={handleCloseUserMenu}>
+                {/* <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/">
                     <MKButton
                       onClick={handleCloseNavMenu}
@@ -449,7 +448,7 @@ const MasterHeader = () => {
                       My Play Dates
                     </MKButton>
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/">
                     <MKButton

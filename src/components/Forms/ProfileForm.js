@@ -74,6 +74,7 @@ const ProfileForm = () => {
   return (
     <>
       {/* Entire Page Container (without footer) */}
+      {/* ******************** 2 MASTER DIVS REQUIRED FOR EACH PAGE: MKBox & Paper */}
       <MKBox
         px={1}
         width="100%"
@@ -150,30 +151,6 @@ const ProfileForm = () => {
                   justifyContent="center"
                   alignItems="flex-end"
                 >
-                  {/* LogIn Box */}
-                  {/* <MKBox
-                      variant="gradient"
-                      bgColor="info"
-                      borderRadius="lg"
-                      coloredShadow="info"
-                      mx={4}
-                      mt={-5}
-                      p={5}
-                      mb={-2}
-                      textAlign="center"
-                    >
-                      <MKTypography
-                        variant="h3"
-                        fontWeight="bold"
-                        color="white"
-                        // mt={1}
-                      >
-                        LOG IN
-                      </MKTypography>
-                    </MKBox> */}
-
-                  {/* TEST BORDER: */}
-
                   <MKAvatar
                     top={-50}
                     zindex={2}
