@@ -11,28 +11,44 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import Box from '@mui/material/Box';
 
-//import { GetApprovedRequestsForOwner } from "../../logic/PlayDateFunctions";
+import OwnerApprovedRequestModal from "../Modals/OwnerApprovedRequestModal";
 
 const OwnerApprovedRequests = ({ dogApprovedRequestsInfo, setDogApprovedRequestsInfo }) => {
     const [user, setUser] = useContext(UserContext);
     const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
+    const [selectedDogRequest, setSelectedDogRequest] = useState([]);
 
-    // const getReuqestData = () => {
-    //     const owner_id = user._id;
-    //     GetApprovedRequestsForOwner(owner_id).then((res) => {
-    //         // console.log(res)
-    //         setDogRequestsInfo(res);
-    //         // console.log(dogRequestsInfo)
-    //     })
-    //         .catch((err) => console.log(err));
-    // }
+    //for modal
+    const [show, setShow] = useState(false);
+    //commented to get request again when user approve/reject
+    const toggleModal = () => setShow(!show);
 
-    // useEffect(() => {
-    //     getReuqestData();
-    // }, [])
+    const handleInfo = (e) => {
+        e.preventDefault();
+
+        //get the clicked item id
+        const selectedRequestId = e.target.value;
+        console.log(selectedRequestId)
+        //find selected request id data
+        const selectedRequest = dogApprovedRequestsInfo.find(dogRequest => dogRequest._id === selectedRequestId)
+        setSelectedDogRequest(selectedRequest);
+        console.log(selectedRequest)
+        toggleModal();
+    }
 
     return (
         <>
+
+            {selectedDogRequest.length !== 0 ?
+                <OwnerApprovedRequestModal
+                    show={show}
+                    setShow={setShow}
+                    toggleModal={toggleModal}
+                    selectedDogRequest={selectedDogRequest}
+                    setSelectedDogRequest={setSelectedDogRequest}
+                />
+                : <h1></h1>
+            }
             <Container>
                 <MKBox>
                     <MKTypography
@@ -131,6 +147,7 @@ const OwnerApprovedRequests = ({ dogApprovedRequestsInfo, setDogApprovedRequests
                                             fontWeight="medium"
                                             style={{ fontSize: "0.90rem" }}
                                         >
+
                                             {request.DogLovers.first_name} {request.DogLovers.last_name}
                                         </MKTypography>
                                     </div>
@@ -149,7 +166,8 @@ const OwnerApprovedRequests = ({ dogApprovedRequestsInfo, setDogApprovedRequests
                                             fontWeight="medium"
                                             style={{ fontSize: "0.90rem" }}
                                         >
-                                            {request.DogsRequests.name}                                                         </MKTypography>
+                                            {request.DogsRequests.name}
+                                        </MKTypography>
                                     </div>
                                     <div
                                         className="StartDate"
@@ -220,10 +238,10 @@ const OwnerApprovedRequests = ({ dogApprovedRequestsInfo, setDogApprovedRequests
                                                 // minWidth: "1rem",
                                                 width: "70rem"
                                             }}
-                                        // value={request._id}
-                                        // onClick={handleApproveReject}
+                                            value={request._id}
+                                            onClick={handleInfo}
                                         >
-                                            Delete
+                                            INFO
                                         </MKButton>
                                     </div>
 
