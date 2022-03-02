@@ -52,7 +52,7 @@ const DogLoverApprovedRequests = ({ dogApprovedRequestsInfo, setDogApprovedReque
                     }}
                     minheight="80vh">
                     {/* map thru searched dogs */}
-                    {dogApprovedRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
+                    {dogApprovedRequestsInfo === undefined ? <h5>No Playdate Requests Found. </h5> : dogApprovedRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
                     {dogApprovedRequestsInfo !== undefined && dogApprovedRequestsInfo.map((request, index) => {
 
                         return (

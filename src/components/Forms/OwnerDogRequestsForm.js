@@ -51,15 +51,15 @@ const OwnerDogRequestsForm = () => {
             .catch((err) => console.log(err));
     }
 
+    // useEffect(() => {
+    //     getReuqestData();
+    //     getApprovedReuqestData();
+    // }, [toggleModal])
+
     useEffect(() => {
         getReuqestData();
-
         getApprovedReuqestData();
-        //to show Approved Component
-        // if (show) {
-        //     window.location.reload(true)
-        // }
-    }, [toggleModal])
+    }, [showApproved])
 
     const handleApproveReject = (e) => {
         e.preventDefault();
@@ -153,6 +153,8 @@ const OwnerDogRequestsForm = () => {
                                 toggleModal={toggleModal}
                                 selectedDogRequest={selectedDogRequest}
                                 setSelectedDogRequest={setSelectedDogRequest}
+                                setShowApproved={setShowApproved}
+                                showApproved={showApproved}
                             />
                             : <h1></h1>
                         }
@@ -191,7 +193,7 @@ const OwnerDogRequestsForm = () => {
                                 }}
                                 minheight="80vh">
                                 {/* map thru searched dogs */}
-                                {dogRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
+                                {dogRequestsInfo === undefined ? <h5>No Playdate Requests Found. </h5> : dogRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
                                 {
                                     dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
 

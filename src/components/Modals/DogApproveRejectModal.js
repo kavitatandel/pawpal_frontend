@@ -30,7 +30,7 @@ import TextField from '@mui/material/TextField';
 
 function DogApproveRejectModal({
     show, setShow, toggleModal,
-    // dogLoverId, setDogLoverId, 
+    setShowApproved, showApproved,  //added to reload data again when owner approve or reject the request
     selectedDogRequest, setSelectedDogRequest }) {
     const [user, setUser] = useContext(UserContext);
     const [message, setMessage] = useState('');
@@ -79,6 +79,15 @@ function DogApproveRejectModal({
         //clear states
         setAction('Approved')
         setMessage('')
+
+        //to set some value which we can just use when owner approve/reject the request
+        if (showApproved === true) {
+            showApproved = false;
+        } else {
+            showApproved = true;
+        }
+
+        setShowApproved(showApproved);
 
         toggleModal();
     };
