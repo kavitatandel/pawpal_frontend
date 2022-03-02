@@ -37,15 +37,15 @@ const DogLoverRequestsForm = () => {
     const getApprovedReuqestData = () => {
         const owner_id = user._id;
         getDogLoverApprovedRequests(owner_id).then((res) => {
-            console.log("Dog Lover Approved Request:")
-            console.log(res);
+            // console.log("Dog Lover Approved Request:")
+            // console.log(res);
             setDogApprovedRequestsInfo(res);
         })
             .catch((err) => console.log(err));
     }
 
     useEffect(() => {
-        console.log("Dog lover request form")
+        // console.log("Dog lover request form")
         getReuqestData();
         getApprovedReuqestData();
 
@@ -158,7 +158,7 @@ const DogLoverRequestsForm = () => {
                                 }}
                                 minheight="80vh">
                                 {/* map thru searched dogs */}
-                                {dogRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
+                                {dogRequestsInfo === undefined ? <h5>No Playdate Requests Found. </h5> : dogRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
                                 {
                                     dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
 
@@ -253,7 +253,8 @@ const DogLoverRequestsForm = () => {
                                                         }}
                                                     >
                                                         <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {new Date(request.start_date).toLocaleDateString()}
+                                                            {(new Date(request.start_date)).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                                            {/* {new Date(request.start_date).toLocaleDateString()} */}
 
                                                         </MKTypography>
                                                     </div>
