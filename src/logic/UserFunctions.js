@@ -40,3 +40,25 @@ export const login = (user) => {
     })
     .catch((err) => console.error(err));
 };
+
+
+//create user
+export const updateUserProfile = (user) => {
+  // console.log(user);
+  return axios
+    .post("http://localhost:5000/updateUserProfile", {
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+      street: user.street,
+      zip_code: user.zip_code,
+      city: user.city,
+      country: user.country,
+      description: user.description,
+      latitude: user.latitude,
+      longitude: user.longitude,
+      description: user.description,
+    })
+    .then((res) => res)
+    .catch((err) => console.log(err));
+};

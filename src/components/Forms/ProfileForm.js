@@ -229,7 +229,7 @@ const ProfileForm = () => {
             p={6}
           >
             {/* ___________________ Input Grid */}
-            <ProfileInputsGrid editMode={editMode} setEditMode={setEditMode} toggleEdit={toggleEdit} />
+            <ProfileInputsGrid editMode={editMode} />
           </MKBox>
         </Paper>
       </MKBox>

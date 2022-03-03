@@ -8,12 +8,9 @@ import { UserContext } from "../../context/UserContext";
 import { useEffect, useState, useContext } from "react";
 import { styled } from "@mui/material/styles";
 
-const ProfileInputsGrid = ({ editMode, setEditMode, toggleEdit }) => {
+const ProfileInputsGrid = ({ editMode }) => {
   const [user, setUser] = useContext(UserContext);
   let navigate = useNavigate();
-
-  //added for edit mode
-  const [newEdit, setNewEdit] = useState(false);
 
   const onSaveHandler = () => {
     if (user.user_type === "doglover") {
@@ -31,11 +28,9 @@ const ProfileInputsGrid = ({ editMode, setEditMode, toggleEdit }) => {
   };
 
   useEffect(() => {
-    // setEditMode(editMode);
-    // setNewEdit(editMode);
   }, [editMode])
 
-  console.log("Edit Mode: " + editMode)
+
 
   return (
     <>
