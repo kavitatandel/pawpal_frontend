@@ -13,6 +13,7 @@ const ProfileInputsGrid = ({ editMode }) => {
   let navigate = useNavigate();
 
   const onSaveHandler = () => {
+
     if (user.user_type === "doglover") {
       navigate("/user/searchdog");
     }

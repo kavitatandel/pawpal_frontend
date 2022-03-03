@@ -45,10 +45,11 @@ const SearchedDog = ({ locations, setLocations }) => {
                 >
                   <MKBox
                     className="Avatar"
-                    sx={{ display: { md: "flex" } }}
+                    sx={{
+                      width: { sm: "33%", md: "25%", lg: "20%" },
+                      display: { xs: "none", sm: "flex" },
+                    }}
                     style={{
-                      width: "10%",
-                      marginRight: "1rem",
                       justifyContent: "flex-start",
                       alignItems: "center",
                     }}
@@ -67,10 +68,14 @@ const SearchedDog = ({ locations, setLocations }) => {
                   <MKBox
                     className="DogName"
                     style={{
-                      display: "flex",
                       alignItems: "center",
                       justifyContent: "flex-start",
-                      width: "25%",
+                      width: { sm: "33%", md: "25%", lg: "20%" },
+                      display: { xs: "none", sm: "flex" },
+                    }}
+                    sx={{
+                      width: { sm: "33%", md: "25%", lg: "20%" },
+                      display: { xs: "none", sm: "flex" },
                     }}
                   >
                     <MKTypography
@@ -83,10 +88,12 @@ const SearchedDog = ({ locations, setLocations }) => {
                   </MKBox>
                   <MKBox
                     className="DogType"
-                    sx={{ display: { sm: "none", md: "flex" } }}
+                    sx={{
+                      width: { md: "25%", lg: "20%" },
+                      display: { sm: "none", md: "flex" },
+                    }}
                     style={{
                       fontSize: "0.8rem",
-                      width: "25%",
 
                       alignItems: "center",
                       justifyContent: "flex-start",
@@ -98,11 +105,13 @@ const SearchedDog = ({ locations, setLocations }) => {
                   </MKBox>
                   <MKBox
                     className="Size"
-                    sx={{ display: { md: "none", lg: "flex" } }}
+                    sx={{
+                      width: { lg: "20%" },
+                      display: { xs: "none", lg: "flex" },
+                    }}
                     style={{
                       alignItems: "center",
                       justifyContent: "flex-start",
-                      width: "25%",
                     }}
                   >
                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
@@ -111,11 +120,11 @@ const SearchedDog = ({ locations, setLocations }) => {
                   </MKBox>
                   <MKBox
                     className="ButtonContainer"
-                    style={{
-                      display: "flex",
+                    sx={{
+                      width: { sm: "33%", md: "25%", lg: "20%" },
+                      display: { xs: "none", sm: "flex" },
                       alignItems: "center",
-                      justifyContent: "flex-end ",
-                      width: "10%",
+                      justifyContent: "flex-start ",
                     }}
                   >
                     <MKButton
@@ -124,7 +133,9 @@ const SearchedDog = ({ locations, setLocations }) => {
                       variant="gradient"
                       color="info"
                       style={{
-                        minWidth: "40px",
+                        width: { sm: "20" },
+                        minWidth: "20px",
+                        padding: "5px 15px",
                       }}
                       onClick={() => navigate(`/doginfo/${dog.dogs_info._id}`)}
                     >
