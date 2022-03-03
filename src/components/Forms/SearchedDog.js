@@ -47,7 +47,8 @@ const SearchedDog = ({ locations, setLocations }) => {
                     className="Avatar"
                     sx={{
                       width: { sm: "33%", md: "25%", lg: "20%" },
-                      display: { xs: "none", sm: "flex" },
+                      display: { sm: "none", md: "flex" },
+                      minWidth: "3.2rem",
                     }}
                     style={{
                       justifyContent: "flex-start",
@@ -111,7 +112,7 @@ const SearchedDog = ({ locations, setLocations }) => {
                     }}
                     style={{
                       alignItems: "center",
-                      justifyContent: "flex-start",
+                      justifyContent: "flex-end",
                     }}
                   >
                     <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
@@ -124,7 +125,7 @@ const SearchedDog = ({ locations, setLocations }) => {
                       width: { sm: "33%", md: "25%", lg: "20%" },
                       display: { xs: "none", sm: "flex" },
                       alignItems: "center",
-                      justifyContent: "flex-start ",
+                      justifyContent: "flex-end ",
                     }}
                   >
                     <MKButton
@@ -133,9 +134,11 @@ const SearchedDog = ({ locations, setLocations }) => {
                       variant="gradient"
                       color="info"
                       style={{
-                        width: { sm: "20" },
-                        minWidth: "20px",
-                        padding: "5px 15px",
+                        width: { sm: "1rem", md: "2rem" },
+                        height: { sm: "1rem", md: "2rem" },
+                        minWidth: "1rem",
+                        minHeight: "1rem",
+                        padding: "5px 5px",
                       }}
                       onClick={() => navigate(`/doginfo/${dog.dogs_info._id}`)}
                     >
@@ -146,94 +149,6 @@ const SearchedDog = ({ locations, setLocations }) => {
               </Card>
             );
           })}
-
-        {/* <Grid container width="100%">
-
-                <Grid item xs={12} lg={6} sx={{ mt: { xs: 6, lg: 0 } }}>
-                    <Stack>
-                        <MKBox display="flex" alignItems="center" pt={2}>
-                            <MKBox
-                                width="100%"
-                                height="3rem"
-                                variant="gradient"
-                                bgColor="info"
-                                color="white"
-                                coloredShadow="info"
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="center"
-                                borderRadius="xl"
-                            >
-                                <Icon fontSize="small">mediation</Icon>
-                            </MKBox>
-                            <MKTypography variant="body2" color="text" pl={2}>
-                                {locations[0].dogs_info.name} {locations[0].dogs_info.breed}
-                            </MKTypography>
-                        </MKBox>
-                        <MKBox display="flex" alignItems="center" p={2}>
-                            <MKBox
-                                width="3rem"
-                                height="3rem"
-                                variant="gradient"
-                                bgColor="info"
-                                color="white"
-                                coloredShadow="info"
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="center"
-                                borderRadius="xl"
-                            >
-                                <Icon fontSize="small">settings_overscan</Icon>
-                            </MKBox>
-                            <MKTypography variant="body2" color="text" pl={2}>
-                                As we live, our hearts turn colder.
-                                <br />
-                                Cause pain is what we go through as we become older.
-                            </MKTypography>
-                        </MKBox>
-                        <MKBox display="flex" alignItems="center" p={2}>
-                            <MKBox
-                                width="3rem"
-                                height="3rem"
-                                variant="gradient"
-                                bgColor="info"
-                                color="white"
-                                coloredShadow="info"
-                                display="flex"
-                                alignItems="center"
-                                justifyContent="center"
-                                borderRadius="xl"
-                            >
-                                <Icon fontSize="small">token</Icon>
-                            </MKBox>
-                            <MKTypography variant="body2" color="text" pl={2}>
-                                When we lose family over time.
-                                <br />
-                                What else could rust the heart more over time? Blackgold.
-                            </MKTypography>
-                        </MKBox>
-                    </Stack>
-                </Grid> */}
-
-        {/* {locations.map((dog, index) => {
-                    return (
-                        <TransparentBlogCard
-                            image="https://bit.ly/3HH2M6E"
-                            //image={`${dog.dogs_info.profile_photo}`}
-                            title="MateLabs mixes machine learning with IFTTT"
-                            description="If you've ever wanted to train a machine learning model and integrate it with IFTTT, you now can with ..."
-                            action={{
-                                type: "internal",
-                                route: "/users/doginfo",
-                                color: "info",
-                                label: `Read more info abour ${dog.dogs_info.name}`,
-                            }}
-
-                        />
-                    )
-                })} */}
-
-        {/* </Grid> */}
       </MKBox>
     </>
   );

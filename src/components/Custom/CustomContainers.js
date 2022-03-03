@@ -20,6 +20,7 @@ export default function Body(props) {
           maxHeight: "100%",
           minHeight: "100vh",
           width: "100%",
+          minWidth: "350px",
         }}
       >
         {/* <Box sx={{ height: "auto" }}>{props.children}</Box> */}

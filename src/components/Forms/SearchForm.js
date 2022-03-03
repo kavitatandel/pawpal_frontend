@@ -194,10 +194,13 @@ const SearchForm = () => {
                 <MKBox
                   className="row-fluid overlay"
                   sx={{
+                    flexWrap: "wrap",
                     width: {
+                      sm: "35%",
                       md: "50%",
-                      lg: "45%",
-                      xl: "40%",
+                      lg: "50%",
+                      xl: "45%",
+                      xxl: "40%",
                       xxxl: "35%",
                     },
                   }}
