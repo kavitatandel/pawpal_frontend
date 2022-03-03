@@ -42,11 +42,11 @@ export const login = (user) => {
 };
 
 
-//create user
+//update user
 export const updateUserProfile = (user) => {
-  // console.log(user);
+  console.log(user);
   return axios
-    .post("http://localhost:5000/updateUserProfile", {
+    .post("http://localhost:5000/updateuserprofile", {
       _id: user._id,
       first_name: user.first_name,
       last_name: user.last_name,
@@ -58,8 +58,19 @@ export const updateUserProfile = (user) => {
       description: user.description,
       latitude: user.latitude,
       longitude: user.longitude,
-      description: user.description,
+
     })
-    .then((res) => res)
+    .then((res) => res.data)
     .catch((err) => console.log(err));
+};
+
+//check if email exist
+export const checkEMailExist = (userid, email) => {
+
+  return axios
+    .get(`http://localhost:5000/checkemailaddress/${userid}/${email}`)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => console.error(err));
 };

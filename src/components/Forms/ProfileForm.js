@@ -234,7 +234,7 @@ const ProfileForm = () => {
             </MKButton>
           </MKBox>
           {/* ************************** User Details */}
-          <MKBox
+          {/* <MKBox
             component="form"
             method="post"
             autocomplete="off"
@@ -243,8 +243,11 @@ const ProfileForm = () => {
             pb={6}
             pt={3}
             px={6}
-          >
-            {/* ___________________ Input Grid */}
+          >        
+            <ProfileInputsGrid editMode={editMode} />
+
+          </MKBox> */}
+          <MKBox>
             <ProfileInputsGrid editMode={editMode} />
 
           </MKBox>
