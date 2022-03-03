@@ -213,7 +213,7 @@ const AddDogForm = () => {
                 opacity={1}
                 mt={-12}
                 style={{
-                  height: "20rem",
+                  height: "15rem",
                   borderRadius: "5% 5% 40% 90%",
                   background:
                     "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
@@ -260,6 +260,7 @@ const AddDogForm = () => {
                         fontWeight="medium"
                         color="light"
                         textAlign="center"
+                        mt={-3}
                       >
                         Dog Details
                       </MKTypography>
@@ -278,7 +279,7 @@ const AddDogForm = () => {
               >
                 <Grid
                   container
-                  spacing={2}
+                  spacing={1}
                   p={4}
                   style={{ padding: "2rem", boxSizing: "border-box" }}
                   display="flex"
@@ -291,7 +292,7 @@ const AddDogForm = () => {
                     sm={6}
                     style={{ padding: "1rem" }}
                     display="flex"
-                    justifyContent="flex-end"
+                    justifyContent="center"
                   >
                     <MKInput
                       label="Name"
@@ -313,7 +314,7 @@ const AddDogForm = () => {
                     sm={6}
                     style={{ padding: "1rem" }}
                     display="flex"
-                    justifyContent="flex-start"
+                    justifyContent="center"
                   >
                     <MKInput
                       fullWidth
@@ -334,7 +335,7 @@ const AddDogForm = () => {
                     sm={6}
                     style={{ padding: "1rem" }}
                     display="flex"
-                    justifyContent="flex-end"
+                    justifyContent="center"
                   >
                     <MKInput
                       fullWidth
@@ -355,10 +356,9 @@ const AddDogForm = () => {
                     sm={6}
                     style={{ padding: "1rem" }}
                     display="flex"
-                    justifyContent="flex-start"
+                    justifyContent="center"
                   >
                     <MKInput
-                      fullWidth
                       style={{ width: "80%" }}
                       label="Age Months"
                       name="age_months"
@@ -370,23 +370,66 @@ const AddDogForm = () => {
                       tabIndex={4}
                     />
                   </Grid>
-
-                  <Grid item xs={12} lg={4} style={{ padding: "1rem" }}>
+                  <Grid item xs={12} style={{ padding: "1rem" }}>
                     <MKBox display="flex" justifyContent="center">
+                      <TextField
+                        id="outlined-multiline-static"
+                        multiline
+                        maxRows={8}
+                        style={{ width: "90%" }}
+                        label="About"
+                        type="text"
+                        name="description"
+                        placeholder="Tell us about your dog..."
+                        value={dogDescription.description}
+                        onChange={(e) => setDogDescription(e.target.value)}
+                      />
+
+                      {/* <MKButton
+              variant="text"
+              color="dark"
+              //   onClick={(e) => setFirstName(e.target.value)}
+            >
+              Edit
+            </MKButton> */}
+                    </MKBox>
+                  </Grid>
+
+                  <Grid item xs={12} sm={4} style={{ padding: "1rem" }}>
+                    <MKBox
+                      display="flex"
+                      justifyContent="flex-start"
+                      ml="2.5rem"
+                      sx={{
+                        justifyContent: {
+                          xs: "center",
+                          sm: "flex-start",
+                        },
+                        ml: { xs: "0", sm: "2.5rem" },
+                      }}
+                    >
                       <FormControl>
-                        <FormLabel
+                        <Typography
+                          component="legend"
+                          variant="h6"
+                          textAlign="center"
+                          mb="1rem"
+                        >
+                          Size
+                        </Typography>
+                        {/* <FormLabel
                           style={{ fontSize: "0.70em", color: "Gray" }}
                           size="small"
                         >
                           Size
-                        </FormLabel>
+                        </FormLabel> */}
                         <RadioGroup
                           name="controlled-radio-buttons-group"
                           //value={user.user_type}
                           value={dogSize}
                           onChange={handleChangeSize}
                           size="small"
-                          row
+                          column
                         >
                           <FormControlLabel
                             value="small"
@@ -423,66 +466,40 @@ const AddDogForm = () => {
                       </FormControl>
                     </MKBox>
                   </Grid>
-                  <Grid item xs={12} lg={4} style={{ padding: "1rem" }}>
-                    <MKBox display="flex" justifyContent="center">
-                      <FormControl style={{ paddingLeft: "8%" }}>
-                        <FormLabel
-                          style={{ fontSize: "0.70em", color: "Gray" }}
-                          size="small"
-                        >
-                          Can Play Fetch
-                        </FormLabel>
-                        <RadioGroup
-                          name="controlled-radio-buttons-group"
-                          //value={user.user_type}
-                          value={dogCanPlay}
-                          onChange={handleCanPlay}
-                          size="small"
-                          row
-                        >
-                          <FormControlLabel
-                            value="true"
-                            control={
-                              <Radio
-                                size="small"
-                                style={{ fontSize: "0.70em" }}
-                              />
-                            }
-                            label="Yes"
-                          />
-                          <FormControlLabel
-                            value="false"
-                            control={
-                              <Radio
-                                size="small"
-                                style={{ fontSize: "0.70em" }}
-                              />
-                            }
-                            label="No"
-                          />
-                        </RadioGroup>
-                      </FormControl>
-                    </MKBox>
-                  </Grid>
-                  <Grid item xs={12} lg={4} style={{ padding: "1rem" }}>
-                    <MKBox display="flex" justifyContent="center">
+                  <Grid item xs={12} sm={4} style={{ padding: "1rem" }}>
+                    <MKBox
+                      display="flex"
+                      justifyContent="flex-start"
+                      sx={{
+                        justifyContent: { xs: "center", sm: "flex-start" },
+                        ml: { xs: "0", sm: "2.5rem" },
+                      }}
+                    >
                       <FormControl>
-                        <FormLabel
+                        <Typography
+                          component="legend"
+                          variant="h6"
+                          textAlign="center"
+                          mb="1rem"
+                        >
+                          Energy
+                        </Typography>
+                        {/* <FormLabel
                           style={{ fontSize: "0.70em", color: "Gray" }}
                           size="small"
                         >
                           Energy
-                        </FormLabel>
+                        </FormLabel> */}
                         <RadioGroup
                           name="controlled-radio-buttons-group"
                           //value={user.user_type}
                           value={dogEnergy}
                           onChange={handleChangeEnergy}
                           size="small"
-                          row
+                          column
                         >
                           <FormControlLabel
-                            value="low"
+                            value="Low"
                             control={
                               <Radio
                                 size="small"
@@ -515,6 +532,65 @@ const AddDogForm = () => {
                       </FormControl>
                     </MKBox>
                   </Grid>
+                  <Grid item xs={12} sm={4} style={{ padding: "1rem" }}>
+                    <MKBox
+                      display="flex"
+                      sx={{
+                        justifyContent: { xs: "center", sm: "flex-start" },
+                        ml: { xs: "0", sm: "1rem" },
+                      }}
+                    >
+                      <FormControl style={{ paddingLeft: "8%" }}>
+                        <Typography
+                          component="legend"
+                          variant="h6"
+                          textAlign="center"
+                          mb="1rem"
+                        >
+                          Can Play Fetch
+                        </Typography>
+                        {/* <FormLabel
+                          style={{
+                            fontSize: "0.70em",
+                            color: "Gray",
+                          }}
+                          size="small"
+                        >
+                          Can Play Fetch
+                        </FormLabel> */}
+                        <RadioGroup
+                          name="controlled-radio-buttons-group"
+                          //value={user.user_type}
+                          value={dogCanPlay}
+                          onChange={handleCanPlay}
+                          size="small"
+                          column
+                        >
+                          <FormControlLabel
+                            value="true"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="Yes"
+                          />
+                          <FormControlLabel
+                            value="false"
+                            control={
+                              <Radio
+                                size="small"
+                                style={{ fontSize: "0.70em" }}
+                              />
+                            }
+                            label="No"
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                    </MKBox>
+                  </Grid>
+
                   <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
                     <Typography
                       component="legend"
