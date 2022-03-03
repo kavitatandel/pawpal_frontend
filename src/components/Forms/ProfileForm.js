@@ -20,6 +20,7 @@ import UploadPicModal from "../Modals/UploadPicModal";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import ProfileInputsGrid from "components/Forms/ProfileInputsGrid";
+import EditRoundedIcon from '@mui/icons-material/EditRounded';
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -28,6 +29,19 @@ const ProfileForm = () => {
   const toggleModal = () => setShow(!show);
   const [uploadedImageURL, setUploadedImageURL] = useState("");
   let navigate = useNavigate();
+
+  //for edit mode
+  const [editMode, setEditMode] = useState(true);
+  const toggleEdit = () => setEditMode(!editMode);
+
+  const editProfileIcon = {
+    color: "#f0f2f5",
+    transform: "scale(1.8)",
+    border: "none",
+    width: "1rem",
+    height: "1rem",
+
+  };
 
   const handleLogOut = () => {
     setUser({});
@@ -41,6 +55,8 @@ const ProfileForm = () => {
     console.log("get profile use effect ");
 
     console.log(user);
+
+
   }, [uploadedImageURL, selectedFile]);
 
   const getImage = async () => {
@@ -192,7 +208,17 @@ const ProfileForm = () => {
               </Grid>
             </Grid>
           </MKBox>
+          <MKBox display="flex" flex-direction="flex-end" width="100%" justifyContent="right" marginBottom="0rem">
+            {/* ************************** Edit Button (for inputs) */}
+            <MKButton
+              variant="gradient"
 
+              style={{
+
+                border: "0px",
+                marginRight: "3rem", marginTop: "1rem"
+              }} onClick={toggleEdit}><EditRoundedIcon style={editProfileIcon}></EditRoundedIcon></MKButton>
+          </MKBox>
           {/* ************************** User Details */}
           <MKBox
             component="form"
@@ -203,7 +229,7 @@ const ProfileForm = () => {
             p={6}
           >
             {/* ___________________ Input Grid */}
-            <ProfileInputsGrid />
+            <ProfileInputsGrid editMode={editMode} setEditMode={setEditMode} toggleEdit={toggleEdit} />
           </MKBox>
         </Paper>
       </MKBox>
