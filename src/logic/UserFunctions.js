@@ -44,7 +44,6 @@ export const login = (user) => {
 
 //create user
 export const updateUserProfile = (user) => {
-
   // console.log(user);
 
   return axios
