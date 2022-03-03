@@ -13,6 +13,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import InfoIcon from "@mui/icons-material/Info";
+import { neumorphic } from "styles/CustomStyles";
 
 import { dogsByOwner } from "../../logic/DogFunctions";
 import { useNavigate } from "react-router";
@@ -59,12 +61,17 @@ const OwnerDogsForm = () => {
     transform: "scale(1.8)",
   };
 
+  const iconStyle = {
+    transform: "scale(1.5)",
+  };
+
+  const iconButtonStyle = {};
+
   return (
     <>
       {/* Entire Page Container (without footer) */}
       {/* ******************** 2 MASTER DIVS REQUIRED FOR EACH PAGE: MKBox & Paper */}
       <MKBox
-        px={1}
         width="100%"
         top={0}
         minHeight="100%"
@@ -138,14 +145,6 @@ const OwnerDogsForm = () => {
 
           <Grid
             container
-            xs={12}
-            display="flex"
-            justifyContent="center"
-            mt="0rem"
-            mb="0rem"
-          ></Grid>
-          <Grid
-            container
             sx={{
               padding: "1rem",
               display: "flex",
@@ -153,19 +152,23 @@ const OwnerDogsForm = () => {
               mb: "7rem",
             }}
           >
-            <Grid
-              item
-              xs={12}
-              display="flex"
-              justifyContent="flex-end"
-              pr="1.2rem"
-              mb="0rem"
+            <MKBox
+              sx={{ width: { xs: "95%", xxl: "80%" } }}
+              style={{
+                display: "flex",
+
+                height: "auto",
+                flexDirection: "column",
+                alignItems: "center",
+                paddingTop: "1rem",
+                // border: "3px solid blue",
+              }}
             >
               <MKBox
-                // Neumorphic Box under button
-                style={{
+                // Neumorphic Box underneath button
+                sx={{
                   display: "flex",
-                  justifyContent: "center",
+                  alignSelf: { sm: "center", md: "flex-end" },
                   alignItems: "center",
                   width: "15rem",
                   height: "auto",
@@ -189,8 +192,6 @@ const OwnerDogsForm = () => {
                       fontWeight="bold"
                       color="#ff776a"
                       pr="2rem"
-
-                      // mt={1}
                     >
                       ADD DOG
                     </MKTypography>
@@ -198,184 +199,205 @@ const OwnerDogsForm = () => {
                   </div>
                 </MKButton>
               </MKBox>
-            </Grid>
-            {/* ************************** Dog List */}
-            {/* map thru searched dogs */}
-            {dogs !== undefined &&
-              dogs.map((dog, index) => {
-                return (
-                  /* ************************** List Item Card */
-                  <Grid
-                    item
-                    xs={12}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Grid container>
-                      <Card
-                        flex-basis="1"
+              {/* *********************************************************** Dog List *************/}
+              {dogs !== undefined &&
+                dogs.map((dog, index) => {
+                  return (
+                    /* ************************** List Item Card */
+
+                    <Card sx={neumorphic}>
+                      <MKBox
+                        className="mainContainer"
                         style={{
-                          width: "95%",
-                          height: "5rem",
-                          marginTop: "2rem",
-                          background: "#f4efee",
-                          boxShadow:
-                            "14.11px 14.11px 24px #dedad9, -14.11px -14.11px 24px #FFFFFF",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          padding: "1rem,",
+                          minHeight: "5rem",
                         }}
                       >
-                        <div
-                          className="mainContainer"
+                        {/* *************** DOG PIC */}
+                        <MKBox
+                          className="Avatar"
+                          sx={{
+                            width: { sm: "25%", lg: "16%" },
+                            display: { md: "flex" },
+                            minWidth: "3.2rem",
+                            paddingLeft: {
+                              sx: "0.5rem",
+                              sm: "1rem",
+                              md: "2rem",
+                              lg: "2.5rem",
+                            },
+                          }}
                           style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignContent: "center",
-                            padding: "1rem",
+                            justifyContent: "flex-start",
+                            alignItems: "center",
                           }}
                         >
-                          {/* ********** AVATAR ************* */}
-                          <Grid item className="Avatar">
-                            <div
-                              style={{
-                                width: "15%",
-                                marginLeft: "0.5rem",
-                                marginRight: "0.5rem",
-                                justifyContent: "flex-start",
-                                alignItems: "center",
-                              }}
+                          <MKAvatar
+                            src={`${dog.profile_photo}`}
+                            alt={`${dog.name}`}
+                            shadow="xl"
+                            sx={{ width: "3rem", height: "3rem" }}
+                            style={{
+                              border: "2px solid white",
+                              marginRight: "1rem",
+                              background:
+                                "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
+                              borderRadius: "100%",
+                              boxShadow:
+                                "14.11px 14.11px 24px #D9DADE, -14.11px -14.11px 24px #FFFFFF",
+                            }}
+                          />
+                        </MKBox>
+                        {/* *************** DOG NAME */}
+                        <MKBox
+                          className="DogName"
+                          sx={{
+                            alignItems: "center",
+                            justifyContent: "flex-start",
+                            width: { sm: "25%", md: "20%", lg: "16%" },
+                            display: { sm: "flex" },
+                          }}
+                        >
+                          <MKTypography
+                            variant="p"
+                            fontWeight="medium"
+                            style={{ fontSize: "0.90rem" }}
+                          >
+                            {dog.name}
+                          </MKTypography>
+                        </MKBox>
+                        {/* *************** DOG BREED */}
+                        <MKBox
+                          className="DogType"
+                          sx={{
+                            width: { sm: "25%", md: "20%", lg: "16%" },
+                            display: { xs: "none", sm: "flex" },
+                          }}
+                          style={{
+                            fontSize: "0.8rem",
+
+                            alignItems: "center",
+                            justifyContent: "flex-start",
+                          }}
+                        >
+                          <MKTypography
+                            variant="p"
+                            style={{ fontSize: "0.90rem" }}
+                          >
+                            {dog.breed}
+                          </MKTypography>
+                        </MKBox>
+                        {/* *************** DOG SIZE */}
+                        <MKBox
+                          className="Size"
+                          sx={{
+                            width: { md: "20%", lg: "16%" },
+                            display: { xs: "none", md: "flex" },
+                          }}
+                          style={{
+                            alignItems: "center",
+                            justifyContent: "flex-start",
+                          }}
+                        >
+                          {dog.size ? (
+                            <MKTypography
+                              variant="p"
+                              style={{ fontSize: "0.90rem" }}
                             >
-                              <MKAvatar
-                                top={-50}
-                                zIndex={2}
-                                src={`${dog.profile_photo}`}
-                                alt={`${dog.name}`}
-                                shadow="xl"
-                                sx={{ width: "3rem", height: "3rem" }}
-                                style={{
-                                  border: "2px solid white",
-                                  marginRight: "1rem",
-                                  background:
-                                    "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
-                                  borderRadius: "100%",
-                                  boxShadow:
-                                    "14.11px 14.11px 24px #D9DADE, -14.11px -14.11px 24px #FFFFFF",
-                                }}
-                              />
-                            </div>
-                          </Grid>
-                          {/* ********** DOG NAME ************* */}
-                          <Grid item className="DogName" md={2.4}>
-                            <MKBox
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                //   border: "2px solid red",
-                                width: "25%",
-                              }}
+                              {dog.size}
+                            </MKTypography>
+                          ) : (
+                            <MKTypography
+                              variant="p"
+                              style={{ fontSize: "0.90rem" }}
                             >
-                              <MKTypography
-                                variant="p"
-                                fontWeight="medium"
-                                style={{ fontSize: "0.90rem" }}
-                              >
-                                {dog.name}
-                              </MKTypography>
-                            </MKBox>
-                          </Grid>
-                          {/* ********** DOG BREED ************* */}
-                          <Grid item className="DogType">
-                            <div
+                              -
+                            </MKTypography>
+                          )}
+                        </MKBox>
+                        {/* *************** DOG AGE */}
+                        <MKBox
+                          className="Age"
+                          sx={{
+                            width: { lg: "16%" },
+                            display: { xs: "none", lg: "flex" },
+                          }}
+                          style={{
+                            alignItems: "center",
+                            justifyContent: "flex-start",
+                          }}
+                        >
+                          <MKTypography
+                            variant="p"
+                            style={{ fontSize: "0.90rem" }}
+                          >
+                            {dog.age_years} yrs {dog.age_months} mon.
+                          </MKTypography>
+                        </MKBox>
+                        {/* *************** INFO BUTTON */}
+                        <MKBox
+                          className="ButtonContainer"
+                          sx={{
+                            width: { sm: "25%", md: "25%", lg: "16%" },
+                            display: { sm: "flex" },
+                            alignItems: "center",
+                            justifyContent: "flex-end ",
+                            paddingRight: {
+                              sx: "0.5rem",
+                              sm: "1rem",
+                              md: "2rem",
+                              lg: "2.5rem",
+                            },
+                          }}
+                        >
+                          <MKButton
+                            size="large"
+                            type="submit"
+                            variant="gradient"
+                            color="info"
+                            sx={{
+                              minWidth: {
+                                xs: "2rem",
+                                sm: "2rem",
+                                md: "2.5rem",
+                                lg: "3rem",
+                              },
+                              minHeight: {
+                                xs: "2rem",
+                                sm: "2rem",
+                                md: "2.5rem",
+                                lg: "3rem",
+                              },
+                              // minWidth: "2rem",
+                              // minHeight: "2rem",
+                              padding: {
+                                xs: "10px 10px",
+                                md: "12px 12px",
+                                lg: "10px 10px",
+                                xl: "8px 8px",
+                                xxl: "8px 8px",
+                                xxxl: "4px 4px",
+                              },
+                            }}
+                            onClick={() =>
+                              navigate(`/doginfo/${dog.dogs_info._id}`)
+                            }
+                          >
+                            <InfoIcon
                               style={{
-                                fontSize: "0.8rem",
-                                width: "20%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                width: "20%",
+                                transform: "1.8",
                               }}
-                            >
-                              <MKTypography
-                                variant="p"
-                                style={{ fontSize: "0.90rem" }}
-                              >
-                                {dog.breed}
-                              </MKTypography>
-                            </div>
-                          </Grid>
-                          {/* ********** DOG AGE ************* */}
-                          <Grid item className="Age">
-                            <div
-                              style={{
-                                //   border: "2px solid red",
-                                width: "20%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                width: "25%",
-                              }}
-                            >
-                              <MKTypography
-                                variant="p"
-                                style={{ fontSize: "0.90rem" }}
-                              >
-                                {dog.size}
-                              </MKTypography>
-                            </div>
-                            <div
-                              className="Age"
-                              style={{
-                                //   border: "2px solid red",
-                                width: "20%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                width: "25%",
-                              }}
-                            >
-                              <MKTypography
-                                variant="p"
-                                style={{ fontSize: "0.90rem" }}
-                              >
-                                {dog.age_years} yrs {dog.age_months} mon.
-                              </MKTypography>
-                            </div>
-                          </Grid>
-                          {/* ********** BUTTON CONTAINER ************* */}
-                          <Grid item className="ButtonContainer">
-                            <div
-                              className="ButtonContainer"
-                              style={{
-                                width: "20%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-end ",
-                                //   border: "2px solid red",
-                                width: "15%",
-                                marginRight: "1rem",
-                              }}
-                            >
-                              <MKButton
-                                size="small"
-                                type="submit"
-                                variant="gradient"
-                                color="info"
-                                style={{
-                                  minWidth: "1rem",
-                                }}
-                              >
-                                Edit
-                              </MKButton>
-                            </div>
-                          </Grid>
-                        </div>
-                      </Card>
-                    </Grid>
-                  </Grid>
-                );
-              })}
-            {/* </MKBox> */}
+                            />
+                          </MKButton>
+                        </MKBox>
+                      </MKBox>
+                    </Card>
+                  );
+                })}
+            </MKBox>
           </Grid>
         </Paper>
       </MKBox>
