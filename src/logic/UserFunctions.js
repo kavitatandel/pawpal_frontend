@@ -45,6 +45,7 @@ export const login = (user) => {
 //create user
 export const updateUserProfile = (user) => {
   // console.log(user);
+
   return axios
     .post("http://localhost:5000/updateUserProfile", {
       _id: user._id,
