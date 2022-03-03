@@ -8,9 +8,12 @@ import { UserContext } from "../../context/UserContext";
 import { useEffect, useState, useContext } from "react";
 import { styled } from "@mui/material/styles";
 
-const ProfileInputsGrid = () => {
+const ProfileInputsGrid = ({ editMode, setEditMode, toggleEdit }) => {
   const [user, setUser] = useContext(UserContext);
   let navigate = useNavigate();
+
+  //added for edit mode
+  const [newEdit, setNewEdit] = useState(false);
 
   const onSaveHandler = () => {
     if (user.user_type === "doglover") {
@@ -27,6 +30,13 @@ const ProfileInputsGrid = () => {
     navigate("/");
   };
 
+  useEffect(() => {
+    // setEditMode(editMode);
+    // setNewEdit(editMode);
+  }, [editMode])
+
+  console.log("Edit Mode: " + editMode)
+
   return (
     <>
       {/* ********** PARENT GRID */}
@@ -34,7 +44,8 @@ const ProfileInputsGrid = () => {
         container // "Container" Attribute makes this the parent Grid
         spacing={2}
         mx={0}
-        style={{ padding: "2rem" }}
+        // style={{ padding: "2rem" }}
+        style={{ paddingTop: "0rem" }}
         display="flex"
         justifyContent="center"
       >
@@ -51,6 +62,7 @@ const ProfileInputsGrid = () => {
               placeholder="Enter your first name"
               required
               onChange={(e) => setUser({ ...user, first_name: e.target.value })}
+              disabled={editMode}
             />
           </MKBox>
         </Grid>
@@ -65,6 +77,7 @@ const ProfileInputsGrid = () => {
               required
               value={user.last_name}
               onChange={(e) => setUser({ ...user, last_name: e.target.value })}
+              disabled={editMode}
             />
           </MKBox>
         </Grid>
@@ -79,6 +92,7 @@ const ProfileInputsGrid = () => {
               required
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
+              disabled={editMode}
             />
           </MKBox>
         </Grid>
@@ -94,6 +108,7 @@ const ProfileInputsGrid = () => {
               required
               value={user.street}
               onChange={(e) => setUser({ ...user, street: e.target.value })}
+              disabled={editMode}
             />
           </MKBox>
         </Grid>
@@ -108,6 +123,7 @@ const ProfileInputsGrid = () => {
               required
               value={user.city}
               onChange={(e) => setUser({ ...user, city: e.target.value })}
+              disabled={editMode}
             />
             {/* <MKButton
               variant="text"
@@ -129,6 +145,7 @@ const ProfileInputsGrid = () => {
               required
               value={user.country}
               onChange={(e) => setUser({ ...user, country: e.target.value })}
+              disabled={editMode}
             />
             {/* <MKButton
               variant="text"
@@ -150,6 +167,7 @@ const ProfileInputsGrid = () => {
               required
               value={user.zip_code}
               onChange={(e) => setUser({ ...user, zip_code: e.target.value })}
+              disabled={editMode}
             />
             {/* <MKButton
               variant="text"
@@ -165,6 +183,8 @@ const ProfileInputsGrid = () => {
           <MKBox display="flex" justifyContent="flex-start">
             <TextField
               id="outlined-multiline-flexible"
+              multiline
+              rows={6}
               fullWidth
               label="About"
               type="text"
@@ -174,6 +194,7 @@ const ProfileInputsGrid = () => {
               onChange={(e) =>
                 setUser({ ...user, description: e.target.value })
               }
+              disabled={editMode}
             />
 
             {/* <MKButton
@@ -185,7 +206,7 @@ const ProfileInputsGrid = () => {
             </MKButton> */}
           </MKBox>
         </Grid>
-        <Grid item xs={12} style={{ padding: "1rem" }}>
+        <Grid item xs={12} style={{ padding: "0.25rem" }}>
           {/* _______________________ Buttons */}
           <MKBox
             mt={5}
