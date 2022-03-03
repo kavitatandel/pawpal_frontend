@@ -9,364 +9,469 @@ import MKButton from "../MKButton";
 // @mui material components
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import { Grid } from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import InfoIcon from "@mui/icons-material/Info";
+import { neumorphic } from "styles/CustomStyles";
 
-import { GetPlayDateRequestsForOwner, UpdatePlayDateRequest, GetApprovedRequestsForOwner } from "../../logic/PlayDateFunctions";
+import {
+  GetPlayDateRequestsForOwner,
+  UpdatePlayDateRequest,
+  GetApprovedRequestsForOwner,
+} from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
 import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
 import OwnerApprovedRequests from "./OwnerApprovedRequests";
 
-
 const OwnerDogRequestsForm = () => {
-    const [user, setUser] = useContext(UserContext);
-    const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
-    const [dogApprovedRequestsInfo, setDogApprovedRequestsInfo] = useState([]);
-    const [selectedDogRequest, setSelectedDogRequest] = useState([]);
-    const navigate = useNavigate();
+  const [user, setUser] = useContext(UserContext);
+  const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
+  const [dogApprovedRequestsInfo, setDogApprovedRequestsInfo] = useState([]);
+  const [selectedDogRequest, setSelectedDogRequest] = useState([]);
+  const navigate = useNavigate();
 
-    //for modal
-    const [show, setShow] = useState(false);
-    //commented to get request again when user approve/reject
-    const toggleModal = () => setShow(!show);
+  //for modal
+  const [show, setShow] = useState(false);
+  //commented to get request again when user approve/reject
+  const toggleModal = () => setShow(!show);
 
-    //to show Approved component
-    const [showApproved, setShowApproved] = useState(true);
+  //to show Approved component
+  const [showApproved, setShowApproved] = useState(true);
 
-    //get dog 'Pending' requests
-    const getReuqestData = () => {
-        const owner_id = user._id;
-        GetPlayDateRequestsForOwner(owner_id).then((res) => {
-            setDogRequestsInfo(res);
-        })
-            .catch((err) => console.log(err));
-    }
+  //get dog 'Pending' requests
+  const getReuqestData = () => {
+    const owner_id = user._id;
+    GetPlayDateRequestsForOwner(owner_id)
+      .then((res) => {
+        setDogRequestsInfo(res);
+      })
+      .catch((err) => console.log(err));
+  };
 
-    //get dog 'Approved' request
-    const getApprovedReuqestData = () => {
-        const owner_id = user._id;
-        GetApprovedRequestsForOwner(owner_id).then((res) => {
-            // console.log(res)
-            setDogApprovedRequestsInfo(res);
-        })
-            .catch((err) => console.log(err));
-    }
+  //get dog 'Approved' request
+  const getApprovedReuqestData = () => {
+    const owner_id = user._id;
+    GetApprovedRequestsForOwner(owner_id)
+      .then((res) => {
+        // console.log(res)
+        setDogApprovedRequestsInfo(res);
+      })
+      .catch((err) => console.log(err));
+  };
 
-    // useEffect(() => {
-    //     getReuqestData();
-    //     getApprovedReuqestData();
-    // }, [toggleModal])
+  // useEffect(() => {
+  //     getReuqestData();
+  //     getApprovedReuqestData();
+  // }, [toggleModal])
 
-    useEffect(() => {
-        getReuqestData();
-        getApprovedReuqestData();
-    }, [showApproved])
+  useEffect(() => {
+    getReuqestData();
+    getApprovedReuqestData();
+  }, [showApproved]);
 
-    const handleApproveReject = (e) => {
-        e.preventDefault();
+  const handleApproveReject = (e) => {
+    e.preventDefault();
 
-        //get the clicked item id
-        const selectedRequestId = e.target.value;
-        //find selected request id data
-        const selectedRequest = dogRequestsInfo.find(dogRequest => dogRequest._id === selectedRequestId)
-        setSelectedDogRequest(selectedRequest);
-
-        toggleModal();
-    }
-
-
-    return (
-        <>
-            {/* // Container between top & Footer */}
-            <MKBox
-                px={1}
-                width="100%"
-                top={0}
-                height="auto"
-                mx="auto"
-                mr={0}
-                ml={0}
-                position="relative"
-                zindex={-1}
-                sx={{ padding: "0" }}
-                display="flex"
-                flexDirection="column"
-                justifyContent="flex-start"
-                alignItems="center"
-            >
-                {/* Container for top background Image */}
-                <MKBox
-                    // style={{ border: "10px solid green" }}
-
-                    minHeight="20vh"
-                    width="100%"
-                    //   style={{ border: "3px solid green" }}
-                    sx={{
-                        backgroundImage: ({
-                            functions: { linearGradient, rgba },
-                            palette: { gradients },
-                        }) =>
-                            `${linearGradient(
-                                rgba(gradients.dark.main, 0.2),
-                                rgba(gradients.dark.state, 0.2)
-                            )}, url(${bgImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        display: "grid",
-                        placeItems: "center",
-                    }}
-                />
-
-                {/* Container for body area below featured img */}
-                <MKBox
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="flex-start"
-                    alignItems="center"
-                    minHeight="auto"
-                    top={0}
-                    width="100%"
-                    style={{ border: "3px solid red" }}
-
-                //   style={{ border: "3px solid green" }}
-                >
-                    <Card
-                        // zIndex={0}
-                        style={{ position: "relative", border: "3px solid green" }}
-                        sx={{
-                            width: "90%",
-                            height: "auto",
-                            p: 2,
-                            mt: -2,
-                            mx: { xs: 2, lg: 3 },
-                            position: "relative",
-                            mb: 4,
-                            backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-                                rgba(white.main, 0.8),
-                            backdropFilter: "saturate(200%) blur(30px)",
-                            boxShadow: ({ boxShadows: { xxl } }) => xxl,
-                        }}
-                    >
-                        {selectedDogRequest.length !== 0 ?
-                            <DogApproveRejectModal
-                                show={show}
-                                setShow={setShow}
-                                toggleModal={toggleModal}
-                                selectedDogRequest={selectedDogRequest}
-                                setSelectedDogRequest={setSelectedDogRequest}
-                                setShowApproved={setShowApproved}
-                                showApproved={showApproved}
-                            />
-                            : <h1></h1>
-                        }
-
-                        <Container>
-                            <MKBox>
-                                <MKTypography
-                                    variant="h5"
-                                    fontWeight="medium"
-                                    color="dark"
-                                    textAlign="center"
-                                >
-                                    Pending Requests
-                                </MKTypography>
-                            </MKBox>
-
-                            {/* ************************** Dog Details */}
-                            <MKBox px={0}
-                                width="100%"
-                                top={10}
-                                height="auto"
-                                mx="auto"
-                                mr={0}
-                                ml={0}
-                                position="relative"
-                                zindex={1}
-                                sx={{ padding: "0" }}
-                                display="flex"
-                                flexDirection="column"
-                                justifyContent="flex-start"
-                                alignItems="center"
-                                textAlign="center"
-                                style={{
-                                    // border: "3px solid blue",
-                                    backgroundColor: "rgba(39, 46, 245, 0.2)",
-                                }}
-                                minheight="80vh">
-                                {/* map thru searched dogs */}
-                                {dogRequestsInfo === undefined ? <h5>No Playdate Requests Found. </h5> : dogRequestsInfo.length === 0 ? <h5>No Playdate Requests Found. </h5> : ""}
-                                {
-                                    dogRequestsInfo !== undefined && dogRequestsInfo.map((request, index) => {
-
-                                        return (
-                                            <Card key={index} flex-basis="1" style={{ width: "95%", height: "5rem", marginTop: "1rem" }}>
-                                                <div
-                                                    className="mainContainer"
-                                                    style={{
-                                                        display: "flex",
-                                                        justifyContent: "space-between",
-                                                        alignContent: "center",
-                                                        padding: "1rem",
-
-                                                    }}
-                                                >
-                                                    <div
-                                                        className="Avatar"
-                                                        style={{
-                                                            width: "15%",
-                                                            marginLeft: "0.5rem",
-                                                            marginRight: "0.5rem",
-                                                            justifyContent: "flex-start",
-                                                            alignItems: "center"
-                                                        }}
-                                                    >
-                                                        {request.DogLovers.profile_pic !== undefined ?
-                                                            <MKAvatar
-                                                                top={-50}
-                                                                zIndex={2}
-                                                                src={`${request.DogLovers.profile_pic}`}
-                                                                alt={`${request.DogLovers.first_name}`}
-                                                                shadow="xl"
-                                                                sx={{ width: "2.5rem", height: "2.5rem" }}
-                                                                style={{ border: "3.2px solid white", marginRight: "1rem" }}
-                                                            />
-                                                            :
-                                                            <MKAvatar
-                                                                top={-50}
-                                                                zIndex={2}
-                                                                src=''
-                                                                alt={`${request.DogLovers.first_name}`}
-                                                                shadow="xl"
-                                                                sx={{ width: "2.5rem", height: "2.5rem" }}
-                                                                style={{ border: "3.2px solid white", marginRight: "1rem" }}
-                                                            />
-                                                        }
-
-                                                    </div>
-
-                                                    <div
-                                                        className="DogLoverName"
-                                                        style={{
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            //   border: "2px solid red",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-                                                        <MKTypography
-                                                            variant="p"
-                                                            fontWeight="medium"
-                                                            style={{ fontSize: "0.90rem" }}
-                                                        >
-                                                            {request.DogLovers.first_name} {request.DogLovers.last_name}
-                                                        </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="DogName"
-                                                        style={{
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            //   border: "2px solid red",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-                                                        <MKTypography
-                                                            variant="p"
-                                                            fontWeight="medium"
-                                                            style={{ fontSize: "0.90rem" }}
-                                                        >
-                                                            {request.DogsRequests.name}                                                         </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="StartDate"
-                                                        style={{
-                                                            fontSize: "0.8rem",
-                                                            width: "20%",
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            width: "20%",
-                                                        }}
-                                                    >
-                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {new Date(request.start_date).toLocaleDateString()}
-
-                                                        </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="StartTime"
-                                                        style={{
-                                                            //   border: "2px solid red",
-                                                            width: "20%",
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-
-                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {request.start_time}
-
-                                                        </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="EndTime"
-                                                        style={{
-                                                            //   border: "2px solid red",
-                                                            width: "20%",
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-start",
-                                                            width: "25%",
-                                                        }}
-                                                    >
-                                                        <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                                                            {request.end_time}
-                                                        </MKTypography>
-                                                    </div>
-                                                    <div
-                                                        className="ButtonContainer"
-                                                        style={{
-
-                                                            display: "flex",
-                                                            alignItems: "center",
-                                                            justifyContent: "flex-end ",
-                                                            //   border: "2px solid red",
-                                                            width: "20%",
-                                                            marginRight: "1rem",
-                                                        }}
-                                                    >
-                                                        <MKButton
-                                                            size="small"
-                                                            type="submit"
-                                                            variant="gradient"
-                                                            color="info"
-                                                            style={{
-                                                                // minWidth: "1rem",
-                                                                width: "70rem"
-                                                            }}
-                                                            value={request._id}
-                                                            onClick={handleApproveReject}>
-                                                            Approve / Reject
-                                                        </MKButton>
-                                                    </div>
-
-                                                </div>
-                                            </Card>
-                                        )
-                                    })}
-
-                            </MKBox>
-                        </Container>
-                        <br />
-                        <OwnerApprovedRequests dogApprovedRequestsInfo={dogApprovedRequestsInfo} setDogApprovedRequestsInfo={setDogApprovedRequestsInfo} />
-                    </Card>
-                </MKBox>
-            </MKBox>
-        </>
+    //get the clicked item id
+    const selectedRequestId = e.target.value;
+    //find selected request id data
+    const selectedRequest = dogRequestsInfo.find(
+      (dogRequest) => dogRequest._id === selectedRequestId
     );
+    setSelectedDogRequest(selectedRequest);
+
+    toggleModal();
+  };
+
+  return (
+    <>
+      <MKBox
+        display="flex"
+        flexDirection="column"
+        justifyContent="flex-start"
+        alignItems="center"
+        minHeight="auto"
+        top={0}
+        width="100%"
+        // style={{ border: "3px solid red" }}
+
+        //   style={{ border: "3px solid green" }}
+      >
+        <MKBox
+          width="100%"
+          top={0}
+          minHeight="100%"
+          mx="auto"
+          mr={0}
+          ml={0}
+          position="relative"
+          zindex={-1}
+          sx={{ padding: "0" }}
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-start"
+          alignItems="center"
+        >
+          <Paper
+            className="neuCard"
+            elevation={24}
+            style={{
+              position: "relative",
+              borderRadius: "2rem",
+              // glass effect
+              background: "rgba( 255, 255, 255, 0.7 )",
+              boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+              backdropFilter: "blur( 12px )",
+            }}
+            sx={{
+              width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
+              maxWidth: "1000px",
+              height: "auto",
+              mt: 35,
+
+              mx: { xs: 2, lg: 3 },
+              position: "relative",
+              mb: 10,
+            }}
+          >
+            {selectedDogRequest.length !== 0 ? (
+              <DogApproveRejectModal
+                show={show}
+                setShow={setShow}
+                toggleModal={toggleModal}
+                selectedDogRequest={selectedDogRequest}
+                setSelectedDogRequest={setSelectedDogRequest}
+                setShowApproved={setShowApproved}
+                showApproved={showApproved}
+              />
+            ) : (
+              <h1></h1>
+            )}
+            {/* ________Pink Box */}
+            <MKBox
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                mb: "0rem",
+                pb: "0rem",
+                mt: -4,
+              }}
+            >
+              <MKBox
+                variant="gradient"
+                bgColor="info"
+                borderRadius="25px"
+                coloredShadow="info"
+                mx={4}
+                // mt={-4}
+                p={5}
+                mb={2}
+                textAlign="center"
+                sx={{ width: "60%" }}
+              >
+                {/* // Heading */}
+                <MKTypography
+                  variant="h4"
+                  fontWeight="bold"
+                  color="light"
+                  textAlign="center"
+                  // mt={1}
+                >
+                  PLAY DATE REQUESTS
+                </MKTypography>
+              </MKBox>
+            </MKBox>
+            <MKBox textAlign="center" mt={2}>
+              {/* // Heading */}
+              <MKTypography
+                variant="h4"
+                fontWeight="bold"
+                color="dark"
+                textAlign="center"
+                // mt={1}
+              >
+                Pending Requests
+              </MKTypography>
+            </MKBox>
+
+            {/******************** PENDING REQUESTS */}
+            <Grid
+              container
+              sx={{
+                padding: "1rem",
+                display: "flex",
+                justifyContent: "center",
+                mb: "4rem",
+              }}
+            >
+              <MKBox
+                sx={{ width: { xs: "95%", xxl: "90%" } }}
+                style={{
+                  display: "flex",
+                  height: "auto",
+                  flexDirection: "column",
+                  alignItems: "center",
+
+                  // border: "3px solid blue",
+                }}
+              >
+                {/* map thru searched dogs */}
+                {dogRequestsInfo === undefined ? (
+                  <h5>No Playdate Requests Found. </h5>
+                ) : dogRequestsInfo.length === 0 ? (
+                  <h5>No Playdate Requests Found. </h5>
+                ) : (
+                  ""
+                )}
+                {dogRequestsInfo !== undefined &&
+                  dogRequestsInfo.map((request, index) => {
+                    return (
+                      <Card sx={neumorphic} key={index}>
+                        <MKBox
+                          className="mainContainer"
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            padding: "1rem,",
+                            minHeight: "5rem",
+                            paddingLeft: {
+                              sx: "0.5rem",
+                              sm: "1rem",
+                              md: "2rem",
+                              lg: "2.5rem",
+                            },
+                            paddingRight: {
+                              sx: "1rem",
+                              sm: "1.5rem",
+                              md: "2rem",
+                            },
+                          }}
+                        >
+                          <MKBox
+                            className="Avatar"
+                            sx={{
+                              width: { sm: "15%", md: "14%", lg: "12%" },
+                              display: { md: "flex" },
+                              minWidth: "3.2rem",
+
+                              mr: "1rem",
+                            }}
+                            style={{
+                              justifyContent: "flex-start",
+                              alignItems: "center",
+                            }}
+                          >
+                            {request.DogLovers.profile_pic !== undefined ? (
+                              <MKAvatar
+                                top={-50}
+                                zIndex={2}
+                                src={`${request.DogLovers.profile_pic}`}
+                                alt={`${request.DogLovers.first_name}`}
+                                shadow="xl"
+                                sx={{ width: "2.5rem", height: "2.5rem" }}
+                                style={{
+                                  border: "3.2px solid white",
+                                  marginRight: "1rem",
+                                }}
+                              />
+                            ) : (
+                              <MKAvatar
+                                top={-50}
+                                zIndex={2}
+                                src=""
+                                alt={`${request.DogLovers.first_name}`}
+                                shadow="xl"
+                                sx={{ width: "2.5rem", height: "2.5rem" }}
+                                style={{
+                                  border: "3.2px solid white",
+                                  marginRight: "1rem",
+                                }}
+                              />
+                            )}
+                          </MKBox>
+
+                          {/* *************** DOGLOVER NAME */}
+                          <MKBox
+                            className="DogLoverName"
+                            sx={{
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                              width: { sm: "25%", md: "25%", lg: "16%" },
+                              display: { sm: "flex" },
+                            }}
+                          >
+                            <MKTypography
+                              variant="p"
+                              fontWeight="medium"
+                              style={{ fontSize: "0.90rem" }}
+                            >
+                              {`${request.DogLovers.first_name} 
+                        ${request.DogLovers.last_name}`}
+                            </MKTypography>
+                          </MKBox>
+                          {/* *************** DOG NAME */}
+                          <MKBox
+                            className="DogName"
+                            sx={{
+                              width: { sm: "25%", md: "20%", lg: "12%" },
+                              display: { xs: "none", sm: "flex" },
+                            }}
+                            style={{
+                              fontSize: "0.8rem",
+
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                            }}
+                          >
+                            <MKTypography
+                              variant="p"
+                              style={{ fontSize: "0.90rem" }}
+                            >
+                              {request.DogsRequests.name}
+                            </MKTypography>
+                          </MKBox>
+                          {/* *************** START DATE */}
+                          <MKBox
+                            className="Size"
+                            sx={{
+                              width: { md: "20%", lg: "12%" },
+                              display: { xs: "none", md: "flex" },
+                            }}
+                            style={{
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                            }}
+                          >
+                            <MKTypography
+                              variant="p"
+                              style={{ fontSize: "0.90rem" }}
+                            >
+                              {new Date(
+                                request.start_date
+                              ).toLocaleDateString()}
+                            </MKTypography>
+                          </MKBox>
+                          {/* *************** START TIME */}
+                          <MKBox
+                            className="StartTime"
+                            sx={{
+                              width: { lg: "12%" },
+                              display: { xs: "none", lg: "flex" },
+                            }}
+                            style={{
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                            }}
+                          >
+                            <MKTypography
+                              variant="p"
+                              style={{ fontSize: "0.90rem" }}
+                            >
+                              {request.start_time}
+                            </MKTypography>
+                          </MKBox>
+                          {/* *************** END TIME */}
+                          <MKBox
+                            className="EndTime"
+                            sx={{
+                              width: { lg: "12%" },
+                              display: { xs: "none", lg: "flex" },
+                            }}
+                            style={{
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                            }}
+                          >
+                            <MKTypography
+                              variant="p"
+                              style={{ fontSize: "0.90rem" }}
+                            >
+                              {request.end_time}
+                            </MKTypography>
+                          </MKBox>
+                          <MKBox
+                            className="ButtonContainer"
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end ",
+                              //   border: "2px solid red",
+
+                              width: { md: "20%", lg: "12%" },
+                              marginRight: "1rem",
+                            }}
+                          >
+                            <MKButton
+                              size="large"
+                              type="submit"
+                              variant="gradient"
+                              color="info"
+                              sx={{
+                                minWidth: {
+                                  xs: "2rem",
+                                  sm: "2rem",
+                                  md: "2.5rem",
+                                  lg: "3rem",
+                                },
+                                minHeight: {
+                                  xs: "2rem",
+                                  sm: "2rem",
+                                  md: "2.5rem",
+                                  lg: "3rem",
+                                },
+                                // minWidth: "2rem",
+                                // minHeight: "2rem",
+                                padding: {
+                                  xs: "10px 10px",
+                                  md: "12px 12px",
+                                  lg: "10px 10px",
+                                  xl: "8px 8px",
+                                  xxl: "8px 8px",
+                                  xxxl: "4px 4px",
+                                },
+
+                                ml: "1rem",
+                              }}
+                              value={request._id}
+                              onClick={handleApproveReject}
+                            >
+                              {/* <InfoIcon /> */}
+                              INFO
+                              {/* Approve / Reject */}
+                            </MKButton>
+                          </MKBox>
+                        </MKBox>
+                      </Card>
+                    );
+                  })}
+              </MKBox>
+            </Grid>
+            <MKBox textAlign="center" mt={2}>
+              {/* // Heading */}
+              <MKTypography
+                variant="h4"
+                fontWeight="bold"
+                color="dark"
+                textAlign="center"
+                // mt={1}
+              >
+                Approved Requests
+              </MKTypography>
+            </MKBox>
+
+            <OwnerApprovedRequests
+              dogApprovedRequestsInfo={dogApprovedRequestsInfo}
+              setDogApprovedRequestsInfo={setDogApprovedRequestsInfo}
+            />
+          </Paper>
+        </MKBox>
+      </MKBox>
+    </>
+  );
 };
 
 export default OwnerDogRequestsForm;
