@@ -212,8 +212,10 @@ export default {
     },
 
     info: {
-      background: "#aecef7",
-      text: "#095bc6",
+      background: "#ff9a85",
+      text: "#ff3d47",
+      // background: "#aecef7",
+      // text: "#095bc6",
     },
 
     success: {

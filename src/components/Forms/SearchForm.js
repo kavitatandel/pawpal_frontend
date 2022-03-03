@@ -6,10 +6,12 @@ import MKBox from "components/MKBox";
 import MKInput from "../MKInput";
 import MKButton from "../MKButton";
 import MKTypography from "../MKTypography";
+import Card from "@mui/material/Card";
 import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import "../../styles/Map.css";
+import { glassStyle } from "../../styles/CustomStyles";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -204,6 +206,7 @@ const SearchForm = () => {
                     id="results"
                     style={{
                       height: "auto",
+                      margin: "1rem",
                       // backgroundColor: "rgba(255, 41, 41, 0.4)",
                     }}
                   >
@@ -213,7 +216,37 @@ const SearchForm = () => {
                         setLocations={setLocations}
                       />
                     ) : (
-                      <MKTypography>No Dogs Found</MKTypography>
+                      <MKBox>
+                        <Card style={glassStyle}>
+                          <MKBox
+                            className="mainContainer"
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignContent: "center",
+                              padding: "0rem",
+                            }}
+                          >
+                            <MKBox
+                              className="DogName"
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "flex-start",
+                                width: "25%",
+                              }}
+                            >
+                              <MKTypography
+                                variant="p"
+                                fontWeight="medium"
+                                style={{ fontSize: "0.90rem" }}
+                              >
+                                No dogs found
+                              </MKTypography>
+                            </MKBox>
+                          </MKBox>
+                        </Card>
+                      </MKBox>
                     )}
                   </MKBox>
                 </MKBox>
