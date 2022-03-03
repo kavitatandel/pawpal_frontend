@@ -20,7 +20,7 @@ import UploadPicModal from "../Modals/UploadPicModal";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import ProfileInputsGrid from "components/Forms/ProfileInputsGrid";
-import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import EditRoundedIcon from "@mui/icons-material/EditRounded";
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -36,11 +36,11 @@ const ProfileForm = () => {
 
   const editProfileIcon = {
     color: "#f0f2f5",
-    transform: "scale(1.8)",
-    border: "none",
-    width: "1rem",
-    height: "1rem",
-
+    backgroundColor: "transparent",
+    transform: "scale(1)",
+    marginLeft: "0.5rem",
+    // width: "1rem",
+    // height: "1rem",
   };
 
   const handleLogOut = () => {
@@ -55,8 +55,6 @@ const ProfileForm = () => {
     console.log("get profile use effect ");
 
     console.log(user);
-
-
   }, [uploadedImageURL, selectedFile]);
 
   const getImage = async () => {
@@ -208,16 +206,32 @@ const ProfileForm = () => {
               </Grid>
             </Grid>
           </MKBox>
-          <MKBox display="flex" flex-direction="flex-end" width="100%" justifyContent="right" marginBottom="0rem">
+          <MKBox
+            display="flex"
+            flex-direction="flex-end"
+            width="100%"
+            justifyContent="right"
+            marginBottom="0rem"
+          >
             {/* ************************** Edit Button (for inputs) */}
             <MKButton
+              type="submit"
               variant="gradient"
-
+              color="info"
+              size="large"
               style={{
-
+                padding: "10px 2px 10px 10px",
+                minWidth: "7rem",
+                minHeight: "3rem",
                 border: "0px",
-                marginRight: "3rem", marginTop: "1rem"
-              }} onClick={toggleEdit}><EditRoundedIcon style={editProfileIcon}></EditRoundedIcon></MKButton>
+                marginRight: "3rem",
+                marginTop: "3rem",
+              }}
+              onClick={toggleEdit}
+            >
+              EDIT
+              <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
+            </MKButton>
           </MKBox>
           {/* ************************** User Details */}
           <MKBox
@@ -226,10 +240,16 @@ const ProfileForm = () => {
             autocomplete="off"
             role="form"
             //   onSubmit={createUser}
-            p={6}
+            pb={6}
+            pt={3}
+            px={6}
           >
             {/* ___________________ Input Grid */}
-            <ProfileInputsGrid editMode={editMode} setEditMode={setEditMode} toggleEdit={toggleEdit} />
+            <ProfileInputsGrid
+              editMode={editMode}
+              setEditMode={setEditMode}
+              toggleEdit={toggleEdit}
+            />
           </MKBox>
         </Paper>
       </MKBox>

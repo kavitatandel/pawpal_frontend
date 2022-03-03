@@ -33,9 +33,9 @@ const ProfileInputsGrid = ({ editMode, setEditMode, toggleEdit }) => {
   useEffect(() => {
     // setEditMode(editMode);
     // setNewEdit(editMode);
-  }, [editMode])
+  }, [editMode]);
 
-  console.log("Edit Mode: " + editMode)
+  console.log("Edit Mode: " + editMode);
 
   return (
     <>
