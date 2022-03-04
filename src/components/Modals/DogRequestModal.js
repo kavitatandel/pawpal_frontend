@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 import { useState, useContext, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { UserContext } from "../../context/UserContext";
 import { addPlayDateRequest } from "../../logic/PlayDateFunctions";
 
@@ -18,14 +18,13 @@ import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
 
 //for date picker
-import TextField from '@mui/material/TextField';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
+import TextField from "@mui/material/TextField";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
 //import MobileDatePicker from '@mui/lab/MobileDatePicker';
 //import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-import TimePicker from '@mui/lab/TimePicker';
-
+import TimePicker from "@mui/lab/TimePicker";
 
 //import { addPlayDateRequest } from ""
 
@@ -40,105 +39,107 @@ import TimePicker from '@mui/lab/TimePicker';
 //     de: '__.__.____',
 // };
 
-
 function DogRequestModal({
-    show, setShow, toggleModal,
-    // dogLoverId, setDogLoverId, 
-    dogId, setDogId }) {
-    //for localization
-    const [locale, setLocale] = React.useState('de');
+  show,
+  setShow,
+  toggleModal,
+  // dogLoverId, setDogLoverId,
+  dogId,
+  setDogId,
+}) {
+  //for localization
+  const [locale, setLocale] = React.useState("de");
 
-    const [user, setUser] = useContext(UserContext);
-    const [startDate, setStartDate] = useState(new Date());
-    const [startTime, setStartTime] = useState(new Date());
-    const [endTime, setEndTime] = useState(new Date());
-    const [location, setLocation] = useState('');
-    const [message, setMessage] = useState('');
+  const [user, setUser] = useContext(UserContext);
+  const [startDate, setStartDate] = useState(new Date());
+  const [startTime, setStartTime] = useState(new Date());
+  const [endTime, setEndTime] = useState(new Date());
+  const [location, setLocation] = useState("");
+  const [message, setMessage] = useState("");
 
-    useEffect(() => {
+  useEffect(() => {});
 
-    });
+  const handleCancel = () => {
+    toggleModal();
+    //clear all the states
+    setStartDate(new Date());
+    setStartTime(new Date());
+    setEndTime(new Date());
+    setLocation("");
+    setMessage("");
+  };
 
-    const handleCancel = () => {
-        toggleModal();
-        //clear all the states
-        setStartDate(new Date());
-        setStartTime(new Date());
-        setEndTime(new Date());
-        setLocation('');
-        setMessage('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // console.log(startDate.toDateString())
+    //console.log(startTime.toTimeString())
+    //console.log(endTime.toTimeString())
+    //console.log(dogId);
+
+    const playDayRequest = {
+      dog_id: dogId,
+      dog_lover_id: user._id,
+      start_date: startDate.toLocaleDateString(),
+      start_time: startTime.toLocaleTimeString(), //insert in AM/PM format :"10:00:34 AM"
+      //end_time: endTime.toTimeString(), // 24 hour format :"11:01:34 GMT+0100 (Central European Standard Time)"
+      end_time: endTime.toLocaleTimeString(),
+      meeting_location: location,
+      dl_message: message,
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    addPlayDateRequest(playDayRequest)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
 
-        // console.log(startDate.toDateString())
-        //console.log(startTime.toTimeString())
-        //console.log(endTime.toTimeString())
-        //console.log(dogId);
+    toggleModal();
+    //clear all the states
+    setStartDate(new Date());
+    setStartTime(new Date());
+    setEndTime(new Date());
+    setLocation("");
+    setMessage("");
+  };
 
-        const playDayRequest = {
-            dog_id: dogId,
-            dog_lover_id: user._id,
-            start_date: startDate.toLocaleDateString(),
-            start_time: startTime.toLocaleTimeString(), //insert in AM/PM format :"10:00:34 AM"
-            //end_time: endTime.toTimeString(), // 24 hour format :"11:01:34 GMT+0100 (Central European Standard Time)"
-            end_time: endTime.toLocaleTimeString(),
-            meeting_location: location,
-            dl_message: message,
-        };
-
-        addPlayDateRequest(playDayRequest).then(res => console.log(res))
-            .catch(err => console.log(err));
-
-        toggleModal();
-        //clear all the states
-        setStartDate(new Date());
-        setStartTime(new Date());
-        setEndTime(new Date());
-        setLocation('');
-        setMessage('');
-    };
-
-    return (
-        <MKBox component="section" py={6}>
-            <Container>
-                <Modal
-                    open={show}
-                    onClose={toggleModal}
-                    sx={{ display: "grid", placeItems: "center" }}
-                >
-                    <Slide direction="down" in={show} timeout={500}>
-                        <MKBox
-                            position="relative"
-                            width="500px"
-                            display="flex"
-                            flexDirection="column"
-                            borderRadius="xl"
-                            bgColor="white"
-                            shadow="xl"
-                        >
-                            <MKBox
-                                display="flex"
-                                alginItems="center"
-                                justifyContent="center"
-                                p={2}
-                            >
-                                <MKTypography variant="h5">Play Date Request</MKTypography>
-
-                            </MKBox>
-                            <MKBox p={2}>
-                                <form onSubmit={handleSubmit}>
-                                    <MKBox
-                                        display="flex"
-                                        alginItems="center"
-                                        justifyContent="space-between"
-                                        p={2}
-                                        width="50%"
-                                    >
-                                        {/* <LocalizationProvider dateAdapter={AdapterDateFns}
+  return (
+    <MKBox component="section" py={6}>
+      <Container>
+        <Modal
+          open={show}
+          onClose={toggleModal}
+          sx={{ display: "grid", placeItems: "center" }}
+        >
+          <Slide direction="down" in={show} timeout={500}>
+            <MKBox
+              position="relative"
+              width="500px"
+              display="flex"
+              flexDirection="column"
+              borderRadius="xl"
+              bgColor="white"
+              shadow="xl"
+            >
+              <MKBox
+                display="flex"
+                alginItems="center"
+                justifyContent="center"
+                p={2}
+              >
+                <MKTypography variant="h5">Play Date Request</MKTypography>
+              </MKBox>
+              <MKBox p={2}>
+                <form onSubmit={handleSubmit}>
+                  <MKBox
+                    display="flex"
+                    alginItems="center"
+                    justifyContent="space-between"
+                    p={2}
+                    width="50%"
+                  >
+                    {/* <LocalizationProvider dateAdapter={AdapterDateFns}
                 locale={localeMap[locale]}
             > */}
+
                                         <LocalizationProvider dateAdapter={AdapterDateFns}
 
                                         >
@@ -265,6 +266,7 @@ function DogRequestModal({
             </Container>
         </MKBox>
     );
+
 }
 
 export default DogRequestModal;

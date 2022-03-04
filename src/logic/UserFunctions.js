@@ -41,7 +41,6 @@ export const login = (user) => {
     .catch((err) => console.error(err));
 };
 
-
 //update user
 export const updateUserProfile = (user) => {
   console.log(user);
@@ -58,7 +57,6 @@ export const updateUserProfile = (user) => {
       description: user.description,
       latitude: user.latitude,
       longitude: user.longitude,
-
     })
     .then((res) => res.data)
     .catch((err) => console.log(err));
@@ -66,7 +64,6 @@ export const updateUserProfile = (user) => {
 
 //check if email exist
 export const checkEMailExist = (userid, email) => {
-
   return axios
     .get(`http://localhost:5000/checkemailaddress/${userid}/${email}`)
     .then((res) => {
