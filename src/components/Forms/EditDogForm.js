@@ -20,8 +20,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { addDog } from "../../logic/DogFunctions";
-import { useNavigate } from "react-router";
-import UploadDogPicModal from "../Modals/UploadDogPicModal";
+import { useNavigate, useParams } from "react-router";
+import EditDogPicModal from "../Modals/EditDogPicModal";
+import { getDogInfoById, editDog } from "../../logic/DogFunctions";
 
 const EditDogForm = () => {
     const [user, setUser] = useContext(UserContext);
@@ -39,6 +40,9 @@ const EditDogForm = () => {
     const [dogCanStayHome, setDogCanStayHome] = useState(0);
     const [dogExercise, setDogExercise] = useState(0);
     const [dogDescription, setDogDescription] = useState("");
+    const [dogProfilePic, setProfilePic] = useState("");
+    // const [dogId, setDogId] = useState(null);
+    const [uploadedImageURL, setUploadedImageURL] = useState("");
 
     //for dog pic modal
     const [show, setShow] = useState(false);
@@ -46,6 +50,7 @@ const EditDogForm = () => {
     const [dogPic, setDogPic] = useState(null);
 
     const navigate = useNavigate();
+    const { dogid } = useParams();
 
     //for radio group
     const handleChangeSize = (e) => {
@@ -66,67 +71,104 @@ const EditDogForm = () => {
         navigate("/owner/ownerdogs");
     };
 
-    useEffect(() => {
-        console.log(dogPic);
-    }, [dogPic]);
-
-    //add dog
-    const addNewDog = async (e) => {
-        e.preventDefault();
-
-        ///*************commented to check for uploaded image */
-        // const newDog = {
-        //     user_id: user._id,
-        //     name: dogName,
-        //     breed: dogBreed,
-        //     age_years: dogAgeYears,
-        //     age_months: dogAgeMonths,
-        //     size: dogSize,
-        //     description: dogDescription,
-        //     energy: dogEnergy,
-        //     kid_friendly: dogKidFriendly,
-        //     cat_friendly: dogCatFriendly,
-        //     dog_friendly: dogFriendly,
-        //     obedience: dogObedience,
-        //     can_stay_home: dogCanStayHome,
-        //     exercise_type: dogExercise,
-        //     can_play_fetch: dogCanPlay,
-        //     profile_photo: dogPic,
-        // }
-        // await addDog(newDog).then((res) => {
-        //     navigate('/user')
-        // })
-        //     .catch((err) => console.log(err));
-        ///*************commented to check for uploaded image */
-
-        const uploadData = new FormData();
-        //console.log(dogPic)
-        if (dogPic !== null) {
-            uploadData.append("file", dogPic, "file");
-            // console.log("after appending ")
-        }
-        //uploadData.append("file", dogPic, "file");
-        uploadData.append("user_id", user._id);
-        uploadData.append("name", dogName);
-        uploadData.append("breed", dogBreed);
-        uploadData.append("age_years", dogAgeYears);
-        uploadData.append("age_months", dogAgeMonths);
-        uploadData.append("size", dogSize);
-        uploadData.append("description", dogDescription);
-        uploadData.append("energy", dogEnergy);
-        uploadData.append("kid_friendly", dogKidFriendly);
-        uploadData.append("cat_friendly", dogCatFriendly);
-        uploadData.append("dog_friendly", dogFriendly);
-        uploadData.append("obedience", dogObedience);
-        uploadData.append("can_stay_home", dogCanStayHome);
-        uploadData.append("exercise_type", dogExercise);
-        uploadData.append("can_play_fetch", dogCanPlay);
-
-        await addDog(uploadData)
+    useEffect(async () => {
+        console.log("uploaded image url on useeffect:" + uploadedImageURL)
+        await getDogInfoById(dogid)
             .then((res) => {
-                navigate("/owner/ownerdogs");
+                //setDogInfo(res);
+
+                //set useState for dog
+                //setDogId(res._id);
+                setDogName(res.name);
+                setDogBreed(res.breed);
+                setDogAgeYears(res.age_years);
+                setDogAgeMonths(res.age_months);
+                setDogSize(res.size);
+                setDogEnergy(res.energy);
+                setDogCanPlay(res.can_play_fetch);
+                setDogKidFriendly(res.kid_friendly);
+                setDogCatFriendly(res.cat_friendly);
+                setDogFriendly(res.dog_friendly);
+                setDogObedience(res.obedience);
+                setDogCanStayHome(res.can_stay_home);
+                setDogExercise(res.exercise_type);
+                setDogDescription(res.description);
+                setProfilePic(res.profile_photo);
+                //check if dog profile pic is updated
+                if (uploadedImageURL === "") {
+                    console.log("when image url is empty");
+                    console.log(uploadedImageURL)
+                    console.log(setUploadedImageURL)
+                    console.log(res.profile_photo)
+                    setProfilePic(res.profile_photo);
+                } else {
+                    console.log("uploaded image url inside edit dog form");
+                    console.log(uploadedImageURL)
+                    setProfilePic(uploadedImageURL)
+                }
+
             })
             .catch((err) => console.log(err));
+    }, [uploadedImageURL]);
+
+    //add dog
+    const handleEditDog = async (e) => {
+        e.preventDefault();
+
+        console.log("inside handle edit" + dogid)
+
+        const updateDog = {
+            _id: dogid,//from params
+            name: dogName,
+            breed: dogBreed,
+            age_years: dogAgeYears,
+            age_months: dogAgeMonths,
+            size: dogSize,
+            description: dogDescription,
+            energy: dogEnergy,
+            kid_friendly: dogKidFriendly,
+            cat_friendly: dogCatFriendly,
+            dog_friendly: dogFriendly,
+            obedience: dogObedience,
+            can_stay_home: dogCanStayHome,
+            exercise_type: dogExercise,
+            can_play_fetch: dogCanPlay,
+            profile_photo: dogPic,
+        }
+        await editDog(updateDog).then((res) => {
+            navigate('/owner/ownerdogs')
+        })
+            .catch((err) => console.log(err));
+
+
+        // const uploadData = new FormData();
+        // //console.log(dogPic)
+        // if (dogPic !== null) {
+        //     uploadData.append("file", dogPic, "file");
+        //     // console.log("after appending ")
+        // }
+        // //uploadData.append("file", dogPic, "file");
+        // uploadData.append("user_id", user._id);
+        // uploadData.append("name", dogName);
+        // uploadData.append("breed", dogBreed);
+        // uploadData.append("age_years", dogAgeYears);
+        // uploadData.append("age_months", dogAgeMonths);
+        // uploadData.append("size", dogSize);
+        // uploadData.append("description", dogDescription);
+        // uploadData.append("energy", dogEnergy);
+        // uploadData.append("kid_friendly", dogKidFriendly);
+        // uploadData.append("cat_friendly", dogCatFriendly);
+        // uploadData.append("dog_friendly", dogFriendly);
+        // uploadData.append("obedience", dogObedience);
+        // uploadData.append("can_stay_home", dogCanStayHome);
+        // uploadData.append("exercise_type", dogExercise);
+        // uploadData.append("can_play_fetch", dogCanPlay);
+
+        // await addDog(uploadData)
+        //     .then((res) => {
+        //         navigate("/owner/ownerdogs");
+        //     })
+        //     .catch((err) => console.log(err));
     };
 
     return (
@@ -195,12 +237,13 @@ const EditDogForm = () => {
                                 boxShadow: ({ boxShadows: { xxl } }) => xxl,
                             }}
                         >
-                            <UploadDogPicModal
+                            <EditDogPicModal
                                 show={show}
                                 setShow={setShow}
                                 toggleModal={toggleModal}
-                                dogPic={dogPic}
-                                setDogPic={setDogPic}
+                                uploadedImageURL={uploadedImageURL}
+                                setUploadedImageURL={setUploadedImageURL}
+                                dogid={dogid}
                             />
 
                             {/* ________Pink Shape */}
@@ -231,7 +274,8 @@ const EditDogForm = () => {
                                             <MKAvatar
                                                 top={-50}
                                                 zindex={2}
-                                                src=""
+                                                src={`${dogProfilePic}`}
+                                                alt={`${dogName}`}
                                                 shadow="xl"
                                                 sx={{ width: "12rem", height: "12rem" }}
                                                 style={{
@@ -250,7 +294,7 @@ const EditDogForm = () => {
                                                     marginLeft: -12,
                                                 }}
                                             >
-                                                ADD
+                                                EDIT
                                             </MKButton>
                                         </MKBox>
                                         <Grid item xs={12} mt={5}>
@@ -275,7 +319,7 @@ const EditDogForm = () => {
                                 method="post"
                                 autocomplete="off"
                                 role="form"
-                                onSubmit={addNewDog}
+                                onSubmit={handleEditDog}
                             >
                                 <Grid
                                     container
@@ -303,6 +347,7 @@ const EditDogForm = () => {
                                             value={dogName}
                                             placeholder="Enter dog name"
                                             required
+                                            value={dogName}
                                             onChange={(e) => setDogName(e.target.value)}
                                             autofocus
                                             tabIndex={1}
@@ -381,7 +426,7 @@ const EditDogForm = () => {
                                                 type="text"
                                                 name="description"
                                                 placeholder="Tell us about your dog..."
-                                                value={dogDescription.description}
+                                                value={dogDescription}
                                                 onChange={(e) => setDogDescription(e.target.value)}
                                             />
 
@@ -609,9 +654,10 @@ const EditDogForm = () => {
                                             }}
                                         >
                                             <StyledRating
+                                                defaultValue={dogKidFriendly}
                                                 onChange={(e) => setDogKidFriendly(e.target.value)}
                                                 name="kidfriendly"
-                                                defaultValue={dogKidFriendly}
+
                                                 precision={1}
                                                 icon={
                                                     <PetsIcon
