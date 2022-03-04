@@ -165,7 +165,8 @@ function DogApproveRejectModal({
                                                 Start Date:
                                             </MKTypography>
                                             <MKTypography>
-                                                {new Date(selectedDogRequest.start_date).toLocaleDateString()}
+                                                {new Date(selectedDogRequest.start_date).toISOString().replace(/T.*/, '').split('-').reverse().join('.')}
+                                                {/* {new Date(selectedDogRequest.start_date).toLocaleDateString()} */}
                                             </MKTypography>
                                         </MKBox>
                                         {/* </MKBox>
