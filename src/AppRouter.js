@@ -12,6 +12,7 @@ import AddDog from "./pages/AddDog";
 import OwnerDogs from "./pages/OwnerDogs";
 import OwnerDogRequests from "./pages/OwnerDogRequests";
 import DogLoverRequests from "./pages/DogLoverRequests";
+import EditDog from "./pages/EditDog.js";
 
 const AppRouter = () => {
   return (
@@ -35,6 +36,7 @@ const AppRouter = () => {
           path="/owner/ownerdogrequests/:dogid"
           element={<OwnerDogRequests />}
         ></Route>
+        <Route exact path="/editdog/:dogid" element={<EditDog />}></Route>
       </Routes>
     </>
   );

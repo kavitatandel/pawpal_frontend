@@ -34,7 +34,7 @@ const OwnerDogsForm = () => {
 
   useEffect(() => {
     //getDogsByOwner(user._id);
-
+    console.log(user._id)
     dogsByOwner(user._id)
       .then((res) => {
         console.log(res);
@@ -136,7 +136,7 @@ const OwnerDogsForm = () => {
                 fontWeight="bold"
                 color="light"
                 textAlign="center"
-                // mt={1}
+              // mt={1}
               >
                 MY DOGS
               </MKTypography>
@@ -383,14 +383,14 @@ const OwnerDogsForm = () => {
                               },
                             }}
                             onClick={() =>
-                              navigate(`/doginfo/${dog.dogs_info._id}`)
+                              navigate(`/editdog/${dog._id}`)
                             }
-                          >
-                            <InfoIcon
+                          >INFO
+                            {/* <InfoIcon
                               style={{
                                 transform: "1.8",
                               }}
-                            />
+                            /> */}
                           </MKButton>
                         </MKBox>
                       </MKBox>
