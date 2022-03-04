@@ -28,6 +28,7 @@ const ProfileForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const toggleModal = () => setShow(!show);
   const [uploadedImageURL, setUploadedImageURL] = useState("");
+  const [decodedID, setDecodedID] = useState("");
   let navigate = useNavigate();
 
   //for edit mode
@@ -48,43 +49,61 @@ const ProfileForm = () => {
     localStorage.removeItem("usertoken");
   };
 
-  // **************************** Original Code
-  useEffect(async () => {
-    await getProfile();
-    await getImage();
-    console.log("get profile use effect ");
-
-    console.log(user);
-  }, [uploadedImageURL, selectedFile]);
-
-  const getImage = async () => {
-    axios.get(`http://localhost:5000/users/${user._id}`).then((res) => {
-      setUser({ ...user, profile_pic: res.data.profile_pic });
+  const sleep = (ms) => {
+    new Promise((resolve) => {
+      console.log(`triggering timeout for 2sec`);
+      setTimeout(resolve, ms);
     });
   };
 
-  const getProfile = async () => {
+  const getUserID = async () => {
     const token = localStorage.getItem("usertoken");
     const decoded = jwt_decode(token);
-
-    setUser((user) => ({
-      ...user,
-      _id: decoded.user._id,
-      first_name: decoded.user.first_name,
-      last_name: decoded.user.last_name,
-      email: decoded.user.email,
-      street: decoded.user.street,
-      city: decoded.user.city,
-      country: decoded.user.country,
-      zip_code: decoded.user.zip_code,
-      user_type: decoded.user.user_type,
-      latitude: decoded.user.latitude,
-      longitude: decoded.user.longitude,
-      profile_pic: decoded.user.profile_pic,
-      description: decoded.user.description,
-    }));
+    setDecodedID(decoded.user._id);
   };
 
+  useEffect(() => {
+    getUserID();
+  }, [decodedID]);
+
+  useEffect(() => {
+    if (decodedID) {
+      setUserInfo(decodedID);
+    }
+    showUserDetails();
+  }, [uploadedImageURL, selectedFile, decodedID]);
+
+  const setUserInfo = async () => {
+    await axios
+      .get(`http://localhost:5000/users/${decodedID}`)
+
+      // .then((res) => console.log(res.data))
+      .then((res) => {
+        setUser({
+          ...user,
+          _id: decodedID,
+          first_name: res.data.first_name,
+          last_name: res.data.last_name,
+          email: res.data.email,
+          street: res.data.street,
+          city: res.data.city,
+          country: res.data.country,
+          zip_code: res.data.zip_code,
+          user_type: res.data.user_type,
+          latitude: res.data.latitude,
+          longitude: res.data.longitude,
+          profile_pic: res.data.profile_pic,
+          description: res.data.description,
+        });
+      })
+
+      .catch((err) => console.log(err));
+  };
+
+  const showUserDetails = async () => {
+    await console.log(user);
+  };
+  console.log(user);
   return (
     <>
       {/* Entire Page Container (without footer) */}
@@ -234,22 +253,9 @@ const ProfileForm = () => {
             </MKButton>
           </MKBox>
           {/* ************************** User Details */}
-          {/* <MKBox
-            component="form"
-            method="post"
-            autocomplete="off"
-            role="form"
-            //   onSubmit={createUser}
-            pb={6}
-            pt={3}
-            px={6}
-          >        
-            <ProfileInputsGrid editMode={editMode} />
 
-          </MKBox> */}
           <MKBox>
             <ProfileInputsGrid editMode={editMode} />
-
           </MKBox>
         </Paper>
       </MKBox>

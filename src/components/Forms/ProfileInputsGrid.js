@@ -9,17 +9,16 @@ import { useEffect, useState, useContext } from "react";
 import { checkEMailExist, updateUserProfile } from "../../logic/UserFunctions";
 import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 const ProfileInputsGrid = ({ editMode }) => {
   const [user, setUser] = useContext(UserContext);
   let navigate = useNavigate();
 
   //for email validation
-  const [emailExistError, setEmailExistError] = useState('');
+  const [emailExistError, setEmailExistError] = useState("");
 
   const onSaveHandler = () => {
-
     if (user.user_type === "doglover") {
       navigate("/user/searchdog");
     }
@@ -48,7 +47,7 @@ const ProfileInputsGrid = ({ editMode }) => {
     // get the coordinates
     await fetchCoordinates(address)
       .then((res) => {
-        console.log("get geo code")
+        console.log("get geo code");
         console.log(res);
         if (res) {
           const lat = res.lat;
@@ -56,6 +55,7 @@ const ProfileInputsGrid = ({ editMode }) => {
 
           //create new user
           const updateUser = {
+            _id: user._id,
             first_name: user.first_name,
             last_name: user.last_name,
             email: user.email,
@@ -83,7 +83,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           // };
 
           console.log("Updated User");
-          console.log(updateUser)
+          console.log(updateUser);
 
           updateUserProfile(updateUser).then((res) => {
             // navigate("/owner/ownerdogs");
@@ -97,17 +97,16 @@ const ProfileInputsGrid = ({ editMode }) => {
         }
       })
       .catch((err) => console.log(err));
-
   };
 
-  const helperTextStyles = styled(theme => ({
+  const helperTextStyles = styled((theme) => ({
     root: {
       margin: 4,
-      '&$error': {
-        color: 'red !important'
-      }
+      "&$error": {
+        color: "red !important",
+      },
     },
-    error: {} //<--this is required to make it work
+    error: {}, //<--this is required to make it work
   }));
 
   //check if entered email is already exist
@@ -116,19 +115,14 @@ const ProfileInputsGrid = ({ editMode }) => {
 
     await checkEMailExist(user._id, user.email).then((res) => {
       if (res === true) {
-        setEmailExistError('Email already exist.');
+        setEmailExistError("Email already exist.");
+      } else {
+        setEmailExistError("");
       }
-      else {
-        setEmailExistError('');
-      }
-    }
-    )
-  }
+    });
+  };
 
-  useEffect(() => {
-  }, [editMode])
-
-
+  useEffect(() => {}, [editMode]);
 
   return (
     <>
@@ -152,7 +146,6 @@ const ProfileInputsGrid = ({ editMode }) => {
           display="flex"
           justifyContent="center"
         >
-
           {/* ******************** CHILDREN CELLS  */}
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             {/* // "Item" Attribute makes this a child of parent Grid */}
@@ -165,7 +158,9 @@ const ProfileInputsGrid = ({ editMode }) => {
                 value={user.first_name}
                 placeholder="Enter your first name"
                 required
-                onChange={(e) => setUser({ ...user, first_name: e.target.value })}
+                onChange={(e) =>
+                  setUser({ ...user, first_name: e.target.value })
+                }
                 disabled={editMode}
               />
             </MKBox>
@@ -180,7 +175,9 @@ const ProfileInputsGrid = ({ editMode }) => {
                 placeholder="Enter your last name"
                 required
                 value={user.last_name}
-                onChange={(e) => setUser({ ...user, last_name: e.target.value })}
+                onChange={(e) =>
+                  setUser({ ...user, last_name: e.target.value })
+                }
                 disabled={editMode}
               />
             </MKBox>
@@ -271,7 +268,6 @@ const ProfileInputsGrid = ({ editMode }) => {
                 onChange={(e) => setUser({ ...user, zip_code: e.target.value })}
                 disabled={editMode}
               />
-
             </MKBox>
           </Grid>
 
@@ -292,7 +288,6 @@ const ProfileInputsGrid = ({ editMode }) => {
                 }
                 disabled={editMode}
               />
-
             </MKBox>
           </Grid>
           <Grid item xs={12} style={{ padding: "0.25rem" }}>
@@ -334,7 +329,6 @@ const ProfileInputsGrid = ({ editMode }) => {
               </MKButton>
             </MKBox>
           </Grid>
-
         </Grid>
       </MKBox>
     </>

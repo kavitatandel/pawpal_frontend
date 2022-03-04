@@ -12,7 +12,6 @@ const OwnerDogRequests = () => {
       <Body>
         <DogLoverRequestsForm />
       </Body>
-      <CenteredFooter />
     </>
   );
 };
