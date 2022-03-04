@@ -103,9 +103,9 @@ const DogLoverRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
+      // style={{ border: "3px solid red" }}
 
-        //   style={{ border: "3px solid green" }}
+      //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -143,7 +143,7 @@ const DogLoverRequestsForm = () => {
                 xxxl: "80%",
               },
               maxWidth: {
-                xl: "100px",
+                xl: "1000px",
                 xxl: "1200px",
                 xxxl: "1600px",
               },
@@ -198,7 +198,7 @@ const DogLoverRequestsForm = () => {
                   fontWeight="bold"
                   color="light"
                   textAlign="center"
-                  // mt={1}
+                // mt={1}
                 >
                   PLAY DATE REQUESTS
                 </MKTypography>
@@ -282,7 +282,7 @@ const DogLoverRequestsForm = () => {
                               }}
                             >
                               {request.DogsRequests.profile_photo !==
-                              undefined ? (
+                                undefined ? (
                                 <MKAvatar
                                   top={-50}
                                   zIndex={2}
@@ -371,9 +371,12 @@ const DogLoverRequestsForm = () => {
                                 variant="p"
                                 style={{ fontSize: "0.90rem" }}
                               >
-                                {new Date(
-                                  request.start_date
-                                ).toLocaleDateString()}
+                                {new Date(request.start_date).toISOString().replace(/T.*/, '').split('-').reverse().join('.')}
+                                {/* {new Date(
+                                     request.start_date
+                                   ).toLocaleDateString()} */}
+                                {/* {request.start_date} */}
+
                               </MKTypography>
                             </MKBox>
 
@@ -393,6 +396,7 @@ const DogLoverRequestsForm = () => {
                                 variant="p"
                                 style={{ fontSize: "0.90rem" }}
                               >
+
                                 {request.start_time}
                               </MKTypography>
                             </MKBox>
@@ -427,12 +431,12 @@ const DogLoverRequestsForm = () => {
                                 justifyContent: "flex-start",
                               }}
                             >
-                              <MKTypography
+                              {/* <MKTypography
                                 variant="p"
                                 style={{ fontSize: "0.90rem" }}
                               >
                                 {request.end_time}
-                              </MKTypography>
+                              </MKTypography> */}
 
                               {request.status === "Pending" ? (
                                 <MKTypography
@@ -516,7 +520,7 @@ const DogLoverRequestsForm = () => {
                                 INFO
                                 {/* Approve / Reject */}
                               </MKButton>
-                              {/* {request.status === "Rejected" ? (
+                              {request.status === "Rejected" ? (
                                 <MKButton
                                   size="small"
                                   type="submit"
@@ -533,7 +537,7 @@ const DogLoverRequestsForm = () => {
                                 </MKButton>
                               ) : (
                                 ""
-                              )} */}
+                              )}
                             </MKBox>
                           </MKBox>
                         </Card>
