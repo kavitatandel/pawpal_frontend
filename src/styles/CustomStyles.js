@@ -23,7 +23,7 @@ export const neumorphic = {
 export const neumorphicDL = {
   flexBasis: 1,
   padding: { xs: "0 1rem", sm: "0 1rem", md: "0 0.5rem", lg: "0 0.25rem" },
-  minWidth: "100%",
+  width: "100%",
   height: "7rem",
   marginTop: "2rem",
   background: "#f4efee",

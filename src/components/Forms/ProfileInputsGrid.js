@@ -83,11 +83,8 @@ const ProfileInputsGrid = ({ editMode }) => {
           //   description: desc,
           // };
 
-
-
           // console.log("Updated User");
           // console.log(updateUser)
-
 
           updateUserProfile(updateUser).then((res) => {
             //set newly updated user to localstorage
@@ -159,6 +156,8 @@ const ProfileInputsGrid = ({ editMode }) => {
             <MKBox display="flex">
               <MKInput
                 label="First Name"
+                InputLabelProps={{ shrink: true }}
+                sx={{ backgroundColor: "transparent" }}
                 fullWidth
                 type="text"
                 name="first_name"
