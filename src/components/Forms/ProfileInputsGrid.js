@@ -31,6 +31,7 @@ const ProfileInputsGrid = ({ editMode }) => {
     e.preventDefault();
 
     const address = `${user.street},${user.zip_code},${user.city},${user.country}`;
+    //const address = `${user.zip_code},${user.city},${user.country}`;
 
     console.log(address);
     // const firstName = user.first_name;
@@ -82,10 +83,16 @@ const ProfileInputsGrid = ({ editMode }) => {
           //   description: desc,
           // };
 
-          console.log("Updated User");
-          console.log(updateUser);
+
+
+          // console.log("Updated User");
+          // console.log(updateUser)
+
 
           updateUserProfile(updateUser).then((res) => {
+            //set newly updated user to localstorage
+            //localStorage.setItem("usertoken", user);
+
             // navigate("/owner/ownerdogs");
             if (user.user_type === "doglover") {
               navigate("/user/searchdog");
