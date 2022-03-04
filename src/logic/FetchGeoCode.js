@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 export const fetchCoordinates = async (address) => {
+    console.log("Inside fetch geo code method")
+    console.log(address);
     const geoCodeURL = `https://nominatim.openstreetmap.org/?addressdetails=1&q=${address}&format=json&limit=1`;
     return await axios
         .get(geoCodeURL)
