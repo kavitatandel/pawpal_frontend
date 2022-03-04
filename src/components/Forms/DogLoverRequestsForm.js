@@ -143,9 +143,9 @@ const DogLoverRequestsForm = () => {
                 xxxl: "80%",
               },
               maxWidth: {
-                xl: "900px",
-                xxl: "1000px",
-                xxxl: "1400px",
+                xl: "100px",
+                xxl: "1200px",
+                xxxl: "1600px",
               },
               height: "auto",
               mt: 35,
@@ -314,12 +314,17 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="DogName"
                               sx={{
-                                width: { sm: "25%", md: "20%", lg: "12.5%" },
+                                width: {
+                                  sm: "25%",
+                                  md: "20%",
+                                  lg: "15%",
+                                  xl: "14%",
+                                  xxl: "12.5%",
+                                },
                                 display: { xs: "none", sm: "flex" },
                               }}
                               style={{
                                 fontSize: "0.8rem",
-
                                 alignItems: "center",
                                 justifyContent: "flex-start",
                               }}

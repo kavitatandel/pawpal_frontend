@@ -22,6 +22,8 @@ import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
+//////// deLocale to force conversion of date to DD-MM-YYY
+import deLocale from "date-fns/locale/de";
 //import MobileDatePicker from '@mui/lab/MobileDatePicker';
 //import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from "@mui/lab/TimePicker";
@@ -31,13 +33,13 @@ import TimePicker from "@mui/lab/TimePicker";
 // //date localization
 // import deLocale from 'date-fns/locale/de';
 
-// const localeMap = {
-//     de: deLocale,
-// };
+const localeMap = {
+  de: deLocale,
+};
 
-// const maskMap = {
-//     de: '__.__.____',
-// };
+const maskMap = {
+  de: "__.__.____",
+};
 
 function DogRequestModal({
   show,
@@ -48,14 +50,17 @@ function DogRequestModal({
   setDogId,
 }) {
   //for localization
-  const [locale, setLocale] = React.useState("de");
-
+  const [locale, setLocale] = useState("de");
   const [user, setUser] = useContext(UserContext);
   const [startDate, setStartDate] = useState(new Date());
   const [startTime, setStartTime] = useState(new Date());
   const [endTime, setEndTime] = useState(new Date());
   const [location, setLocation] = useState("");
   const [message, setMessage] = useState("");
+
+  const selectLocale = (newLocale) => {
+    setLocale(newLocale);
+  };
 
   useEffect(() => {});
 
@@ -80,7 +85,9 @@ function DogRequestModal({
     const playDayRequest = {
       dog_id: dogId,
       dog_lover_id: user._id,
-      start_date: startDate.toLocaleDateString(),
+      start_date: startDate.toISOString(),
+      // JS DATE OBJECT: Fri Mar 04 2022 21:20:56 GMT+0100 (Central European Standard Time)
+      // ISO STRING FORMAT (BSON Date format): 2022-02-26T23:00:00.000Z
       start_time: startTime.toLocaleTimeString(), //insert in AM/PM format :"10:00:34 AM"
       //end_time: endTime.toTimeString(), // 24 hour format :"11:01:34 GMT+0100 (Central European Standard Time)"
       end_time: endTime.toLocaleTimeString(),
@@ -100,6 +107,8 @@ function DogRequestModal({
     setLocation("");
     setMessage("");
   };
+
+  console.log(startDate);
 
   return (
     <MKBox component="section" py={6}>
@@ -140,133 +149,133 @@ function DogRequestModal({
                 locale={localeMap[locale]}
             > */}
 
-                                        <LocalizationProvider dateAdapter={AdapterDateFns}
-
-                                        >
-                                            <DatePicker
-                                                views={['day']}
-                                                // mask={maskMap[locale]}
-                                                label="Play Date"
-                                                // openTo="year"
-                                                //views={['day', 'month', 'year']}
-                                                minDate={new Date()}
-                                                value={startDate}
-                                                onChange={(newValue) => {
-                                                    setStartDate(newValue);
-                                                }}
-                                                //format="DD/MM/YYYY"
-                                                renderInput={(params) => <TextField {...params} />} />
-
-                                        </LocalizationProvider>
-                                    </MKBox>
-                                    <MKBox
-                                        display="flex"
-                                        alginItems="center"
-                                        justifyContent="space-between"
-                                        p={2}
-                                    >
-                                        <MKBox mr={2}>
-                                            <LocalizationProvider dateAdapter={AdapterDateFns}>
-                                                <TimePicker
-                                                    //ampm={false}
-                                                    //format="HH:mm:ss"
-                                                    label="Start Time"
-                                                    value={startTime}
-                                                    onChange={setStartTime}
-                                                    renderInput={(params) => <TextField {...params} />} />
-                                            </LocalizationProvider>
-                                        </MKBox>
-                                        <MKBox>
-                                            <LocalizationProvider dateAdapter={AdapterDateFns}>
-
-                                                <TimePicker
-                                                    //format="HH:mm:ss"
-                                                    label="End Time"
-                                                    value={endTime}
-                                                    onChange={setEndTime}
-                                                    renderInput={(params) => <TextField {...params} />} />
-                                            </LocalizationProvider>
-                                        </MKBox>
-                                    </MKBox>
-                                    <MKBox
-                                        display="flex"
-                                        alginItems="center"
-                                        justifyContent="flex-start"
-                                        p={2}
-                                    >
-                                        <MKInput
-                                            label="Meeting Location"
-                                            fullWidth
-                                            type="text"
-                                            name="location"
-                                            value={location}
-                                            onChange={(e) => setLocation(e.target.value)}
-                                            placeholder="Enter meeting location"
-                                            required />
-
-                                    </MKBox>
-                                    <MKBox
-                                        display="flex"
-                                        alginItems="center"
-                                        justifyContent="flex-start"
-                                        p={2}
-                                    >
-                                        <MKInput
-                                            multiline
-                                            rows={6}
-                                            label="Message"
-                                            fullWidth
-                                            type="text"
-                                            name="message"
-                                            value={message}
-                                            onChange={(e) => setMessage(e.target.value)}
-                                            placeholder="Message here...."
-                                            rows={4} />
-
-                                    </MKBox>
-                                    <MKBox
-                                        display="flex"
-                                        justifyContent="space-between"
-                                        p={1.5}
-                                    >
-                                        <MKButton
-                                            size="small"
-                                            variant="gradient"
-                                            color="info"
-                                            style={{
-                                                marginLeft: "1.5rem",
-                                                width: "8rem",
-                                                minWidth: "120px",
-                                            }}
-                                            // onClick={toggleModal}
-                                            onClick={handleCancel}
-                                        >
-                                            Close
-                                        </MKButton>
-                                        <MKButton
-                                            size="small"
-                                            type="submit"
-                                            variant="gradient"
-                                            color="info"
-                                            style={{
-                                                marginLeft: "1.5rem",
-                                                width: "8rem",
-                                                minWidth: "120px",
-                                            }} type="submit"
-                                        >
-                                            Send Request
-                                        </MKButton>
-                                    </MKBox>
-                                </form>
-                            </MKBox>
-
-                        </MKBox>
-                    </Slide>
-                </Modal>
-            </Container>
-        </MKBox>
-    );
-
+                    <LocalizationProvider
+                      dateAdapter={AdapterDateFns}
+                      locale={localeMap[locale]}
+                    >
+                      <DatePicker
+                        views={["day"]}
+                        mask={maskMap[locale]}
+                        label="Play Date"
+                        // openTo="year"
+                        //views={['day', 'month', 'year']}
+                        minDate={new Date()}
+                        value={startDate}
+                        onChange={(newValue) => {
+                          setStartDate(newValue);
+                        }}
+                        //format="DD/MM/YYYY"
+                        renderInput={(params) => <TextField {...params} />}
+                      />
+                    </LocalizationProvider>
+                  </MKBox>
+                  <MKBox
+                    display="flex"
+                    alginItems="center"
+                    justifyContent="space-between"
+                    p={2}
+                  >
+                    <MKBox mr={2}>
+                      <LocalizationProvider
+                        dateAdapter={AdapterDateFns}
+                        locale={localeMap[locale]}
+                      >
+                        <TimePicker
+                          //ampm={false}
+                          //format="HH:mm:ss"
+                          label="Start Time"
+                          value={startTime}
+                          onChange={setStartTime}
+                          renderInput={(params) => <TextField {...params} />}
+                        />
+                      </LocalizationProvider>
+                    </MKBox>
+                    <MKBox>
+                      <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <TimePicker
+                          //format="HH:mm:ss"
+                          label="End Time"
+                          value={endTime}
+                          onChange={setEndTime}
+                          renderInput={(params) => <TextField {...params} />}
+                        />
+                      </LocalizationProvider>
+                    </MKBox>
+                  </MKBox>
+                  <MKBox
+                    display="flex"
+                    alginItems="center"
+                    justifyContent="flex-start"
+                    p={2}
+                  >
+                    <MKInput
+                      label="Meeting Location"
+                      fullWidth
+                      type="text"
+                      name="location"
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      placeholder="Enter meeting location"
+                      required
+                    />
+                  </MKBox>
+                  <MKBox
+                    display="flex"
+                    alginItems="center"
+                    justifyContent="flex-start"
+                    p={2}
+                  >
+                    <MKInput
+                      multiline
+                      rows={6}
+                      label="Message"
+                      fullWidth
+                      type="text"
+                      name="message"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="Message here...."
+                      rows={4}
+                    />
+                  </MKBox>
+                  <MKBox display="flex" justifyContent="space-between" p={1.5}>
+                    <MKButton
+                      size="small"
+                      variant="gradient"
+                      color="info"
+                      style={{
+                        marginLeft: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
+                      // onClick={toggleModal}
+                      onClick={handleCancel}
+                    >
+                      Close
+                    </MKButton>
+                    <MKButton
+                      size="small"
+                      type="submit"
+                      variant="gradient"
+                      color="info"
+                      style={{
+                        marginLeft: "1.5rem",
+                        width: "8rem",
+                        minWidth: "120px",
+                      }}
+                      type="submit"
+                    >
+                      Send Request
+                    </MKButton>
+                  </MKBox>
+                </form>
+              </MKBox>
+            </MKBox>
+          </Slide>
+        </Modal>
+      </Container>
+    </MKBox>
+  );
 }
 
 export default DogRequestModal;

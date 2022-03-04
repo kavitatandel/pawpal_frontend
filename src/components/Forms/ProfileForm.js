@@ -212,7 +212,7 @@ const ProfileForm = () => {
                 </MKBox>
               </Grid>
 
-              <Grid item xs={12} mt={5}>
+              <Grid item xs={12} mt={4}>
                 {/* ************************* User Full Name */}
                 <MKTypography
                   variant="h1"
@@ -244,7 +244,7 @@ const ProfileForm = () => {
                 minHeight: "3rem",
                 border: "0px",
                 marginRight: "3rem",
-                marginTop: "3rem",
+                marginTop: "2rem",
               }}
               onClick={toggleEdit}
             >
