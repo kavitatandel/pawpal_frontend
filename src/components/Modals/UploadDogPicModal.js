@@ -51,7 +51,7 @@ const UploadDogPicModal = ({
     setDogPic(selectedFile);
   };
 
-  useEffect(() => {}, [show, uploadedImageURL, selectedFile]);
+  useEffect(() => { }, [show, uploadedImageURL, selectedFile]);
 
   return (
     <MKBox component="section" py={6}>
@@ -94,7 +94,7 @@ const UploadDogPicModal = ({
                     <CloseIcon
                       fontSize="medium"
                       sx={{ cursor: "pointer" }}
-                      // onClick={() => setSelectedFile("")}
+                    // onClick={() => setSelectedFile("")}
                     />
                     <Divider sx={{ my: 0 }} />
                     <MKBox
