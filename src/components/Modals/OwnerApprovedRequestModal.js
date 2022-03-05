@@ -122,8 +122,8 @@ function OwnerApprovedRequestModal({
                                                 Start Time:
                                             </MKTypography>
                                             <MKTypography>
-                                                {selectedDogRequest.start_time}
-
+                                                {/* {selectedDogRequest.start_time} */}
+                                                {selectedDogRequest.start_time.slice(-11, -6)} {selectedDogRequest.start_time.slice(-3)}
                                             </MKTypography>
                                         </MKBox>
                                         <MKBox>
@@ -131,7 +131,8 @@ function OwnerApprovedRequestModal({
                                                 End Time:
                                             </MKTypography>
                                             <MKTypography>
-                                                {selectedDogRequest.end_time}
+                                                {/* {selectedDogRequest.end_time} */}
+                                                {selectedDogRequest.end_time.slice(-11, -6)} {selectedDogRequest.end_time.slice(-3)}
                                             </MKTypography>
                                         </MKBox>
                                     </MKBox>

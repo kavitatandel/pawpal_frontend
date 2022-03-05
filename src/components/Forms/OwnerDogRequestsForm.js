@@ -387,7 +387,7 @@ const OwnerDogRequestsForm = () => {
                               variant="p"
                               style={{ fontSize: "0.90rem" }}
                             >
-                              {request.start_time}
+                              {request.start_time.slice(-11, -6)} {request.start_time.slice(-3)}
                             </MKTypography>
                           </MKBox>
                           {/* *************** END TIME */}
@@ -406,7 +406,7 @@ const OwnerDogRequestsForm = () => {
                               variant="p"
                               style={{ fontSize: "0.90rem" }}
                             >
-                              {request.end_time}
+                              {request.end_time.slice(-11, -6)} {request.end_time.slice(-3)}
                             </MKTypography>
                           </MKBox>
                           <MKBox
