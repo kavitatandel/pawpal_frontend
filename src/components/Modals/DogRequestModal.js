@@ -62,7 +62,7 @@ function DogRequestModal({
     setLocale(newLocale);
   };
 
-  useEffect(() => {});
+  useEffect(() => { });
 
   const handleCancel = () => {
     toggleModal();
@@ -176,7 +176,12 @@ function DogRequestModal({
                     p={2}
                   >
                     <MKBox mr={2}>
-                      <LocalizationProvider dateAdapter={AdapterDateFns}>
+
+                      <LocalizationProvider
+                        dateAdapter={AdapterDateFns}
+                      // locale={localeMap[locale]}
+                      >
+
                         <TimePicker
                           //ampm={false}
                           //format="HH:mm:ss"

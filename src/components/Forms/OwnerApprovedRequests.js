@@ -65,7 +65,7 @@ const OwnerApprovedRequests = ({
           padding: "1rem",
           display: "flex",
           justifyContent: "center",
-          mb: "4rem",
+          mb: "1rem",
         }}
       >
         <MKBox
@@ -205,7 +205,8 @@ const OwnerApprovedRequests = ({
                       }}
                     >
                       <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                        {new Date(request.start_date).toLocaleDateString()}
+                        {new Date(request.start_date).toISOString().replace(/T.*/, '').split('-').reverse().join('.')}
+                        {/* {new Date(request.start_date).toLocaleDateString()} */}
                       </MKTypography>
                     </MKBox>
                     {/* *************** START TIME */}

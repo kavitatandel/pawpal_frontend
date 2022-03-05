@@ -95,9 +95,9 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
+      // style={{ border: "3px solid red" }}
 
-        //   style={{ border: "3px solid green" }}
+      //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -178,7 +178,7 @@ const OwnerDogRequestsForm = () => {
                   fontWeight="bold"
                   color="light"
                   textAlign="center"
-                  // mt={1}
+                // mt={1}
                 >
                   PLAY DATE REQUESTS
                 </MKTypography>
@@ -191,7 +191,7 @@ const OwnerDogRequestsForm = () => {
                 fontWeight="bold"
                 color="dark"
                 textAlign="center"
-                // mt={1}
+              // mt={1}
               >
                 Pending Requests
               </MKTypography>
@@ -350,9 +350,10 @@ const OwnerDogRequestsForm = () => {
                               variant="p"
                               style={{ fontSize: "0.90rem" }}
                             >
-                              {new Date(
+                              {new Date(request.start_date).toISOString().replace(/T.*/, '').split('-').reverse().join('.')}
+                              {/* {new Date(
                                 request.start_date
-                              ).toLocaleDateString()}
+                              ).toLocaleDateString()} */}
                             </MKTypography>
                           </MKBox>
                           {/* *************** START TIME */}
@@ -457,12 +458,11 @@ const OwnerDogRequestsForm = () => {
                 fontWeight="bold"
                 color="dark"
                 textAlign="center"
-                // mt={1}
+              // mt={1}
               >
                 Approved Requests
               </MKTypography>
             </MKBox>
-
             <OwnerApprovedRequests
               dogApprovedRequestsInfo={dogApprovedRequestsInfo}
               setDogApprovedRequestsInfo={setDogApprovedRequestsInfo}
