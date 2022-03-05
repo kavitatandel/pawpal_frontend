@@ -30,6 +30,7 @@ const OwnerDogsForm = () => {
   const [dogs, setDogs] = useState([]);
   const navigate = useNavigate();
 
+  //for spinner
   const [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ff3d47");
 
