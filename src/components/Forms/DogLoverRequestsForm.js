@@ -26,12 +26,18 @@ import {
 import { useNavigate, useParams } from "react-router";
 import DogLoverApprovedRequests from "./DogLoverApprovedRequests";
 import DogLoverRequestInfoModal from "../Modals/DogLoverRequestInfoModal";
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
 
 const DogLoverRequestsForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
   const [dogApprovedRequestsInfo, setDogApprovedRequestsInfo] = useState([]);
   const [selectedDogRequest, setSelectedDogRequest] = useState([]);
+  //for spinner
+  const [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
 
   //for modal
   const [show, setShow] = useState(false);
@@ -57,6 +63,9 @@ const DogLoverRequestsForm = () => {
         // console.log("Dog Lover Approved Request:")
         // console.log(res);
         setDogApprovedRequestsInfo(res);
+        //for spinner
+        setLoading(false)
+
       })
       .catch((err) => console.log(err));
   };
@@ -94,6 +103,8 @@ const DogLoverRequestsForm = () => {
       .catch((err) => console.log(err));
   };
 
+  //for spinner
+  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
   return (
     <>
       <MKBox
@@ -104,9 +115,9 @@ const DogLoverRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
+      // style={{ border: "3px solid red" }}
 
-        //   style={{ border: "3px solid green" }}
+      //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -199,7 +210,7 @@ const DogLoverRequestsForm = () => {
                   fontWeight="bold"
                   color="light"
                   textAlign="center"
-                  // mt={1}
+                // mt={1}
                 >
                   PLAY DATE REQUESTS
                 </MKTypography>
@@ -228,9 +239,9 @@ const DogLoverRequestsForm = () => {
                 }}
               >
                 {dogRequestsInfo === undefined ? (
-                  <h5>No Playdate Requests Found. </h5>
+                  <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
                 ) : dogRequestsInfo.length === 0 ? (
-                  <h5>No Playdate Requests Found. </h5>
+                  <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
                 ) : (
                   ""
                 )}
@@ -260,32 +271,32 @@ const DogLoverRequestsForm = () => {
                             },
                           }}
 
-                          // sx={{
-                          //   minWidth: "50rem",
-                          //   minHeight: "5rem",
+                        // sx={{
+                        //   minWidth: "50rem",
+                        //   minHeight: "5rem",
 
-                          //   paddingLeft: {
-                          //     sx: "0.5rem",
-                          //     sm: "1rem",
-                          //     md: "2rem",
-                          //     lg: "2.5rem",
-                          //   },
-                          //   paddingRight: {
-                          //     sx: "1rem",
-                          //     sm: "1.5rem",
-                          //     md: "2rem",
-                          //   },
-                          //   paddingTop: {
-                          //     sx: "1rem",
-                          //     sm: "1rem",
-                          //     md: "1rem",
-                          //   },
-                          //   paddingBottom: {
-                          //     sx: "1rem",
-                          //     sm: "1rem",
-                          //     md: "1rem",
-                          //   },
-                          // }}
+                        //   paddingLeft: {
+                        //     sx: "0.5rem",
+                        //     sm: "1rem",
+                        //     md: "2rem",
+                        //     lg: "2.5rem",
+                        //   },
+                        //   paddingRight: {
+                        //     sx: "1rem",
+                        //     sm: "1.5rem",
+                        //     md: "2rem",
+                        //   },
+                        //   paddingTop: {
+                        //     sx: "1rem",
+                        //     sm: "1rem",
+                        //     md: "1rem",
+                        //   },
+                        //   paddingBottom: {
+                        //     sx: "1rem",
+                        //     sm: "1rem",
+                        //     md: "1rem",
+                        //   },
+                        // }}
                         >
                           <MKBox
                             className="mainContainer"
