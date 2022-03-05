@@ -26,6 +26,11 @@ import { useNavigate, useParams } from "react-router";
 import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
 import OwnerApprovedRequests from "./OwnerApprovedRequests";
 
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
+
+
 const OwnerDogRequestsForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
@@ -41,12 +46,18 @@ const OwnerDogRequestsForm = () => {
   //to show Approved component
   const [showApproved, setShowApproved] = useState(true);
 
+  //for spinner
+  const [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
+
+
   //get dog 'Pending' requests
   const getReuqestData = () => {
     const owner_id = user._id;
     GetPlayDateRequestsForOwner(owner_id)
       .then((res) => {
         setDogRequestsInfo(res);
+
       })
       .catch((err) => console.log(err));
   };
@@ -58,6 +69,10 @@ const OwnerDogRequestsForm = () => {
       .then((res) => {
         // console.log(res)
         setDogApprovedRequestsInfo(res);
+
+        //for spinner
+        setLoading(false)
+
       })
       .catch((err) => console.log(err));
   };
@@ -70,6 +85,7 @@ const OwnerDogRequestsForm = () => {
   useEffect(() => {
     getReuqestData();
     getApprovedReuqestData();
+
   }, [showApproved]);
 
   const handleApproveReject = (e) => {
@@ -86,6 +102,8 @@ const OwnerDogRequestsForm = () => {
     toggleModal();
   };
 
+  //for spinner
+  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
   return (
     <>
       <MKBox
@@ -96,9 +114,9 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
+      // style={{ border: "3px solid red" }}
 
-        //   style={{ border: "3px solid green" }}
+      //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -179,7 +197,7 @@ const OwnerDogRequestsForm = () => {
                   fontWeight="bold"
                   color="light"
                   textAlign="center"
-                  // mt={1}
+                // mt={1}
                 >
                   PLAY DATE REQUESTS
                 </MKTypography>
@@ -192,7 +210,7 @@ const OwnerDogRequestsForm = () => {
                 fontWeight="bold"
                 color="dark"
                 textAlign="center"
-                // mt={1}
+              // mt={1}
               >
                 Pending Requests
               </MKTypography>
@@ -221,9 +239,9 @@ const OwnerDogRequestsForm = () => {
               >
                 {/* map thru searched dogs */}
                 {dogRequestsInfo === undefined ? (
-                  <h5>No Playdate Requests Found. </h5>
+                  <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
                 ) : dogRequestsInfo.length === 0 ? (
-                  <h5>No Playdate Requests Found. </h5>
+                  <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
                 ) : (
                   ""
                 )}
@@ -455,7 +473,7 @@ const OwnerDogRequestsForm = () => {
                 fontWeight="bold"
                 color="dark"
                 textAlign="center"
-                // mt={1}
+              // mt={1}
               >
                 Approved Requests
               </MKTypography>

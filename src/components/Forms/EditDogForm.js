@@ -26,6 +26,10 @@ import { useNavigate, useParams } from "react-router";
 import EditDogPicModal from "../Modals/EditDogPicModal";
 import { getDogInfoById, editDog } from "../../logic/DogFunctions";
 
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
+
 const EditDogForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogName, setDogName] = useState("");
@@ -49,6 +53,10 @@ const EditDogForm = () => {
   //for edit mode
   const [editMode, setEditMode] = useState(true);
   const toggleEdit = () => setEditMode(!editMode);
+
+  //for spinner
+  const [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
 
   const editProfileIcon = {
     color: "#f0f2f5",
@@ -122,6 +130,9 @@ const EditDogForm = () => {
           console.log(uploadedImageURL);
           setProfilePic(uploadedImageURL);
         }
+
+        //for spinner
+        setLoading(false)
       })
       .catch((err) => console.log(err));
   }, [uploadedImageURL]);
@@ -157,6 +168,8 @@ const EditDogForm = () => {
       .catch((err) => console.log(err));
   };
 
+  //for spinner
+  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
   return (
     <>
       <MKBox
@@ -469,19 +482,19 @@ const EditDogForm = () => {
                         maxRows={8}
                         onChange={(e) => setDogDescription(e.target.value)}
 
-                        // focused={!editMode}
-                        // InputLabelProps={{ shrink: true }}
-                        // disabled={editMode}
-                        // id="outlined-multiline-static"
-                        // multiline
-                        // maxRows={8}
-                        // style={{ width: "90%" }}
-                        // label="About"
-                        // type="text"
-                        // name="description"
-                        // placeholder="Tell us about your dog..."
-                        // value={dogDescription}
-                        // onChange={(e) => setDogDescription(e.target.value)}
+                      // focused={!editMode}
+                      // InputLabelProps={{ shrink: true }}
+                      // disabled={editMode}
+                      // id="outlined-multiline-static"
+                      // multiline
+                      // maxRows={8}
+                      // style={{ width: "90%" }}
+                      // label="About"
+                      // type="text"
+                      // name="description"
+                      // placeholder="Tell us about your dog..."
+                      // value={dogDescription}
+                      // onChange={(e) => setDogDescription(e.target.value)}
                       />
 
                       {/* <MKButton

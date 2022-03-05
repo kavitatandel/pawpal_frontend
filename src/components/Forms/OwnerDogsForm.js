@@ -20,10 +20,19 @@ import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 import { dogsByOwner } from "../../logic/DogFunctions";
 import { useNavigate } from "react-router";
 
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
+
+
 const OwnerDogsForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogs, setDogs] = useState([]);
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
+
 
   // const getDogsByOwner = (user_id) => {
   //     dogsByOwner(user_id).then((res) => {
@@ -40,6 +49,8 @@ const OwnerDogsForm = () => {
       .then((res) => {
         console.log(res);
         setDogs(res);
+        //for spinner
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -68,6 +79,8 @@ const OwnerDogsForm = () => {
 
   const iconButtonStyle = {};
 
+  //for spinner
+  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
   return (
     <>
       {/* Entire Page Container (without footer) */}
@@ -137,7 +150,7 @@ const OwnerDogsForm = () => {
                 fontWeight="bold"
                 color="light"
                 textAlign="center"
-                // mt={1}
+              // mt={1}
               >
                 MY DOGS
               </MKTypography>

@@ -21,6 +21,10 @@ import MKInput from "components/MKInput";
 
 import { editDogProfilePic } from '../../logic/DogFunctions'
 
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
+
 const EditDogPicModal = ({
   show,
   setShow,
@@ -36,6 +40,10 @@ const EditDogPicModal = ({
   const [loading, setLoading] = useState(true);
   //const [uploadedImageURL, setUploadedImageURL] = useState("");
 
+  // const [selectedFile, setSelectedFile] = useState(null);
+  const [loadingImage, setLoadingImage] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
+
   const handleFileUpload = async (e) => {
     e.preventDefault();
     //console.log("select file occured")
@@ -45,6 +53,10 @@ const EditDogPicModal = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    //for spinner on modal
+    setLoadingImage(false)
+
     //console.log("Dog file upload submit")
     const uploadData = new FormData();
     uploadData.append("_id", dogid)
@@ -59,6 +71,10 @@ const EditDogPicModal = ({
 
       })
       .catch((err) => console.log(err));
+
+    //for spinner
+    setLoadingImage(true);
+
     toggleModal();
     //setDogPic(selectedFile);
   };
@@ -83,51 +99,81 @@ const EditDogPicModal = ({
               bgColor="white"
               shadow="xl"
             >
-              <MKBox
+              {/* <MKBox
                 display="flex"
                 alginItems="center"
                 justifyContent="space-between"
                 p={2}
-              >
-                <MKTypography variant="h5">Upload Dog Image</MKTypography>
-              </MKBox>
-              <Divider sx={{ my: 0 }} />
-              {!loading ? (
-                <MKBox p={2}>
-                  <MKTypography variant="h6">Uploading...</MKTypography>
+              > */}
+              {!loadingImage ? (
+                <MKBox
+                  display="flex"
+                  justifyContent="center"
+                  alginItems="center"
+                  width="500px"
+                  height="200px"
+                  margin="auto 0"
+                  flexDirection="column"
+                >
+                  <RiseLoader color={color} loading={true} css={override} size={50} />
                 </MKBox>
-              ) : (
-                <MKBox p={2}>
-                  <form onSubmit={handleSubmit}>
-                    {/* <div>
+              )
+                //    : ""}
+                //   {/* <MKTypography variant="h5">Upload Dog Image</MKTypography> */}
+                // </MKBox>
+                // <Divider sx={{ my: 0 }} />
+                // {!loading ? (
+                //   <></>
+                //   // <MKBox p={2}>
+                //   //   <MKTypography variant="h6">Uploading...</MKTypography>
+                //   // </MKBox>
+                // ) 
+
+                : (
+                  <MKBox p={2}>
+                    <form onSubmit={handleSubmit}>
+                      {/* <div>
                     <input type="file" onChange={(e) => handleFileUpload(e)} />
                   </div> */}
-                    <input type="file" onChange={handleFileUpload} />
-                    <CloseIcon
-                      fontSize="medium"
-                      sx={{ cursor: "pointer" }}
-                    // onClick={() => setSelectedFile("")}
-                    />
-                    <Divider sx={{ my: 0 }} />
-                    <MKBox
-                      display="flex"
-                      justifyContent="space-between"
-                      p={1.5}
-                    >
-                      <MKButton
-                        variant="gradient"
-                        color="dark"
-                        onClick={toggleModal}
+                      <MKBox
+                        display="flex"
+                        justifyContent="center"
+                        pb={2}
+                      ><MKTypography variant="h6" style={{}}>Upload Dog Pic</MKTypography>
+                      </MKBox>
+                      <MKBox
+                        display="flex"
+                        justifyContent="center"
+                        pb={2}
                       >
-                        close
-                      </MKButton>
-                      <MKButton variant="gradient" color="info" type="submit">
-                        save changes
-                      </MKButton>
-                    </MKBox>
-                  </form>
-                </MKBox>
-              )}
+                        <input type="file" onChange={handleFileUpload} />
+                        <CloseIcon
+                          fontSize="medium"
+                          sx={{ cursor: "pointer" }}
+                        // onClick={() => setSelectedFile("")}
+                        />
+                      </MKBox>
+                      {/* <Divider sx={{ my: 0 }} /> */}
+                      <MKBox
+                        display="flex"
+                        justifyContent="space-around"
+                        p={1.5}
+                      >
+                        <MKButton
+                          variant="gradient"
+                          color="dark"
+                          onClick={toggleModal}
+                        >
+                          close
+                        </MKButton>
+                        <MKButton variant="gradient" color="info" type="submit">
+                          save changes
+                        </MKButton>
+                      </MKBox>
+                    </form>
+                  </MKBox>
+                )}
+
             </MKBox>
           </Slide>
         </Modal>
