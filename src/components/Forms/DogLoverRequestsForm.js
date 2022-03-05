@@ -412,12 +412,14 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartDate"
                               sx={{
+
                                 width: {
                                   md: "22%",
                                   lg: "17%",
                                   xl: "18%",
                                   xxl: "18%"
                                 },
+
                                 display: { xs: "none", md: "flex" },
                               }}
                               style={{
@@ -442,12 +444,14 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartTime"
                               sx={{
+
                                 width: {
 
                                   lg: "18%",
                                   xl: "19%",
                                   xxl: "19%"
                                 },
+
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -467,7 +471,9 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="EndTime"
                               sx={{
+
                                 width: { lg: "18%", xl: "19%", xxl: "19%" },
+
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -486,7 +492,9 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="Status"
                               sx={{
+
                                 width: { lg: "15%", xl: "16%", xxl: "16%" },
+
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
