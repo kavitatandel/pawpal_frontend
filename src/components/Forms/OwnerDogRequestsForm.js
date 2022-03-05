@@ -15,6 +15,7 @@ import { Grid } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import { neumorphic } from "styles/CustomStyles";
+import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 
 import {
   GetPlayDateRequestsForOwner,
@@ -95,9 +96,9 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-      // style={{ border: "3px solid red" }}
+        // style={{ border: "3px solid red" }}
 
-      //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -178,7 +179,7 @@ const OwnerDogRequestsForm = () => {
                   fontWeight="bold"
                   color="light"
                   textAlign="center"
-                // mt={1}
+                  // mt={1}
                 >
                   PLAY DATE REQUESTS
                 </MKTypography>
@@ -191,7 +192,7 @@ const OwnerDogRequestsForm = () => {
                 fontWeight="bold"
                 color="dark"
                 textAlign="center"
-              // mt={1}
+                // mt={1}
               >
                 Pending Requests
               </MKTypography>
@@ -265,33 +266,24 @@ const OwnerDogRequestsForm = () => {
                               alignItems: "center",
                             }}
                           >
-                            {request.DogLovers.profile_pic !== undefined ? (
-                              <MKAvatar
-                                top={-50}
-                                zIndex={2}
-                                src={`${request.DogLovers.profile_pic}`}
-                                alt={`${request.DogLovers.first_name}`}
-                                shadow="xl"
-                                sx={{ width: "2.5rem", height: "2.5rem" }}
-                                style={{
-                                  border: "3.2px solid white",
-                                  marginRight: "1rem",
-                                }}
+                            <MKAvatar
+                              top={-50}
+                              zIndex={2}
+                              src={`${request.DogLovers.profile_pic}`}
+                              alt={`${request.DogLovers.first_name}`}
+                              shadow="xl"
+                              sx={{ width: "2.5rem", height: "2.5rem" }}
+                              style={{
+                                border: "3.2px solid white",
+                                marginRight: "1rem",
+                              }}
+                            >
+                              <img
+                                src={HumanAvatar}
+                                alt="avatar"
+                                style={{ width: "100%", height: "100%" }}
                               />
-                            ) : (
-                              <MKAvatar
-                                top={-50}
-                                zIndex={2}
-                                src=""
-                                alt={`${request.DogLovers.first_name}`}
-                                shadow="xl"
-                                sx={{ width: "2.5rem", height: "2.5rem" }}
-                                style={{
-                                  border: "3.2px solid white",
-                                  marginRight: "1rem",
-                                }}
-                              />
-                            )}
+                            </MKAvatar>
                           </MKBox>
 
                           {/* *************** DOGLOVER NAME */}
@@ -350,7 +342,12 @@ const OwnerDogRequestsForm = () => {
                               variant="p"
                               style={{ fontSize: "0.90rem" }}
                             >
-                              {new Date(request.start_date).toISOString().replace(/T.*/, '').split('-').reverse().join('.')}
+                              {new Date(request.start_date)
+                                .toISOString()
+                                .replace(/T.*/, "")
+                                .split("-")
+                                .reverse()
+                                .join(".")}
                               {/* {new Date(
                                 request.start_date
                               ).toLocaleDateString()} */}
@@ -458,7 +455,7 @@ const OwnerDogRequestsForm = () => {
                 fontWeight="bold"
                 color="dark"
                 textAlign="center"
-              // mt={1}
+                // mt={1}
               >
                 Approved Requests
               </MKTypography>

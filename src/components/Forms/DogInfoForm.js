@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
 import TopBgImg from "components/Blocks/TopBgImg";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 import MKBox from "components/MKBox";
 import MKAvatar from "components/MKAvatar";
@@ -68,7 +69,6 @@ const DogInfoForm = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
 
   const handleClickGoBack = () => {
     navigate("/user/searchdog");
@@ -156,7 +156,7 @@ const DogInfoForm = () => {
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
-              //   style={{ border: "3px solid blue" }}
+                //   style={{ border: "3px solid blue" }}
               >
                 {/* dog pic */}
                 <MKAvatar
@@ -170,7 +170,13 @@ const DogInfoForm = () => {
                     backgroundColor: "white",
                     marginTop: "-9rem",
                   }}
-                />
+                >
+                  <img
+                    src={DogAvatar}
+                    alt="avatar"
+                    style={{ width: "100%", height: "100%" }}
+                  />
+                </MKAvatar>
                 <MKTypography
                   pt={2}
                   variant="h1"
@@ -201,63 +207,63 @@ const DogInfoForm = () => {
                       minimumWidth: "100px",
                     }}
 
-                  //                 {`${dogInfo.name}`}
-                  //               </MKTypography>
-                  //               {/* ************************** Dog Details */}
-                  //               <MKBox pt={1} pb={3} px={3}>
-                  //                 <MKBox
-                  //                   component="form"
-                  //                   method="post"
-                  //                   autocomplete="off"
-                  //                   role="form"
-                  //                   p={6}
-                  //                 ></MKBox>
+                    //                 {`${dogInfo.name}`}
+                    //               </MKTypography>
+                    //               {/* ************************** Dog Details */}
+                    //               <MKBox pt={1} pb={3} px={3}>
+                    //                 <MKBox
+                    //                   component="form"
+                    //                   method="post"
+                    //                   autocomplete="off"
+                    //                   role="form"
+                    //                   p={6}
+                    //                 ></MKBox>
 
-                  //                 </MKBox>
-                  //                 <MKBox mb={2} display="flex" justifyContent="space-between">
-                  //                   <MKTypography color="dark" textAlign="center">
-                  //                     Breed:
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     {`${dogInfo.breed}`}
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     Age:
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     {`${dogInfo.age_years}`} yrs. {`${dogInfo.age_months}`}{" "}
-                  //                     months
-                  //                   </MKTypography>
-                  //                   {/* <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     Size:
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     {`${dogInfo.size}`}
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
+                    //                 </MKBox>
+                    //                 <MKBox mb={2} display="flex" justifyContent="space-between">
+                    //                   <MKTypography color="dark" textAlign="center">
+                    //                     Breed:
+                    //                   </MKTypography>
+                    //                   <MKTypography
+                    //                     fontWeight="regular"
+                    //                     color="dark"
+                    //                     textAlign="center"
+                    //                   >
+                    //                     {`${dogInfo.breed}`}
+                    //                   </MKTypography>
+                    //                   <MKTypography
+                    //                     fontWeight="regular"
+                    //                     color="dark"
+                    //                     textAlign="center"
+                    //                   >
+                    //                     Age:
+                    //                   </MKTypography>
+                    //                   <MKTypography
+                    //                     fontWeight="regular"
+                    //                     color="dark"
+                    //                     textAlign="center"
+                    //                   >
+                    //                     {`${dogInfo.age_years}`} yrs. {`${dogInfo.age_months}`}{" "}
+                    //                     months
+                    //                   </MKTypography>
+                    //                   {/* <MKTypography
+                    //                     fontWeight="regular"
+                    //                     color="dark"
+                    //                     textAlign="center"
+                    //                   >
+                    //                     Size:
+                    //                   </MKTypography>
+                    //                   <MKTypography
+                    //                     fontWeight="regular"
+                    //                     color="dark"
+                    //                     textAlign="center"
+                    //                   >
+                    //                     {`${dogInfo.size}`}
+                    //                   </MKTypography>
+                    //                   <MKTypography
+                    //                     fontWeight="regular"
+                    //                     color="dark"
+                    //                     textAlign="center"
                   >
                     <MKTypography
                       variant="h6"

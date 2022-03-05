@@ -6,6 +6,7 @@ import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import "../../styles/layout.css";
+import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 
 import MKBox from "../MKBox";
 import MKAvatar from "../MKAvatar";
@@ -184,6 +185,17 @@ const ProfileForm = () => {
                   justifyContent="center"
                   alignItems="flex-end"
                 >
+                  {/* <Avatar
+                    src={user.profile_pic}
+                    alt={`${user.first_name} avatar`}
+                    sx={{ width: 55, height: 55 }}
+                  >
+                    <img
+                      src={HumanAvatar}
+                      alt="avatar"
+                      style={{ width: "99%", height: "99%" }}
+                    />
+                  </Avatar> */}
                   <MKAvatar
                     top={-50}
                     zindex={2}
@@ -193,11 +205,17 @@ const ProfileForm = () => {
                     sx={{ width: "12rem", height: "12rem" }}
                     style={{
                       borderStyle: "ridge",
-                      border: "5px solid white",
+                      border: "3px solid white",
                       backgroundColor: "white",
                       marginTop: "-6rem",
                     }}
-                  />
+                  >
+                    <img
+                      src={HumanAvatar}
+                      alt="avatar"
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </MKAvatar>
                   <MKButton
                     variant="text"
                     onClick={toggleModal}

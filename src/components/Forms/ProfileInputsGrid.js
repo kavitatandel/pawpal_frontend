@@ -128,6 +128,7 @@ const ProfileInputsGrid = ({ editMode }) => {
             {/* // "Item" Attribute makes this a child of parent Grid */}
             <MKBox display="flex">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 label="First Name"
                 InputLabelProps={{ shrink: true }}
@@ -147,6 +148,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 fullWidth
                 label="Last Name"
@@ -166,6 +168,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 fullWidth
                 label="E-Mail"
@@ -189,6 +192,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 fullWidth
                 label="Street Name"
@@ -206,6 +210,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 fullWidth
                 label="City"
@@ -230,6 +235,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 fullWidth
                 label="Country"
@@ -247,6 +253,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 fullWidth
                 label="Zip Code"
@@ -265,6 +272,7 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                sx={{ backgroundColor: "transparent !important" }}
                 focused={!editMode}
                 id="outlined-multiline-flexible"
                 multiline

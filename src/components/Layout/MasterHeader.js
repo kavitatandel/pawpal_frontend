@@ -14,7 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-// Temp Logo
+import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 import TempLogo from "../../assets/logos/logo_paw_light.png";
 
 const MasterHeader = () => {
@@ -54,6 +54,14 @@ const MasterHeader = () => {
     });
   };
 
+  // const checkForProfilePic = () => {
+  //   if (user.profile_pic === "") {
+  //     return HumanAvatar;
+  //   } else {
+  //     return user.profile_pic;
+  //   }
+  // };
+
   useEffect(() => {
     // declare the async data fetching function
     const checkWhatUserType = async () => {
@@ -62,7 +70,6 @@ const MasterHeader = () => {
 
       // set state with the result
       await setUserType(user.user_type);
-      console.log(`UserType is: ${user.user_type}`);
     };
     // call the function
     checkWhatUserType()
@@ -71,18 +78,6 @@ const MasterHeader = () => {
   }, [user]);
 
   return (
-    // <AppBar
-    //   style={{
-    //     boxShadow: "5px 5px 15px rgba(84, 84, 84, 0.3)",
-    //     backgroundColor: "white",
-
-    //     display: "flex",
-    //     flexDirection: "row",
-    //     justifyContent: "center",
-    //     top: 0,
-    //     left: "auto !important",
-    //   }}
-    // >
     <AppBar
       style={{
         display: "flex",
@@ -304,8 +299,27 @@ const MasterHeader = () => {
         {/* ______________________PROFILE MENU DROPDOWN (RIGHT) */}
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <IconButton
+              onClick={handleOpenUserMenu}
+              sx={{ p: 0, backgroundColor: "white" }}
+            >
+              {/* <Avatar
+                sx={{ width: 56, height: 56 }}
+                alt={`${user.first_name} avatar`}
+                src={headerAvatar}
+              /> */}
+              {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+              <Avatar
+                src={user.profile_pic}
+                alt={`${user.first_name} avatar`}
+                sx={{ width: 55, height: 55, border: "1px solid white" }}
+              >
+                <img
+                  src={HumanAvatar}
+                  alt="avatar"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </Avatar>
             </IconButton>
           </Tooltip>
 

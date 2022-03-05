@@ -13,6 +13,7 @@ import { styled } from "@mui/material/styles";
 import { Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 //for radio button
 import Radio from "@mui/material/Radio";
@@ -268,7 +269,13 @@ const EditDogForm = () => {
                           backgroundColor: "white",
                           marginTop: "-6rem",
                         }}
-                      />
+                      >
+                        <img
+                          src={DogAvatar}
+                          alt="avatar"
+                          style={{ width: "100%", height: "100%" }}
+                        />
+                      </MKAvatar>
 
                       <MKButton
                         variant="text"
@@ -291,7 +298,7 @@ const EditDogForm = () => {
                         textAlign="center"
                         mt={-3}
                       >
-                        Dog Details
+                        {dogName}
                       </MKTypography>
                     </Grid>
                   </Grid>
@@ -351,6 +358,7 @@ const EditDogForm = () => {
                     justifyContent="center"
                   >
                     <MKInput
+                      sx={{ backgroundColor: "transparent !important" }}
                       focused={!editMode}
                       InputLabelProps={{ shrink: true }}
                       disabled={editMode}
@@ -376,6 +384,7 @@ const EditDogForm = () => {
                     justifyContent="center"
                   >
                     <MKInput
+                      sx={{ backgroundColor: "transparent !important" }}
                       focused={!editMode}
                       InputLabelProps={{ shrink: true }}
                       disabled={editMode}
@@ -400,6 +409,7 @@ const EditDogForm = () => {
                     justifyContent="center"
                   >
                     <MKInput
+                      sx={{ backgroundColor: "transparent !important" }}
                       focused={!editMode}
                       InputLabelProps={{ shrink: true }}
                       disabled={editMode}
@@ -424,6 +434,7 @@ const EditDogForm = () => {
                     justifyContent="center"
                   >
                     <MKInput
+                      sx={{ backgroundColor: "transparent !important" }}
                       focused={!editMode}
                       InputLabelProps={{ shrink: true }}
                       disabled={editMode}
@@ -442,6 +453,7 @@ const EditDogForm = () => {
                   <Grid item xs={12} style={{ padding: "1rem" }}>
                     <MKBox display="flex" justifyContent="center">
                       <MKInput
+                        sx={{ backgroundColor: "transparent !important" }}
                         focused={!editMode}
                         InputLabelProps={{ shrink: true }}
                         disabled={editMode}
@@ -454,23 +466,22 @@ const EditDogForm = () => {
                         placeholder="Enter age in months"
                         type="text"
                         value={dogDescription}
-                        multiline
                         maxRows={8}
                         onChange={(e) => setDogDescription(e.target.value)}
 
-                      // focused={!editMode}
-                      // InputLabelProps={{ shrink: true }}
-                      // disabled={editMode}
-                      // id="outlined-multiline-static"
-                      // multiline
-                      // maxRows={8}
-                      // style={{ width: "90%" }}
-                      // label="About"
-                      // type="text"
-                      // name="description"
-                      // placeholder="Tell us about your dog..."
-                      // value={dogDescription}
-                      // onChange={(e) => setDogDescription(e.target.value)}
+                        // focused={!editMode}
+                        // InputLabelProps={{ shrink: true }}
+                        // disabled={editMode}
+                        // id="outlined-multiline-static"
+                        // multiline
+                        // maxRows={8}
+                        // style={{ width: "90%" }}
+                        // label="About"
+                        // type="text"
+                        // name="description"
+                        // placeholder="Tell us about your dog..."
+                        // value={dogDescription}
+                        // onChange={(e) => setDogDescription(e.target.value)}
                       />
 
                       {/* <MKButton
@@ -518,7 +529,6 @@ const EditDogForm = () => {
                           onChange={handleChangeSize}
                           size="small"
                           column
-
                         >
                           <FormControlLabel
                             value="small"

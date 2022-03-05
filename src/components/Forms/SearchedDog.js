@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
 import InfoIcon from "@mui/icons-material/Info";
 import { styled } from "@mui/material/styles";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -64,7 +65,13 @@ const SearchedDog = ({ locations, setLocations }) => {
                         border: "3.2px solid white",
                         marginRight: "1rem",
                       }}
-                    />
+                    >
+                      <img
+                        src={DogAvatar}
+                        alt="avatar"
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    </MKAvatar>
                   </MKBox>
                   <MKBox
                     className="DogName"

@@ -1,20 +1,12 @@
 import { useState, createContext } from "react";
 
-export const UserContext = createContext([{}, () => { }]);
+export const UserContext = createContext([{}, () => {}]);
 //export default UserContext;
 
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const value = [user, setUser];
-  return (
-
-    <UserContext.Provider
-      value={value}
-    >
-      {children}
-    </UserContext.Provider>
-  )
-
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
 // export const UserContextProvider = ({ children }) => (
@@ -43,4 +35,3 @@ export const UserContextProvider = ({ children }) => {
 //     {children}
 //   </UserContext.Provider>
 // );
-

@@ -16,6 +16,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import { neumorphic } from "styles/CustomStyles";
 import { neumorphicDL } from "styles/CustomStyles";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 import {
   getDogLoverRequests,
@@ -103,9 +104,9 @@ const DogLoverRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-      // style={{ border: "3px solid red" }}
+        // style={{ border: "3px solid red" }}
 
-      //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -198,7 +199,7 @@ const DogLoverRequestsForm = () => {
                   fontWeight="bold"
                   color="light"
                   textAlign="center"
-                // mt={1}
+                  // mt={1}
                 >
                   PLAY DATE REQUESTS
                 </MKTypography>
@@ -238,8 +239,9 @@ const DogLoverRequestsForm = () => {
                   dogRequestsInfo.map((request, index) => {
                     return (
                       <form onSubmit={handleDelete}>
-                        <Card sx={neumorphicDL} key={index}
-
+                        <Card
+                          sx={neumorphicDL}
+                          key={index}
                           //paddingTop="10rem"
                           //minwidth="40rem"
                           sx={{
@@ -258,32 +260,32 @@ const DogLoverRequestsForm = () => {
                             },
                           }}
 
-                        // sx={{
-                        //   minWidth: "50rem",
-                        //   minHeight: "5rem",
+                          // sx={{
+                          //   minWidth: "50rem",
+                          //   minHeight: "5rem",
 
-                        //   paddingLeft: {
-                        //     sx: "0.5rem",
-                        //     sm: "1rem",
-                        //     md: "2rem",
-                        //     lg: "2.5rem",
-                        //   },
-                        //   paddingRight: {
-                        //     sx: "1rem",
-                        //     sm: "1.5rem",
-                        //     md: "2rem",
-                        //   },
-                        //   paddingTop: {
-                        //     sx: "1rem",
-                        //     sm: "1rem",
-                        //     md: "1rem",
-                        //   },
-                        //   paddingBottom: {
-                        //     sx: "1rem",
-                        //     sm: "1rem",
-                        //     md: "1rem",
-                        //   },
-                        // }}
+                          //   paddingLeft: {
+                          //     sx: "0.5rem",
+                          //     sm: "1rem",
+                          //     md: "2rem",
+                          //     lg: "2.5rem",
+                          //   },
+                          //   paddingRight: {
+                          //     sx: "1rem",
+                          //     sm: "1.5rem",
+                          //     md: "2rem",
+                          //   },
+                          //   paddingTop: {
+                          //     sx: "1rem",
+                          //     sm: "1rem",
+                          //     md: "1rem",
+                          //   },
+                          //   paddingBottom: {
+                          //     sx: "1rem",
+                          //     sm: "1rem",
+                          //     md: "1rem",
+                          //   },
+                          // }}
                         >
                           <MKBox
                             className="mainContainer"
@@ -326,34 +328,24 @@ const DogLoverRequestsForm = () => {
                                 alignItems: "center",
                               }}
                             >
-                              {request.DogsRequests.profile_photo !==
-                                undefined ? (
-                                <MKAvatar
-                                  top={-50}
-                                  zIndex={2}
-                                  src={`${request.DogsRequests.profile_photo}`}
-                                  alt={`${request.DogsRequests.name}`}
-                                  shadow="xl"
-                                  sx={{ width: "2.5rem", height: "2.5rem" }}
-                                  style={{
-                                    border: "3.2px solid white",
-                                    marginRight: "1rem",
-                                  }}
+                              <MKAvatar
+                                top={-50}
+                                zIndex={2}
+                                src={`${request.DogsRequests.profile_photo}`}
+                                alt={`${request.DogsRequests.name}`}
+                                shadow="xl"
+                                sx={{ width: "2.5rem", height: "2.5rem" }}
+                                style={{
+                                  border: "3.2px solid white",
+                                  marginRight: "1rem",
+                                }}
+                              >
+                                <img
+                                  src={DogAvatar}
+                                  alt="avatar"
+                                  style={{ width: "100%", height: "100%" }}
                                 />
-                              ) : (
-                                <MKAvatar
-                                  top={-50}
-                                  zIndex={2}
-                                  src=""
-                                  alt={`${request.DogsRequests.name}`}
-                                  shadow="xl"
-                                  sx={{ width: "2.5rem", height: "2.5rem" }}
-                                  style={{
-                                    border: "3.2px solid white",
-                                    marginRight: "1rem",
-                                  }}
-                                />
-                              )}
+                              </MKAvatar>
                             </MKBox>
                             {/* *************** DOG NAME */}
                             <MKBox
@@ -391,12 +383,11 @@ const DogLoverRequestsForm = () => {
                                 alignItems: "center",
                                 justifyContent: "flex-start",
                                 width: {
-
                                   sm: "25%",
                                   md: "25%",
                                   lg: "15%",
                                   xl: "16%",
-                                  xxl: "16%"
+                                  xxl: "16%",
                                 },
                                 display: { sm: "flex" },
                               }}
@@ -412,12 +403,11 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartDate"
                               sx={{
-
                                 width: {
                                   md: "22%",
                                   lg: "17%",
                                   xl: "18%",
-                                  xxl: "18%"
+                                  xxl: "18%",
                                 },
 
                                 display: { xs: "none", md: "flex" },
@@ -431,12 +421,16 @@ const DogLoverRequestsForm = () => {
                                 variant="p"
                                 style={{ fontSize: "0.90rem" }}
                               >
-                                {new Date(request.start_date).toISOString().replace(/T.*/, '').split('-').reverse().join('.')}
+                                {new Date(request.start_date)
+                                  .toISOString()
+                                  .replace(/T.*/, "")
+                                  .split("-")
+                                  .reverse()
+                                  .join(".")}
                                 {/* {new Date(
                                      request.start_date
                                    ).toLocaleDateString()} */}
                                 {/* {request.start_date} */}
-
                               </MKTypography>
                             </MKBox>
 
@@ -444,12 +438,10 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartTime"
                               sx={{
-
                                 width: {
-
                                   lg: "18%",
                                   xl: "19%",
-                                  xxl: "19%"
+                                  xxl: "19%",
                                 },
 
                                 display: { xs: "none", lg: "flex" },
@@ -463,7 +455,6 @@ const DogLoverRequestsForm = () => {
                                 variant="p"
                                 style={{ fontSize: "0.90rem" }}
                               >
-
                                 {request.start_time}
                               </MKTypography>
                             </MKBox>
@@ -471,7 +462,6 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="EndTime"
                               sx={{
-
                                 width: { lg: "18%", xl: "19%", xxl: "19%" },
 
                                 display: { xs: "none", lg: "flex" },
@@ -492,7 +482,6 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="Status"
                               sx={{
-
                                 width: { lg: "15%", xl: "16%", xxl: "16%" },
 
                                 display: { xs: "none", lg: "flex" },
@@ -516,7 +505,6 @@ const DogLoverRequestsForm = () => {
                                     fontSize: "0.90rem",
                                     color: "blue",
                                   }}
-
                                   //added on 4.3
                                   sx={{
                                     minWidth: {
@@ -554,7 +542,6 @@ const DogLoverRequestsForm = () => {
                                     fontSize: "0.90rem",
                                     color: "green",
                                   }}
-
                                   //added on 4.3
                                   sx={{
                                     minWidth: {
@@ -592,7 +579,6 @@ const DogLoverRequestsForm = () => {
                                     fontSize: "0.90rem",
                                     color: "red",
                                   }}
-
                                   //added on 4.3
                                   sx={{
                                     minWidth: {
@@ -687,7 +673,6 @@ const DogLoverRequestsForm = () => {
                                     marginLeft: "0.25rem",
                                   }}
                                   value={request._id}
-
                                   //added on 4.3
                                   sx={{
                                     minWidth: {

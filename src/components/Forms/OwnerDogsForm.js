@@ -15,6 +15,7 @@ import { Grid } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import { neumorphic } from "styles/CustomStyles";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 import { dogsByOwner } from "../../logic/DogFunctions";
 import { useNavigate } from "react-router";
@@ -34,7 +35,7 @@ const OwnerDogsForm = () => {
 
   useEffect(() => {
     //getDogsByOwner(user._id);
-    console.log(user._id)
+    console.log(user._id);
     dogsByOwner(user._id)
       .then((res) => {
         console.log(res);
@@ -136,7 +137,7 @@ const OwnerDogsForm = () => {
                 fontWeight="bold"
                 color="light"
                 textAlign="center"
-              // mt={1}
+                // mt={1}
               >
                 MY DOGS
               </MKTypography>
@@ -249,7 +250,14 @@ const OwnerDogsForm = () => {
                               boxShadow:
                                 "14.11px 14.11px 24px #D9DADE, -14.11px -14.11px 24px #FFFFFF",
                             }}
-                          />
+                          >
+                            {" "}
+                            <img
+                              src={DogAvatar}
+                              alt="avatar"
+                              style={{ width: "100%", height: "100%" }}
+                            />
+                          </MKAvatar>
                         </MKBox>
                         {/* *************** DOG NAME */}
                         <MKBox
@@ -382,10 +390,9 @@ const OwnerDogsForm = () => {
                                 xxxl: "4px 4px",
                               },
                             }}
-                            onClick={() =>
-                              navigate(`/editdog/${dog._id}`)
-                            }
-                          >INFO
+                            onClick={() => navigate(`/editdog/${dog._id}`)}
+                          >
+                            INFO
                             {/* <InfoIcon
                               style={{
                                 transform: "1.8",
