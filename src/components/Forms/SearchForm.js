@@ -28,19 +28,33 @@ import { searchDogByCity } from "../../logic/SearchFunctions.js";
 //get searched dog component
 import SearchedDog from "./SearchedDog";
 
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
+
 const SearchForm = () => {
   const [user, setUser] = useContext(UserContext);
   //set location to show markers on map
   const [locations, setLocations] = useState([]);
   //const [locations, setLocations] = useState(data);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   //added to check if user has searched dog or not
   const [isSearched, setIsSearched] = useState(false);
 
+  let [color, setColor] = useState("#ff3d47");
+
+  // Can be a string as well. Need to ensure each key-value pair ends with ;
+  //   const override = css`
+  //   display: block;
+  //   margin: 0 auto;
+  //   border-color: red;
+  // `;
+
   //handle search click event
   const handleSearch = (e) => {
+    setLoading(true);
     e.preventDefault();
     searchDogByCity(search)
       .then((res) => {
@@ -74,7 +88,7 @@ const SearchForm = () => {
     // }, [locations]);
   }, []);
 
-  //if (loading) return <h1>Loading......</h1>
+  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
   return (
     <>
       {/* Entire Page Container (without footer) */}

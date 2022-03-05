@@ -1,17 +1,17 @@
 import MasterHeader from "components/Layout/MasterHeader";
 import Body from "components/Custom/CustomContainers";
 import CenteredFooter from "components/Layout/CenteredFooter";
-// import SearchForm from "components/Forms/SearchForm";
+import SearchForm from "components/Forms/SearchForm";
 import React, { Suspense } from "react";
 
-const SearchForm = React.lazy(() => import("components/Forms/SearchForm"));
+//const SearchForm = React.lazy(() => import("components/Forms/SearchForm"));
 
 const SearchDog = () => {
   return (
     <>
       <MasterHeader />
       <Body>
-        <Suspense
+        {/* <Suspense
           fallback={
             <div
               style={{
@@ -23,9 +23,9 @@ const SearchDog = () => {
               LOADING....
             </div>
           }
-        >
-          <SearchForm />
-        </Suspense>
+        > */}
+        <SearchForm />
+        {/* </Suspense> */}
       </Body>
       {/* <CenteredFooter /> */}
     </>
