@@ -446,6 +446,8 @@ const EditDogForm = () => {
                         InputLabelProps={{ shrink: true }}
                         disabled={editMode}
                         fullWidth
+                        multiline
+                        rows={5}
                         style={{ width: "90%" }}
                         label="About"
                         name="description"
@@ -456,19 +458,19 @@ const EditDogForm = () => {
                         maxRows={8}
                         onChange={(e) => setDogDescription(e.target.value)}
 
-                        // focused={!editMode}
-                        // InputLabelProps={{ shrink: true }}
-                        // disabled={editMode}
-                        // id="outlined-multiline-static"
-                        // multiline
-                        // maxRows={8}
-                        // style={{ width: "90%" }}
-                        // label="About"
-                        // type="text"
-                        // name="description"
-                        // placeholder="Tell us about your dog..."
-                        // value={dogDescription}
-                        // onChange={(e) => setDogDescription(e.target.value)}
+                      // focused={!editMode}
+                      // InputLabelProps={{ shrink: true }}
+                      // disabled={editMode}
+                      // id="outlined-multiline-static"
+                      // multiline
+                      // maxRows={8}
+                      // style={{ width: "90%" }}
+                      // label="About"
+                      // type="text"
+                      // name="description"
+                      // placeholder="Tell us about your dog..."
+                      // value={dogDescription}
+                      // onChange={(e) => setDogDescription(e.target.value)}
                       />
 
                       {/* <MKButton
@@ -498,7 +500,7 @@ const EditDogForm = () => {
                         <Typography
                           component="legend"
                           variant="h6"
-                          textAlign="center"
+                          textAlign="left"
                           mb="1rem"
                         >
                           Size
@@ -516,6 +518,7 @@ const EditDogForm = () => {
                           onChange={handleChangeSize}
                           size="small"
                           column
+
                         >
                           <FormControlLabel
                             value="small"
@@ -523,6 +526,9 @@ const EditDogForm = () => {
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="Small"
@@ -534,6 +540,9 @@ const EditDogForm = () => {
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
                                 tabIndex={5}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="Medium"
@@ -544,6 +553,9 @@ const EditDogForm = () => {
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="Large"
@@ -565,7 +577,7 @@ const EditDogForm = () => {
                         <Typography
                           component="legend"
                           variant="h6"
-                          textAlign="center"
+                          textAlign="left"
                           mb="1rem"
                         >
                           Energy
@@ -590,6 +602,9 @@ const EditDogForm = () => {
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="low"
@@ -600,6 +615,9 @@ const EditDogForm = () => {
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="Medium"
@@ -610,6 +628,9 @@ const EditDogForm = () => {
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="High"
@@ -630,7 +651,7 @@ const EditDogForm = () => {
                         <Typography
                           component="legend"
                           variant="h6"
-                          textAlign="center"
+                          textAlign="left"
                           mb="1rem"
                         >
                           Can Play Fetch
@@ -658,6 +679,9 @@ const EditDogForm = () => {
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="Yes"
@@ -668,6 +692,9 @@ const EditDogForm = () => {
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
+                                focused={!editMode}
+                                InputLabelProps={{ shrink: true }}
+                                disabled={editMode}
                               />
                             }
                             label="No"
@@ -695,6 +722,12 @@ const EditDogForm = () => {
                       }}
                     >
                       <StyledRating
+                        focused={!editMode}
+                        InputLabelProps={{ shrink: true }}
+                        disabled={editMode}
+                        min={1}
+                        max={5}
+                        value={dogKidFriendly}
                         defaultValue={dogKidFriendly}
                         onChange={(e) => setDogKidFriendly(e.target.value)}
                         name="kidfriendly"
@@ -733,6 +766,12 @@ const EditDogForm = () => {
                       }}
                     >
                       <StyledRating
+                        focused={!editMode}
+                        InputLabelProps={{ shrink: true }}
+                        disabled={editMode}
+                        min={1}
+                        max={5}
+                        value={dogCatFriendly}
                         onChange={(e) => setDogCatFriendly(e.target.value)}
                         name="catfriendly"
                         defaultValue={dogCatFriendly}
@@ -770,6 +809,12 @@ const EditDogForm = () => {
                       }}
                     >
                       <StyledRating
+                        focused={!editMode}
+                        InputLabelProps={{ shrink: true }}
+                        disabled={editMode}
+                        min={1}
+                        max={5}
+                        value={dogFriendly}
                         onChange={(e) => setDogFriendly(e.target.value)}
                         name="dogfriendly"
                         defaultValue={dogFriendly}
@@ -807,6 +852,12 @@ const EditDogForm = () => {
                       }}
                     >
                       <StyledRating
+                        focused={!editMode}
+                        InputLabelProps={{ shrink: true }}
+                        disabled={editMode}
+                        min={1}
+                        max={5}
+                        value={dogObedience}
                         onChange={(e) => setDogObedience(e.target.value)}
                         name="dogfriendly"
                         defaultValue={dogObedience}
@@ -844,6 +895,12 @@ const EditDogForm = () => {
                       }}
                     >
                       <StyledRating
+                        focused={!editMode}
+                        InputLabelProps={{ shrink: true }}
+                        disabled={editMode}
+                        min={1}
+                        max={5}
+                        value={dogCanStayHome}
                         onChange={(e) => setDogCanStayHome(e.target.value)}
                         name="dogfriendly"
                         defaultValue={dogCanStayHome}
@@ -881,6 +938,12 @@ const EditDogForm = () => {
                       }}
                     >
                       <StyledRating
+                        focused={!editMode}
+                        InputLabelProps={{ shrink: true }}
+                        disabled={editMode}
+                        min={1}
+                        max={5}
+                        value={dogExercise}
                         onChange={(e) => setDogExercise(e.target.value)}
                         name="dogfriendly"
                         defaultValue={dogExercise}
