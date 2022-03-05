@@ -97,16 +97,6 @@ const SearchForm = () => {
         <Paper
           className="neuCard"
           elevation={24}
-          style={{
-            position: "relative",
-            borderRadius: "2rem",
-            // glass effect
-            background: "rgba( 255, 255, 255, 0.7 )",
-            boxShadow: "12px 30px 40px 0 rgba(255, 61, 46, 0.5)",
-            backdropFilter: "blur( 12px )",
-            padding: "0",
-            // border: "2px solid blue",
-          }}
           sx={{
             // BREAKPOINTS:
             // xs: 0,
@@ -116,6 +106,16 @@ const SearchForm = () => {
             // xl: 1200,
             // xxl: 1400,
             // xxxl: 1800,
+            zIndex: 3,
+            position: "relative",
+
+            // glass effect
+            background: "rgba( 255, 255, 255, 0.7 )",
+            boxShadow: "12px 30px 40px 0 rgba(255, 61, 46, 0.5)",
+            backdropFilter: "blur( 12px )",
+            padding: "0",
+            borderRadius: "2rem !important",
+            overflow: "hidden !important",
             width: {
               xs: "95%",
               lg: "90%",
@@ -124,8 +124,8 @@ const SearchForm = () => {
             height: "auto",
             mt: 20,
             mx: { xs: 2, lg: 3 },
-            position: "relative",
-            mb: 18,
+
+            mb: 10,
           }}
         >
           {/* Top Search Bar Area */}
@@ -160,9 +160,6 @@ const SearchForm = () => {
           <Grid
             container
             mx={0}
-            style={{
-              borderRadius: "0 0 30px 30px",
-            }}
             display="flex"
             justifyContent="center"
             overflow="hidden"
@@ -172,10 +169,13 @@ const SearchForm = () => {
               className="container-fluid"
               style={{
                 width: "100%",
+
+                borderRadius: "0 0 30px 30px",
               }}
             >
               <div
                 className="mapbox"
+                overflow="hidden"
                 style={{
                   width: "100%",
                   diplay: "flex",
@@ -184,10 +184,20 @@ const SearchForm = () => {
                   // border: "2px solid green",
                 }}
               >
-                <div className="row-fluid some" id="map">
+                <div
+                  className="row-fluid some"
+                  id="map"
+                  style={{
+                    // border: "2px solid blue",
+                    borderRadius: "0 0 30px 30px",
+                  }}
+                >
                   <LeafletMap
                     locations={locations}
-                    style={{ width: "100%", position: "absolute" }}
+                    style={{
+                      width: "100%",
+                      // position: "absolute",
+                    }}
                     isSearched={isSearched}
                   />
                 </div>

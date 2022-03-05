@@ -27,7 +27,9 @@ const LeafletMap = ({ locations, isSearched }) => {
       <MapContainer
         center={[locations[0].latitude, locations[0].longitude]}
         zoom={6}
-        style={{ width: "100%" }}
+        style={{
+          width: "100%",
+        }}
       >
         <ZoomControl position="topright" />
         <TileLayer
