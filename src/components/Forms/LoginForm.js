@@ -18,9 +18,26 @@ import MKButton from "../MKButton";
 import MKTypography from "../MKTypography";
 
 import jwt_decode from "jwt-decode";
+import { styled } from "@mui/material/styles";
+//style for helpertext for email and password when error occurs
+const helperTextStyles = styled((theme) => ({
+  MuiFormHelperText: {
+    root: {
+      color: 'red',
+      "&$error": {
+        color: 'red'
+      }
+    },
+  },
+
+}))
 
 const LoginForm = () => {
   const [user, setUser] = useContext(UserContext);
+
+  //use state for notvalid email and not valid password
+  const [notValidEmail, setNotValidEmail] = useState('');
+  const [notValidPass, setNotValidPass] = useState('');
 
   let navigate = useNavigate();
 
@@ -32,9 +49,22 @@ const LoginForm = () => {
       password: user.password,
     };
 
+    //empty the notvalid states
+    setNotValidEmail('');
+    setNotValidPass('');
+
     login(newUser).then((res) => {
       if (res) {
-        navigate("/user");
+        //check if passoword is correct
+        console.log(res);
+        if (res === 'Password is not valid, please try again!') {
+          setNotValidPass(res);
+        } else if (res === 'Email is wrong or does not exist!') {
+          setNotValidEmail(res);
+        } else {
+          navigate("/user");
+        }
+        // navigate("/user");
       }
     });
   };
@@ -103,7 +133,7 @@ const LoginForm = () => {
                     variant="h3"
                     fontWeight="bold"
                     color="white"
-                    // mt={1}
+                  // mt={1}
                   >
                     LOG IN
                   </MKTypography>
@@ -135,6 +165,9 @@ const LoginForm = () => {
                             email: e.target.value,
                           }))
                         }
+                        //error
+                        helperText={notValidEmail}
+                        className={helperTextStyles}
                       ></MKInput>
                     </MKBox>
                     <MKBox mb={2} mt={4}>
@@ -156,6 +189,8 @@ const LoginForm = () => {
                             password: e.target.value,
                           }))
                         }
+                        helperText={notValidPass}
+                        className={helperTextStyles}
                       />
                     </MKBox>
 
