@@ -238,7 +238,53 @@ const DogLoverRequestsForm = () => {
                   dogRequestsInfo.map((request, index) => {
                     return (
                       <form onSubmit={handleDelete}>
-                        <Card sx={neumorphicDL} key={index}>
+                        <Card sx={neumorphicDL} key={index}
+
+                          //paddingTop="10rem"
+                          //minwidth="40rem"
+                          sx={{
+                            minWidth: {
+                              sx: "27rem",
+                              sm: "27rem",
+                              md: "30em",
+                              lg: "50rem",
+                              // xl: "50rem"
+                            },
+                            marginTop: {
+                              sx: "2rem",
+                              sm: "2rem",
+                              md: "2rem",
+                              lg: "2rem",
+                            },
+                          }}
+
+                        // sx={{
+                        //   minWidth: "50rem",
+                        //   minHeight: "5rem",
+
+                        //   paddingLeft: {
+                        //     sx: "0.5rem",
+                        //     sm: "1rem",
+                        //     md: "2rem",
+                        //     lg: "2.5rem",
+                        //   },
+                        //   paddingRight: {
+                        //     sx: "1rem",
+                        //     sm: "1.5rem",
+                        //     md: "2rem",
+                        //   },
+                        //   paddingTop: {
+                        //     sx: "1rem",
+                        //     sm: "1rem",
+                        //     md: "1rem",
+                        //   },
+                        //   paddingBottom: {
+                        //     sx: "1rem",
+                        //     sm: "1rem",
+                        //     md: "1rem",
+                        //   },
+                        // }}
+                        >
                           <MKBox
                             className="mainContainer"
                             sx={{
@@ -273,7 +319,6 @@ const DogLoverRequestsForm = () => {
                                 },
                                 display: { md: "flex" },
                                 minWidth: "3.2rem",
-
                                 mr: "1rem",
                               }}
                               style={{
@@ -315,11 +360,12 @@ const DogLoverRequestsForm = () => {
                               className="DogName"
                               sx={{
                                 width: {
+                                  //xs:"33%",
                                   sm: "25%",
                                   md: "20%",
                                   lg: "15%",
-                                  xl: "14%",
-                                  xxl: "12.5%",
+                                  xl: "16%",
+                                  xxl: "16%",
                                 },
                                 display: { xs: "none", sm: "flex" },
                               }}
@@ -344,7 +390,14 @@ const DogLoverRequestsForm = () => {
                               sx={{
                                 alignItems: "center",
                                 justifyContent: "flex-start",
-                                width: { sm: "25%", md: "25%", lg: "12.5&" },
+                                width: {
+
+                                  sm: "25%",
+                                  md: "25%",
+                                  lg: "15%",
+                                  xl: "16%",
+                                  xxl: "16%"
+                                },
                                 display: { sm: "flex" },
                               }}
                             >
@@ -359,7 +412,12 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartDate"
                               sx={{
-                                width: { md: "20%", lg: "12%" },
+                                width: {
+                                  md: "22%",
+                                  lg: "17%",
+                                  xl: "18%",
+                                  xxl: "18%"
+                                },
                                 display: { xs: "none", md: "flex" },
                               }}
                               style={{
@@ -384,7 +442,12 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartTime"
                               sx={{
-                                width: { lg: "12%" },
+                                width: {
+
+                                  lg: "18%",
+                                  xl: "19%",
+                                  xxl: "19%"
+                                },
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -404,7 +467,7 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="EndTime"
                               sx={{
-                                width: { lg: "12%" },
+                                width: { lg: "18%", xl: "19%", xxl: "19%" },
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -423,7 +486,7 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="Status"
                               sx={{
-                                width: { lg: "12%" },
+                                width: { lg: "15%", xl: "16%", xxl: "16%" },
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -445,6 +508,34 @@ const DogLoverRequestsForm = () => {
                                     fontSize: "0.90rem",
                                     color: "blue",
                                   }}
+
+                                  //added on 4.3
+                                  sx={{
+                                    minWidth: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "3.5rem",
+                                      lg: "4rem",
+                                    },
+                                    minHeight: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "2.5rem",
+                                      lg: "3rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "10px 10px",
+                                      md: "12px 12px",
+                                      lg: "10px 10px",
+                                      xl: "8px 8px",
+                                      xxl: "8px 8px",
+                                      xxxl: "4px 4px",
+                                    },
+
+                                    ml: "1rem",
+                                  }}
                                 >
                                   {request.status}
                                 </MKTypography>
@@ -455,6 +546,34 @@ const DogLoverRequestsForm = () => {
                                     fontSize: "0.90rem",
                                     color: "green",
                                   }}
+
+                                  //added on 4.3
+                                  sx={{
+                                    minWidth: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "5rem",
+                                      lg: "6rem",
+                                    },
+                                    minHeight: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "3.5rem",
+                                      lg: "4rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "10px 10px",
+                                      md: "12px 12px",
+                                      lg: "10px 10px",
+                                      xl: "8px 8px",
+                                      xxl: "8px 8px",
+                                      xxxl: "4px 4px",
+                                    },
+
+                                    ml: "1rem",
+                                  }}
                                 >
                                   {request.status}
                                 </MKTypography>
@@ -464,6 +583,34 @@ const DogLoverRequestsForm = () => {
                                   style={{
                                     fontSize: "0.90rem",
                                     color: "red",
+                                  }}
+
+                                  //added on 4.3
+                                  sx={{
+                                    minWidth: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "5rem",
+                                      lg: "6rem",
+                                    },
+                                    minHeight: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "2rem",
+                                      lg: "2rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "10px 10px",
+                                      md: "12px 12px",
+                                      lg: "10px 10px",
+                                      xl: "8px 8px",
+                                      xxl: "8px 8px",
+                                      xxxl: "4px 4px",
+                                    },
+
+                                    ml: "1rem",
                                   }}
                                 >
                                   {request.status}
@@ -478,7 +625,7 @@ const DogLoverRequestsForm = () => {
                                 justifyContent: "flex-end ",
                                 //   border: "2px solid red",
 
-                                width: { md: "20%", lg: "12%" },
+                                width: { md: "20%", lg: "16%" },
                                 marginRight: "1rem",
                               }}
                             >
@@ -491,14 +638,14 @@ const DogLoverRequestsForm = () => {
                                   minWidth: {
                                     xs: "2rem",
                                     sm: "2rem",
-                                    md: "2.5rem",
-                                    lg: "3rem",
+                                    md: "3.5rem",
+                                    lg: "3.5rem",
                                   },
                                   minHeight: {
                                     xs: "2rem",
                                     sm: "2rem",
-                                    md: "2.5rem",
-                                    lg: "3rem",
+                                    md: "2rem",
+                                    lg: "2rem",
                                   },
                                   // minWidth: "2rem",
                                   // minHeight: "2rem",
@@ -528,10 +675,38 @@ const DogLoverRequestsForm = () => {
                                   color="info"
                                   style={{
                                     // minWidth: "1rem",
-                                    width: "5rem",
+                                    width: "7rem",
                                     marginLeft: "0.25rem",
                                   }}
                                   value={request._id}
+
+                                  //added on 4.3
+                                  sx={{
+                                    minWidth: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "3.5rem",
+                                      lg: "3.5rem",
+                                    },
+                                    minHeight: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "2.25rem",
+                                      lg: "2.25rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "10px 10px",
+                                      md: "12px 12px",
+                                      lg: "10px 10px",
+                                      xl: "8px 8px",
+                                      xxl: "8px 8px",
+                                      xxxl: "4px 4px",
+                                    },
+
+                                    ml: "1rem",
+                                  }}
                                 >
                                   DELETE
                                 </MKButton>
