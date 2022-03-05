@@ -11,6 +11,33 @@ import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
 import { styled } from "@mui/material/styles";
 
+// const helperTextStyles = styled((theme) => ({
+//   root: {
+//     margin: 4,
+//     color: "red !important",
+//     "&$error": {
+//       color: "red !important",
+//     },
+//   },
+//   error: {}, //<--this is required to make it work
+// }));
+
+const helperTextStyles = styled((theme) => ({
+  MuiFormHelperText: {
+    root: {
+      color: 'red',
+      // resize: {
+      //   fontSize: 50,
+      // },
+      "&$error": {
+        color: 'red'
+      }
+    },
+  },
+
+}))
+
+
 const ProfileInputsGrid = ({ editMode }) => {
   const [user, setUser] = useContext(UserContext);
   let navigate = useNavigate();
@@ -76,15 +103,15 @@ const ProfileInputsGrid = ({ editMode }) => {
       .catch((err) => console.log(err));
   };
 
-  const helperTextStyles = styled((theme) => ({
-    root: {
-      margin: 4,
-      "&$error": {
-        color: "red !important",
-      },
-    },
-    error: {}, //<--this is required to make it work
-  }));
+  // const helperTextStyles = styled((theme) => ({
+  //   root: {
+  //     margin: 4,
+  //     "&$error": {
+  //       color: "red !important",
+  //     },
+  //   },
+  //   error: {}, //<--this is required to make it work
+  // }));
 
   //check if entered email is already exist
   const handleEmailchange = async (e) => {
@@ -99,7 +126,7 @@ const ProfileInputsGrid = ({ editMode }) => {
     });
   };
 
-  useEffect(() => {}, [editMode]);
+  useEffect(() => { }, [editMode]);
 
   return (
     <>
@@ -185,6 +212,7 @@ const ProfileInputsGrid = ({ editMode }) => {
                 helperText={emailExistError}
                 // className="helperTextStyles"
                 className={helperTextStyles}
+              // helperTextProps={{ style: { fontSize: 40 } }}
               />
             </MKBox>
           </Grid>
