@@ -20,6 +20,11 @@ import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
 import UserInfo from "pages/UserInfoKavita";
 
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
+
+
 const UploadPicModal = ({
   show,
   setShow,
@@ -28,6 +33,8 @@ const UploadPicModal = ({
   setUploadedImageURL,
   selectedFile,
   setSelectedFile,
+  loading,
+  setLoading,
 }) => {
   const [user, setUser] = useContext(UserContext);
 
@@ -35,7 +42,8 @@ const UploadPicModal = ({
   const API_URL = "http://localhost:5000";
 
   // const [selectedFile, setSelectedFile] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loadingImage, setLoadingImage] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
 
   const handleFileUpload = async (e) => {
     await setSelectedFile(e.target.files[0]);
@@ -51,6 +59,10 @@ const UploadPicModal = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    //for spinner on modal
+    setLoadingImage(false)
+
     const uploadData = new FormData();
     //const uploadData = new FormData();
     uploadData.append("file", selectedFile, "file");
@@ -69,7 +81,15 @@ const UploadPicModal = ({
           setUser({ ...user, profile_pic: uploadedImageURL });
         }
       })
-      .then(() => toggleModal())
+      // .then(() => toggleModal()) //commented for spinner
+      .then(() => {
+        //set loading image to true again
+        setLoadingImage(true);
+
+        toggleModal()
+        setLoading(true);
+        loading = true;
+      })
       .catch((err) => console.log(err));
   };
 
@@ -101,18 +121,40 @@ const UploadPicModal = ({
                 display="flex"
                 alginItems="center"
                 justifyContent="space-between"
-                p={2}
+                p={1}
+
               >
-                <MKTypography variant="h5">Upload Profile Image</MKTypography>
+                {!loadingImage ? (
+                  <MKBox
+                    display="flex"
+                    justifyContent="center"
+                    alginItems="center"
+                    width="500px"
+                    height="200px"
+                    margin="auto 0"
+                    flexDirection="column"
+                  >
+                    <RiseLoader color={color} loading={true} css={override} size={50} />
+                  </MKBox>
+                ) : ""}
+                {/* <MKTypography variant="h5">Upload Profile Image</MKTypography> */}
               </MKBox>
-              <Divider sx={{ my: 0 }} />
-              {!loading ? (
-                <MKBox p={2}>
-                  <MKTypography variant="h6">Uploading...</MKTypography>
-                </MKBox>
+              {/* <Divider sx={{ my: 0 }} /> */}
+              {!loadingImage ? (
+                <></>
+                // <MKBox p={2}>
+                //   <MKTypography variant="h6">Uploading...</MKTypography>
+                // </MKBox>
+                // <RiseLoader color={color} loading={loadingImage} css={override} size={40} />
               ) : (
                 <MKBox p={2}>
                   <form onSubmit={handleSubmit}>
+                    <MKBox
+                      display="flex"
+                      justifyContent="center"
+                      pb={2}
+                    ><MKTypography variant="h6" style={{}}>Upload Profile Pic</MKTypography>
+                    </MKBox>
                     <input type="file" onChange={(e) => handleFileUpload(e)} />
                     <CloseIcon fontSize="medium" sx={{ cursor: "pointer" }} />
                     <Divider sx={{ my: 0 }} />
@@ -138,8 +180,8 @@ const UploadPicModal = ({
             </MKBox>
           </Slide>
         </Modal>
-      </Container>
-    </MKBox>
+      </Container >
+    </MKBox >
   );
 };
 

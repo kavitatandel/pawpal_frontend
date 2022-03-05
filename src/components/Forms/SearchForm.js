@@ -70,8 +70,10 @@ const SearchForm = () => {
           } else {
             setIsSearched(false);
             setLocations([]);
+            setLoading(false);
           }
         } else {
+          setLoading(false);
           alert("Please enter city to search");
         }
       })
