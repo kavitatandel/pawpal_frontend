@@ -31,19 +31,9 @@ const ProfileInputsGrid = ({ editMode }) => {
     e.preventDefault();
 
     const address = `${user.street},${user.zip_code},${user.city},${user.country}`;
-    //const address = `${user.zip_code},${user.city},${user.country}`;
+    //const address = `${user.zip_code},${user.city},${user.country}`
 
     console.log(address);
-    // const firstName = user.first_name;
-    // const lastName = user.last_name;
-    // const email = user.email;
-    // const street = user.street;
-    // const city = user.city;
-    // const country = user.country;
-    // const zipcode = user.zip_code;
-    // const desc = user.description;
-
-    // console.log(firstName);
 
     // get the coordinates
     await fetchCoordinates(address)
@@ -68,23 +58,6 @@ const ProfileInputsGrid = ({ editMode }) => {
             longitude: lon,
             description: user.description,
           };
-
-          // //create new user
-          // const updateUser = {
-          //   first_name: firstName,
-          //   last_name: lastName,
-          //   email: email,
-          //   street: street,
-          //   city: city,
-          //   country: country,
-          //   zip_code: zipcode,
-          //   latitude: lat,
-          //   longitude: lon,
-          //   description: desc,
-          // };
-
-          // console.log("Updated User");
-          // console.log(updateUser)
 
           updateUserProfile(updateUser).then((res) => {
             //set newly updated user to localstorage
@@ -155,9 +128,9 @@ const ProfileInputsGrid = ({ editMode }) => {
             {/* // "Item" Attribute makes this a child of parent Grid */}
             <MKBox display="flex">
               <MKInput
+                focused={!editMode}
                 label="First Name"
                 InputLabelProps={{ shrink: true }}
-                sx={{ backgroundColor: "transparent" }}
                 fullWidth
                 type="text"
                 name="first_name"
@@ -174,8 +147,10 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex">
               <MKInput
+                focused={!editMode}
                 fullWidth
                 label="Last Name"
+                InputLabelProps={{ shrink: true }}
                 type="text"
                 name="last_name"
                 placeholder="Enter your last name"
@@ -191,8 +166,10 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                focused={!editMode}
                 fullWidth
                 label="E-Mail"
+                InputLabelProps={{ shrink: true }}
                 name="email"
                 placeholder="Enter your email"
                 type="email"
@@ -212,8 +189,10 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                focused={!editMode}
                 fullWidth
                 label="Street Name"
+                InputLabelProps={{ shrink: true }}
                 type="text"
                 name="street"
                 placeholder="Enter your street"
@@ -227,8 +206,10 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                focused={!editMode}
                 fullWidth
                 label="City"
+                InputLabelProps={{ shrink: true }}
                 type="text"
                 name="city"
                 placeholder="Enter your city"
@@ -249,8 +230,10 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                focused={!editMode}
                 fullWidth
                 label="Country"
+                InputLabelProps={{ shrink: true }}
                 type="text"
                 name="country"
                 placeholder="Enter your country"
@@ -264,8 +247,10 @@ const ProfileInputsGrid = ({ editMode }) => {
           <Grid item xs={12} md={6} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
               <MKInput
+                focused={!editMode}
                 fullWidth
                 label="Zip Code"
+                InputLabelProps={{ shrink: true }}
                 type="text"
                 name="zip_code"
                 placeholder="Enter your zip code"
@@ -279,12 +264,14 @@ const ProfileInputsGrid = ({ editMode }) => {
 
           <Grid item xs={12} style={{ padding: "1rem" }}>
             <MKBox display="flex" justifyContent="flex-start">
-              <TextField
+              <MKInput
+                focused={!editMode}
                 id="outlined-multiline-flexible"
                 multiline
                 rows={6}
                 fullWidth
                 label="About"
+                InputLabelProps={{ shrink: true }}
                 type="text"
                 name="description"
                 placeholder="Tell us about yourself..."

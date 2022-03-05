@@ -68,6 +68,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
       color: "#fb8c00",
     },
   });
+  console.log(dogInfo);
 
   return (
     <div>
