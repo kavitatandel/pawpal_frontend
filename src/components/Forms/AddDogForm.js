@@ -12,6 +12,7 @@ import PetsIcon from "@mui/icons-material/Pets";
 import { styled } from "@mui/material/styles";
 import { Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 //for radio button
 import Radio from "@mui/material/Radio";
@@ -235,11 +236,18 @@ const AddDogForm = () => {
                         shadow="xl"
                         sx={{ width: "12rem", height: "12rem" }}
                         style={{
+                          borderStyle: "ridge",
                           border: "3px solid white",
                           backgroundColor: "white",
                           marginTop: "-6rem",
                         }}
-                      />
+                      >
+                        <img
+                          src={DogAvatar}
+                          alt="avatar"
+                          style={{ width: "100%", height: "100%" }}
+                        />
+                      </MKAvatar>
 
                       <MKButton
                         variant="text"

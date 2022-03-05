@@ -13,6 +13,7 @@ import { styled } from "@mui/material/styles";
 import { Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 //for radio button
 import Radio from "@mui/material/Radio";
@@ -268,7 +269,13 @@ const EditDogForm = () => {
                           backgroundColor: "white",
                           marginTop: "-6rem",
                         }}
-                      />
+                      >
+                        <img
+                          src={DogAvatar}
+                          alt="avatar"
+                          style={{ width: "100%", height: "100%" }}
+                        />
+                      </MKAvatar>
 
                       <MKButton
                         variant="text"
