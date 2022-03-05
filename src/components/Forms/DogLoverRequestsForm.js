@@ -143,7 +143,7 @@ const DogLoverRequestsForm = () => {
                 xxxl: "80%",
               },
               maxWidth: {
-                xl: "100px",
+                xl: "1000px",
                 xxl: "1200px",
                 xxxl: "1600px",
               },
@@ -359,7 +359,7 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartDate"
                               sx={{
-                                width: { md: "20%", lg: "12%" },
+                                width: { md: "40%", lg: "40%" },
                                 display: { xs: "none", md: "flex" },
                               }}
                               style={{
@@ -381,7 +381,7 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartTime"
                               sx={{
-                                width: { lg: "12%" },
+                                width: { lg: "30%" },
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -400,7 +400,7 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="EndTime"
                               sx={{
-                                width: { lg: "12%" },
+                                width: { lg: "30%" },
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -419,7 +419,7 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="Status"
                               sx={{
-                                width: { lg: "12%" },
+                                width: { lg: "30%" },
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{

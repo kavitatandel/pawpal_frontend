@@ -176,10 +176,7 @@ function DogRequestModal({
                     p={2}
                   >
                     <MKBox mr={2}>
-                      <LocalizationProvider
-                        dateAdapter={AdapterDateFns}
-                        locale={localeMap[locale]}
-                      >
+                      <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <TimePicker
                           //ampm={false}
                           //format="HH:mm:ss"
