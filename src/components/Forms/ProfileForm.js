@@ -23,6 +23,11 @@ import axios from "axios";
 import ProfileInputsGrid from "components/Forms/ProfileInputsGrid";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
+
+
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [show, setShow] = useState(false);
@@ -31,6 +36,10 @@ const ProfileForm = () => {
   const [uploadedImageURL, setUploadedImageURL] = useState("");
   const [decodedID, setDecodedID] = useState("");
   let navigate = useNavigate();
+
+  //for spinner
+  const [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
 
   //for edit mode
   const [editMode, setEditMode] = useState(true);
@@ -68,11 +77,17 @@ const ProfileForm = () => {
   }, [decodedID]);
 
   useEffect(() => {
+    console.log(loading);
+    //for spinner
+    if (uploadedImageURL !== '') {
+      setLoading(false);
+    }
+
     if (decodedID) {
       setUserInfo(decodedID);
     }
     showUserDetails();
-  }, [uploadedImageURL, selectedFile, decodedID]);
+  }, [uploadedImageURL, selectedFile, decodedID, loading]);
 
   const setUserInfo = async () => {
     await axios
@@ -96,6 +111,9 @@ const ProfileForm = () => {
           profile_pic: res.data.profile_pic,
           description: res.data.description,
         });
+        //for spinner
+        setLoading(false);
+
       })
 
       .catch((err) => console.log(err));
@@ -103,8 +121,17 @@ const ProfileForm = () => {
 
   const showUserDetails = async () => {
     await console.log(user);
+    //for spinner
+    setLoading(false);
   };
   console.log(user);
+
+  //for spinner 
+  const handleToggleModal = () => {
+    toggleModal();
+  }
+
+  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
   return (
     <>
       {/* Entire Page Container (without footer) */}
@@ -160,6 +187,8 @@ const ProfileForm = () => {
             setUploadedImageURL={setUploadedImageURL}
             selectedFile={selectedFile}
             setSelectedFile={setSelectedFile}
+            loading={loading}
+            setLoading={setLoading}
           />
           {/* ________Pink Shape */}
           <MKBox
@@ -218,7 +247,8 @@ const ProfileForm = () => {
                   </MKAvatar>
                   <MKButton
                     variant="text"
-                    onClick={toggleModal}
+                    // onClick={toggleModal}
+                    onClick={handleToggleModal}
                     style={{
                       width: "2rem",
                       height: "2rem",
@@ -265,6 +295,7 @@ const ProfileForm = () => {
                 marginTop: "2rem",
               }}
               onClick={toggleEdit}
+            //onClick={handleToggleEdit}
             >
               EDIT
               <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
