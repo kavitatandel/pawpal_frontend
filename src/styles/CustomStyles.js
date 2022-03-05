@@ -1,3 +1,5 @@
+import { css } from "@emotion/react";
+
 export const glassStyle = {
   background: "rgba( 255, 255, 255, 0.6 )",
   boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
@@ -32,3 +34,13 @@ export const neumorphicDL = {
   display: "flex",
   alignItems: "center",
 };
+
+//for spinner
+export const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    justify-content:center;
+    align-items:center;
+  `;
+
