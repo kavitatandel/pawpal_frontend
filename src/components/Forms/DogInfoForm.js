@@ -149,6 +149,8 @@ const DogInfoForm = () => {
                 // setDogLoverId={setDogLoverId}
                 dogId={dogId}
                 setDogId={setDogId}
+                //added on 6/3/2022
+                dogInfo={dogInfo}
               />
               {/* Container for Profile Pic */}
               <MKBox

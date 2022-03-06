@@ -27,8 +27,9 @@ import deLocale from "date-fns/locale/de";
 //import MobileDatePicker from '@mui/lab/MobileDatePicker';
 //import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from "@mui/lab/TimePicker";
-
-//import { addPlayDateRequest } from ""
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
+import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
+import MKAvatar from "components/MKAvatar";
 
 // //date localization
 // import deLocale from 'date-fns/locale/de';
@@ -48,6 +49,7 @@ function DogRequestModal({
   // dogLoverId, setDogLoverId,
   dogId,
   setDogId,
+  dogInfo
 }) {
   //for localization
   const [locale, setLocale] = useState("de");
@@ -120,163 +122,305 @@ function DogRequestModal({
         >
           <Slide direction="down" in={show} timeout={500}>
             <MKBox
+              // position="relative"
+              // width="500px"
+              // display="flex"
+              // flexDirection="column"
+              // borderRadius="xl"
+              // bgColor="white"
+              // shadow="xl"
               position="relative"
-              width="500px"
+              width="80%"
+              maxWidth="730px"
+              height="auto"
               display="flex"
+              justifyContent="center"
+              alignItems="center"
               flexDirection="column"
-              borderRadius="xl"
+              borderRadius="2rem"
               bgColor="white"
               shadow="xl"
+              p={3}
+              my={2}
             >
+              {/* Pink Box at top */}
               <MKBox
-                display="flex"
-                alginItems="center"
-                justifyContent="center"
-                p={2}
+                variant="gradient"
+                bgColor="info"
+                borderRadius="lg"
+                coloredShadow="info"
+                width="60%"
+                mx="3rem"
+                mt="-2.5rem"
+                pt="0.75rem"
+                pr="1rem" pl="1rem"
+                pb="0.75rem"
+                textAlign="center"
               >
-                <MKTypography variant="h5">Play Date Request</MKTypography>
+                {/* Request Status Heading */}
+                <MKTypography variant="h3" fontWeight="regular" color="white">
+                  Playdate Request
+                </MKTypography>
               </MKBox>
-              <MKBox p={2}>
+              <MKBox pt="1rem" pl="3rem" pr="3rem" pb="0rem">
                 <form onSubmit={handleSubmit}>
-                  <MKBox
-                    display="flex"
-                    alginItems="center"
-                    justifyContent="space-between"
-                    p={2}
-                    width="50%"
-                  >
-                    {/* <LocalizationProvider dateAdapter={AdapterDateFns}
+                  <Grid container>
+                    <Grid item xs={12} md={6}>
+                      <MKBox
+                        className="Avatar"
+                        sx={{
+                          display: "flex",
+                          justifyContent: { xs: "flex-end" },
+                          alignItems: "center",
+                          mb: "0.5rem", //commented by kavita
+                        }}
+                      >
+                        <MKAvatar
+                          zIndex={2}
+                          src={`${dogInfo.profile_photo}`}
+                          alt={`${dogInfo.name} {selectedDogRequest.DogLovers.last_name}`}
+                          shadow="xl"
+                          // sx={{ width: "10rem", height: "10rem" }} //commented by kavita
+                          sx={{ width: "6rem", height: "6rem" }}
+                          style={{
+                            border: "0.3rem solid #ff9a85",
+                            background:
+                              "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
+                            borderRadius: "100%",
+                            boxShadow:
+                              "14.11px 14.11px 24px #D9DADE, -14.11px -14.11px 24px #FFFFFF",
+                          }}
+                        >
+                          <img
+                            src={DogAvatar}
+                            alt="avatar"
+                            style={{ width: "100%", height: "100%" }}
+                          />
+                        </MKAvatar>
+                      </MKBox>
+                    </Grid>
+                    <Grid
+
+                      item
+                      xs={12}
+                      md={6}
+                      display="flex"
+                      sx={{ justifyContent: { xs: "flex-start" } }}
+                    >
+                      <MKBox
+                        display="flex"
+                        flexDirection="column"
+                        alignItems="flexStart"
+                        justifyContent="center"
+                        mb="0.5rem" ml="1rem"
+                      >
+                        <MKTypography
+                          // variant="h2" //commented by kavita
+                          variant="h4"
+                          fontWeight="regular"
+                          color="dark"
+
+                        >
+                          {dogInfo.name}
+                        </MKTypography>
+
+                        <MKTypography
+                          // variant="h3" //commented by kavita
+                          variant="h6"
+                          fontWeight="regular"
+                          color="dark"
+                        >
+                          {dogInfo.breed}
+                        </MKTypography>
+                      </MKBox>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <MKBox
+                        display="flex"
+                        alginItems="center"
+                        justifyContent="space-between"
+                        p={2}
+                        width="50%"
+                      >
+                        {/* <LocalizationProvider dateAdapter={AdapterDateFns}
                 locale={localeMap[locale]}
             > */}
 
-                    <LocalizationProvider
-                      dateAdapter={AdapterDateFns}
-                      locale={localeMap[locale]}
-                    >
-                      <DatePicker
-                        views={["day"]}
-                        mask={maskMap[locale]}
-                        label="Play Date"
-                        // openTo="year"
-                        //views={['day', 'month', 'year']}
-                        minDate={new Date()}
-                        value={startDate}
-                        onChange={(newValue) => {
-                          setStartDate(newValue);
-                        }}
-                        //format="DD/MM/YYYY"
-                        renderInput={(params) => <TextField {...params} />}
-                      />
-                    </LocalizationProvider>
-                  </MKBox>
-                  <MKBox
-                    display="flex"
-                    alginItems="center"
-                    justifyContent="space-between"
-                    p={2}
-                  >
-                    <MKBox mr={2}>
+                        <LocalizationProvider
+                          dateAdapter={AdapterDateFns}
+                          locale={localeMap[locale]}
+                        >
 
-                      <LocalizationProvider
-                        dateAdapter={AdapterDateFns}
-                      // locale={localeMap[locale]}
+                          <DatePicker
+                            views={["day"]}
+                            mask={maskMap[locale]}
+                            label="Play Date"
+                            // openTo="year"
+                            //views={['day', 'month', 'year']}
+                            minDate={new Date()}
+                            value={startDate}
+                            onChange={(newValue) => {
+                              setStartDate(newValue);
+                            }}
+                            // style={{ color: "#ff9a85" }}
+                            //format="DD/MM/YYYY"
+                            // renderInput={(params) => <TextField {...params} />}
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                sx={{
+                                  svg: { color: "#ff9a85" }
+                                }}
+                              />
+                            )}
+                          />
+
+                        </LocalizationProvider>
+                      </MKBox>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKBox
+                        display="flex"
+                        alginItems="center"
+                        justifyContent="flex-start"
+
+                      // pl={2} pr={}
                       >
+                        <MKBox pl={2} mr={1}
+                          width="45%"
+                        >
 
-                        <TimePicker
-                          //ampm={false}
-                          //format="HH:mm:ss"
-                          label="Start Time"
-                          value={startTime}
-                          onChange={setStartTime}
-                          renderInput={(params) => <TextField {...params} />}
+                          <LocalizationProvider
+                            dateAdapter={AdapterDateFns}
+                          // locale={localeMap[locale]}
+                          >
+
+                            <TimePicker
+
+                              //ampm={false}
+                              //format="HH:mm:ss"
+
+                              label="Start Time"
+                              value={startTime}
+                              onChange={setStartTime}
+                              //renderInput={(params) => <TextField {...params} />}
+                              renderInput={(params) => (
+                                <TextField
+                                  {...params}
+                                  sx={{
+                                    svg: { color: "#ff9a85" },
+                                    // width: "100%"
+                                  }}
+                                />
+                              )}
+                            // InputProps={{ readOnly: true }}
+                            // onChangeRaw={(e) => e.preventDefault()}
+                            />
+                          </LocalizationProvider>
+                        </MKBox>
+                        <MKBox pr={0} pl={0} width="50%">
+                          <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <TimePicker
+                              //format="HH:mm:ss"
+                              label="End Time"
+                              value={endTime}
+                              onChange={setEndTime}
+                              //renderInput={(params) => <TextField {...params} />}
+                              renderInput={(params) => (
+                                <TextField
+                                  {...params}
+                                  sx={{
+                                    svg: { color: "#ff9a85" }
+                                  }}
+                                />
+                              )}
+                            />
+                          </LocalizationProvider>
+                        </MKBox>
+                      </MKBox>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKBox
+                        display="flex"
+                        alginItems="center"
+                        justifyContent="flex-start"
+                        p={2}
+                      // sx={{ p: "2rem, 1rem, 1rem, 1rem" }}
+                      >
+                        <MKInput
+                          label="Meeting Location"
+                          fullWidth
+                          type="text"
+                          name="location"
+                          value={location}
+                          onChange={(e) => setLocation(e.target.value)}
+                          placeholder="Enter meeting location"
+                          required
                         />
-                      </LocalizationProvider>
-                    </MKBox>
-                    <MKBox>
-                      <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <TimePicker
-                          //format="HH:mm:ss"
-                          label="End Time"
-                          value={endTime}
-                          onChange={setEndTime}
-                          renderInput={(params) => <TextField {...params} />}
+                      </MKBox>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKBox
+                        display="flex"
+                        alginItems="center"
+                        justifyContent="flex-start"
+                        pt={0} pl={2} pb={2} pr={2}
+                      >
+                        <MKInput
+                          multiline
+                          rows={6}
+                          label="Message"
+                          fullWidth
+                          type="text"
+                          name="message"
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
+                          placeholder="Message here...."
+                          rows={4}
                         />
-                      </LocalizationProvider>
-                    </MKBox>
-                  </MKBox>
-                  <MKBox
-                    display="flex"
-                    alginItems="center"
-                    justifyContent="flex-start"
-                    p={2}
-                  >
-                    <MKInput
-                      label="Meeting Location"
-                      fullWidth
-                      type="text"
-                      name="location"
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                      placeholder="Enter meeting location"
-                      required
-                    />
-                  </MKBox>
-                  <MKBox
-                    display="flex"
-                    alginItems="center"
-                    justifyContent="flex-start"
-                    p={2}
-                  >
-                    <MKInput
-                      multiline
-                      rows={6}
-                      label="Message"
-                      fullWidth
-                      type="text"
-                      name="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Message here...."
-                      rows={4}
-                    />
-                  </MKBox>
-                  <MKBox display="flex" justifyContent="space-between" p={1.5}>
-                    <MKButton
-                      size="small"
-                      variant="gradient"
-                      color="info"
-                      style={{
-                        marginLeft: "1.5rem",
-                        width: "8rem",
-                        minWidth: "120px",
-                      }}
-                      // onClick={toggleModal}
-                      onClick={handleCancel}
-                    >
-                      Close
-                    </MKButton>
-                    <MKButton
-                      size="small"
-                      type="submit"
-                      variant="gradient"
-                      color="info"
-                      style={{
-                        marginLeft: "1.5rem",
-                        width: "8rem",
-                        minWidth: "120px",
-                      }}
-                      type="submit"
-                    >
-                      Send Request
-                    </MKButton>
-                  </MKBox>
+                      </MKBox>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKBox display="flex" justifyContent="center" p={1.5}>
+                        <MKButton
+                          size="small"
+                          variant="gradient"
+                          color="info"
+                          style={{
+                            marginLeft: "1.5rem",
+                            width: "8rem",
+                            minWidth: "120px",
+                          }}
+                          // onClick={toggleModal}
+                          onClick={handleCancel}
+                        >
+                          Close
+                        </MKButton>
+                        <MKButton
+                          size="small"
+                          type="submit"
+                          variant="gradient"
+                          color="info"
+                          style={{
+                            marginLeft: "1.5rem",
+                            width: "8rem",
+                            minWidth: "120px",
+                          }}
+                          type="submit"
+                        >
+                          Send Request
+                        </MKButton>
+                      </MKBox>
+                    </Grid>
+                  </Grid>
                 </form>
               </MKBox>
             </MKBox>
           </Slide>
         </Modal>
       </Container>
-    </MKBox>
+    </MKBox >
   );
 }
 
