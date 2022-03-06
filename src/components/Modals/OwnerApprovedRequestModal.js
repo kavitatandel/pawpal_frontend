@@ -155,7 +155,7 @@ function OwnerApprovedRequestModal({
                                         >
                                             <MKTypography
                                                 // variant="h2" //commented by kavita
-                                                variant="h4"
+                                                variant="h5"
                                                 fontWeight="regular"
                                                 color="dark"
                                             >
@@ -183,7 +183,7 @@ function OwnerApprovedRequestModal({
                                             alignItems="flex-start"
                                         >
                                             {/* <MKBox> */}
-                                            <MKTypography variant="h4"
+                                            <MKTypography variant="h5"
                                                 fontWeight="regular"
                                                 color="info"
                                                 fontSize="0.75rem">
@@ -199,10 +199,10 @@ function OwnerApprovedRequestModal({
                                             alignItems="flex-start"
                                         >
                                             <MKTypography
-                                                variant="h4"
+                                                variant="h5"
                                                 fontWeight="regular"
                                                 color="dark"
-                                                fontSize="1.25rem">
+                                                fontSize="1rem">
                                                 <PersonIcon style={styledIcon} />
                                                 {selectedDogRequest.DogLovers.first_name} {selectedDogRequest.DogLovers.last_name}
                                             </MKTypography>
@@ -220,7 +220,7 @@ function OwnerApprovedRequestModal({
                                             alignItems="flex-start"
                                         >
                                             {/* <MKBox> */}
-                                            <MKTypography variant="h4"
+                                            <MKTypography variant="h5"
                                                 fontWeight="regular"
                                                 color="info"
                                                 fontSize="0.75rem">
@@ -236,10 +236,10 @@ function OwnerApprovedRequestModal({
                                             alignItems="flex-start"
                                         >
                                             <MKTypography
-                                                variant="h4"
+                                                variant="h5"
                                                 fontWeight="regular"
                                                 color="dark"
-                                                fontSize="1.25rem">
+                                                fontSize="1rem">
                                                 <NotListedLocationIcon style={styledIcon} />
                                                 {selectedDogRequest.DogLovers.street}  {selectedDogRequest.DogLovers.zip_code},  {selectedDogRequest.DogLovers.city},  {selectedDogRequest.DogLovers.country}
                                             </MKTypography>
@@ -253,7 +253,7 @@ function OwnerApprovedRequestModal({
                                             alignItems="flex-start"
                                             justifyContent="flex-start">
                                             <MKBox pr={4}>
-                                                <MKTypography variant="h4"
+                                                <MKTypography variant="h5"
                                                     fontWeight="regular"
                                                     color="info"
                                                     // fontSize="1rem" //commented by kavita
@@ -268,7 +268,7 @@ function OwnerApprovedRequestModal({
                                             </MKBox>
 
                                             <MKBox pr={4}>
-                                                <MKTypography variant="h4"
+                                                <MKTypography variant="h5"
                                                     fontWeight="regular"
                                                     color="info"
                                                     // fontSize="1rem" //commented by kavita
@@ -282,18 +282,18 @@ function OwnerApprovedRequestModal({
                                                 </MKTypography>
                                             </MKBox>
                                             <MKBox pr={4}>
-                                                <MKTypography variant="h4"
+                                                <MKTypography variant="h5"
                                                     fontWeight="regular"
                                                     color="info"
                                                     // fontSize="1rem" //commented by kavita
                                                     fontSize="0.75rem">
                                                     End Time:
                                                 </MKTypography>
-                                                <MKTypography variant="h4"
+                                                <MKTypography variant="h5"
                                                     fontWeight="regular"
                                                     color="dark"
                                                     // fontSize="1.5rem"//commented by kavita
-                                                    fontSize="1.25rem">
+                                                    fontSize="1rem">
                                                     <AccessTimeFilledIcon style={styledIcon} />
                                                     {/* {selectedDogRequest.end_time} */}
                                                     {selectedDogRequest.end_time.slice(-11, -6)} {selectedDogRequest.end_time.slice(-3)}
@@ -309,7 +309,7 @@ function OwnerApprovedRequestModal({
                                             justifyContent="flex-start">
                                             <MKBox pr={7}>
                                                 <MKTypography
-                                                    variant="h4"
+                                                    variant="h5"
                                                     fontWeight="regular"
                                                     color="info"
                                                     fontSize="0.75rem">
@@ -319,7 +319,7 @@ function OwnerApprovedRequestModal({
                                                 <MKTypography fontWeight="regular"
                                                     color="dark"
                                                     // fontSize="1.5rem"//commented by kavita
-                                                    fontSize="1.25rem">
+                                                    fontSize="1rem">
                                                     <AccessTimeFilledIcon style={styledIcon} />
                                                     {selectedDogRequest.meeting_location}
 
@@ -331,7 +331,7 @@ function OwnerApprovedRequestModal({
 
                                             <MKBox>
                                                 <MKTypography
-                                                    variant="h4"
+                                                    variant="h5"
                                                     fontWeight="regular"
                                                     color="info"
                                                     fontSize="0.75rem">
@@ -340,7 +340,7 @@ function OwnerApprovedRequestModal({
                                                 <MKTypography fontWeight="regular"
                                                     color="dark"
                                                     // fontSize="1.5rem"//commented by kavita
-                                                    fontSize="1.25rem">
+                                                    fontSize="1rem">
                                                     <ApprovalIcon style={styledIcon} />
                                                     {selectedDogRequest.status}
                                                 </MKTypography>

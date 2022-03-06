@@ -161,7 +161,7 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h2" //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="dark"
                       >
@@ -189,7 +189,7 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3" //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="info"
                         // fontSize="1rem" //commented by kavita
@@ -207,11 +207,11 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3"//commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="dark"
                         // fontSize="1.5rem"//commented by kavita
-                        fontSize="1.25rem"
+                        fontSize="1rem"
                       >
                         <TodayIcon style={styledIcon} />
                         {new Date(selectedDogRequest.start_date)
@@ -236,7 +236,7 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3" //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="info"
                         // fontSize="1rem" //commented by kavita
@@ -254,11 +254,11 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3" //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="dark"
                         // fontSize="1.5rem" //commented by kavita
-                        fontSize="1.25rem"
+                        fontSize="1rem"
                       >
                         <AccessTimeFilledIcon style={styledIcon} />
                         {selectedDogRequest.start_time.slice(-11, -6)}{" "}
@@ -282,7 +282,7 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3" //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="info"
                         // fontSize="1rem" //commented by kavita
@@ -300,11 +300,11 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3"  //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="dark"
                         // fontSize="1.5rem" //commented by kavita
-                        fontSize="1.25rem"
+                        fontSize="1rem"
                       >
                         <AccessTimeFilledIcon style={styledIcon} />
                         {selectedDogRequest.end_time.slice(-11, -6)}{" "}
@@ -323,7 +323,7 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3" //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="info"
                         // fontSize="1rem" //commented by kavita
@@ -341,11 +341,11 @@ function DogLoverRequestInfoModal({
                     >
                       <MKTypography
                         // variant="h3" //commented by kavita
-                        variant="h4"
+                        variant="h5"
                         fontWeight="regular"
                         color="dark"
                         // fontSize="1.5rem" //commented by kavita
-                        fontSize="1.25rem"
+                        fontSize="1rem"
                       >
                         <NotListedLocationIcon style={styledIcon} />
                         {selectedDogRequest.meeting_location}
@@ -365,7 +365,7 @@ function DogLoverRequestInfoModal({
                         >
                           <MKTypography
                             // variant="h3" //commented by kavita
-                            variant="h4"
+                            variant="h5"
                             fontWeight="regular"
                             color="info"
                             // fontSize="1rem" //commented by kavita
@@ -383,11 +383,11 @@ function DogLoverRequestInfoModal({
                         >
                           <MKTypography
                             // variant="h3" //commented by kavita
-                            variant="h4"
+                            variant="h5"
                             fontWeight="regular"
                             color="dark"
                             // fontSize="1.5rem" //commented by kavita
-                            fontSize="1.25rem"
+                            fontSize="1rem"
                           >
                             <NotListedLocationIcon style={styledIcon} />
                             {selectedDogRequest.owner_reason}
@@ -405,7 +405,7 @@ function DogLoverRequestInfoModal({
                         >
                           <MKTypography
                             // variant="h3" //commented by kavita
-                            variant="h4"
+                            variant="h5"
                             fontWeight="regular"
                             color="info"
                             // fontSize="1rem" //commented by kavita
@@ -425,11 +425,11 @@ function DogLoverRequestInfoModal({
                             selectedDogRequest.owner_message === undefined ? (
                             <MKTypography
                               // variant="h3" //commented by kavita
-                              variant="h4"
+                              variant="h5"
                               fontWeight="regular"
                               color="dark"
                               // fontSize="1.5rem" //commented by kavita
-                              fontSize="1.25rem"
+                              fontSize="1rem"
                             >
                               <NotListedLocationIcon style={styledIcon} />
                               No message
@@ -437,11 +437,11 @@ function DogLoverRequestInfoModal({
                           ) : (
                             <MKTypography
                               // variant="h3" //commented by kavita
-                              variant="h4"
+                              variant="h5"
                               fontWeight="regular"
                               color="dark"
                               // fontSize="1.5rem" //commented by kavita
-                              fontSize="1.25rem"
+                              fontSize="1rem"
                             >
                               <NotListedLocationIcon style={styledIcon} />
                               {selectedDogRequest.owner_message}
