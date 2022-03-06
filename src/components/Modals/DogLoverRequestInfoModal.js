@@ -66,8 +66,10 @@ function DogLoverRequestInfoModal({
           <Slide direction="down" in={show} timeout={500}>
             <MKBox
               position="relative"
+              // width="80%"
+              // maxWidth="1000px"
               width="80%"
-              maxWidth="1000px"
+              maxWidth="700px"
               height="auto"
               display="flex"
               justifyContent="center"
@@ -86,9 +88,15 @@ function DogLoverRequestInfoModal({
                 borderRadius="lg"
                 coloredShadow="info"
                 width="60%"
+                // mx="3rem"
+                // mt="-4rem"
+                // p="2rem 2rem"
+                //by kavita
                 mx="3rem"
-                mt="-4rem"
-                p="2rem 2rem"
+                mt="-2.5rem"
+                pt="0.75rem"
+                pr="1rem" pl="1rem"
+                pb="0.75rem"
                 textAlign="center"
               >
                 {/* Request Status Heading */}
@@ -96,7 +104,10 @@ function DogLoverRequestInfoModal({
                   {selectedDogRequest.status} Request
                 </MKTypography>
               </MKBox>
-              <MKBox p="3rem">
+              {/* by kavita */}
+              <MKBox pt="1rem" pl="3rem" pr="3rem" pb="0rem">
+                {/* by coralee */}
+                {/* <MKBox p="3rem"> */}
                 <Grid container>
                   {/* *********** Avatar */}
                   <Grid item xs={12} md={6}>
@@ -106,7 +117,7 @@ function DogLoverRequestInfoModal({
                         display: "flex",
                         justifyContent: { xs: "flex-end" },
                         alignItems: "center",
-                        m: "1rem",
+                        // m: "1rem", //commented by kavita
                       }}
                     >
                       <MKAvatar
@@ -114,7 +125,8 @@ function DogLoverRequestInfoModal({
                         src={`${selectedDogRequest.DogsRequests.profile_photo}`}
                         alt={`${selectedDogRequest.DogsRequests.profile_photo}`}
                         shadow="xl"
-                        sx={{ width: "10rem", height: "10rem" }}
+                        // sx={{ width: "10rem", height: "10rem" }} //commented by kavita
+                        sx={{ width: "6rem", height: "6rem" }}
                         style={{
                           border: "0.3rem solid #ff9a85",
                           background:
@@ -148,7 +160,8 @@ function DogLoverRequestInfoModal({
                       m="1rem"
                     >
                       <MKTypography
-                        variant="h2"
+                        // variant="h2" //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="dark"
                       >
@@ -156,7 +169,8 @@ function DogLoverRequestInfoModal({
                       </MKTypography>
 
                       <MKTypography
-                        variant="h3"
+                        // variant="h3" //commented by kavita
+                        variant="h6"
                         fontWeight="regular"
                         color="dark"
                       >
@@ -174,25 +188,30 @@ function DogLoverRequestInfoModal({
                       justifyContent="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3" //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="info"
-                        fontSize="1rem"
+                        // fontSize="1rem" //commented by kavita
+                        fontSize="0.75rem"
                       >
                         DATE
                       </MKTypography>
                     </MKBox>
                     <MKBox
                       display="flex"
-                      sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                      // sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                      sx={{ m: "0.1rem 1rem 1rem 1rem" }}
                       alignItems="flex-start"
                       justifyContent="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3"//commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="dark"
-                        fontSize="1.5rem"
+                        // fontSize="1.5rem"//commented by kavita
+                        fontSize="1.25rem"
                       >
                         <TodayIcon style={styledIcon} />
                         {new Date(selectedDogRequest.start_date)
@@ -210,30 +229,36 @@ function DogLoverRequestInfoModal({
                   <Grid item xs={12} md={6}>
                     <MKBox
                       display="flex"
-                      sx={{ m: "1rem 1rem 0.3rem 1rem" }}
+                      // sx={{ m: "1rem 1rem 0.3rem 1rem" }} //commented by kavita
+                      sx={{ m: "0.25rem 1rem 0.3rem 1rem" }}
                       alignItems="flex-start"
                       justifyContent="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3" //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="info"
-                        fontSize="1rem"
+                        // fontSize="1rem" //commented by kavita
+                        fontSize="0.75rem"
                       >
                         START TIME
                       </MKTypography>
                     </MKBox>
                     <MKBox
                       display="flex"
-                      sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                      // sx={{ m: "0.3rem 1rem 1rem 1rem" }} //commented by kavita
+                      sx={{ m: "0.1rem 1rem 1rem 1rem" }}
                       alignItems="flex-start"
                       justifyContent="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3" //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="dark"
-                        fontSize="1.5rem"
+                        // fontSize="1.5rem" //commented by kavita
+                        fontSize="1.25rem"
                       >
                         <AccessTimeFilledIcon style={styledIcon} />
                         {selectedDogRequest.start_time.slice(-11, -6)}{" "}
@@ -245,32 +270,41 @@ function DogLoverRequestInfoModal({
                   <Grid item xs={12} md={6}>
                     <MKBox
                       display="flex"
+                      // sx={{
+                      //   m: "1rem 1rem 0.3rem 1rem",
+                      //   justifyContent: { lg: "flex-start" },
+                      // }} //commented by kavita
                       sx={{
-                        m: "1rem 1rem 0.3rem 1rem",
+                        m: "0.25rem 1rem 0rem 1rem",
                         justifyContent: { lg: "flex-start" },
                       }}
                       alignItems="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3" //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="info"
-                        fontSize="1rem"
+                        // fontSize="1rem" //commented by kavita
+                        fontSize="0.75rem"
                       >
                         END TIME
                       </MKTypography>
                     </MKBox>
                     <MKBox
                       display="flex"
-                      sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                      // sx={{ m: "0.3rem 1rem 1rem 1rem" }} //commented by kavita
+                      sx={{ m: "0.1rem 1rem 1rem 1rem" }}
                       alignItems="flex-start"
                       justifyContent="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3"  //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="dark"
-                        fontSize="1.5rem"
+                        // fontSize="1.5rem" //commented by kavita
+                        fontSize="1.25rem"
                       >
                         <AccessTimeFilledIcon style={styledIcon} />
                         {selectedDogRequest.end_time.slice(-11, -6)}{" "}
@@ -282,30 +316,36 @@ function DogLoverRequestInfoModal({
                   <Grid item xs={12}>
                     <MKBox
                       display="flex"
-                      sx={{ m: "1rem 1rem 0rem 1rem" }}
+                      // sx={{ m: "1rem 1rem 0rem 1rem" }} //commented by kavita
+                      sx={{ m: "0.25rem 1rem 0rem 1rem" }}
                       alignItems="flex-start"
                       justifyContent="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3" //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="info"
-                        fontSize="1rem"
+                        // fontSize="1rem" //commented by kavita
+                        fontSize="0.75rem"
                       >
                         MEETING LOCATION
                       </MKTypography>
                     </MKBox>
                     <MKBox
                       display="flex"
-                      sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                      // sx={{ m: "0.3rem 1rem 1rem 1rem" }} //commented by kavita
+                      sx={{ m: "0.1rem 1rem 1rem 1rem" }}
                       alignItems="flex-start"
                       justifyContent="flex-start"
                     >
                       <MKTypography
-                        variant="h3"
+                        // variant="h3" //commented by kavita
+                        variant="h4"
                         fontWeight="regular"
                         color="dark"
-                        fontSize="1.5rem"
+                        // fontSize="1.5rem" //commented by kavita
+                        fontSize="1.25rem"
                       >
                         <NotListedLocationIcon style={styledIcon} />
                         {selectedDogRequest.meeting_location}
@@ -318,30 +358,36 @@ function DogLoverRequestInfoModal({
                       <>
                         <MKBox
                           display="flex"
-                          sx={{ m: "1rem 1rem 0rem 1rem" }}
+                          // sx={{ m: "1rem 1rem 0rem 1rem" }} //commented by kavita
+                          sx={{ m: "0.25rem 1rem 0rem 1rem" }}
                           alignItems="flex-start"
                           justifyContent="flex-start"
                         >
                           <MKTypography
-                            variant="h3"
+                            // variant="h3" //commented by kavita
+                            variant="h4"
                             fontWeight="regular"
                             color="info"
-                            fontSize="1rem"
+                            // fontSize="1rem" //commented by kavita
+                            fontSize="0.75rem"
                           >
                             OWNER REASON
                           </MKTypography>
                         </MKBox>
                         <MKBox
                           display="flex"
-                          sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                          // sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                          sx={{ m: "0.1rem 1rem 1rem 1rem" }}
                           alignItems="flex-start"
                           justifyContent="flex-start"
                         >
                           <MKTypography
-                            variant="h3"
+                            // variant="h3" //commented by kavita
+                            variant="h4"
                             fontWeight="regular"
                             color="dark"
-                            fontSize="1.5rem"
+                            // fontSize="1.5rem" //commented by kavita
+                            fontSize="1.25rem"
                           >
                             <NotListedLocationIcon style={styledIcon} />
                             {selectedDogRequest.owner_reason}
@@ -352,42 +398,50 @@ function DogLoverRequestInfoModal({
                       <>
                         <MKBox
                           display="flex"
-                          sx={{ m: "1rem 1rem 0rem 1rem" }}
+                          // sx={{ m: "1rem 1rem 0rem 1rem" }}
+                          sx={{ m: "0.25rem 1rem 0rem 1rem" }}
                           alignItems="flex-start"
                           justifyContent="flex-start"
                         >
                           <MKTypography
-                            variant="h3"
+                            // variant="h3" //commented by kavita
+                            variant="h4"
                             fontWeight="regular"
                             color="info"
-                            fontSize="1rem"
+                            // fontSize="1rem" //commented by kavita
+                            fontSize="0.75rem"
                           >
                             OWNER MESSAGE
                           </MKTypography>
                         </MKBox>
                         <MKBox
                           display="flex"
-                          sx={{ m: "0.3rem 1rem 1rem 1rem" }}
+                          // sx={{ m: "0.3rem 1rem 1rem 1rem" }}//commented by kavita
+                          sx={{ m: "0.1rem 1rem 0.5rem 1rem" }}
                           alignItems="flex-start"
                           justifyContent="flex-start"
                         >
                           {selectedDogRequest.owner_message === "" ||
-                          selectedDogRequest.owner_message === undefined ? (
+                            selectedDogRequest.owner_message === undefined ? (
                             <MKTypography
-                              variant="h3"
+                              // variant="h3" //commented by kavita
+                              variant="h4"
                               fontWeight="regular"
                               color="dark"
-                              fontSize="1.5rem"
+                              // fontSize="1.5rem" //commented by kavita
+                              fontSize="1.25rem"
                             >
                               <NotListedLocationIcon style={styledIcon} />
                               No message
                             </MKTypography>
                           ) : (
                             <MKTypography
-                              variant="h3"
+                              // variant="h3" //commented by kavita
+                              variant="h4"
                               fontWeight="regular"
                               color="dark"
-                              fontSize="1.5rem"
+                              // fontSize="1.5rem" //commented by kavita
+                              fontSize="1.25rem"
                             >
                               <NotListedLocationIcon style={styledIcon} />
                               {selectedDogRequest.owner_message}
@@ -402,15 +456,18 @@ function DogLoverRequestInfoModal({
                     <MKBox
                       display="flex"
                       justifyContent="center"
-                      p={1.5}
-                      my="2rem"
+                      // p={1.5}
+                      // my="2rem" //commented by kavita
+                      my="1rem"
+                      sx={{ p: "1 1.5 0.5 1.5" }}
                     >
                       <MKButton
                         size="large"
                         variant="gradient"
                         color="info"
                         style={{
-                          width: "8rem",
+                          // width: "8rem", //commented by kavita
+                          width: "7rem",
                           minWidth: "100px",
                           minHeight: "50px",
                         }}
