@@ -111,9 +111,13 @@ const ProfileForm = () => {
           profile_pic: res.data.profile_pic,
           description: res.data.description,
         });
-        //for spinner
-        setLoading(false);
+        // //for spinner
+        // setLoading(false);
 
+      })
+      .then(() => {
+        //for spinner
+        // setLoading(false);
       })
 
       .catch((err) => console.log(err));
@@ -268,7 +272,7 @@ const ProfileForm = () => {
                   color="light"
                   textAlign="center"
                 >
-                  {`${user.first_name} ${user.last_name}`}
+                  {`${user.first_name !== undefined && user.first_name} ${user.last_name !== undefined && user.last_name}`}
                 </MKTypography>
               </Grid>
             </Grid>
