@@ -82,9 +82,9 @@ const OwnerApprovedRequests = ({
         >
           {/* map thru searched dogs */}
           {dogApprovedRequestsInfo === undefined ? (
-            <h5>No Playdate Requests Found. </h5>
+            <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
           ) : dogApprovedRequestsInfo.length === 0 ? (
-            <h5>No Playdate Requests Found. </h5>
+            <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
           ) : (
             ""
           )}
