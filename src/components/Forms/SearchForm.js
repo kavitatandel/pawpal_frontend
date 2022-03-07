@@ -38,6 +38,7 @@ const SearchForm = () => {
   const [locations, setLocations] = useState([]);
   //const [locations, setLocations] = useState(data);
   const [search, setSearch] = useState("");
+  const [autoSearch, setAutoSearch] = useState();
   const [loading, setLoading] = useState(false);
 
   //added to check if user has searched dog or not
@@ -45,12 +46,48 @@ const SearchForm = () => {
 
   let [color, setColor] = useState("#ff3d47");
 
-  // Can be a string as well. Need to ensure each key-value pair ends with ;
-  //   const override = css`
-  //   display: block;
-  //   margin: 0 auto;
-  //   border-color: red;
-  // `;
+  const sleep = (ms) => {
+    new Promise((userLocation) => {
+      console.log(`waiting 2sec`);
+      setTimeout(userLocation, ms);
+    });
+  };
+
+  // Handle search for user's default city
+  const handleDefaultCity = () => {
+    searchDogByCity(user.city)
+      .then((res) => {
+        console.log(res);
+        if (res) {
+          setLocations(res);
+        } else {
+          console.log(`Problem.`);
+        }
+      })
+      .then(() => {
+        console.log(locations);
+        setIsSearched(true);
+      })
+      .catch((err) => {
+        setIsSearched(false);
+        console.log(err);
+      });
+  };
+
+  // find dogs according to user city
+  const runFunctions = async () => {
+    if (user) {
+      await handleDefaultCity();
+      await sleep(2000);
+      await console.log(locations);
+    } else console.log(`no user?`);
+  };
+
+  // check location of user
+  useEffect(() => {
+    console.log(user);
+    runFunctions();
+  }, [user]);
 
   //handle search click event
   const handleSearch = (e) => {
@@ -86,11 +123,13 @@ const SearchForm = () => {
   //let dogData = [];
   useEffect(() => {
     console.log(user); // getting only latitude and longitude inside user
-    //setLocations(user);
-    // }, [locations]);
+    // setUserLocation([user.latitude, user.longitude]);
   }, []);
 
-  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
+  if (loading)
+    return (
+      <RiseLoader color={color} loading={loading} css={override} size={40} />
+    );
   return (
     <>
       {/* Entire Page Container (without footer) */}
@@ -173,20 +212,14 @@ const SearchForm = () => {
             </Grid>
           </Grid>
           {/* Section below the search area */}
-          <Grid
-            container
-            mx={0}
-            display="flex"
-            justifyContent="center"
-            overflow="hidden"
-          >
+          <Grid container mx={0} display="flex" justifyContent="center">
             {/* **************** SEARCH RESULTS */}
             <div
               className="container-fluid"
               style={{
                 width: "100%",
-
                 borderRadius: "0 0 30px 30px",
+                overflow: "auto",
               }}
             >
               <div
@@ -211,8 +244,7 @@ const SearchForm = () => {
                   <LeafletMap
                     locations={locations}
                     style={{
-                      width: "100%",
-                      // position: "absolute",
+                      position: "absolute",
                     }}
                     isSearched={isSearched}
                   />
@@ -220,7 +252,7 @@ const SearchForm = () => {
                 <MKBox
                   className="row-fluid overlay"
                   sx={{
-                    flexWrap: "wrap",
+                    // flexWrap: "wrap",
                     width: {
                       sm: "35%",
                       md: "50%",
@@ -239,7 +271,13 @@ const SearchForm = () => {
                       // backgroundColor: "rgba(255, 41, 41, 0.4)",
                     }}
                   >
-                    {isSearched && locations.length > 0 ? (
+                    <SearchedDog
+                      locations={locations}
+                      setLocations={setLocations}
+                    />
+
+                    {/* {isSearched && locations.length > 0 ? (
+                    
                       <SearchedDog
                         locations={locations}
                         setLocations={setLocations}
@@ -276,7 +314,7 @@ const SearchForm = () => {
                           </MKBox>
                         </Card>
                       </MKBox>
-                    )}
+                    )} */}
                   </MKBox>
                 </MKBox>
               </div>
