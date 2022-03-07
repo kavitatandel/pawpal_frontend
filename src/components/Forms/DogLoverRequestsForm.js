@@ -546,7 +546,7 @@ const DogLoverRequestsForm = () => {
                                 >
                                   {request.status}
                                 </MKTypography>
-                              ) : request.status === "Accepted" ? (
+                              ) : (request.status === "Approved") ? (
                                 <MKTypography
                                   variant="p"
                                   style={{

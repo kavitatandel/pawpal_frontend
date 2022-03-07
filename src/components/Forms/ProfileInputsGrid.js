@@ -14,9 +14,9 @@ import { styled } from "@mui/material/styles";
 // const helperTextStyles = styled((theme) => ({
 //   root: {
 //     margin: 4,
-//     color: "red !important",
+//     color: "red",
 //     "&$error": {
-//       color: "red !important",
+//       color: "red",
 //     },
 //   },
 //   error: {}, //<--this is required to make it work
