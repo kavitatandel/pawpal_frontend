@@ -21,17 +21,17 @@ import jwt_decode from "jwt-decode";
 import { styled } from "@mui/material/styles";
 import { makeStyles } from '@material-ui/core/styles';
 //style for helpertext for email and password when error occurs
-const helperTextStyles = styled((theme) => ({
-  MuiFormHelperText: {
-    root: {
-      color: 'red',
-      "&$error": {
-        color: 'red'
-      }
-    },
-  },
+// const helperTextStyles = styled((theme) => ({
+//   MuiFormHelperText: {
+//     root: {
+//       color: 'red',
+//       "&$error": {
+//         color: 'red'
+//       }
+//     },
+//   },
 
-}))
+// }))
 
 const useStyles = makeStyles(theme => ({
   // MuiOutlinedInput: {
