@@ -272,7 +272,9 @@ const ProfileForm = () => {
                   color="light"
                   textAlign="center"
                 >
-                  {`${user.first_name !== undefined && user.first_name} ${user.last_name !== undefined && user.last_name}`}
+                  {/* {`${user.first_name !== undefined && user.first_name} ${user.last_name !== undefined && user.last_name}`} */}
+                  {/* {`${user.first_name} ${user.last_name}`} */}
+                  {user.first_name === undefined ? "" : `${user.first_name} ${user.last_name}`}
                 </MKTypography>
               </Grid>
             </Grid>
