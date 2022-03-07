@@ -199,7 +199,8 @@ const DogLoverRequestsForm = () => {
             <MKBox
               variant="gradient"
               bgColor="info"
-              borderRadius="lg"
+              //borderRadius="lg"
+              borderRadius="25px"
               coloredShadow="info"
               width="60%"
               mx="12rem"

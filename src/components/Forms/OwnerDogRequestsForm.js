@@ -169,7 +169,7 @@ const OwnerDogRequestsForm = () => {
               <h1></h1>
             )}
             {/* ________Pink Box */}
-            <MKBox
+            {/* <MKBox
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -178,8 +178,23 @@ const OwnerDogRequestsForm = () => {
                 pb: "0rem",
                 mt: -4,
               }}
+            > */}
+            <MKBox
+              variant="gradient"
+              bgColor="info"
+              //borderRadius="lg"
+              borderRadius="25px"
+              coloredShadow="info"
+              width="60%"
+              mx="12rem"
+              mt="-2.5rem"
+              pt="1.25rem"
+              pr="1rem" pl="1rem"
+              pb="1.25rem"
+              textAlign="center"
+            //mr="10rem"
             >
-              <MKBox
+              {/* <MKBox
                 variant="gradient"
                 bgColor="info"
                 borderRadius="25px"
@@ -190,18 +205,18 @@ const OwnerDogRequestsForm = () => {
                 mb={2}
                 textAlign="center"
                 sx={{ width: "60%" }}
+              > */}
+              {/* // Heading */}
+              <MKTypography
+                variant="h4"
+                fontWeight="bold"
+                color="light"
+                textAlign="center"
+              // mt={1}
               >
-                {/* // Heading */}
-                <MKTypography
-                  variant="h4"
-                  fontWeight="bold"
-                  color="light"
-                  textAlign="center"
-                // mt={1}
-                >
-                  PLAY DATE REQUESTS
-                </MKTypography>
-              </MKBox>
+                PLAY DATE REQUESTS
+              </MKTypography>
+              {/* </MKBox> */}
             </MKBox>
             <MKBox textAlign="center" mt={2}>
               {/* // Heading */}
