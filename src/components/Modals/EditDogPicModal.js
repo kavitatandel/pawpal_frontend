@@ -79,7 +79,24 @@ const EditDogPicModal = ({
     //setDogPic(selectedFile);
   };
 
-  // useEffect(() => { }, [show, uploadedImageURL, selectedFile]);
+  //change color of close icon
+  const styledCloseIcon = {
+    transform: "scale(1.5)",
+    color: "#ff9a85",
+    marginRight: "1.2rem",
+    marginLeft: "0.2rem",
+    verticalAlign: "middle",
+    width: "4%",
+    height: "4%"
+  };
+
+  const handleCloseIcon = (e) => {
+    e.preventDefault();
+    //clear file unput
+    const inputFile = document.getElementById('inputFile');
+    inputFile.innerHTML = '';
+    inputFile.value = '';
+  }
 
   return (
     <MKBox component="section" py={6}>
@@ -92,19 +109,39 @@ const EditDogPicModal = ({
           <Slide direction="down" in={show} timeout={500}>
             <MKBox
               position="relative"
-              width="500px"
+              width="80%"
+              maxWidth="550px"
+              height="auto"
               display="flex"
+              justifyContent="center"
+              alignItems="center"
               flexDirection="column"
-              borderRadius="xl"
+              borderRadius="2rem"
               bgColor="white"
               shadow="xl"
+              p={3}
+              my={2}
             >
-              {/* <MKBox
-                display="flex"
-                alginItems="center"
-                justifyContent="space-between"
-                p={2}
-              > */}
+              {/* Pink Box at top */}
+              <MKBox
+                variant="gradient"
+                bgColor="info"
+                borderRadius="lg"
+                coloredShadow="info"
+                width="60%"
+
+                mx="3rem"
+                mt="-2.5rem"
+                pt="0.75rem"
+                pr="1rem" pl="1rem"
+                pb="0.75rem"
+                textAlign="center"
+              >
+                {/* Request Status Heading */}
+                <MKTypography variant="h3" fontWeight="regular" color="white">
+                  Upload Photo
+                </MKTypography>
+              </MKBox>
               {!loadingImage ? (
                 <MKBox
                   display="flex"
@@ -132,41 +169,44 @@ const EditDogPicModal = ({
                 : (
                   <MKBox p={2}>
                     <form onSubmit={handleSubmit}>
-                      {/* <div>
-                    <input type="file" onChange={(e) => handleFileUpload(e)} />
-                  </div> */}
+
                       <MKBox
                         display="flex"
                         justifyContent="center"
-                        pb={2}
-                      ><MKTypography variant="h6" style={{}}>Upload Dog Pic</MKTypography>
-                      </MKBox>
-                      <MKBox
-                        display="flex"
-                        justifyContent="center"
-                        pb={2}
+                        pb={2} pt={4}
                       >
-                        <input type="file" onChange={handleFileUpload} />
-                        <CloseIcon
-                          fontSize="medium"
-                          sx={{ cursor: "pointer" }}
-                        // onClick={() => setSelectedFile("")}
-                        />
+                        <input type="file" style={{ width: "70%" }} id="inputFile" onChange={handleFileUpload} />
+                        <CloseIcon fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon} />
                       </MKBox>
-                      {/* <Divider sx={{ my: 0 }} /> */}
                       <MKBox
                         display="flex"
-                        justifyContent="space-around"
+                        justifyContent="center"
                         p={1.5}
+                        mt={4}
                       >
                         <MKButton
                           variant="gradient"
-                          color="dark"
                           onClick={toggleModal}
+                          color="info"
+                          size="large"
+                          style={{
+                            width: "7rem",
+                            minWidth: "100px",
+                            minHeight: "30px",
+                          }}
                         >
                           close
                         </MKButton>
-                        <MKButton variant="gradient" color="info" type="submit">
+                        <MKButton variant="gradient" type="submit"
+                          size="large"
+                          variant="gradient"
+                          color="info"
+                          style={{
+                            marginLeft: "1.5rem",
+                            width: "8rem",
+                            minWidth: "180px",
+                            minHeight: "30px",
+                          }}>
                           save changes
                         </MKButton>
                       </MKBox>
