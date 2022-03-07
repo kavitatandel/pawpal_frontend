@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import Landing from "./pages/landing";
+import LandingStyled from "./pages/LandingStyled";
 import Register from "./pages/Register";
 import Login from "./pages/login";
 
@@ -18,19 +18,27 @@ const AppRouter = () => {
   return (
     <>
       <Routes>
-        <Route exact path="/" element={<Landing />}></Route>
+        <Route exact path="/" element={<LandingStyled />}></Route>
         <Route exact path="/register" element={<Register />}></Route>
         <Route exact path="/login" element={<Login />}></Route>
         <Route exact path="/user" element={<UserInfo />}></Route>
         {/* <Route path="/profile" element={<Profile />}></Route> */}
         <Route exact path="/user/searchdog" element={<SearchDog />}></Route>
-        <Route exact path="/user/dogloverrequests" element={<DogLoverRequests />}></Route>
+        <Route
+          exact
+          path="/user/dogloverrequests"
+          element={<DogLoverRequests />}
+        ></Route>
         {/* added to check location based on address */}
         <Route exact path="/doginfo/:dogid" element={<DogInfo />}></Route>
         <Route exact path="/owner/adddog" element={<AddDog />}></Route>
         <Route exact path="/owner/ownerdogs" element={<OwnerDogs />}></Route>
         {/* <Route exact path="/owner/ownerdogrequests/:dogid" element={<OwnerDogRequests />}></Route> */}
-        <Route exact path="/owner/ownerdogrequests" element={<OwnerDogRequests />}></Route>
+        <Route
+          exact
+          path="/owner/ownerdogrequests"
+          element={<OwnerDogRequests />}
+        ></Route>
         <Route
           exact
           path="/owner/ownerdogrequests/:dogid"
