@@ -274,6 +274,7 @@ const SearchForm = () => {
                     <SearchedDog
                       locations={locations}
                       setLocations={setLocations}
+                      isSearched={isSearched}
                     />
 
                     {/* {isSearched && locations.length > 0 ? (

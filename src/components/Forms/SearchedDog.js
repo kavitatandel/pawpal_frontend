@@ -13,17 +13,33 @@ import MKTypography from "components/MKTypography";
 import Card from "@mui/material/Card";
 import MKButton from "../MKButton";
 import MKAvatar from "components/MKAvatar";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+//for spinner
+import RiseLoader from "react-spinners/RiseLoader";
+import { override } from "styles/CustomStyles";
 // import DefaultBlogCard from "examples/Cards/BlogCards/DefaultBlogCard";
 //import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 
-const SearchedDog = ({ locations, setLocations }) => {
+const SearchedDog = ({ locations, setLocations, isSearched }) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ff3d47");
 
-  useEffect(() => {
-    console.log(locations);
-  }, []);
+  // useEffect(() => {
+  //   console.log(locations);
+  //   if (isSearched == false) {
+  //     setLoading(true)
+  //   } else {
+
+  //     setLoading(false)
+  //   }
+  // }, []);
+
+  // // if (isSearched === false) return "";
+  // if (isSearched === false)
+  //   return (
+  //     <RiseLoader color={color} loading={loading} css={override} size={40} />
+  //   )
 
   return (
     <>
@@ -32,6 +48,7 @@ const SearchedDog = ({ locations, setLocations }) => {
         style={{
           flexDirection: "column",
           alignItems: "center",
+
           // border: "3px solid blue",
         }}
       >
@@ -69,6 +86,7 @@ const SearchedDog = ({ locations, setLocations }) => {
                     fontWeight="medium"
                     style={{ fontSize: "0.90rem" }}
                   >
+                    {/* {locations.length < 1 ? "No Dogs Found" : ""} */}
                     No dogs found
                   </MKTypography>
                 </MKBox>
