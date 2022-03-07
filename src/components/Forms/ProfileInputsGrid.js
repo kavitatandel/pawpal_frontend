@@ -10,37 +10,40 @@ import { checkEMailExist, updateUserProfile } from "../../logic/UserFunctions";
 import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
 import { styled } from "@mui/material/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 // const helperTextStyles = styled((theme) => ({
-//   root: {
-//     margin: 4,
-//     color: "red",
-//     "&$error": {
-//       color: "red",
+//   MuiFormHelperText: {
+//     root: {
+//       color: 'red',
+//       // resize: {
+//       //   fontSize: 50,
+//       // },
+//       "&$error": {
+//         color: 'red'
+//       }
 //     },
 //   },
-//   error: {}, //<--this is required to make it work
-// }));
 
-const helperTextStyles = styled((theme) => ({
-  MuiFormHelperText: {
-    root: {
-      color: 'red',
-      // resize: {
-      //   fontSize: 50,
-      // },
-      "&$error": {
-        color: 'red'
-      }
-    },
+// }))
+
+const useStyles = makeStyles(theme => ({
+  // MuiOutlinedInput: {
+  root: {
+    color: 'red',
+    "&$Mui-error": {
+      color: 'red'
+    }
   },
+  // },
+}));
 
-}))
 
 
 const ProfileInputsGrid = ({ editMode }) => {
   const [user, setUser] = useContext(UserContext);
   let navigate = useNavigate();
+  const classes = useStyles();
 
   //for email validation
   const [emailExistError, setEmailExistError] = useState("");
@@ -211,8 +214,11 @@ const ProfileInputsGrid = ({ editMode }) => {
                 //error
                 helperText={emailExistError}
                 // className="helperTextStyles"
-                className={helperTextStyles}
-              // helperTextProps={{ style: { fontSize: 40 } }}
+                //className={helperTextStyles}
+                // helperTextProps={{ style: { fontSize: 40 } }}
+                FormHelperTextProps={{
+                  className: classes.root
+                }}
               />
             </MKBox>
           </Grid>

@@ -19,6 +19,7 @@ import MKTypography from "../MKTypography";
 
 import jwt_decode from "jwt-decode";
 import { styled } from "@mui/material/styles";
+import { makeStyles } from '@material-ui/core/styles';
 //style for helpertext for email and password when error occurs
 const helperTextStyles = styled((theme) => ({
   MuiFormHelperText: {
@@ -32,6 +33,18 @@ const helperTextStyles = styled((theme) => ({
 
 }))
 
+const useStyles = makeStyles(theme => ({
+  // MuiOutlinedInput: {
+  root: {
+    color: 'red',
+    "&$Mui-error": {
+      color: 'red'
+    }
+  },
+  // },
+}));
+
+
 const LoginForm = () => {
   const [user, setUser] = useContext(UserContext);
 
@@ -40,6 +53,8 @@ const LoginForm = () => {
   const [notValidPass, setNotValidPass] = useState('');
 
   let navigate = useNavigate();
+
+  const classes = useStyles();
 
   const testLogin = (e) => {
     e.preventDefault();
@@ -167,7 +182,10 @@ const LoginForm = () => {
                         }
                         //error
                         helperText={notValidEmail}
-                        className={helperTextStyles}
+                        // className={helperTextStyles}
+                        FormHelperTextProps={{
+                          className: classes.root
+                        }}
                       ></MKInput>
                     </MKBox>
                     <MKBox mb={2} mt={4}>
@@ -190,7 +208,11 @@ const LoginForm = () => {
                           }))
                         }
                         helperText={notValidPass}
-                        className={helperTextStyles}
+                        // className={helperTextStyles}
+                        //className={classes.MuiFormHelperText}
+                        FormHelperTextProps={{
+                          className: classes.root
+                        }}
                       />
                     </MKBox>
 
