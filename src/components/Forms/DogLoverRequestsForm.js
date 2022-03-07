@@ -133,6 +133,9 @@ const DogLoverRequestsForm = () => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
+          position="relative"
+        // p={3}
+        // my={2}
         >
           <Paper
             className="neuCard"
@@ -160,7 +163,8 @@ const DogLoverRequestsForm = () => {
                 xxxl: "1600px",
               },
               height: "auto",
-              mt: 35,
+              // mt: 35,
+              mt: 25,
 
               mx: { xs: 2, lg: 3 },
               position: "relative",
@@ -182,7 +186,7 @@ const DogLoverRequestsForm = () => {
             {/* ************************** Dog Details */}
 
             {/* ________Pink Box */}
-            <MKBox
+            {/* <MKBox
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -191,8 +195,22 @@ const DogLoverRequestsForm = () => {
                 pb: "0rem",
                 mt: -20,
               }}
+            > */}
+            <MKBox
+              variant="gradient"
+              bgColor="info"
+              borderRadius="lg"
+              coloredShadow="info"
+              width="60%"
+              mx="12rem"
+              mt="-2.5rem"
+              pt="1.25rem"
+              pr="1rem" pl="1rem"
+              pb="1.25rem"
+              textAlign="center"
+            //mr="10rem"
             >
-              <MKBox
+              {/* <MKBox
                 variant="gradient"
                 bgColor="info"
                 borderRadius="25px"
@@ -203,18 +221,18 @@ const DogLoverRequestsForm = () => {
                 mb={2}
                 textAlign="center"
                 sx={{ width: "60%" }}
+              > */}
+              {/* // Heading */}
+              <MKTypography
+                variant="h4"
+                fontWeight="bold"
+                color="light"
+                textAlign="center"
+              // mt={1}
               >
-                {/* // Heading */}
-                <MKTypography
-                  variant="h4"
-                  fontWeight="bold"
-                  color="light"
-                  textAlign="center"
-                // mt={1}
-                >
-                  PLAY DATE REQUESTS
-                </MKTypography>
-              </MKBox>
+                PLAY DATE REQUESTS
+              </MKTypography>
+              {/* </MKBox> */}
             </MKBox>
             {/******************** REQUESTS */}
             <Grid
@@ -234,14 +252,15 @@ const DogLoverRequestsForm = () => {
                   height: "auto",
                   flexDirection: "column",
                   alignItems: "center",
-
+                  //verticalAlign: "middle",
+                  justifyContent: "center"
                   // border: "3px solid blue",
                 }}
               >
                 {dogRequestsInfo === undefined ? (
-                  <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
+                  <h5 style={{ color: "#ff3d47", marginTop: "10%" }}>No Playdate Requests Found. </h5>
                 ) : dogRequestsInfo.length === 0 ? (
-                  <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
+                  <h5 style={{ color: "#ff3d47", marginTop: "10%" }}>No Playdate Requests Found. </h5>
                 ) : (
                   ""
                 )}
