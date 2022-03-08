@@ -39,12 +39,17 @@ const SearchForm = () => {
   //const [locations, setLocations] = useState(data);
   const [search, setSearch] = useState("");
   const [autoSearch, setAutoSearch] = useState();
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false); //commented on 07/03/2022
+  const [loading, setLoading] = useState(true);
 
   //added to check if user has searched dog or not
   const [isSearched, setIsSearched] = useState(false);
 
   let [color, setColor] = useState("#ff3d47");
+
+  //use state for search and no data
+  const [noData, setNoData] = useState(false);
+
 
   const sleep = (ms) => {
     new Promise((userLocation) => {
@@ -60,6 +65,9 @@ const SearchForm = () => {
         console.log(res);
         if (res) {
           setLocations(res);
+
+          //added on 07/03/2022
+          setLoading(false);
         } else {
           console.log(`Problem.`);
         }
@@ -67,6 +75,9 @@ const SearchForm = () => {
       .then(() => {
         console.log(locations);
         setIsSearched(true);
+
+        //added for loading on page load
+
       })
       .catch((err) => {
         setIsSearched(false);
@@ -89,6 +100,16 @@ const SearchForm = () => {
     runFunctions();
   }, [user]);
 
+  const handleClearSearch = async (e) => {
+    e.preventDefault();
+    //find the search input
+    const searchCityInput = document.getElementsByName('searchCity')[0];
+    searchCityInput.innerHTML = '';
+    searchCityInput.value = '';
+    setSearch('');
+    await runFunctions();
+  }
+
   //handle search click event
   const handleSearch = (e) => {
     setLoading(true);
@@ -105,9 +126,16 @@ const SearchForm = () => {
             //set isSearched true
             setIsSearched(true);
           } else {
+            //commented on 7/3/2022
             setIsSearched(false);
             setLocations([]);
             setLoading(false);
+
+            // setIsSearched(true);
+            // setLocations([]);
+            // setLoading(false);
+
+            setNoData(true);
           }
         } else {
           setLoading(false);
@@ -191,6 +219,8 @@ const SearchForm = () => {
               style={{ padding: "1rem", backgroundColor: "#ffd8d8" }}
             >
               <form onSubmit={handleSearch}>
+
+                
                 {/* <div class="tb">
                   <div class="td">
                     <input type="text" placeholder="Search" required />
@@ -203,27 +233,67 @@ const SearchForm = () => {
                   </div>
                 </div> */}
 
-                <MKInput
-                  label="Search by City"
-                  type="text"
-                  name="searchCity"
-                  placeholder={search}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                <MKButton
-                  size="large"
-                  type="submit"
-                  variant="gradient"
-                  color="info"
+//                 <MKInput
+//                   label="Search by City"
+//                   type="text"
+//                   name="searchCity"
+//                   placeholder={search}
+//                   value={search}
+//                   onChange={(e) => setSearch(e.target.value)}
+//                 />
+//                 <MKButton
+//                   size="large"
+//                   type="submit"
+//                   variant="gradient"
+//                   color="info"
+
+
+                <MKBox
+
                   style={{
-                    marginLeft: "1.5rem",
-                    width: "8rem",
-                    minWidth: "120px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    mb: "0rem",
+                    pb: "0rem",
                   }}
                 >
-                  Search
-                </MKButton>
+                  <MKInput
+                    style={{ width: "17rem" }}
+                    label="Search by City"
+                    type="text"
+                    name="searchCity"
+                    placeholder={search}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <MKButton
+                    size="large"
+                    type="submit"
+                    variant="gradient"
+                    color="info"
+                    style={{
+                      marginLeft: "1.5rem",
+                      width: "8rem",
+                      minWidth: "120px",
+                    }}
+                  >
+                    Search
+                  </MKButton>
+                  <MKButton
+                    size="large"
+                    variant="gradient"
+                    color="info"
+                    style={{
+                      marginLeft: "1.5rem",
+                      width: "11rem",
+                      minWidth: "120px",
+                    }}
+                    onClick={handleClearSearch}
+                  >
+                    Clear Search
+                  </MKButton>
+                </MKBox>
               </form>
             </Grid>
           </Grid>
@@ -287,11 +357,22 @@ const SearchForm = () => {
                       // backgroundColor: "rgba(255, 41, 41, 0.4)",
                     }}
                   >
+                    {/* commented to check loading when page loads */}
                     <SearchedDog
                       locations={locations}
                       setLocations={setLocations}
                       isSearched={isSearched}
                     />
+                    {/* {locations.length < 1 && isSearched === false ? "" :
+
+                      locations.length < 1 && noData === true ? "No Dogs Found" :
+                      <SearchedDog
+                        locations={locations}
+                        setLocations={setLocations}
+                        isSearched={isSearched}
+                        noData={noData}
+                      />
+                    } */}
 
                     {/* {isSearched && locations.length > 0 ? (
                     

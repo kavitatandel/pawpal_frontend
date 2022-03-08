@@ -84,8 +84,8 @@ const LeafletMap = ({ locations, isSearched }) => {
 
   return (
     <>
-      {!isData ? (
-        <h1>Loading User Location....</h1>
+      {!isData ? (""
+        // <h1>Loading User Location....</h1> 
       ) : (
         <MapContainer
           // zoomControl={false}

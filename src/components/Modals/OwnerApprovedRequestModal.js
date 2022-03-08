@@ -115,7 +115,7 @@ function OwnerApprovedRequestModal({
                                             <MKAvatar
                                                 zIndex={2}
                                                 src={`${selectedDogRequest.DogsRequests.profile_photo}`}
-                                                alt={`${selectedDogRequest.DogsRequests.name} {selectedDogRequest.DogLovers.last_name}`}
+                                                alt={`${selectedDogRequest.DogsRequests.name} ${selectedDogRequest.DogLovers.last_name}`}
                                                 shadow="xl"
                                                 // sx={{ width: "10rem", height: "10rem" }} //commented by kavita
                                                 sx={{ width: "6rem", height: "6rem" }}

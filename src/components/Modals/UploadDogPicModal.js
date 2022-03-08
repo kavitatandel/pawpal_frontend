@@ -25,6 +25,8 @@ const UploadDogPicModal = ({
   toggleModal,
   dogPic,
   setDogPic,
+  setImageModal,
+  imageModal
 }) => {
   const [user, setUser] = useContext(UserContext);
 
@@ -36,19 +38,37 @@ const UploadDogPicModal = ({
   const [loading, setLoading] = useState(true);
   const [uploadedImageURL, setUploadedImageURL] = useState("");
 
+  //additional state to hold back show image on parent page
+  const [selectedDogImage, setSelectedDogImage] = useState("");
+
+
   const handleFileUpload = (e) => {
+    e.preventDefault();
     //const uploadData = new FormData();
     //uploadData.append("file", e.target.files[0], "file");
     //cloudinaryUpload(uploadData)
     setSelectedFile(e.target.files[0]);
     console.log(e.target.files[0]);
     //console.log(`User ID: ${user._id} , User FirstName: ${user.first_name} `);
+
+    //added for image
+    // setImageModal(URL.createObjectURL(e.target.files[0]));
+    // imageModal = URL.createObjectURL(e.target.files[0]);
+    setSelectedDogImage(URL.createObjectURL(e.target.files[0]));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    toggleModal();
+    // toggleModal();
     setDogPic(selectedFile);
+
+    //moved toggleModal here
+    await setImageModal(selectedDogImage);
+    await console.log("save changes")
+    await console.log(setImageModal);
+    await console.log(imageModal);
+    await toggleModal();
+
   };
 
   useEffect(() => { }, [show, uploadedImageURL, selectedFile]);
@@ -60,8 +80,8 @@ const UploadDogPicModal = ({
     marginRight: "1.2rem",
     marginLeft: "0.2rem",
     verticalAlign: "middle",
-    width: "4%",
-    height: "4%"
+    width: "3%",
+    height: "3%"
   };
 
   const handleCloseIcon = (e) => {
@@ -103,7 +123,10 @@ const UploadDogPicModal = ({
                 borderRadius="lg"
                 coloredShadow="info"
                 width="60%"
-
+                // mx="3rem"
+                // mt="-4rem"
+                // p="2rem 2rem"
+                //by kavita
                 mx="3rem"
                 mt="-2.5rem"
                 pt="0.75rem"
@@ -124,17 +147,16 @@ const UploadDogPicModal = ({
               ) : (
                 <MKBox p={2}>
                   <form onSubmit={handleSubmit}>
-
                     <MKBox
                       display="flex"
                       justifyContent="center"
-                      pb={2} pt={4}
+                      pb={2} pt={3}
                     >
                       <input style={{ width: "70%" }} id="inputFile" type="file" onChange={(e) => handleFileUpload(e)} />
-
-                      <CloseIcon fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon} />
+                      <CloseIcon
+                        fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon}
+                      />
                     </MKBox>
-                    {/* <Divider sx={{ my: 0 }} /> */}
                     <MKBox
                       display="flex"
                       justifyContent="center"
@@ -148,6 +170,7 @@ const UploadDogPicModal = ({
                         size="large"
 
                         style={{
+                          // width: "8rem", //commented by kavita
                           width: "7rem",
                           minWidth: "100px",
                           minHeight: "30px",
@@ -168,14 +191,15 @@ const UploadDogPicModal = ({
                         save changes
                       </MKButton>
                     </MKBox>
+
                   </form>
                 </MKBox>
               )}
             </MKBox>
           </Slide>
         </Modal>
-      </Container>
-    </MKBox>
+      </Container >
+    </MKBox >
   );
 };
 

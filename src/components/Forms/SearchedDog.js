@@ -20,26 +20,29 @@ import { override } from "styles/CustomStyles";
 // import DefaultBlogCard from "examples/Cards/BlogCards/DefaultBlogCard";
 //import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 
-const SearchedDog = ({ locations, setLocations, isSearched }) => {
+const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ff3d47");
 
-  // useEffect(() => {
-  //   console.log(locations);
-  //   if (isSearched == false) {
-  //     setLoading(true)
-  //   } else {
+  useEffect(() => {
+    console.log(locations);
+    if (isSearched == false) {
+      setLoading(true)
+    } else {
 
-  //     setLoading(false)
-  //   }
-  // }, []);
+      setLoading(false)
+    }
+  }, []);
 
   // // if (isSearched === false) return "";
   // if (isSearched === false)
   //   return (
   //     <RiseLoader color={color} loading={loading} css={override} size={40} />
   //   )
+
+  console.log("inside search dog");
+  console.log(noData);
 
   return (
     <>
@@ -87,7 +90,8 @@ const SearchedDog = ({ locations, setLocations, isSearched }) => {
                     style={{ fontSize: "0.90rem" }}
                   >
                     {/* {locations.length < 1 ? "No Dogs Found" : ""} */}
-                    No dogs found
+                    {/* {noData ? "No dogs found" : ""} */}
+                    No Dogs Found.
                   </MKTypography>
                 </MKBox>
               </MKBox>
