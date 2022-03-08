@@ -20,18 +20,8 @@ import MKTypography from "../MKTypography";
 import jwt_decode from "jwt-decode";
 import { styled } from "@mui/material/styles";
 import { makeStyles } from '@material-ui/core/styles';
-//style for helpertext for email and password when error occurs
-// const helperTextStyles = styled((theme) => ({
-//   MuiFormHelperText: {
-//     root: {
-//       color: 'red',
-//       "&$error": {
-//         color: 'red'
-//       }
-//     },
-//   },
-
-// }))
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const useStyles = makeStyles(theme => ({
   // MuiOutlinedInput: {
@@ -44,6 +34,15 @@ const useStyles = makeStyles(theme => ({
   // },
 }));
 
+const styledEyeIcon = {
+  transform: "scale(1.5)",
+  color: "#ff9a85",
+  marginRight: "0.00rem",
+  marginLeft: "0.3rem",
+  verticalAlign: "middle",
+  marginTop: "0.75rem",
+  width: "1.75rem"
+};
 
 const LoginForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -83,6 +82,32 @@ const LoginForm = () => {
       }
     });
   };
+
+
+  //useEffect to hide VisibilityOffIcon
+  useEffect(() => {
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.style.display = "none";
+    var show_eye = document.getElementById("show_eye");
+    show_eye.style.display = "block";
+  })
+
+  //show/hide password
+  function password_show_hide() {
+    var x = document.getElementById("password");
+    var show_eye = document.getElementById("show_eye");
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
 
   return (
     <>
@@ -188,11 +213,14 @@ const LoginForm = () => {
                         }}
                       ></MKInput>
                     </MKBox>
-                    <MKBox mb={2} mt={4}>
+                    <MKBox display="flex"
+                      justifyContent="space-between" mb={2} mt={4} mr={0} ml={0}>
                       <MKInput
-                        fullWidth
+                        //fullWidth
+                        // width="100%"
                         label="Password"
                         name="password"
+                        id="password" //added for show/hid password
                         placeholder="Enter your password"
                         type="password"
                         required
@@ -213,7 +241,15 @@ const LoginForm = () => {
                         FormHelperTextProps={{
                           className: classes.root
                         }}
+                        sx={{ width: "96%" }}
                       />
+                      {/* added for show/hide Password  */}
+                      <span class=" field-icon " onClick={password_show_hide} >
+                        <VisibilityIcon id="show_eye" style={styledEyeIcon} />
+                        <VisibilityOffIcon id="hide_eye" style={styledEyeIcon} />
+                        {/* <i class="fa fs-2 fa-eye" id="show_eye"></i>
+                        <i class="fa fs-2 fa-eye-slash d-none" id="hide_eye"></i> */}
+                      </span>
                     </MKBox>
 
                     <MKBox
