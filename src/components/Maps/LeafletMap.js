@@ -84,18 +84,20 @@ const LeafletMap = ({ locations, isSearched }) => {
 
   return (
     <>
-      {!isData ? (""
-        // <h1>Loading User Location....</h1> 
+      {!isData ? (
+        ""
       ) : (
         <MapContainer
           // zoomControl={false}
           center={[offset[0], offset[1]]}
           zoom={8}
           style={{
+            height: "60vh",
             width: "100%",
-
-            minHeight: "80vh",
             position: "absolute !important",
+            boxSizing: "border-box",
+            zIndex: 0,
+            // border: "6px dotted rgba(0,0,0)",
           }}
         >
           <ZoomControl position="topright" />
