@@ -30,6 +30,21 @@ import DogLoverRequestInfoModal from "../Modals/DogLoverRequestInfoModal";
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 
+//delete icon
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
+const styledDeleteIcon = {
+  transform: "scale(1.5)",
+  color: "white",
+  marginRight: "0.2rem",
+  marginLeft: "0.2rem",
+  verticalAlign: "middle",
+  justifyContent: "center",
+  alignItem: "center",
+  width: "1rem"
+};
+
+
 const DogLoverRequestsForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
@@ -700,39 +715,46 @@ const DogLoverRequestsForm = () => {
                                   color="info"
                                   style={{
                                     // minWidth: "1rem",
-                                    width: "7rem",
+                                    width: "2.5rem",
                                     marginLeft: "0.25rem",
                                   }}
                                   value={request._id}
                                   //added on 4.3
                                   sx={{
+                                    // minWidth: {
+                                    //   xs: "2rem",
+                                    //   sm: "2rem",
+                                    //   md: "3.5rem",
+                                    //   lg: "3.5rem",
+                                    // },
                                     minWidth: {
-                                      xs: "2rem",
-                                      sm: "2rem",
-                                      md: "3.5rem",
-                                      lg: "3.5rem",
+                                      xs: "1rem",
+                                      sm: "1rem",
+                                      md: "2.5rem",
+                                      lg: "2.5rem",
                                     },
                                     minHeight: {
-                                      xs: "2rem",
-                                      sm: "2rem",
-                                      md: "2.25rem",
-                                      lg: "2.25rem",
+                                      xs: "1.75rem",
+                                      sm: "1.75rem",
+                                      md: "2rem",
+                                      lg: "2rem",
                                     },
                                     // minWidth: "2rem",
                                     // minHeight: "2rem",
                                     padding: {
-                                      xs: "10px 10px",
-                                      md: "12px 12px",
-                                      lg: "10px 10px",
-                                      xl: "8px 8px",
-                                      xxl: "8px 8px",
-                                      xxxl: "4px 4px",
+                                      xs: "6px 8px",
+                                      md: "16px 10px",
+                                      lg: "6px 8px",
+                                      xl: "4px 6px",
+                                      xxl: "4px 6px",
+                                      xxxl: "2px 2px",
                                     },
 
                                     ml: "1rem",
                                   }}
                                 >
-                                  DELETE
+                                  < DeleteOutlineIcon style={styledDeleteIcon} />
+                                  {/* DELETE */}
                                 </MKButton>
                               ) : (
                                 ""
