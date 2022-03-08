@@ -38,6 +38,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import MKAvatar from "components/MKAvatar";
 import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
+import swal from 'sweetalert';
 
 const styledIcon = {
     transform: "scale(1.5)",
@@ -108,6 +109,24 @@ function DogApproveRejectModal({
         }
 
         setShowApproved(showApproved);
+
+        //add swal (title,text,icon,button)
+        if (action === 'Approved') {
+            swal({
+                title: "Request Approved",
+                text: "You successfully approved request!",
+                icon: "success",
+                button: "OK!"
+            });
+        } else {
+            swal({
+                title: "Request Rejected",
+                text: "You successfully rejected request!",
+                icon: "success",
+                button: "OK!"
+            });
+        }
+
 
         toggleModal();
     };
