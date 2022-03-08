@@ -11,6 +11,7 @@ import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import "../../styles/Map.css";
+import "../../styles/searchbarStyle.css";
 import { glassStyle } from "../../styles/CustomStyles";
 
 //Leaflet Map
@@ -212,54 +213,44 @@ const SearchForm = () => {
         >
           {/* Top Search Bar Area */}
           <Grid container>
-            <Grid item xs={12} style={{ padding: "1rem" }}>
-              <form onSubmit={handleSearch}>
-                <MKBox
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    mb: "0rem",
-                    pb: "0rem",
-                  }}
-                >
-                  <MKInput
-                    style={{ width: "17rem" }}
-                    label="Search by City"
-                    type="text"
-                    name="searchCity"
-                    placeholder={search}
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                  <MKButton
-                    size="large"
-                    type="submit"
-                    variant="gradient"
-                    color="info"
-                    style={{
-                      marginLeft: "1.5rem",
-                      width: "8rem",
-                      minWidth: "120px",
-                    }}
-                  >
-                    Search
-                  </MKButton>
-                  <MKButton
-                    size="large"
-                    variant="gradient"
-                    color="info"
-                    style={{
-                      marginLeft: "1.5rem",
-                      width: "11rem",
-                      minWidth: "120px",
-                    }}
-                    onClick={handleClearSearch}
-                  >
-                    Clear Search
-                  </MKButton>
-                </MKBox>
-              </form>
+            <Grid
+              item
+              xs={12}
+              display="flex"
+              alignItems="center"
+              style={{
+                zindex: 4,
+                padding: "0.6rem",
+                background:
+                  "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",
+                boxShadow:
+                  "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+              }}
+              height="6.5rem"
+            >
+              <div id="cover">
+                <form onSubmit={handleSearch}>
+                  <div class="tb">
+                    <div class="td">
+                      <input
+                        id="styleinpt"
+                        type="text"
+                        name="searchCity"
+                        placeholder={search}
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div class="td" id="s-cover">
+                      <button id="submit-btn" type="submit">
+                        <div id="s-circle"></div>
+                        <span></span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </Grid>
           </Grid>
           {/* Section below the search area */}
