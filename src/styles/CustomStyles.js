@@ -37,10 +37,9 @@ export const neumorphicDL = {
 
 //for spinner
 export const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
-    justify-content:center;
-    align-items:center;
-  `;
-
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  justify-content: center;
+  align-items: center;
+`;

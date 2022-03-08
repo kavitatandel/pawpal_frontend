@@ -1,6 +1,6 @@
 import { UserContext } from "../../context/UserContext";
 import { useEffect, useState, useCallback, useContext } from "react";
-import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
+import "../../styles/searchbarStyle.css";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKInput from "../MKInput";
@@ -213,9 +213,43 @@ const SearchForm = () => {
         >
           {/* Top Search Bar Area */}
           <Grid container>
-            <Grid item xs={12} style={{ padding: "1rem" }}>
+            <Grid
+              item
+              xs={12}
+              style={{ padding: "1rem", backgroundColor: "#ffd8d8" }}
+            >
               <form onSubmit={handleSearch}>
+
+                
+                {/* <div class="tb">
+                  <div class="td">
+                    <input type="text" placeholder="Search" required />
+                  </div>
+                  <div class="td" id="s-cover">
+                    <button type="submit">
+                      <div id="s-circle"></div>
+                      <span></span>
+                    </button>
+                  </div>
+                </div> */}
+
+//                 <MKInput
+//                   label="Search by City"
+//                   type="text"
+//                   name="searchCity"
+//                   placeholder={search}
+//                   value={search}
+//                   onChange={(e) => setSearch(e.target.value)}
+//                 />
+//                 <MKButton
+//                   size="large"
+//                   type="submit"
+//                   variant="gradient"
+//                   color="info"
+
+
                 <MKBox
+
                   style={{
                     display: "flex",
                     justifyContent: "center",
