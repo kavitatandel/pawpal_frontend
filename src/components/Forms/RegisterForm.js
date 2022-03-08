@@ -24,6 +24,18 @@ import FormLabel from "@mui/material/FormLabel";
 
 //import GeoCode component
 import GeoCode from "../../components/Maps/GeoCode";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
+const styledEyeIcon = {
+  transform: "scale(1.5)",
+  color: "#ff9a85",
+  marginRight: "0.00rem",
+  marginLeft: "0.3rem",
+  verticalAlign: "middle",
+  marginTop: "0.75rem",
+  width: "1.75rem"
+};
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -37,6 +49,7 @@ const RegisterForm = () => {
   const [userType, setUserType] = useState("owner");
 
   let navigate = useNavigate();
+
 
   const createUser = async (e) => {
     e.preventDefault();
@@ -81,6 +94,34 @@ const RegisterForm = () => {
   const handleChange = (event) => {
     setUserType(event.target.value);
   };
+
+
+
+  //useEffect to hide VisibilityOffIcon
+  useEffect(() => {
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.style.display = "none";
+    var show_eye = document.getElementById("show_eye");
+    show_eye.style.display = "block";
+  })
+
+  //show/hide password
+  function password_show_hide() {
+    var x = document.getElementById("password");
+    var show_eye = document.getElementById("show_eye");
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
+
 
   return (
     <>
@@ -148,7 +189,7 @@ const RegisterForm = () => {
                     variant="h3"
                     fontWeight="regular"
                     color="white"
-                    // mt={1}
+                  // mt={1}
                   >
                     REGISTER
                   </MKTypography>
@@ -179,10 +220,10 @@ const RegisterForm = () => {
                         required
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                        // value={user.first_name}
-                        // onChange={(e) =>
-                        //   setUser({ ...user, first_name: e.target.value })
-                        // }
+                      // value={user.first_name}
+                      // onChange={(e) =>
+                      //   setUser({ ...user, first_name: e.target.value })
+                      // }
                       />
                       <MKInput
                         style={{ width: "48%" }}
@@ -218,9 +259,11 @@ const RegisterForm = () => {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </MKBox>
-                    <MKBox mb={2}>
+                    <MKBox display="flex"
+                      justifyContent="space-between" mb={2} mt={4} mr={0} ml={0}>
                       <MKInput
-                        fullWidth
+                        //fullWidth
+                        id="password" //added for show/hid password
                         label="Password"
                         name="password"
                         placeholder="Enter your password"
@@ -232,7 +275,15 @@ const RegisterForm = () => {
                         // }
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        sx={{ width: "96%" }}
                       />
+                      {/* added for show/hide Password  */}
+                      <span class=" field-icon " onClick={password_show_hide} >
+                        <VisibilityIcon id="show_eye" style={styledEyeIcon} />
+                        <VisibilityOffIcon id="hide_eye" style={styledEyeIcon} />
+                        {/* <i class="fa fs-2 fa-eye" id="show_eye"></i>
+                        <i class="fa fs-2 fa-eye-slash d-none" id="hide_eye"></i> */}
+                      </span>
                     </MKBox>
                     <MKBox mb={2}>
                       <MKInput
