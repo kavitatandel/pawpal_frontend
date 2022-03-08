@@ -59,10 +59,14 @@ body {
   font-size: 65px;
   font-weight: 600;
   line-height: 1;
+  background-color : #ff7c7c;
+  caret-color: #a70507;
+  outline: none;
 }
 
 #styleinpt::placeholder {
   color: #a70507;
+  /* color:#ff7c7c; */
 }
 
 #s-cover {
