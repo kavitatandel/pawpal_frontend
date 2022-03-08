@@ -229,14 +229,15 @@ const SearchForm = () => {
               height="6.5rem"
             >
               <div id="cover">
-                <form onSubmit={handleSearch}>
+                <form onSubmit={handleSearch} autocomplete="off">
                   <div class="tb">
                     <div class="td">
                       <input
                         id="styleinpt"
                         type="text"
                         name="searchCity"
-                        placeholder={search}
+                        // placeholder={search}
+                        placeholder="Enter city to search...."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         required
@@ -270,7 +271,7 @@ const SearchForm = () => {
             display="flex"
             justifyContent="center"
             height="auto"
-            // border="7px dashed purple !important"
+          // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
             {/* _______________________________________PARENT CONTAINER */}
@@ -341,10 +342,10 @@ const SearchForm = () => {
                       locations={locations}
                       setLocations={setLocations}
                       isSearched={isSearched}
-                      // style={{
-                      //   border: "7px solid rgba(255,0,0)",
-                      //   backgroundColor: "rgb(255,0,0,0.5)",
-                      // }}
+                    // style={{
+                    //   border: "7px solid rgba(255,0,0)",
+                    //   backgroundColor: "rgb(255,0,0,0.5)",
+                    // }}
                     />
                   </MKBox>
                 </MKBox>
