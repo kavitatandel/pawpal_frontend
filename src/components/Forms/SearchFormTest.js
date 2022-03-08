@@ -279,16 +279,20 @@ const SearchForm = () => {
             display="flex"
             justifyContent="center"
             height="auto"
-            border="7px dashed purple !important"
+            // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
+            {/* _______________________________________PARENT CONTAINER */}
             <div
               className="container-fluid"
               style={{
                 width: "100%",
                 borderRadius: "0 0 30px 30px",
+                // border: "7px solid yellow",
+                backgroundColor: "rgb(255,255,0.5)",
               }}
             >
+              {/* _______________________________________BACKROUND CONTAINER OF PARENT */}
               <div
                 className="mapbox"
                 overflow="auto"
@@ -296,22 +300,30 @@ const SearchForm = () => {
                   width: "100%",
                   diplay: "flex",
                   flexDirection: "column",
-
-                  // border: "2px solid green",
+                  // border: "7px solid rgb(0,255,0)",
+                  // backgroundColor: "rgb(0,255,0,0.5)",
                 }}
               >
-                <div
-                  className="row-fluid some"
-                  id="map"
-                  style={{
-                    border: "2px solid orange",
-                    borderRadius: "0 0 30px 30px",
-                  }}
-                >
-                  <LeafletMap locations={locations} isSearched={isSearched} />
-                </div>
+                <LeafletMap
+                  locations={locations}
+                  isSearched={isSearched}
+                  style={
+                    {
+                      // border: "7px solid rgba(0,255,255)",
+                      // backgroundColor: "rgb(0,255,255,0.5)",
+                    }
+                  }
+                />
+                {/* </div> */}
                 <MKBox
                   className="row-fluid overlay"
+                  id="scrollHide"
+                  style={{
+                    height: "100%",
+                    overflow: "scroll",
+                    // border: "7px solid rgba(255,0,255)",
+                    // backgroundColor: "rgb(255,0,255,0.5)",
+                  }}
                   sx={{
                     // flexWrap: "wrap",
                     width: {
@@ -329,66 +341,20 @@ const SearchForm = () => {
                     id="results"
                     style={{
                       height: "auto",
-                      margin: "1rem",
-                      // overflow: "scroll",
-                      // backgroundColor: "rgba(255, 41, 41, 0.4)",
+                      // margin: "1rem",
+                      // border: "7px solid rgba(75,0,130)",
+                      // backgroundColor: "rgb(75,0,130,0.5)",
                     }}
                   >
-                    {/* commented to check loading when page loads */}
                     <SearchedDog
                       locations={locations}
                       setLocations={setLocations}
                       isSearched={isSearched}
+                      // style={{
+                      //   border: "7px solid rgba(255,0,0)",
+                      //   backgroundColor: "rgb(255,0,0,0.5)",
+                      // }}
                     />
-                    {/* {locations.length < 1 && isSearched === false ? "" :
-                      locations.length < 1 && noData === true ? "No Dogs Found" :
-                      <SearchedDog
-                        locations={locations}
-                        setLocations={setLocations}
-                        isSearched={isSearched}
-                        noData={noData}
-                      />
-                    } */}
-
-                    {/* {isSearched && locations.length > 0 ? (
-                    
-                      <SearchedDog
-                        locations={locations}
-                        setLocations={setLocations}
-                      />
-                    ) : (
-                      <MKBox>
-                        <Card style={glassStyle}>
-                          <MKBox
-                            className="mainContainer"
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignContent: "center",
-                              padding: "0rem",
-                            }}
-                          >
-                            <MKBox
-                              className="DogName"
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                width: "25%",
-                              }}
-                            >
-                              <MKTypography
-                                variant="p"
-                                fontWeight="medium"
-                                style={{ fontSize: "0.90rem" }}
-                              >
-                                No dogs found
-                              </MKTypography>
-                            </MKBox>
-                          </MKBox>
-                        </Card>
-                      </MKBox>
-                    )} */}
                   </MKBox>
                 </MKBox>
               </div>

@@ -28,10 +28,9 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
   useEffect(() => {
     console.log(locations);
     if (isSearched == false) {
-      setLoading(true)
+      setLoading(true);
     } else {
-
-      setLoading(false)
+      setLoading(false);
     }
   }, []);
 
@@ -46,195 +45,190 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
 
   return (
     <>
-      <MKBox
+      {/* <MKBox
         sx={{ display: { xs: "none", sm: "flex" } }}
         style={{
           flexDirection: "column",
           alignItems: "center",
-
-          // border: "3px solid blue",
+          height: "100%",
+          border: "6px dotted orange",
+          overflow: "scroll",
         }}
-      >
-        {locations.length < 1 ? (
+      > */}
+      {locations.length < 1 ? (
+        // <MKBox
+        //   sx={{ display: { xs: "none", sm: "flex" } }}
+        //   style={{
+        //     // paddingTop: "1rem",
+        //     border: "3px solid red",
+        //     alignSelf: "flex-start",
+        //     verticalAlign: "top",
+        //     width: "50%",
+        //   }}
+        // >
+        <Card style={glassStyle}>
           <MKBox
-            sx={{ display: { xs: "none", sm: "flex" } }}
+            className="mainContainer"
             style={{
-              // paddingTop: "1rem",
-              border: "3px solid red",
-              alignSelf: "flex-start",
-              verticalAlign: "top",
-              width: "50%",
+              display: "flex",
+              justifyContent: "space-between",
+              alignContent: "center",
+              padding: "0rem",
             }}
           >
-            <Card style={glassStyle}>
-              <MKBox
-                className="mainContainer"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignContent: "center",
-                  padding: "0rem",
-                }}
+            <MKBox
+              className="DogName"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }}
+            >
+              <MKTypography
+                variant="p"
+                fontWeight="medium"
+                style={{ fontSize: "0.90rem" }}
               >
-                <MKBox
-                  className="DogName"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                  }}
-                >
-                  <MKTypography
-                    variant="p"
-                    fontWeight="medium"
-                    style={{ fontSize: "0.90rem" }}
-                  >
-                    {/* {locations.length < 1 ? "No Dogs Found" : ""} */}
-                    {/* {noData ? "No dogs found" : ""} */}
-                    No Dogs Found.
-                  </MKTypography>
-                </MKBox>
-              </MKBox>
-            </Card>
+                {/* {locations.length < 1 ? "No Dogs Found" : ""} */}
+                {/* {noData ? "No dogs found" : ""} */}
+                No Dogs Found.
+              </MKTypography>
+            </MKBox>
           </MKBox>
-        ) : (
-          <>
-            {locations &&
-              locations.map((dog) => {
-                return (
-                  <Card style={glassStyle} key={dog.dogs_info._id}>
+        </Card>
+      ) : (
+        // </MKBox>
+        <>
+          {locations &&
+            locations.map((dog) => {
+              return (
+                <Card style={glassStyle} key={dog.dogs_info._id}>
+                  <MKBox
+                    className="mainContainer"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignContent: "center",
+                      padding: "0rem",
+                    }}
+                  >
                     <MKBox
-                      className="mainContainer"
+                      className="Avatar"
+                      sx={{
+                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        display: { sm: "none", md: "flex" },
+                        minWidth: "3.2rem",
+                      }}
                       style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignContent: "center",
-                        padding: "0rem",
+                        justifyContent: "flex-start",
+                        alignItems: "center",
                       }}
                     >
-                      <MKBox
-                        className="Avatar"
-                        sx={{
-                          width: { sm: "33%", md: "25%", lg: "20%" },
-                          display: { sm: "none", md: "flex" },
-                          minWidth: "3.2rem",
-                        }}
+                      <MKAvatar
+                        src={`${dog.dogs_info.profile_photo}`}
+                        alt={`${dog.dogs_info.name}`}
+                        shadow="xl"
+                        sx={{ width: "2.5rem", height: "2.5rem" }}
                         style={{
-                          justifyContent: "flex-start",
-                          alignItems: "center",
+                          border: "3.2px solid white",
+                          marginRight: "1rem",
                         }}
                       >
-                        <MKAvatar
-                          src={`${dog.dogs_info.profile_photo}`}
-                          alt={`${dog.dogs_info.name}`}
-                          shadow="xl"
-                          sx={{ width: "2.5rem", height: "2.5rem" }}
-                          style={{
-                            border: "3.2px solid white",
-                            marginRight: "1rem",
-                          }}
-                        >
-                          <img
-                            src={DogAvatar}
-                            alt="avatar"
-                            style={{ width: "100%", height: "100%" }}
-                          />
-                        </MKAvatar>
-                      </MKBox>
-                      <MKBox
-                        className="DogName"
-                        style={{
-                          alignItems: "center",
-                          justifyContent: "flex-start",
-                          width: { sm: "33%", md: "25%", lg: "20%" },
-                          display: { xs: "none", sm: "flex" },
-                        }}
-                        sx={{
-                          width: { sm: "33%", md: "25%", lg: "20%" },
-                          display: { xs: "none", sm: "flex" },
-                        }}
-                      >
-                        <MKTypography
-                          variant="p"
-                          fontWeight="medium"
-                          style={{ fontSize: "0.90rem" }}
-                        >
-                          {dog.dogs_info.name}
-                        </MKTypography>
-                      </MKBox>
-                      <MKBox
-                        className="DogType"
-                        sx={{
-                          width: { md: "25%", lg: "20%" },
-                          display: { sm: "none", md: "flex" },
-                        }}
-                        style={{
-                          fontSize: "0.8rem",
-
-                          alignItems: "center",
-                          justifyContent: "flex-start",
-                        }}
-                      >
-                        <MKTypography
-                          variant="p"
-                          style={{ fontSize: "0.90rem" }}
-                        >
-                          {dog.dogs_info.breed}
-                        </MKTypography>
-                      </MKBox>
-                      <MKBox
-                        className="Size"
-                        sx={{
-                          width: { lg: "20%" },
-                          display: { xs: "none", lg: "flex" },
-                        }}
-                        style={{
-                          alignItems: "center",
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        <MKTypography
-                          variant="p"
-                          style={{ fontSize: "0.90rem" }}
-                        >
-                          {dog.dogs_info.size}
-                        </MKTypography>
-                      </MKBox>
-                      <MKBox
-                        className="ButtonContainer"
-                        sx={{
-                          width: { sm: "33%", md: "25%", lg: "20%" },
-                          display: { xs: "none", sm: "flex" },
-                          alignItems: "center",
-                          justifyContent: "flex-end ",
-                        }}
-                      >
-                        <MKButton
-                          size="large"
-                          type="submit"
-                          variant="gradient"
-                          color="info"
-                          style={{
-                            width: { sm: "1rem", md: "2rem" },
-                            height: { sm: "1rem", md: "2rem" },
-                            minWidth: "1rem",
-                            minHeight: "1rem",
-                            padding: "5px 5px",
-                          }}
-                          onClick={() =>
-                            navigate(`/doginfo/${dog.dogs_info._id}`)
-                          }
-                        >
-                          <InfoIcon fontSize="inherit" />
-                        </MKButton>
-                      </MKBox>
+                        <img
+                          src={DogAvatar}
+                          alt="avatar"
+                          style={{ width: "100%", height: "100%" }}
+                        />
+                      </MKAvatar>
                     </MKBox>
-                  </Card>
-                );
-              })}
-          </>
-        )}
-      </MKBox>
+                    <MKBox
+                      className="DogName"
+                      style={{
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        display: { xs: "none", sm: "flex" },
+                      }}
+                      sx={{
+                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        display: { xs: "none", sm: "flex" },
+                      }}
+                    >
+                      <MKTypography
+                        variant="p"
+                        fontWeight="medium"
+                        style={{ fontSize: "0.90rem" }}
+                      >
+                        {dog.dogs_info.name}
+                      </MKTypography>
+                    </MKBox>
+                    <MKBox
+                      className="DogType"
+                      sx={{
+                        width: { md: "25%", lg: "20%" },
+                        display: { sm: "none", md: "flex" },
+                      }}
+                      style={{
+                        fontSize: "0.8rem",
+
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                      }}
+                    >
+                      <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                        {dog.dogs_info.breed}
+                      </MKTypography>
+                    </MKBox>
+                    <MKBox
+                      className="Size"
+                      sx={{
+                        width: { lg: "20%" },
+                        display: { xs: "none", lg: "flex" },
+                      }}
+                      style={{
+                        alignItems: "center",
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                        {dog.dogs_info.size}
+                      </MKTypography>
+                    </MKBox>
+                    <MKBox
+                      className="ButtonContainer"
+                      sx={{
+                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        display: { xs: "none", sm: "flex" },
+                        alignItems: "center",
+                        justifyContent: "flex-end ",
+                      }}
+                    >
+                      <MKButton
+                        size="large"
+                        type="submit"
+                        variant="gradient"
+                        color="info"
+                        style={{
+                          width: { sm: "1rem", md: "2rem" },
+                          height: { sm: "1rem", md: "2rem" },
+                          minWidth: "1rem",
+                          minHeight: "1rem",
+                          padding: "5px 5px",
+                        }}
+                        onClick={() =>
+                          navigate(`/doginfo/${dog.dogs_info._id}`)
+                        }
+                      >
+                        <InfoIcon fontSize="inherit" />
+                      </MKButton>
+                    </MKBox>
+                  </MKBox>
+                </Card>
+              );
+            })}
+        </>
+      )}
+      {/* </MKBox> */}
     </>
   );
 };
