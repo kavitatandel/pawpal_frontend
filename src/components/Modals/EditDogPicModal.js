@@ -24,6 +24,7 @@ import { editDogProfilePic } from '../../logic/DogFunctions'
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
+import swal from 'sweetalert';
 
 const EditDogPicModal = ({
   show,
@@ -77,6 +78,12 @@ const EditDogPicModal = ({
 
     toggleModal();
     //setDogPic(selectedFile);
+    swal({
+      title: "Photo Upload",
+      text: "You successfully uploaded photo!",
+      icon: "success",
+      button: "OK!"
+    });
   };
 
   //change color of close icon

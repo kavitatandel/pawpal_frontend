@@ -23,7 +23,7 @@ import UserInfo from "pages/UserInfoKavita";
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
-
+import swal from 'sweetalert';
 
 const UploadPicModal = ({
   show,
@@ -89,6 +89,13 @@ const UploadPicModal = ({
         toggleModal()
         setLoading(true);
         loading = true;
+
+        swal({
+          title: "Photo Upload",
+          text: "You successfully uploaded photo!",
+          icon: "success",
+          button: "OK!"
+        });
       })
       .catch((err) => console.log(err));
   };

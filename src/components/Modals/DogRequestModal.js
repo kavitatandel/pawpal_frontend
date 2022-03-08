@@ -31,6 +31,9 @@ import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 import MKAvatar from "components/MKAvatar";
 
+//import swal from sweetalert
+import swal from 'sweetalert';
+
 // //date localization
 // import deLocale from 'date-fns/locale/de';
 
@@ -100,6 +103,17 @@ function DogRequestModal({
     addPlayDateRequest(playDayRequest)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+
+    //add swal (title,text,icon,button)
+    swal({
+      title: "Request Sent",
+      text: "Your request has been sent!",
+      icon: "success",
+      button: "OK!"
+    });
+    // swal("Request Sent", "Your request has been sent!", "success", {
+    //   button: "OK",
+    // });
 
     toggleModal();
     //clear all the states

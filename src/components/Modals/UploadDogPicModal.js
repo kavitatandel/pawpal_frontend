@@ -18,6 +18,7 @@ import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
+import swal from 'sweetalert';
 
 const UploadDogPicModal = ({
   show,
@@ -62,6 +63,15 @@ const UploadDogPicModal = ({
     // toggleModal();
     setDogPic(selectedFile);
 
+    // await swal({
+    //   title: "Photo Upload",
+    //   text: "You successfully uploaded photo!",
+    //   icon: "success",
+    //   button: "OK!"
+    // });
+
+    // setTimeout(() => { console.log("World!"); }, 500);
+
     //moved toggleModal here
     await setImageModal(selectedDogImage);
     await console.log("save changes")
@@ -69,6 +79,12 @@ const UploadDogPicModal = ({
     await console.log(imageModal);
     await toggleModal();
 
+    swal({
+      title: "Photo Upload",
+      text: "You successfully uploaded photo!",
+      icon: "success",
+      button: "OK!"
+    });
   };
 
   useEffect(() => { }, [show, uploadedImageURL, selectedFile]);
