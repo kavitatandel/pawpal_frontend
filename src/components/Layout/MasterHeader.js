@@ -17,6 +17,17 @@ import MenuItem from "@mui/material/MenuItem";
 import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 import TempLogo from "../../assets/logos/logo_paw_light.png";
 
+//import layout.css
+import '../../styles/layout.css';
+import { makeStyles } from '@material-ui/core/styles';
+
+// const useStyles = makeStyles((theme) => ({
+//   abRoot: {
+//     backgroundColor: "red"
+//   },
+// })
+// );
+
 const MasterHeader = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -26,6 +37,9 @@ const MasterHeader = () => {
   const { dogId } = useParams();
   const [user, setUser] = useContext(UserContext);
   const [userType, setUserType] = useState("");
+
+  // //classes for material styles
+  // const classes = useStyles();
 
   const handleLogOut = () => {
     setUser({});
@@ -89,6 +103,11 @@ const MasterHeader = () => {
         boxShadow: "0 7px 30px 5px rgba(255, 82, 0, 0.2)",
         backdropFilter: "blur( 12.5px )",
       }}
+
+    // classes={{
+    //   root: classes.abRoot,
+    //   positionStatic: classes.abStatic
+    // }}
     >
       <Toolbar
         sx={{
@@ -157,6 +176,7 @@ const MasterHeader = () => {
                       textAlign="center"
                       variant="text"
                       fontWeight="medium"
+
                     >
                       Home
                     </MKButton>
@@ -173,6 +193,20 @@ const MasterHeader = () => {
                       fontWeight="medium"
                     >
                       Search Dogs
+                    </MKButton>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/user/dogloverrequests">
+                    <MKButton
+                      onClick={handleCloseNavMenu}
+                      size="medium"
+                      color="dark"
+                      textAlign="center"
+                      variant="text"
+                      fontWeight="medium"
+                    >
+                      My PlayDates
                     </MKButton>
                   </Link>
                 </MenuItem>
@@ -356,20 +390,7 @@ const MasterHeader = () => {
                     </MKButton>
                   </Link>
                 </MenuItem>
-                {/* <MenuItem onClick={handleCloseUserMenu}>
-                  <Link to="/user/dogloverrequests">
-                    <MKButton
-                      onClick={handleCloseNavMenu}
-                      size="medium"
-                      color="dark"
-                      textAlign="center"
-                      variant="text"
-                      fontWeight="medium"
-                    >
-                      My Play Dates
-                    </MKButton>
-                  </Link>
-                </MenuItem> */}
+
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/">
                     <MKButton
@@ -419,50 +440,6 @@ const MasterHeader = () => {
                     </MKButton>
                   </Link>
                 </MenuItem>
-
-                {/* <MenuItem onClick={handleCloseUserMenu}>
-                  <Link to="/owner/ownerdogs">
-                    <MKButton
-                      onClick={handleCloseNavMenu}
-                      size="medium"
-                      color="dark"
-                      textAlign="center"
-                      variant="text"
-                      fontWeight="medium"
-                    >
-                      My Dogs
-                    </MKButton>
-                  </Link>
-                </MenuItem> */}
-                {/* <MenuItem onClick={handleCloseUserMenu}>
-                  <Link to="/">
-                    <MKButton
-                      onClick={handleCloseNavMenu}
-                      size="medium"
-                      color="dark"
-                      textAlign="center"
-                      variant="text"
-                      fontWeight="medium"
-                    >
-                      Add Dog
-                    </MKButton>
-                  </Link>
-                </MenuItem> */}
-
-                {/* <MenuItem onClick={handleCloseUserMenu}>
-                  <Link to="/">
-                    <MKButton
-                      onClick={handleCloseNavMenu}
-                      size="medium"
-                      color="dark"
-                      textAlign="center"
-                      variant="text"
-                      fontWeight="medium"
-                    >
-                      My Play Dates
-                    </MKButton>
-                  </Link>
-                </MenuItem> */}
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Link to="/">
                     <MKButton
