@@ -178,7 +178,7 @@ function DogRequestModal({
                         <MKAvatar
                           zIndex={2}
                           src={`${dogInfo.profile_photo}`}
-                          alt={`${dogInfo.name} {selectedDogRequest.DogLovers.last_name}`}
+                          alt={`${dogInfo.name} `}
                           shadow="xl"
                           // sx={{ width: "10rem", height: "10rem" }} //commented by kavita
                           sx={{ width: "6rem", height: "6rem" }}

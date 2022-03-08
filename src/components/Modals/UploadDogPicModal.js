@@ -60,8 +60,8 @@ const UploadDogPicModal = ({
     marginRight: "1.2rem",
     marginLeft: "0.2rem",
     verticalAlign: "middle",
-    width: "4%",
-    height: "4%"
+    width: "3%",
+    height: "3%"
   };
 
   const handleCloseIcon = (e) => {
@@ -103,7 +103,10 @@ const UploadDogPicModal = ({
                 borderRadius="lg"
                 coloredShadow="info"
                 width="60%"
-
+                // mx="3rem"
+                // mt="-4rem"
+                // p="2rem 2rem"
+                //by kavita
                 mx="3rem"
                 mt="-2.5rem"
                 pt="0.75rem"
@@ -124,17 +127,16 @@ const UploadDogPicModal = ({
               ) : (
                 <MKBox p={2}>
                   <form onSubmit={handleSubmit}>
-
                     <MKBox
                       display="flex"
                       justifyContent="center"
-                      pb={2} pt={4}
+                      pb={2} pt={3}
                     >
                       <input style={{ width: "70%" }} id="inputFile" type="file" onChange={(e) => handleFileUpload(e)} />
-
-                      <CloseIcon fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon} />
+                      <CloseIcon
+                        fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon}
+                      />
                     </MKBox>
-                    {/* <Divider sx={{ my: 0 }} /> */}
                     <MKBox
                       display="flex"
                       justifyContent="center"
@@ -148,6 +150,7 @@ const UploadDogPicModal = ({
                         size="large"
 
                         style={{
+                          // width: "8rem", //commented by kavita
                           width: "7rem",
                           minWidth: "100px",
                           minHeight: "30px",
@@ -168,14 +171,15 @@ const UploadDogPicModal = ({
                         save changes
                       </MKButton>
                     </MKBox>
+
                   </form>
                 </MKBox>
               )}
             </MKBox>
           </Slide>
         </Modal>
-      </Container>
-    </MKBox>
+      </Container >
+    </MKBox >
   );
 };
 
