@@ -123,16 +123,16 @@ const MasterHeader = () => {
         }}
       >
         {/* _______________________ MAIN LOGO */}
-        <Link to="/" onClick={handleLogOut}>
-          <MKBox
-            mt={2}
-            sx={{
-              display: { xs: "none", md: "block" },
-            }}
-          >
-            <img src={TempLogo} alt="logo" width="80px" height="80px" />
-          </MKBox>
-        </Link>
+        {/* <Link to="/" onClick={handleLogOut}> */}
+        <MKBox
+          mt={2}
+          sx={{
+            display: { xs: "none", md: "block" },
+          }}
+        >
+          <img src={TempLogo} alt="logo" width="80px" height="80px" />
+        </MKBox>
+        {/* </Link> */}
         {/* _______________________ MENU HAMBURGER (LEFT) */}
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
           <IconButton
@@ -167,7 +167,7 @@ const MasterHeader = () => {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <MenuItem>
+                {/* <MenuItem>
                   <Link to="/user/searchdog">
                     <MKButton
                       onClick={handleCloseNavMenu}
@@ -181,7 +181,7 @@ const MasterHeader = () => {
                       Home
                     </MKButton>
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem>
                   <Link to="/user/searchdog">
                     <MKButton
@@ -233,7 +233,7 @@ const MasterHeader = () => {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <MenuItem>
+                {/* <MenuItem>
                   <Link to="/" onClick={handleLogOut}>
                     <MKButton
                       onClick={handleCloseNavMenu}
@@ -246,7 +246,7 @@ const MasterHeader = () => {
                       Home
                     </MKButton>
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem>
                   <Link to="/owner/ownerdogs">
                     <MKButton
