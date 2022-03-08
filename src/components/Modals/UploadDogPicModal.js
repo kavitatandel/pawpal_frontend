@@ -25,6 +25,8 @@ const UploadDogPicModal = ({
   toggleModal,
   dogPic,
   setDogPic,
+  setImageModal,
+  imageModal
 }) => {
   const [user, setUser] = useContext(UserContext);
 
@@ -36,19 +38,37 @@ const UploadDogPicModal = ({
   const [loading, setLoading] = useState(true);
   const [uploadedImageURL, setUploadedImageURL] = useState("");
 
+  //additional state to hold back show image on parent page
+  const [selectedDogImage, setSelectedDogImage] = useState("");
+
+
   const handleFileUpload = (e) => {
+    e.preventDefault();
     //const uploadData = new FormData();
     //uploadData.append("file", e.target.files[0], "file");
     //cloudinaryUpload(uploadData)
     setSelectedFile(e.target.files[0]);
     console.log(e.target.files[0]);
     //console.log(`User ID: ${user._id} , User FirstName: ${user.first_name} `);
+
+    //added for image
+    // setImageModal(URL.createObjectURL(e.target.files[0]));
+    // imageModal = URL.createObjectURL(e.target.files[0]);
+    setSelectedDogImage(URL.createObjectURL(e.target.files[0]));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    toggleModal();
+    // toggleModal();
     setDogPic(selectedFile);
+
+    //moved toggleModal here
+    await setImageModal(selectedDogImage);
+    await console.log("save changes")
+    await console.log(setImageModal);
+    await console.log(imageModal);
+    await toggleModal();
+
   };
 
   useEffect(() => { }, [show, uploadedImageURL, selectedFile]);
