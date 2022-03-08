@@ -48,6 +48,9 @@ const AddDogForm = () => {
 
   const navigate = useNavigate();
 
+  //for image show
+  const [imageModal, setImageModal] = useState();
+
   //for radio group
   const handleChangeSize = (e) => {
     setDogSize(e.target.value);
@@ -69,6 +72,10 @@ const AddDogForm = () => {
 
   useEffect(() => {
     console.log(dogPic);
+
+    //print out image from modal
+    // console.log(imageModal);
+    // console.log(setImageModal);
   }, [dogPic]);
 
   //add dog
@@ -202,6 +209,8 @@ const AddDogForm = () => {
                 toggleModal={toggleModal}
                 dogPic={dogPic}
                 setDogPic={setDogPic}
+                imageModal={imageModal}
+                setImageModal={setImageModal}
               />
 
               {/* ________Pink Shape */}
@@ -232,7 +241,9 @@ const AddDogForm = () => {
                       <MKAvatar
                         top={-50}
                         zindex={2}
-                        src=""
+                        // src=""
+                        src={`${imageModal}`}
+                        alt='Dog'
                         shadow="xl"
                         sx={{ width: "12rem", height: "12rem" }}
                         style={{
@@ -507,14 +518,14 @@ const AddDogForm = () => {
                           column
                         >
                           <FormControlLabel
-                            value="Low"
+                            value="low"
                             control={
                               <Radio
                                 size="small"
                                 style={{ fontSize: "0.70em" }}
                               />
                             }
-                            label="low"
+                            label="Low"
                           />
                           <FormControlLabel
                             value="medium"
