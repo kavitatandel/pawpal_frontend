@@ -136,8 +136,7 @@ const LeafletMap = ({ locations, isSearched }) => {
                       sx={{ width: "4rem", height: "4rem" }}
                       style={{
                         border: "0.3rem solid #ff9a85",
-                        background:
-                          "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
+                        background: "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
                         borderRadius: "100%",
                         boxShadow:
                           "14.11px 14.11px 24px #D9DADE, -14.11px -14.11px 24px #FFFFFF",
@@ -159,7 +158,10 @@ const LeafletMap = ({ locations, isSearched }) => {
                       mb: "0.5rem", //commented by kavita
                     }}
                   >
-                    <Link to={`/doginfo/${point.dogs_info._id}`} style={{ color: "#ff3d47" }}>
+                    <Link
+                      to={`/doginfo/${point.dogs_info._id}`}
+                      style={{ color: "#ff3d47" }}
+                    >
                       <h3>{point.dogs_info.name}</h3>
                     </Link>
                   </MKBox>

@@ -1,24 +1,32 @@
 @import "~leaflet/dist/leaflet.css";
 
 .leaflet-container {
-  width: 80%;
-
+  width: 100%;
+  min-height: 100vh;
   z-index: 0;
-
-  /* border: 5px solid blue; */
+  /* border: 5px solid blue !important; */
 }
 
 .mapbox {
   position: relative;
-  height: 100%;
+  overflow: scroll;
+  min-height: 100%;
+  border: 5px solid red !important;
+}
+
+.MuiBox-root.css-1lyd6xo {
+  box-sizing: inherit;
 }
 
 .mapbox .overlay {
   position: absolute;
+  overflow: scroll;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 314159;
   pointer-events: none;
+  border: 5px solid yellow !important;
 }
 
 .mapbox .overlay #results {
@@ -29,6 +37,7 @@
 
 .leaflet-control {
   position: relative;
+  border: 5px solid red;
   z-index: 800;
   pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
   pointer-events: auto;
