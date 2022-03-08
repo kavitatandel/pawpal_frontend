@@ -32,6 +32,7 @@ import { override } from "styles/CustomStyles";
 
 //delete icon
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import swal from 'sweetalert';
 
 const styledDeleteIcon = {
   transform: "scale(1.5)",
@@ -111,9 +112,25 @@ const DogLoverRequestsForm = () => {
     console.log(e.target[1].value);
     await deleteRequestById(e.target[1].value)
       .then((res) => {
-        alert("Request has been deleted");
-        getRequestData();
-        getApprovedRequestData();
+        //alert("Request has been deleted");
+
+        swal({
+          title: "Request Deleted",
+          text: "You successfully deleted request!",
+          icon: "success",
+          button: "OK!"
+        });
+
+        //after 2 seconds , update grids
+        setTimeout(() => {
+          getRequestData();
+          getApprovedRequestData();
+        }, 2000);
+
+        // getRequestData();
+        // getApprovedRequestData();
+
+
       })
       .catch((err) => console.log(err));
   };
