@@ -24,8 +24,8 @@ import FormLabel from "@mui/material/FormLabel";
 
 //import GeoCode component
 import GeoCode from "../../components/Maps/GeoCode";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const styledEyeIcon = {
   transform: "scale(1.5)",
@@ -34,7 +34,7 @@ const styledEyeIcon = {
   marginLeft: "0.3rem",
   verticalAlign: "middle",
   marginTop: "0.75rem",
-  width: "1.75rem"
+  width: "1.75rem",
 };
 
 const RegisterForm = () => {
@@ -49,7 +49,6 @@ const RegisterForm = () => {
   const [userType, setUserType] = useState("owner");
 
   let navigate = useNavigate();
-
 
   const createUser = async (e) => {
     e.preventDefault();
@@ -95,15 +94,13 @@ const RegisterForm = () => {
     setUserType(event.target.value);
   };
 
-
-
   //useEffect to hide VisibilityOffIcon
   useEffect(() => {
     var hide_eye = document.getElementById("hide_eye");
     hide_eye.style.display = "none";
     var show_eye = document.getElementById("show_eye");
     show_eye.style.display = "block";
-  })
+  });
 
   //show/hide password
   function password_show_hide() {
@@ -122,21 +119,12 @@ const RegisterForm = () => {
     }
   }
 
-
   return (
     <>
       <MKBox
         minHeight="100vh"
         width="100%"
         sx={{
-          backgroundImage: ({
-            functions: { linearGradient, rgba },
-            palette: { gradients },
-          }) =>
-            `${linearGradient(
-              rgba(gradients.dark.main, 0.4),
-              rgba(gradients.dark.state, 0.4)
-            )}, url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "grid",
@@ -189,7 +177,7 @@ const RegisterForm = () => {
                     variant="h3"
                     fontWeight="regular"
                     color="white"
-                  // mt={1}
+                    // mt={1}
                   >
                     REGISTER
                   </MKTypography>
@@ -220,10 +208,10 @@ const RegisterForm = () => {
                         required
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                      // value={user.first_name}
-                      // onChange={(e) =>
-                      //   setUser({ ...user, first_name: e.target.value })
-                      // }
+                        // value={user.first_name}
+                        // onChange={(e) =>
+                        //   setUser({ ...user, first_name: e.target.value })
+                        // }
                       />
                       <MKInput
                         style={{ width: "48%" }}
@@ -259,8 +247,14 @@ const RegisterForm = () => {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </MKBox>
-                    <MKBox display="flex"
-                      justifyContent="space-between" mb={2} mt={4} mr={0} ml={0}>
+                    <MKBox
+                      display="flex"
+                      justifyContent="space-between"
+                      mb={2}
+                      mt={4}
+                      mr={0}
+                      ml={0}
+                    >
                       <MKInput
                         //fullWidth
                         id="password" //added for show/hid password
@@ -278,9 +272,12 @@ const RegisterForm = () => {
                         sx={{ width: "96%" }}
                       />
                       {/* added for show/hide Password  */}
-                      <span class=" field-icon " onClick={password_show_hide} >
+                      <span class=" field-icon " onClick={password_show_hide}>
                         <VisibilityIcon id="show_eye" style={styledEyeIcon} />
-                        <VisibilityOffIcon id="hide_eye" style={styledEyeIcon} />
+                        <VisibilityOffIcon
+                          id="hide_eye"
+                          style={styledEyeIcon}
+                        />
                         {/* <i class="fa fs-2 fa-eye" id="show_eye"></i>
                         <i class="fa fs-2 fa-eye-slash d-none" id="hide_eye"></i> */}
                       </span>

@@ -19,17 +19,17 @@ import MKTypography from "../MKTypography";
 
 import jwt_decode from "jwt-decode";
 import { styled } from "@mui/material/styles";
-import { makeStyles } from '@material-ui/core/styles';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { makeStyles } from "@material-ui/core/styles";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   // MuiOutlinedInput: {
   root: {
-    color: 'red',
+    color: "red",
     "&$Mui-error": {
-      color: 'red'
-    }
+      color: "red",
+    },
   },
   // },
 }));
@@ -41,15 +41,15 @@ const styledEyeIcon = {
   marginLeft: "0.3rem",
   verticalAlign: "middle",
   marginTop: "0.75rem",
-  width: "1.75rem"
+  width: "1.75rem",
 };
 
 const LoginForm = () => {
   const [user, setUser] = useContext(UserContext);
 
   //use state for notvalid email and not valid password
-  const [notValidEmail, setNotValidEmail] = useState('');
-  const [notValidPass, setNotValidPass] = useState('');
+  const [notValidEmail, setNotValidEmail] = useState("");
+  const [notValidPass, setNotValidPass] = useState("");
 
   let navigate = useNavigate();
 
@@ -64,16 +64,16 @@ const LoginForm = () => {
     };
 
     //empty the notvalid states
-    setNotValidEmail('');
-    setNotValidPass('');
+    setNotValidEmail("");
+    setNotValidPass("");
 
     login(newUser).then((res) => {
       if (res) {
         //check if passoword is correct
         console.log(res);
-        if (res === 'Password is not valid, please try again!') {
+        if (res === "Password is not valid, please try again!") {
           setNotValidPass(res);
-        } else if (res === 'Email is wrong or does not exist!') {
+        } else if (res === "Email is wrong or does not exist!") {
           setNotValidEmail(res);
         } else {
           navigate("/user");
@@ -83,14 +83,13 @@ const LoginForm = () => {
     });
   };
 
-
   //useEffect to hide VisibilityOffIcon
   useEffect(() => {
     var hide_eye = document.getElementById("hide_eye");
     hide_eye.style.display = "none";
     var show_eye = document.getElementById("show_eye");
     show_eye.style.display = "block";
-  })
+  });
 
   //show/hide password
   function password_show_hide() {
@@ -116,14 +115,6 @@ const LoginForm = () => {
         height="auto"
         width="100%"
         sx={{
-          backgroundImage: ({
-            functions: { linearGradient, rgba },
-            palette: { gradients },
-          }) =>
-            `${linearGradient(
-              rgba(gradients.dark.main, 0.4),
-              rgba(gradients.dark.state, 0.4)
-            )}, url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "grid",
@@ -173,7 +164,7 @@ const LoginForm = () => {
                     variant="h3"
                     fontWeight="bold"
                     color="white"
-                  // mt={1}
+                    // mt={1}
                   >
                     LOG IN
                   </MKTypography>
@@ -209,12 +200,18 @@ const LoginForm = () => {
                         helperText={notValidEmail}
                         // className={helperTextStyles}
                         FormHelperTextProps={{
-                          className: classes.root
+                          className: classes.root,
                         }}
                       ></MKInput>
                     </MKBox>
-                    <MKBox display="flex"
-                      justifyContent="space-between" mb={2} mt={4} mr={0} ml={0}>
+                    <MKBox
+                      display="flex"
+                      justifyContent="space-between"
+                      mb={2}
+                      mt={4}
+                      mr={0}
+                      ml={0}
+                    >
                       <MKInput
                         //fullWidth
                         // width="100%"
@@ -239,14 +236,17 @@ const LoginForm = () => {
                         // className={helperTextStyles}
                         //className={classes.MuiFormHelperText}
                         FormHelperTextProps={{
-                          className: classes.root
+                          className: classes.root,
                         }}
                         sx={{ width: "96%" }}
                       />
                       {/* added for show/hide Password  */}
-                      <span class=" field-icon " onClick={password_show_hide} >
+                      <span class=" field-icon " onClick={password_show_hide}>
                         <VisibilityIcon id="show_eye" style={styledEyeIcon} />
-                        <VisibilityOffIcon id="hide_eye" style={styledEyeIcon} />
+                        <VisibilityOffIcon
+                          id="hide_eye"
+                          style={styledEyeIcon}
+                        />
                         {/* <i class="fa fs-2 fa-eye" id="show_eye"></i>
                         <i class="fa fs-2 fa-eye-slash d-none" id="hide_eye"></i> */}
                       </span>
