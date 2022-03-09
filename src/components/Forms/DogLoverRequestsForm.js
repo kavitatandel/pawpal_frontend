@@ -33,6 +33,7 @@ import { override } from "styles/CustomStyles";
 //delete icon
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import swal from "sweetalert";
+import RequestGridHeadingDogLover from './RequestGridHeadingDogLover';
 
 const styledDeleteIcon = {
   transform: "scale(1.5)",
@@ -283,7 +284,8 @@ const DogLoverRequestsForm = () => {
                     No Playdate Requests Found.{" "}
                   </h5>
                 ) : (
-                  ""
+                  // ""
+                  <RequestGridHeadingDogLover />
                 )}
                 {/* map thru searched dogs */}
                 {dogRequestsInfo !== undefined &&
@@ -354,7 +356,8 @@ const DogLoverRequestsForm = () => {
                               className="DogName"
                               sx={{
                                 width: { sm: "25%", md: "16%", lg: "12%" },
-                                display: { xs: "none", sm: "flex" },
+                                // display: { xs: "none", sm: "flex" },
+                                display: { xs: "flex" },
                               }}
                               style={{
                                 fontSize: "0.8rem",
@@ -396,6 +399,12 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartDate"
                               sx={{
+                                // width: {
+                                //   md: "22%",
+                                //   lg: "17%",
+                                //   xl: "18%",
+                                //   xxl: "18%",
+                                // },
                                 width: {
                                   md: "22%",
                                   lg: "17%",
