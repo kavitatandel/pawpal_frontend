@@ -36,13 +36,13 @@ import swal from "sweetalert";
 
 const styledDeleteIcon = {
   transform: "scale(1.5)",
-  color: "#ff3d47",
-  // marginRight: "0.2rem",
-  // marginLeft: "0.2rem",
+  color: "white",
+  marginRight: "0.2rem",
+  marginLeft: "0.2rem",
   verticalAlign: "middle",
   justifyContent: "center",
   alignItem: "center",
-  // width: "1rem",
+  width: "1rem",
 };
 
 const DogLoverRequestsForm = () => {
@@ -168,6 +168,9 @@ const DogLoverRequestsForm = () => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
+
+          // p={3}
+          // my={2}
         >
           <Paper
             className="neuCard"
@@ -181,17 +184,23 @@ const DogLoverRequestsForm = () => {
               backdropFilter: "blur( 12px )",
             }}
             sx={{
-              width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
-              maxWidth: "1000px",
-              height: "auto",
-              mt: {
-                xs: "140px",
-                sm: "170px",
-                md: "220px",
-
-                xl: "300px",
+              width: {
+                xs: "95%",
+                sm: "90%",
+                md: "85%",
+                xl: "85%",
+                xxl: "85%",
+                xxxl: "80%",
               },
-              pb: "3rem",
+              maxWidth: {
+                xl: "1000px",
+                xxl: "1200px",
+                xxxl: "1600px",
+              },
+              height: "auto",
+              // mt: 35,
+              mt: 25,
+
               mx: { xs: 2, lg: 3 },
               position: "relative",
               mb: 10,
@@ -211,45 +220,57 @@ const DogLoverRequestsForm = () => {
 
             {/* ************************** Dog Details */}
 
-            {/* _________ div fixes pink block in postion */}
-            <div
-              style={{
+            {/* ________Pink Box */}
+            {/* <MKBox
+              sx={{
                 display: "flex",
-                alignItems: "center",
                 justifyContent: "center",
-                // border: "4px solid blue",
-                marginTop: "-2rem",
-                position: "relative",
+                alignItems: "flex-start",
+                mb: "0rem",
+                pb: "0rem",
+                mt: -20,
               }}
+            > */}
+            <MKBox
+              variant="gradient"
+              bgColor="info"
+              //borderRadius="lg"
+              borderRadius="25px"
+              coloredShadow="info"
+              width="60%"
+              mx="12rem"
+              mt="-2.5rem"
+              pt="1.25rem"
+              pr="1rem"
+              pl="1rem"
+              pb="1.25rem"
+              textAlign="center"
+              //mr="10rem"
             >
-              {/* ____________PINK BOX */}
-              <MKBox
+              {/* <MKBox
                 variant="gradient"
                 bgColor="info"
-                //borderRadius="lg"
                 borderRadius="25px"
                 coloredShadow="info"
-                width="30rem"
+                mx={4}
+                // mt={-4}
+                p={5}
+                mb={2}
                 textAlign="center"
-                sx={{
-                  height: "7rem",
-
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                sx={{ width: "60%" }}
+              > */}
+              {/* // Heading */}
+              <MKTypography
+                variant="h4"
+                fontWeight="bold"
+                color="light"
+                textAlign="center"
+                // mt={1}
               >
-                <MKTypography
-                  variant="h4"
-                  fontWeight="bold"
-                  color="light"
-                  textAlign="center"
-                >
-                  PLAY DATE REQUESTS
-                </MKTypography>
-                {/* </MKBox> */}
-              </MKBox>
-            </div>
+                PLAY DATE REQUESTS
+              </MKTypography>
+              {/* </MKBox> */}
+            </MKBox>
             {/******************** REQUESTS */}
             <Grid
               container
@@ -257,19 +278,18 @@ const DogLoverRequestsForm = () => {
                 padding: "1rem",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center",
                 mb: "4rem",
                 minWidth: "100%",
               }}
             >
               <MKBox
-                sx={{ width: { xs: "95%", lg: "90%", xxl: "90%" } }}
+                sx={{ width: { xs: "95%", xxl: "90%" } }}
                 style={{
                   display: "flex",
                   height: "auto",
                   flexDirection: "column",
-                  // alignItems: "center",
-
+                  alignItems: "center",
+                  //verticalAlign: "middle",
                   justifyContent: "center",
                   // border: "3px solid blue",
                 }}
@@ -290,16 +310,63 @@ const DogLoverRequestsForm = () => {
                   dogRequestsInfo.map((request, index) => {
                     return (
                       <form onSubmit={handleDelete}>
-                        <Card sx={neumorphicDL} key={index}>
+                        <Card
+                          sx={neumorphicDL}
+                          key={index}
+                          //paddingTop="10rem"
+                          //minwidth="40rem"
+                          sx={{
+                            minWidth: {
+                              sx: "27rem",
+                              sm: "27rem",
+                              md: "30em",
+                              lg: "50rem",
+                              // xl: "50rem"
+                            },
+                            marginTop: {
+                              sx: "2rem",
+                              sm: "2rem",
+                              md: "2rem",
+                              lg: "2rem",
+                            },
+                          }}
+
+                          // sx={{
+                          //   minWidth: "50rem",
+                          //   minHeight: "5rem",
+
+                          //   paddingLeft: {
+                          //     sx: "0.5rem",
+                          //     sm: "1rem",
+                          //     md: "2rem",
+                          //     lg: "2.5rem",
+                          //   },
+                          //   paddingRight: {
+                          //     sx: "1rem",
+                          //     sm: "1.5rem",
+                          //     md: "2rem",
+                          //   },
+                          //   paddingTop: {
+                          //     sx: "1rem",
+                          //     sm: "1rem",
+                          //     md: "1rem",
+                          //   },
+                          //   paddingBottom: {
+                          //     sx: "1rem",
+                          //     sm: "1rem",
+                          //     md: "1rem",
+                          //   },
+                          // }}
+                        >
                           <MKBox
                             className="mainContainer"
                             sx={{
-                              position: "relative",
                               display: "flex",
                               justifyContent: "space-between",
                               alignItems: "center",
-                              padding: "1rem",
+                              padding: "1rem,",
                               minHeight: "5rem",
+
                               paddingLeft: {
                                 sx: "0.5rem",
                                 sm: "1rem",
@@ -308,6 +375,8 @@ const DogLoverRequestsForm = () => {
                               },
                               paddingRight: {
                                 sx: "1rem",
+                                sm: "1.5rem",
+                                md: "2rem",
                               },
                             }}
                           >
@@ -353,12 +422,18 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="DogName"
                               sx={{
-                                width: { sm: "25%", md: "16%", lg: "12%" },
+                                width: {
+                                  //xs:"33%",
+                                  sm: "25%",
+                                  md: "20%",
+                                  lg: "15%",
+                                  xl: "16%",
+                                  xxl: "16%",
+                                },
                                 display: { xs: "none", sm: "flex" },
                               }}
                               style={{
                                 fontSize: "0.8rem",
-
                                 alignItems: "center",
                                 justifyContent: "flex-start",
                               }}
@@ -371,18 +446,21 @@ const DogLoverRequestsForm = () => {
                                 {request.DogsRequests.name}
                               </MKTypography>
                             </MKBox>
+
                             {/* *************** MEETING LOCATION */}
                             <MKBox
                               className="meetingLocation"
                               sx={{
-                                width: { sm: "25%", md: "20%", lg: "16%" },
-                                display: { xs: "none", sm: "flex" },
-                              }}
-                              style={{
-                                fontSize: "0.8rem",
-
                                 alignItems: "center",
                                 justifyContent: "flex-start",
+                                width: {
+                                  sm: "25%",
+                                  md: "25%",
+                                  lg: "15%",
+                                  xl: "16%",
+                                  xxl: "16%",
+                                },
+                                display: { sm: "flex" },
                               }}
                             >
                               <MKTypography
@@ -431,7 +509,12 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartTime"
                               sx={{
-                                width: { lg: "12%" },
+                                width: {
+                                  lg: "18%",
+                                  xl: "19%",
+                                  xxl: "19%",
+                                },
+
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -451,7 +534,8 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="EndTime"
                               sx={{
-                                width: { lg: "12%" },
+                                width: { lg: "18%", xl: "19%", xxl: "19%" },
+
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
@@ -469,23 +553,57 @@ const DogLoverRequestsForm = () => {
                             </MKBox>
                             {/* *************** REQUEST STATUS */}
                             <MKBox
-                              className="status"
+                              className="Status"
                               sx={{
-                                width: { lg: "12%" },
+                                width: { lg: "15%", xl: "16%", xxl: "16%" },
+
                                 display: { xs: "none", lg: "flex" },
                               }}
                               style={{
-                                alignItems: "center !important",
-                                justifyContent: "flex-end",
+                                alignItems: "center",
+                                justifyContent: "flex-start",
                               }}
                             >
+                              {/* <MKTypography
+                                variant="p"
+                                style={{ fontSize: "0.90rem" }}
+                              >
+                                {request.end_time}
+                              </MKTypography> */}
+
                               {request.status === "Pending" ? (
                                 <MKTypography
                                   variant="p"
                                   style={{
-                                    verticalAlign: "middle",
                                     fontSize: "0.90rem",
                                     color: "blue",
+                                  }}
+                                  //added on 4.3
+                                  sx={{
+                                    minWidth: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "3.5rem",
+                                      lg: "4rem",
+                                    },
+                                    minHeight: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "2.5rem",
+                                      lg: "3rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "10px 10px",
+                                      md: "12px 12px",
+                                      lg: "10px 10px",
+                                      xl: "8px 8px",
+                                      xxl: "8px 8px",
+                                      xxxl: "4px 4px",
+                                    },
+
+                                    ml: "1rem",
                                   }}
                                 >
                                   {request.status}
@@ -496,7 +614,33 @@ const DogLoverRequestsForm = () => {
                                   style={{
                                     fontSize: "0.90rem",
                                     color: "green",
-                                    verticalAlign: "middle",
+                                  }}
+                                  //added on 4.3
+                                  sx={{
+                                    minWidth: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "5rem",
+                                      lg: "6rem",
+                                    },
+                                    minHeight: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "3.5rem",
+                                      lg: "4rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "10px 10px",
+                                      md: "12px 12px",
+                                      lg: "10px 10px",
+                                      xl: "8px 8px",
+                                      xxl: "8px 8px",
+                                      xxxl: "4px 4px",
+                                    },
+
+                                    ml: "1rem",
                                   }}
                                 >
                                   {request.status}
@@ -507,6 +651,33 @@ const DogLoverRequestsForm = () => {
                                   style={{
                                     fontSize: "0.90rem",
                                     color: "red",
+                                  }}
+                                  //added on 4.3
+                                  sx={{
+                                    minWidth: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "5rem",
+                                      lg: "6rem",
+                                    },
+                                    minHeight: {
+                                      xs: "2rem",
+                                      sm: "2rem",
+                                      md: "2rem",
+                                      lg: "2rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "10px 10px",
+                                      md: "12px 12px",
+                                      lg: "10px 10px",
+                                      xl: "8px 8px",
+                                      xxl: "8px 8px",
+                                      xxxl: "4px 4px",
+                                    },
+
+                                    ml: "1rem",
                                   }}
                                 >
                                   {request.status}
@@ -526,12 +697,7 @@ const DogLoverRequestsForm = () => {
                               }}
                             >
                               <MKButton
-                                style={
-                                  request.status === "Rejected"
-                                    ? { display: "none" }
-                                    : { display: "flex" }
-                                }
-                                size="medium"
+                                size="large"
                                 type="submit"
                                 variant="gradient"
                                 color="info"
@@ -539,10 +705,17 @@ const DogLoverRequestsForm = () => {
                                   minWidth: {
                                     xs: "2rem",
                                     sm: "2rem",
-                                    md: "2.5rem",
-                                    lg: "3rem",
+                                    md: "3.5rem",
+                                    lg: "3.5rem",
                                   },
-
+                                  minHeight: {
+                                    xs: "2rem",
+                                    sm: "2rem",
+                                    md: "2rem",
+                                    lg: "2rem",
+                                  },
+                                  // minWidth: "2rem",
+                                  // minHeight: "2rem",
                                   padding: {
                                     xs: "10px 10px",
                                     md: "12px 12px",
@@ -557,109 +730,59 @@ const DogLoverRequestsForm = () => {
                                 value={request._id}
                                 onClick={handleInfo}
                               >
-                                <InfoIcon style={{ marginRight: "8px" }} />
+                                {/* <InfoIcon /> */}
                                 INFO
                                 {/* Approve / Reject */}
                               </MKButton>
-
                               {request.status === "Rejected" ? (
-                                <MKBox
-                                  className="ButtonContainer"
+                                <MKButton
+                                  size="small"
+                                  type="submit"
+                                  variant="gradient"
+                                  color="info"
+                                  style={{
+                                    // minWidth: "1rem",
+                                    width: "2.5rem",
+                                    marginLeft: "0.25rem",
+                                  }}
+                                  value={request._id}
+                                  //added on 4.3
                                   sx={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "flex-end ",
-                                    //   border: "2px solid red",
+                                    // minWidth: {
+                                    //   xs: "2rem",
+                                    //   sm: "2rem",
+                                    //   md: "3.5rem",
+                                    //   lg: "3.5rem",
+                                    // },
+                                    minWidth: {
+                                      xs: "1rem",
+                                      sm: "1rem",
+                                      md: "2.5rem",
+                                      lg: "2.5rem",
+                                    },
+                                    minHeight: {
+                                      xs: "1.75rem",
+                                      sm: "1.75rem",
+                                      md: "2rem",
+                                      lg: "2rem",
+                                    },
+                                    // minWidth: "2rem",
+                                    // minHeight: "2rem",
+                                    padding: {
+                                      xs: "6px 8px",
+                                      md: "16px 10px",
+                                      lg: "6px 8px",
+                                      xl: "4px 6px",
+                                      xxl: "4px 6px",
+                                      xxxl: "2px 2px",
+                                    },
 
-                                    width: { md: "20%", lg: "16%" },
+                                    ml: "1rem",
                                   }}
                                 >
-                                  <MKButton
-                                    size="medium"
-                                    type="submit"
-                                    variant="gradient"
-                                    color="info"
-                                    sx={{
-                                      minWidth: {
-                                        xs: "2rem",
-                                        sm: "2rem",
-                                        md: "2rem",
-                                        lg: "2rem",
-                                      },
-
-                                      minHeight: {
-                                        xs: "2rem",
-                                        sm: "2rem",
-                                        md: "2rem",
-                                        lg: "2rem",
-                                      },
-
-                                      padding: {
-                                        xs: "6px 10px",
-                                        md: "8px 12px",
-                                        lg: "6px 10px",
-                                        xl: "4px 8px",
-                                        xxl: "4px 8px",
-                                        xxxl: "1px 4px",
-                                      },
-
-                                      ml: "2rem",
-                                    }}
-                                    value={request._id}
-                                    onClick={handleInfo}
-                                  >
-                                    <InfoIcon
-                                      onClick={handleInfo}
-                                      style={{ transform: "scale(1.2)" }}
-                                    />
-                                  </MKButton>
-                                  <MKButton
-                                    postion="absolute"
-                                    mr={-5}
-                                    size="small"
-                                    type="submit"
-                                    variant="outline"
-                                    color="error"
-                                    style={{
-                                      // minWidth: "1rem",
-                                      width: "1rem",
-                                      marginLeft: "0rem",
-                                    }}
-                                    value={request._id}
-                                    //added on 4.3
-                                    sx={{
-                                      minWidth: {
-                                        xs: "1rem",
-                                        sm: "1rem",
-                                        md: "2.5rem",
-                                        lg: "2.5rem",
-                                      },
-                                      minHeight: {
-                                        xs: "1.75rem",
-                                        sm: "1.75rem",
-                                        md: "2rem",
-                                        lg: "2rem",
-                                      },
-                                      // minWidth: "2rem",
-                                      // minHeight: "2rem",
-                                      padding: {
-                                        xs: "6px 8px",
-                                        md: "16px 10px",
-                                        lg: "6px 8px",
-                                        xl: "4px 6px",
-                                        xxl: "4px 6px",
-                                        xxxl: "2px 2px",
-                                      },
-
-                                      ml: "1rem",
-                                    }}
-                                  >
-                                    <DeleteOutlineIcon
-                                      style={styledDeleteIcon}
-                                    />
-                                    {/* DELETE */}
-                                  </MKButton>
-                                </MKBox>
+                                  <DeleteOutlineIcon style={styledDeleteIcon} />
+                                  {/* DELETE */}
+                                </MKButton>
                               ) : (
                                 ""
                               )}
