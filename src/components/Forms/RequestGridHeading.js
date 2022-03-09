@@ -186,7 +186,7 @@ const RequestGridHeading = () => {
             style={{
               alignItems: "center",
               justifyContent: "flex-start",
-              paddingLeft: "2rem"
+              paddingLeft: "2rem",
             }}
           >
             <MKTypography
