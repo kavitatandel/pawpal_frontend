@@ -25,6 +25,17 @@ body {
   vertical-align: middle;
 }
 
+#searchMoved {
+  transform-origin: left center;
+  /* offset-position: left; */
+  /* -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%; */
+  transform: scale(0.5);
+  padding: 1rem 1rem;
+}
+
 #styleinpt,
 #submit-btn {
   color: #fff;
@@ -37,17 +48,19 @@ body {
 
 #cover {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   left: 0;
   right: 0;
   height: 10rem;
-  width: 60rem;
+  width: 70rem;
   padding: 25px 55px;
   margin: 0px auto 0 auto;
   background-color: #ff7575;
   border-radius: 20px;
   box-shadow: 0 20px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
   transform: scale(0.3);
+  transform-origin: right center;
 }
 
 /* form {
