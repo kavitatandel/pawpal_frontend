@@ -4,7 +4,7 @@ import axios from "axios";
 export const register = (user) => {
   // console.log(user);
   return axios
-    .post("http://localhost:5000/register", {
+    .post("https://pawpal-backend.herokuapp.com/register", {
       first_name: user.first_name,
       last_name: user.last_name,
       email: user.email,
@@ -25,7 +25,7 @@ export const register = (user) => {
 
 export const login = (user) => {
   return axios
-    .post("http://localhost:5000/login", {
+    .post("https://pawpal-backend.herokuapp.com/login", {
       email: user.email,
       password: user.password,
     })
@@ -45,7 +45,7 @@ export const login = (user) => {
 export const updateUserProfile = (user) => {
   console.log(user);
   return axios
-    .post("http://localhost:5000/updateuserprofile", {
+    .post("https://pawpal-backend.herokuapp.com/updateuserprofile", {
       _id: user._id,
       first_name: user.first_name,
       last_name: user.last_name,
@@ -65,7 +65,7 @@ export const updateUserProfile = (user) => {
 //check if email exist
 export const checkEMailExist = (userid, email) => {
   return axios
-    .get(`http://localhost:5000/checkemailaddress/${userid}/${email}`)
+    .get(`https://pawpal-backend.herokuapp.com/checkemailaddress/${userid}/${email}`)
     .then((res) => {
       return res.data;
     })

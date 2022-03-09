@@ -5,7 +5,7 @@ export const editDog = (dog) => {
   // console.log("inside dog function")
   // console.log(dog.profile_photo);
   return axios
-    .post("http://localhost:5000/editdog", {
+    .post("https://pawpal-backend.herokuapp.com/editdog", {
       _id: dog._id,
       name: dog.name,
       breed: dog.breed,
@@ -31,7 +31,7 @@ export const editDogProfilePic = (uploadData) => {
   // console.log("inside dog function")
   // console.log(uploadData.profile_photo);
   return axios
-    .post("http://localhost:5000/editDogProfilePic", uploadData)
+    .post("https://pawpal-backend.herokuapp.com/editDogProfilePic", uploadData)
     .then((res) => res.data)
     .catch((err) => console.log(err));
 };
@@ -41,7 +41,7 @@ export const addDog = (uploadData) => {
   // console.log("inside dog function")
   // console.log(uploadData.profile_photo);
   return axios
-    .post("http://localhost:5000/adddog", uploadData)
+    .post("https://pawpal-backend.herokuapp.com/adddog", uploadData)
     .then((res) => console.log("Dog is added."))
     .catch((err) => console.log(err));
 };
@@ -52,8 +52,8 @@ export const dogsByOwner = (user_id) => {
   console.log(user_id);
   return (
     axios
-      //.get("http://localhost:5000/getDogsByUserId", { user_id: user_id })
-      .get(`http://localhost:5000/getDogsByUserId/${user_id}`)
+      //.get("https://pawpal-backend.herokuapp.com/getDogsByUserId", { user_id: user_id })
+      .get(`https://pawpal-backend.herokuapp.com/getDogsByUserId/${user_id}`)
       .then((res) => res.data)
       .catch((err) => console.log(err))
   );
@@ -62,7 +62,7 @@ export const dogsByOwner = (user_id) => {
 //get dog info by id
 export const getDogInfoById = (dog_id) => {
   return axios
-    .get(`http://localhost:5000/getDogInfoById/${dog_id}`)
+    .get(`https://pawpal-backend.herokuapp.com/getDogInfoById/${dog_id}`)
     .then((res) => res.data[0])
 
     .catch((err) => console.log(err));
