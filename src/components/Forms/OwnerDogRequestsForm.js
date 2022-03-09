@@ -31,6 +31,7 @@ import RequestGridHeading from "./RequestGridHeading";
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 
+
 const OwnerDogRequestsForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogRequestsInfo, setDogRequestsInfo] = useState([]);
@@ -113,9 +114,9 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
+      // style={{ border: "3px solid red" }}
 
-        //   style={{ border: "3px solid green" }}
+      //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -260,7 +261,8 @@ const OwnerDogRequestsForm = () => {
                     No Playdate Requests Found.{" "}
                   </h5>
                 ) : (
-                  ""
+                  // ""
+                  <RequestGridHeading />
                 )}
                 {dogRequestsInfo !== undefined &&
                   dogRequestsInfo.map((request, index) => {

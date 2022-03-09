@@ -19,6 +19,11 @@ const RequestGridHeading = () => {
     <>
       <Card sx={neumorphicHidden}>
         <MKBox
+          variant="gradient"
+          bgColor="info"
+          //borderRadius="lg"
+          borderRadius="25px"
+          coloredShadow="info"
           className="mainContainer"
           sx={{
             display: "flex",
@@ -85,7 +90,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "0.90rem", color: "blue" }}
+              style={{ fontSize: "1.15rem", color: "white" }}
             >
               Name
             </MKTypography>
@@ -107,7 +112,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "0.90rem", color: "blue" }}
+              style={{ fontSize: "1.15rem", color: "white" }}
             >
               Dog Name
             </MKTypography>
@@ -127,7 +132,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "0.90rem", color: "blue" }}
+              style={{ fontSize: "1.15rem", color: "white" }}
             >
               Date
             </MKTypography>
@@ -147,7 +152,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "0.90rem", color: "blue" }}
+              style={{ fontSize: "1.15rem", color: "white" }}
             >
               Start Time
             </MKTypography>
@@ -167,55 +172,30 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "0.90rem", color: "blue" }}
+              style={{ fontSize: "1.15rem", color: "white" }}
             >
               End Time
             </MKTypography>
           </MKBox>
           <MKBox
-            className="ButtonContainer"
+            className="EndTime"
             sx={{
-              display: "flex",
+              width: { lg: "12%" },
+              display: { xs: "none", lg: "flex" },
+            }}
+            style={{
               alignItems: "center",
-              justifyContent: "flex-end ",
-              //   border: "2px solid red",
-
-              width: { md: "20%", lg: "12%" },
-              marginRight: "0rem",
+              justifyContent: "flex-start",
+              paddingLeft: "2rem"
             }}
           >
-            <MKButton
-              disabled
-              size="medium"
-              type="submit"
-              variant="outline"
-              color="light"
-              sx={{
-                minWidth: {
-                  xs: "2rem",
-                  sm: "2rem",
-                  md: "2.5rem",
-                  lg: "3rem",
-                },
-
-                padding: {
-                  xs: "10px 10px",
-                  md: "12px 12px",
-                  lg: "10px 10px",
-                  xl: "8px 8px",
-                  xxl: "8px 8px",
-                  xxxl: "4px 4px",
-                },
-
-                ml: "1rem",
-              }}
-              //   value={request._id}
-              //   onClick={handleInfo}
+            <MKTypography
+              variant="p"
+              fontWeight="medium"
+              style={{ fontSize: "1.15rem", color: "white" }}
             >
-              <InfoIcon style={{ marginRight: "8px" }} color="transparent" />
-              INFO
-              {/* Approve / Reject */}
-            </MKButton>
+              Info
+            </MKTypography>
           </MKBox>
         </MKBox>
       </Card>

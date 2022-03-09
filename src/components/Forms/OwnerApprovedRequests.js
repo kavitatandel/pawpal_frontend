@@ -83,14 +83,15 @@ const OwnerApprovedRequests = ({
             // border: "3px solid blue",
           }}
         >
-          <RequestGridHeading />
+          {/* <RequestGridHeading /> */}
           {/* map thru searched dogs */}
           {dogApprovedRequestsInfo === undefined ? (
             <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
           ) : dogApprovedRequestsInfo.length === 0 ? (
             <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
           ) : (
-            ""
+            // ""
+            <RequestGridHeading />
           )}
 
           {dogApprovedRequestsInfo !== undefined &&
