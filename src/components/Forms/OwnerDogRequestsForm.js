@@ -25,12 +25,12 @@ import {
 import { useNavigate, useParams } from "react-router";
 import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
 import OwnerApprovedRequests from "./OwnerApprovedRequests";
+import swal from "sweetalert";
 import RequestGridHeading from "./RequestGridHeading";
 
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
-
 
 const OwnerDogRequestsForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -114,9 +114,9 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-      // style={{ border: "3px solid red" }}
+        // style={{ border: "3px solid red" }}
 
-      //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"

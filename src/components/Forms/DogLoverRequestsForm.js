@@ -33,7 +33,7 @@ import { override } from "styles/CustomStyles";
 //delete icon
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import swal from "sweetalert";
-import RequestGridHeadingDogLover from './RequestGridHeadingDogLover';
+import RequestGridHeadingDogLover from "./RequestGridHeadingDogLover";
 
 const styledDeleteIcon = {
   transform: "scale(1.5)",
@@ -151,9 +151,9 @@ const DogLoverRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-      // style={{ border: "3px solid red" }}
+        // style={{ border: "3px solid red" }}
 
-      //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -251,6 +251,7 @@ const DogLoverRequestsForm = () => {
                 {/* </MKBox> */}
               </MKBox>
             </div>
+
             {/******************** REQUESTS */}
             <Grid
               container
@@ -259,6 +260,7 @@ const DogLoverRequestsForm = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+
                 mb: "4rem",
                 minWidth: "100%",
               }}
@@ -621,7 +623,8 @@ const DogLoverRequestsForm = () => {
                                     <InfoIcon
                                     //onClick={handleInfo}
                                     // style={{ transform: "scale(1.2)" }}
-                                    />INFO
+                                    />
+                                    INFO
                                   </MKButton>
                                   <MKButton
                                     postion="absolute"
