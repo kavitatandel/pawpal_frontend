@@ -17,7 +17,7 @@ import { neumorphic } from "styles/CustomStyles";
 import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 
 import OwnerApprovedRequestModal from "../Modals/OwnerApprovedRequestModal";
-import RequestGridHeading from './RequestGridHeading'
+import RequestGridHeading from "./RequestGridHeading";
 
 const OwnerApprovedRequests = ({
   dogApprovedRequestsInfo,
@@ -62,17 +62,14 @@ const OwnerApprovedRequests = ({
       )}
       {/******************** APPROVED REQUESTS */}
       {/* Heading Grid component */}
-      <RequestGridHeading />
+
       <Grid
         container
         sx={{
-          // padding: "1rem",
-          padding: "0rem 1rem 1rem 1rem",
-
+          padding: "2rem 1rem 1rem 1rem",
           display: "flex",
           justifyContent: "center",
-          mb: "1rem",
-          mt: "0rem"
+          mb: "2rem",
         }}
       >
         <MKBox
@@ -82,10 +79,11 @@ const OwnerApprovedRequests = ({
             height: "auto",
             flexDirection: "column",
             alignItems: "center",
-            marginTop: "0rem"
+
             // border: "3px solid blue",
           }}
         >
+          <RequestGridHeading />
           {/* map thru searched dogs */}
           {dogApprovedRequestsInfo === undefined ? (
             <h5 style={{ color: "#ff3d47" }}>No Playdate Requests Found. </h5>
@@ -94,6 +92,7 @@ const OwnerApprovedRequests = ({
           ) : (
             ""
           )}
+
           {dogApprovedRequestsInfo !== undefined &&
             dogApprovedRequestsInfo.map((request, index) => {
               return (
@@ -159,7 +158,7 @@ const OwnerApprovedRequests = ({
                       sx={{
                         alignItems: "center",
                         justifyContent: "flex-start",
-                        width: { sm: "25%", md: "20%", lg: "16%" },
+                        width: { sm: "25%", md: "25%", lg: "16%" },
                         display: { sm: "flex" },
                       }}
                     >
@@ -192,9 +191,9 @@ const OwnerApprovedRequests = ({
                     </MKBox>
                     {/* *************** START DATE */}
                     <MKBox
-                      className="Size"
+                      className="StartDate"
                       sx={{
-                        width: { md: "20%", lg: "16%" },
+                        width: { md: "20%", lg: "12%" },
                         display: { xs: "none", md: "flex" },
                       }}
                       style={{
@@ -209,14 +208,16 @@ const OwnerApprovedRequests = ({
                           .split("-")
                           .reverse()
                           .join(".")}
-                        {/* {new Date(request.start_date).toLocaleDateString()} */}
+                        {/* {new Date(
+                                request.start_date
+                              ).toLocaleDateString()} */}
                       </MKTypography>
                     </MKBox>
                     {/* *************** START TIME */}
                     <MKBox
                       className="StartTime"
                       sx={{
-                        width: { lg: "16%" },
+                        width: { lg: "12%" },
                         display: { xs: "none", lg: "flex" },
                       }}
                       style={{
@@ -224,17 +225,16 @@ const OwnerApprovedRequests = ({
                         justifyContent: "flex-start",
                       }}
                     >
-
                       <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                        {request.start_time.slice(-11, -6)} {request.start_time.slice(-3)}
-                        {/* {request.start_time} */}
+                        {request.start_time.slice(-11, -6)}{" "}
+                        {request.start_time.slice(-3)}
                       </MKTypography>
                     </MKBox>
                     {/* *************** END TIME */}
                     <MKBox
                       className="EndTime"
                       sx={{
-                        width: { lg: "16%" },
+                        width: { lg: "12%" },
                         display: { xs: "none", lg: "flex" },
                       }}
                       style={{
@@ -243,10 +243,10 @@ const OwnerApprovedRequests = ({
                       }}
                     >
                       <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
-                        {request.end_time.slice(-11, -6)} {request.end_time.slice(-3)}
+                        {request.end_time.slice(-11, -6)}{" "}
+                        {request.end_time.slice(-3)}
                       </MKTypography>
                     </MKBox>
-
                     <MKBox
                       className="ButtonContainer"
                       sx={{
@@ -256,22 +256,16 @@ const OwnerApprovedRequests = ({
                         //   border: "2px solid red",
 
                         width: { md: "20%", lg: "12%" },
-                        marginRight: "1rem",
+                        marginRight: "0rem",
                       }}
                     >
                       <MKButton
-                        size="large"
+                        size="medium"
                         type="submit"
                         variant="gradient"
                         color="info"
                         sx={{
                           minWidth: {
-                            xs: "2rem",
-                            sm: "2rem",
-                            md: "2.5rem",
-                            lg: "3rem",
-                          },
-                          minHeight: {
                             xs: "2rem",
                             sm: "2rem",
                             md: "2.5rem",
@@ -292,7 +286,7 @@ const OwnerApprovedRequests = ({
                         value={request._id}
                         onClick={handleInfo}
                       >
-                        {/* <InfoIcon /> */}
+                        <InfoIcon style={{ marginRight: "8px" }} />
                         INFO
                         {/* Approve / Reject */}
                       </MKButton>
