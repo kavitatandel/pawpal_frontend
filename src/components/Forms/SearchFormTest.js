@@ -13,7 +13,7 @@ import { Grid } from "@mui/material";
 import "../../styles/Map.css";
 import "../../styles/searchbarStyle.css";
 import { glassStyle } from "../../styles/CustomStyles";
-import CloseIcon from "@mui/icons-material/Close";
+import ClearIcon from "@mui/icons-material/Clear";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -34,7 +34,7 @@ import SearchedDog from "./SearchedDog";
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 
-const SearchForm = () => {
+const SearchFormTest = () => {
   const [user, setUser] = useContext(UserContext);
   //set location to show markers on map
   const [locations, setLocations] = useState([]);
@@ -52,6 +52,10 @@ const SearchForm = () => {
   //use state for search and no data
   const [noData, setNoData] = useState(false);
 
+  const clearSearch = {
+    transform: "scale(6)",
+    marginLeft: "50px",
+  };
   const sleep = (ms) => {
     new Promise((userLocation) => {
       console.log(`waiting 2sec`);
@@ -106,7 +110,7 @@ const SearchForm = () => {
     const searchCityInput = document.getElementsByName("searchCity")[0];
     searchCityInput.innerHTML = "";
     searchCityInput.value = "";
-    setSearch("");
+    setSearch(user.city);
     await runFunctions();
   };
 
@@ -153,11 +157,6 @@ const SearchForm = () => {
     console.log(user); // getting only latitude and longitude inside user
     // setUserLocation([user.latitude, user.longitude]);
   }, []);
-
-  const closeIconStyle = {
-    transform: "scale(5)",
-    color: "info",
-  };
 
   if (loading)
     return (
@@ -229,57 +228,87 @@ const SearchForm = () => {
                 padding: "0.6rem",
                 background:
                   "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",
-
-                "-webkit-box-shadow": "0px 7px 17px 2px rgba(0,0,0,0.5)",
-                boxShadow: "0px 7px 17px 2px rgba(0,0,0,0.5)",
+                boxShadow:
+                  "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
               }}
               height="6.5rem"
             >
-              <MKBox
+              <form
+                onSubmit={handleSearch}
+                autocomplete="off"
                 style={{
+                  // marginTop: "-100px",
                   height: "100%",
                   width: "100%",
                   display: "flex",
+                  justifyContent: "flex-end",
                   alignItems: "center",
-                  justifyContent: "center",
                 }}
               >
-                <form
-                  onSubmit={handleSearch}
-                  autocomplete="off"
-                  id="searchForm"
+                <Grid
+                  container
+                  style={{
+                    padding: "1rem",
+                    display: "flex",
+
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  <div id="cover">
-                    <div class="tb">
-                      <div class="td">
-                        <input
-                          id="styleinpt"
-                          type="text"
-                          name="searchCity"
-                          // placeholder={search}
-                          placeholder="Enter city to search...."
-                          value={search}
-                          onChange={(e) => setSearch(e.target.value)}
-                          required
-                        />
+                  <Grid
+                    item
+                    xs={10}
+                    style={{
+                      display: "flex",
+                      height: "100px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {" "}
+                    <div id="cover">
+                      <div class="tb">
+                        <div class="td">
+                          <input
+                            id="styleinpt"
+                            type="text"
+                            name="searchCity"
+                            // placeholder={search}
+                            placeholder="Enter city to search...."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div class="td" id="s-cover">
+                          <button id="submit-btn" onClick={handleClearSearch}>
+                            <ClearIcon style={clearSearch} />
+                          </button>
+                        </div>
                       </div>
+                    </div>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={2}
+                    style={{
+                      display: "flex",
+                      height: "100px",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                    }}
+                  >
+                    <div id="searchMoved">
                       <div class="td" id="s-cover">
-                        <button id="clearSearch" onClick={(e) => setSearch("")}>
-                          <CloseIcon style={closeIconStyle} />
+                        <button id="submit-btn" type="submit">
+                          <div id="s-circle"></div>
+                          <span></span>
                         </button>
                       </div>
                     </div>
-                  </div>
-                  <div id="rightcover">
-                    <div class="td" id="s-cover">
-                      <button id="submit-btn" type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </MKBox>
+                  </Grid>
+                </Grid>
+              </form>
             </Grid>
           </Grid>
 
@@ -376,4 +405,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default SearchFormTest;
