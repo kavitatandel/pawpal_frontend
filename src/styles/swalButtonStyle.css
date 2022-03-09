@@ -1,0 +1,22 @@
+.swal-button {  
+    padding: 7px 19px;  
+    border-radius: 5px;  
+    background: rgb(255,154,133);
+background: linear-gradient(184deg, rgba(255,154,133,1) 0%, rgba(255,61,71,1) 100%);
+    font-size: 12px;  
+    border: 1px solid #ff9a85;    
+    outline-color: none;   
+    overflow: hidden; 
+  }  
+
+  .swal-modal .swal-styled:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.swal-button:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+    outline: none;
+    overflow: hidden;
+}

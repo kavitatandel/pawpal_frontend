@@ -118,7 +118,11 @@ const DogLoverRequestsForm = () => {
           title: "Request Deleted",
           text: "You successfully deleted request!",
           icon: "success",
-          button: "OK!"
+          button: "OK!",
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'swal-button' //insert class here
+          }
         });
 
         //after 2 seconds , update grids
