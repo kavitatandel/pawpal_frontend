@@ -6,15 +6,10 @@ import MKButton from "../MKButton";
 // @mui material components
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
-import Paper from "@mui/material/Paper";
-import { Grid } from "@mui/material";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import InfoIcon from "@mui/icons-material/Info";
-import { neumorphic } from "styles/CustomStyles";
 import { neumorphicHidden } from "styles/CustomStyles";
-import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
+import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
-const RequestGridHeading = () => {
+const RequestGridHeadingDogLover = () => {
   return (
     <>
       <Card sx={neumorphicHidden}>
@@ -26,11 +21,21 @@ const RequestGridHeading = () => {
           coloredShadow="info"
           className="mainContainer"
           sx={{
+            position: "relative",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             padding: "1rem",
             minHeight: "5rem",
+            // paddingLeft: {
+            //   sx: "0.5rem",
+            //   sm: "1rem",
+            //   md: "2rem",
+            //   lg: "2.5rem",
+            // },
+            // paddingRight: {
+            //   sx: "1rem",
+            // },
             paddingLeft: {
               sx: "0.5rem",
               sm: "1rem",
@@ -39,19 +44,24 @@ const RequestGridHeading = () => {
             },
             paddingRight: {
               sx: "1rem",
-              sm: "1.5rem",
-              md: "2rem",
+              // sm: "1.5rem",
+              // md: "2rem",
             },
           }}
         >
           <MKBox
             className="Avatar"
             sx={{
-              width: { sm: "15%", md: "14%", lg: "12%" },
+              width: {
+                sm: "15%",
+                md: "14%",
+                lg: "12.5%",
+                xl: "10%",
+                xxl: "10%",
+              },
               display: { md: "flex" },
               minWidth: "3.2rem",
-
-              mr: "1rem",
+              // mr: "1rem",
             }}
             style={{
               justifyContent: "flex-start",
@@ -61,32 +71,37 @@ const RequestGridHeading = () => {
             <MKAvatar
               top={-50}
               zIndex={2}
+              src=''
+              alt='H'
               shadow="xl"
               sx={{ width: "2.5rem", height: "2.5rem" }}
               style={{
                 border: "3.2px solid white",
-                marginRight: "1rem",
+                // marginRight: "1rem",
               }}
             >
               <img
-                src={HumanAvatar}
+                src={DogAvatar}
                 alt="avatar"
                 style={{ width: "100%", height: "100%" }}
               />
             </MKAvatar>
           </MKBox>
-
-          {/* *************** DOGLOVER NAME */}
+          {/* *************** DOG NAME */}
           <MKBox
-            className="DogLoverName"
+            className="DogName"
             sx={{
+              width: { sm: "22%", md: "13%", lg: "10%" },
+              // display: { xs: "none", sm: "flex" },
+              display: { xs: "flex" },
+            }}
+            style={{
+              fontSize: "0.8rem",
+
               alignItems: "center",
               justifyContent: "flex-start",
-              width: { sm: "25%", md: "25%", lg: "16%" },
-              display: { sm: "flex" },
             }}
           >
-            {" "}
             <MKTypography
               variant="p"
               fontWeight="medium"
@@ -95,11 +110,11 @@ const RequestGridHeading = () => {
               Name
             </MKTypography>
           </MKBox>
-          {/* *************** DOG NAME */}
+          {/* *************** MEETING LOCATION */}
           <MKBox
-            className="DogName"
+            className="meetingLocation"
             sx={{
-              width: { sm: "25%", md: "20%", lg: "16%" },
+              width: { sm: "24%", md: "19%", lg: "15%" },
               display: { xs: "none", sm: "flex" },
             }}
             style={{
@@ -114,14 +129,26 @@ const RequestGridHeading = () => {
               fontWeight="medium"
               style={{ fontSize: "1.15rem", color: "white" }}
             >
-              Dog Name
+              Location
             </MKTypography>
           </MKBox>
           {/* *************** START DATE */}
           <MKBox
             className="StartDate"
             sx={{
-              width: { md: "20%", lg: "12%" },
+              // width: {
+              //   md: "22%",
+              //   lg: "17%",
+              //   xl: "18%",
+              //   xxl: "18%",
+              // },
+              width: {
+                md: "16%",
+                lg: "12%",
+                xl: "14%",
+                xxl: "14%",
+              },
+
               display: { xs: "none", md: "flex" },
             }}
             style={{
@@ -137,6 +164,7 @@ const RequestGridHeading = () => {
               Date
             </MKTypography>
           </MKBox>
+
           {/* *************** START TIME */}
           <MKBox
             className="StartTime"
@@ -147,6 +175,8 @@ const RequestGridHeading = () => {
             style={{
               alignItems: "center",
               justifyContent: "flex-start",
+              padding: "0rem",
+              margin: "0rem"
             }}
           >
             <MKTypography
@@ -154,7 +184,7 @@ const RequestGridHeading = () => {
               fontWeight="medium"
               style={{ fontSize: "1.15rem", color: "white" }}
             >
-              Start Time
+              Start time
             </MKTypography>
           </MKBox>
           {/* *************** END TIME */}
@@ -177,16 +207,40 @@ const RequestGridHeading = () => {
               End Time
             </MKTypography>
           </MKBox>
+          {/* *************** REQUEST STATUS */}
           <MKBox
-            className="Info"
+            className="status"
             sx={{
               width: { lg: "12%" },
               display: { xs: "none", lg: "flex" },
+
+            }}
+            style={{
+              alignItems: "center !important",
+              justifyContent: "flex-start",
+              paddingLeft: "0rem"
+            }}
+          >
+
+            <MKTypography
+              variant="p"
+              fontWeight="medium"
+              style={{ fontSize: "1.15rem", color: "white" }}
+            >
+              Status
+            </MKTypography>
+
+          </MKBox>
+          <MKBox
+            className="Info"
+            sx={{
+              width: { xs: "25%", sm: "25%", md: "16%", lg: "12%" },
+              display: { xs: "flex" },
             }}
             style={{
               alignItems: "center",
               justifyContent: "flex-start",
-              paddingLeft: "2rem"
+              paddingLeft: "1rem"
             }}
           >
             <MKTypography
@@ -203,4 +257,4 @@ const RequestGridHeading = () => {
   );
 };
 
-export default RequestGridHeading;
+export default RequestGridHeadingDogLover;
