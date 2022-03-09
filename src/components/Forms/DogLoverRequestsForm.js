@@ -150,9 +150,9 @@ const DogLoverRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
+      // style={{ border: "3px solid red" }}
 
-        //   style={{ border: "3px solid green" }}
+      //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -571,7 +571,8 @@ const DogLoverRequestsForm = () => {
                                     justifyContent: "flex-end ",
                                     //   border: "2px solid red",
 
-                                    width: { md: "20%", lg: "16%" },
+                                    // width: { md: "20%", lg: "16%" },
+                                    width: { md: "25%", lg: "20%" },
                                   }}
                                 >
                                   <MKButton
@@ -583,8 +584,8 @@ const DogLoverRequestsForm = () => {
                                       minWidth: {
                                         xs: "2rem",
                                         sm: "2rem",
-                                        md: "2rem",
-                                        lg: "2rem",
+                                        md: "3rem",
+                                        lg: "3rem",
                                       },
 
                                       minHeight: {
@@ -609,9 +610,9 @@ const DogLoverRequestsForm = () => {
                                     onClick={handleInfo}
                                   >
                                     <InfoIcon
-                                      onClick={handleInfo}
-                                      style={{ transform: "scale(1.2)" }}
-                                    />
+                                    //onClick={handleInfo}
+                                    // style={{ transform: "scale(1.2)" }}
+                                    />INFO
                                   </MKButton>
                                   <MKButton
                                     postion="absolute"
@@ -631,8 +632,8 @@ const DogLoverRequestsForm = () => {
                                       minWidth: {
                                         xs: "1rem",
                                         sm: "1rem",
-                                        md: "2.5rem",
-                                        lg: "2.5rem",
+                                        md: "2.75rem",
+                                        lg: "2.75rem",
                                       },
                                       minHeight: {
                                         xs: "1.75rem",

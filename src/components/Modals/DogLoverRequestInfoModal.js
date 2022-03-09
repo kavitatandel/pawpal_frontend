@@ -391,7 +391,7 @@ function DogLoverRequestInfoModal({
                             fontSize="1rem"
                           >
                             <MessageIcon style={styledIcon} />
-                            {selectedDogRequest.owner_reason}
+                            {selectedDogRequest.owner_reason === '' ? 'No message' : selectedDogRequest.owner_reason}
                           </MKTypography>
                         </MKBox>
                       </>
