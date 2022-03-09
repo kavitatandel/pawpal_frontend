@@ -13,6 +13,7 @@ import { Grid } from "@mui/material";
 import "../../styles/Map.css";
 import "../../styles/searchbarStyle.css";
 import { glassStyle } from "../../styles/CustomStyles";
+import CloseIcon from "@mui/icons-material/Close";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -153,6 +154,11 @@ const SearchForm = () => {
     // setUserLocation([user.latitude, user.longitude]);
   }, []);
 
+  const closeIconStyle = {
+    transform: "scale(5)",
+    color: "info",
+  };
+
   if (loading)
     return (
       <RiseLoader color={color} loading={loading} css={override} size={40} />
@@ -219,30 +225,52 @@ const SearchForm = () => {
               display="flex"
               alignItems="center"
               style={{
-                zindex: 4,
+                zIndex: 4,
                 padding: "0.6rem",
                 background:
                   "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
+
+                "-webkit-box-shadow": "0px 7px 17px 2px rgba(0,0,0,0.5)",
+                boxShadow: "0px 7px 17px 2px rgba(0,0,0,0.5)",
               }}
               height="6.5rem"
             >
-              <div id="cover">
-                <form onSubmit={handleSearch} autocomplete="off">
-                  <div class="tb">
-                    <div class="td">
-                      <input
-                        id="styleinpt"
-                        type="text"
-                        name="searchCity"
-                        // placeholder={search}
-                        placeholder="Enter city to search...."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        required
-                      />
+              <MKBox
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <form
+                  onSubmit={handleSearch}
+                  autocomplete="off"
+                  id="searchForm"
+                >
+                  <div id="cover">
+                    <div class="tb">
+                      <div class="td">
+                        <input
+                          id="styleinpt"
+                          type="text"
+                          name="searchCity"
+                          // placeholder={search}
+                          placeholder="Enter city to search...."
+                          value={search}
+                          onChange={(e) => setSearch(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div class="td" id="s-cover">
+                        <button id="clearSearch" onClick={(e) => setSearch("")}>
+                          <CloseIcon style={closeIconStyle} />
+                        </button>
+                      </div>
                     </div>
+                  </div>
+                  <div id="rightcover">
                     <div class="td" id="s-cover">
                       <button id="submit-btn" type="submit">
                         <div id="s-circle"></div>
@@ -251,27 +279,17 @@ const SearchForm = () => {
                     </div>
                   </div>
                 </form>
-              </div>
+              </MKBox>
             </Grid>
           </Grid>
-          {/* Section below the search area */}
-          {/* <Grid
-            container
-            mx={0}
-            display="flex"
-            justifyContent="center"
-            height="80%"
-            minHeight="400px"
-            border="7px dashed purple !important"
-          > */}
-          {/* Section below the search area */}
+
           <Grid
             container
             mx={0}
             display="flex"
             justifyContent="center"
             height="auto"
-          // border="7px dashed purple !important"
+            // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
             {/* _______________________________________PARENT CONTAINER */}
@@ -342,10 +360,10 @@ const SearchForm = () => {
                       locations={locations}
                       setLocations={setLocations}
                       isSearched={isSearched}
-                    // style={{
-                    //   border: "7px solid rgba(255,0,0)",
-                    //   backgroundColor: "rgb(255,0,0,0.5)",
-                    // }}
+                      // style={{
+                      //   border: "7px solid rgba(255,0,0)",
+                      //   backgroundColor: "rgb(255,0,0,0.5)",
+                      // }}
                     />
                   </MKBox>
                 </MKBox>
