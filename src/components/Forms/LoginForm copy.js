@@ -23,19 +23,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-
-//for eye icon inside input
-import React from "react";
-import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
-//import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from '@mui/material/InputAdornment';
-//import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@mui/material//Input";
-import OutlinedInput from '@mui/material/OutlinedInput';
-import TextField from '@mui/material/TextField';
-
-
 const useStyles = makeStyles((theme) => ({
   // MuiOutlinedInput: {
   root: {
@@ -98,49 +85,28 @@ const LoginForm = () => {
 
   //useEffect to hide VisibilityOffIcon
   useEffect(() => {
-    // var hide_eye = document.getElementById("hide_eye");
-    // hide_eye.style.display = "none";
-    // var show_eye = document.getElementById("show_eye");
-    // show_eye.style.display = "block";
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.style.display = "none";
+    var show_eye = document.getElementById("show_eye");
+    show_eye.style.display = "block";
   });
 
-  // //show/hide password
-  // function password_show_hide() {
-  //   var x = document.getElementById("password");
-  //   var show_eye = document.getElementById("show_eye");
-  //   var hide_eye = document.getElementById("hide_eye");
-  //   hide_eye.classList.remove("d-none");
-  //   if (x.type === "password") {
-  //     x.type = "text";
-  //     show_eye.style.display = "none";
-  //     hide_eye.style.display = "block";
-  //   } else {
-  //     x.type = "password";
-  //     show_eye.style.display = "block";
-  //     hide_eye.style.display = "none";
-  //   }
-  // }
-
-  const [values, setValues] = React.useState({
-    password: "",
-    showPassword: false,
-  });
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handlePasswordChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-    setUser((user) => ({
-      ...user,
-      password: event.target.value,
-    }))
-  };
+  //show/hide password
+  function password_show_hide() {
+    var x = document.getElementById("password");
+    var show_eye = document.getElementById("show_eye");
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
 
   return (
     <>
@@ -198,7 +164,7 @@ const LoginForm = () => {
                     variant="h3"
                     fontWeight="bold"
                     color="white"
-                  // mt={1}
+                    // mt={1}
                   >
                     LOG IN
                   </MKTypography>
@@ -246,94 +212,20 @@ const LoginForm = () => {
                       mr={0}
                       ml={0}
                     >
-                      <TextField
-                        required
-                        variant="outlined"
-                        label="Password"
-                        name="password"
-                        id="password" //added for show/hid password
-                        placeholder="Enter your password"
-                        fullWidth
-                        type={values.showPassword ? "text" : "password"}
-                        onChange={handlePasswordChange("password")}
-                        value={values.password}
-                        InputProps={{
-                          endAdornment: <InputAdornment position="end">
-
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                            </IconButton>
-                          </InputAdornment>
-                        }}
-                        helperText={notValidPass}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                      />
-
-                      {/* <InputLabel width="25%" htmlFor="standard-adornment-password">
-                        Password
-                      </InputLabel> */}
-                      {/* <OutlinedInput
-                        required
-                        variant="outlined"
-                        label="Password"
-                        name="password"
-                        id="password" //added for show/hid password
-                        placeholder="Enter your password"
-                        fullWidth
-                        type={values.showPassword ? "text" : "password"}
-                        onChange={handlePasswordChange("password")}
-                        value={values.password}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        helperText={notValidPass}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                      /> */}
-                      {/* <InputLabel htmlFor="standard-adornment-password">
-                        Enter your Password
-                      </InputLabel>
-                      <Input
-                        fullWidth
-                        type={values.showPassword ? "text" : "password"}
-                        onChange={handlePasswordChange("password")}
-                        value={values.password}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        helperText={notValidPass}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                      /> */}
-                      {/* <MKInput
+                      <MKInput
+                        //fullWidth
+                        // width="100%"
                         label="Password"
                         name="password"
                         id="password" //added for show/hid password
                         placeholder="Enter your password"
                         type="password"
                         required
-                         value={user?.password}
+                        // value={password}
+                        value={user?.password}
+                        // onChange={(e) =>
+                        //   setUser({ ...user, password: e.target.value })
+                        // }
                         onChange={(e) =>
                           setUser((user) => ({
                             ...user,
@@ -341,18 +233,23 @@ const LoginForm = () => {
                           }))
                         }
                         helperText={notValidPass}
+                        // className={helperTextStyles}
+                        //className={classes.MuiFormHelperText}
                         FormHelperTextProps={{
                           className: classes.root,
                         }}
                         sx={{ width: "96%" }}
                       />
-                       <span class=" field-icon " onClick={password_show_hide}>
+                      {/* added for show/hide Password  */}
+                      <span class=" field-icon " onClick={password_show_hide}>
                         <VisibilityIcon id="show_eye" style={styledEyeIcon} />
                         <VisibilityOffIcon
                           id="hide_eye"
                           style={styledEyeIcon}
                         />
-                      </span> */}
+                        {/* <i class="fa fs-2 fa-eye" id="show_eye"></i>
+                        <i class="fa fs-2 fa-eye-slash d-none" id="hide_eye"></i> */}
+                      </span>
                     </MKBox>
 
                     <MKBox
