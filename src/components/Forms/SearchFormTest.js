@@ -13,7 +13,6 @@ import { Grid } from "@mui/material";
 import "../../styles/Map.css";
 import "../../styles/searchbarStyle.css";
 import { glassStyle } from "../../styles/CustomStyles";
-import CloseIcon from "@mui/icons-material/Close";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -154,11 +153,6 @@ const SearchForm = () => {
     // setUserLocation([user.latitude, user.longitude]);
   }, []);
 
-  const closeIconStyle = {
-    transform: "scale(5)",
-    color: "info",
-  };
-
   if (loading)
     return (
       <RiseLoader color={color} loading={loading} css={override} size={40} />
@@ -229,48 +223,36 @@ const SearchForm = () => {
                 padding: "0.6rem",
                 background:
                   "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",
-
-                "-webkit-box-shadow": "0px 7px 17px 2px rgba(0,0,0,0.5)",
-                boxShadow: "0px 7px 17px 2px rgba(0,0,0,0.5)",
+                boxShadow:
+                  "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
               }}
               height="6.5rem"
             >
-              <MKBox
+              <form
+                onSubmit={handleSearch}
+                autocomplete="off"
                 style={{
+                  // marginTop: "-100px",
                   height: "100%",
                   width: "100%",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
                 }}
               >
-                <form
-                  onSubmit={handleSearch}
-                  autocomplete="off"
-                  id="searchForm"
-                >
-                  <div id="cover">
-                    <div class="tb">
-                      <div class="td">
-                        <input
-                          id="styleinpt"
-                          type="text"
-                          name="searchCity"
-                          // placeholder={search}
-                          placeholder="Enter city to search...."
-                          value={search}
-                          onChange={(e) => setSearch(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div class="td" id="s-cover">
-                        <button id="clearSearch" onClick={(e) => setSearch("")}>
-                          <CloseIcon style={closeIconStyle} />
-                        </button>
-                      </div>
+                <div id="cover">
+                  <div class="tb">
+                    <div class="td">
+                      <input
+                        id="styleinpt"
+                        type="text"
+                        name="searchCity"
+                        // placeholder={search}
+                        placeholder="Enter city to search...."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        required
+                      />
                     </div>
-                  </div>
-                  <div id="rightcover">
                     <div class="td" id="s-cover">
                       <button id="submit-btn" type="submit">
                         <div id="s-circle"></div>
@@ -278,8 +260,8 @@ const SearchForm = () => {
                       </button>
                     </div>
                   </div>
-                </form>
-              </MKBox>
+                </div>
+              </form>
             </Grid>
           </Grid>
 
