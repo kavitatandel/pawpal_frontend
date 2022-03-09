@@ -19,6 +19,7 @@ import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
 import swal from 'sweetalert';
+import '../../styles/swalButtonStyle.css';
 
 const UploadDogPicModal = ({
   show,
@@ -83,7 +84,11 @@ const UploadDogPicModal = ({
       title: "Photo Upload",
       text: "You successfully uploaded photo!",
       icon: "success",
-      button: "OK!"
+      button: "OK!",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'swal-button' //insert class here
+      }
     });
   };
 

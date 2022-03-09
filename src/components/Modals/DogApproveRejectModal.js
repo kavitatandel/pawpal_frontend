@@ -116,14 +116,22 @@ function DogApproveRejectModal({
                 title: "Request Approved",
                 text: "You successfully approved request!",
                 icon: "success",
-                button: "OK!"
+                button: "OK!",
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'swal-button' //insert class here
+                }
             });
         } else {
             swal({
                 title: "Request Rejected",
                 text: "You successfully rejected request!",
                 icon: "success",
-                button: "OK!"
+                button: "OK!",
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'swal-button' //insert class here
+                }
             });
         }
 

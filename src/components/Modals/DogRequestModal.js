@@ -109,7 +109,11 @@ function DogRequestModal({
       title: "Request Sent",
       text: "Your request has been sent!",
       icon: "success",
-      button: "OK!"
+      button: "OK!",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'swal-button' //insert class here
+      }
     });
     // swal("Request Sent", "Your request has been sent!", "success", {
     //   button: "OK",

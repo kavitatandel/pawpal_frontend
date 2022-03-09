@@ -82,7 +82,11 @@ const EditDogPicModal = ({
       title: "Photo Upload",
       text: "You successfully uploaded photo!",
       icon: "success",
-      button: "OK!"
+      button: "OK!",
+      buttonsStyling: false,
+      customClass: {
+        confirmButton: 'swal-button' //insert class here
+      }
     });
   };
 
