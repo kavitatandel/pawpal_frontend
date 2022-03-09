@@ -143,6 +143,7 @@ const OwnerDogRequestsForm = () => {
               background: "rgba( 255, 255, 255, 0.7 )",
               boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
               backdropFilter: "blur( 12px )",
+              // marginTop: "0rem" //added on 9/3/2022
             }}
             sx={{
               width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
@@ -154,6 +155,7 @@ const OwnerDogRequestsForm = () => {
               position: "relative",
               mb: 10,
             }}
+
           >
             {selectedDogRequest.length !== 0 ? (
               <DogApproveRejectModal

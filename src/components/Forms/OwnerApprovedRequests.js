@@ -17,6 +17,7 @@ import { neumorphic } from "styles/CustomStyles";
 import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 
 import OwnerApprovedRequestModal from "../Modals/OwnerApprovedRequestModal";
+import RequestGridHeading from './RequestGridHeading'
 
 const OwnerApprovedRequests = ({
   dogApprovedRequestsInfo,
@@ -60,13 +61,18 @@ const OwnerApprovedRequests = ({
         <h1></h1>
       )}
       {/******************** APPROVED REQUESTS */}
+      {/* Heading Grid component */}
+      <RequestGridHeading />
       <Grid
         container
         sx={{
-          padding: "1rem",
+          // padding: "1rem",
+          padding: "0rem 1rem 1rem 1rem",
+
           display: "flex",
           justifyContent: "center",
           mb: "1rem",
+          mt: "0rem"
         }}
       >
         <MKBox
@@ -76,7 +82,7 @@ const OwnerApprovedRequests = ({
             height: "auto",
             flexDirection: "column",
             alignItems: "center",
-
+            marginTop: "0rem"
             // border: "3px solid blue",
           }}
         >
