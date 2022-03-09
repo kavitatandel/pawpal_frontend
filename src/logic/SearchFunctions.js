@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const searchDogByCity = (city) => {
   return axios
-    .get(`http://localhost:5000/searchdog/${city}`)
+    .get(`https://pawpal-backend.herokuapp.com/searchdog/${city}`)
     .then((res) => {
       //console.log("Got Data")
       //console.log(res.data);

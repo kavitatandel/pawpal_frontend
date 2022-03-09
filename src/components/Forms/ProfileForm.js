@@ -91,7 +91,7 @@ const ProfileForm = () => {
 
   const setUserInfo = async () => {
     await axios
-      .get(`http://localhost:5000/users/${decodedID}`)
+      .get(`https://pawpal-backend.herokuapp.com/users/${decodedID}`)
 
       // .then((res) => console.log(res.data))
       .then((res) => {

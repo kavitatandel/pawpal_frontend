@@ -39,7 +39,7 @@ const UploadPicModal = ({
   const [user, setUser] = useContext(UserContext);
 
   //******************Upload Single File************ */
-  const API_URL = "http://localhost:5000";
+  const API_URL = "https://pawpal-backend.herokuapp.com";
 
   // const [selectedFile, setSelectedFile] = useState(null);
   const [loadingImage, setLoadingImage] = useState(true);
