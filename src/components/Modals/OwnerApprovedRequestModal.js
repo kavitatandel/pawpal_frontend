@@ -17,6 +17,7 @@ import NotListedLocationIcon from "@mui/icons-material/NotListedLocation";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ApprovalIcon from '@mui/icons-material/Approval';
 import PersonIcon from '@mui/icons-material/Person';
+import MessageIcon from '@mui/icons-material/Message';
 
 //for radio button
 import Radio from "@mui/material/Radio";
@@ -345,6 +346,43 @@ function OwnerApprovedRequestModal({
                                                     {selectedDogRequest.status}
                                                 </MKTypography>
                                             </MKBox>
+                                        </MKBox>
+                                    </Grid>
+                                    <Grid item xs={12} >
+                                        <MKBox
+                                            display="flex"
+
+                                            sx={{
+                                                m: "0.25rem 1rem 0rem 1rem",
+                                                justifyContent: { lg: "flex-start" },
+                                            }}
+                                            alignItems="flex-start"
+                                        >
+                                            {/* <MKBox> */}
+                                            <MKTypography variant="h5"
+                                                fontWeight="regular"
+                                                color="info"
+                                                fontSize="0.75rem">
+                                                Requester Message:
+                                            </MKTypography>
+                                        </MKBox>
+                                        <MKBox
+                                            display="flex"
+                                            sx={{
+                                                m: "0.25rem 1rem 0.75rem 1rem",
+                                                justifyContent: { lg: "flex-start" },
+                                            }}
+                                            alignItems="flex-start"
+                                        >
+                                            <MKTypography
+                                                variant="h5"
+                                                fontWeight="regular"
+                                                color="dark"
+                                                fontSize="1rem">
+                                                <MessageIcon style={styledIcon} />
+                                                {selectedDogRequest.dl_message === '' ? 'No message' : selectedDogRequest.dl_message}
+                                            </MKTypography>
+                                            {/* </MKBox> */}
                                         </MKBox>
                                     </Grid>
                                     <Grid item xs={12}>

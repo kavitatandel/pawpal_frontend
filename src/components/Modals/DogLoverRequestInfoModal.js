@@ -15,6 +15,7 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import TodayIcon from "@mui/icons-material/Today";
 import NotListedLocationIcon from "@mui/icons-material/NotListedLocation";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import MessageIcon from '@mui/icons-material/Message';
 
 //for radio button
 import Radio from "@mui/material/Radio";
@@ -389,7 +390,7 @@ function DogLoverRequestInfoModal({
                             // fontSize="1.5rem" //commented by kavita
                             fontSize="1rem"
                           >
-                            <NotListedLocationIcon style={styledIcon} />
+                            <MessageIcon style={styledIcon} />
                             {selectedDogRequest.owner_reason}
                           </MKTypography>
                         </MKBox>
@@ -436,7 +437,7 @@ function DogLoverRequestInfoModal({
                                   // fontSize="1.5rem" //commented by kavita
                                   fontSize="1rem"
                                 >
-                                  <NotListedLocationIcon style={styledIcon} />
+                                  <MessageIcon style={styledIcon} />
                                   No message
                                 </MKTypography>
                               ) : (
@@ -448,7 +449,7 @@ function DogLoverRequestInfoModal({
                                   // fontSize="1.5rem" //commented by kavita
                                   fontSize="1rem"
                                 >
-                                  <NotListedLocationIcon style={styledIcon} />
+                                  <MessageIcon style={styledIcon} />
                                   {selectedDogRequest.owner_message}
                                 </MKTypography>
                               )}
