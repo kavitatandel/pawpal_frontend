@@ -142,19 +142,14 @@ const OwnerDogRequestsForm = () => {
               background: "rgba( 255, 255, 255, 0.7 )",
               boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
               backdropFilter: "blur( 12px )",
+              // marginTop: "0rem" //added on 9/3/2022
             }}
             sx={{
               width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
               maxWidth: "1000px",
               height: "auto",
-              mt: {
-                xs: "140px",
-                sm: "170px",
-                md: "220px",
+              mt: 35,
 
-                xl: "300px",
-              },
-              pb: "3rem",
               mx: { xs: 2, lg: 3 },
               position: "relative",
               mb: 10,
@@ -173,55 +168,65 @@ const OwnerDogRequestsForm = () => {
             ) : (
               <h1></h1>
             )}
-
-            {/* _________ div fixes pink block in postion */}
-            <div
-              style={{
+            {/* ________Pink Box */}
+            {/* <MKBox
+              sx={{
                 display: "flex",
-                alignItems: "center",
                 justifyContent: "center",
-                // border: "4px solid blue",
-                marginTop: "-2rem",
-                position: "relative",
+                alignItems: "flex-start",
+                mb: "0rem",
+                pb: "0rem",
+                mt: -4,
               }}
+            > */}
+            <MKBox
+              variant="gradient"
+              bgColor="info"
+              //borderRadius="lg"
+              borderRadius="25px"
+              coloredShadow="info"
+              width="60%"
+              mx="12rem"
+              mt="-2.5rem"
+              pt="1.25rem"
+              pr="1rem"
+              pl="1rem"
+              pb="1.25rem"
+              textAlign="center"
+              //mr="10rem"
             >
-              {/* ____________PINK BOX */}
-              <MKBox
+              {/* <MKBox
                 variant="gradient"
                 bgColor="info"
-                //borderRadius="lg"
                 borderRadius="25px"
                 coloredShadow="info"
-                width="30rem"
+                mx={4}
+                // mt={-4}
+                p={5}
+                mb={2}
                 textAlign="center"
-                sx={{
-                  height: "7rem",
-
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                sx={{ width: "60%" }}
+              > */}
+              {/* // Heading */}
+              <MKTypography
+                variant="h4"
+                fontWeight="bold"
+                color="light"
+                textAlign="center"
+                // mt={1}
               >
-                <MKTypography
-                  variant="h4"
-                  fontWeight="bold"
-                  color="light"
-                  textAlign="center"
-                >
-                  PLAY DATE REQUESTS
-                </MKTypography>
-                {/* </MKBox> */}
-              </MKBox>
-            </div>
-
+                PLAY DATE REQUESTS
+              </MKTypography>
+              {/* </MKBox> */}
+            </MKBox>
             <MKBox textAlign="center" mt={2}>
-              {/* // PENDING REQUESTS */}
+              {/* // Heading */}
               <MKTypography
                 variant="h4"
                 fontWeight="bold"
                 color="dark"
-                alignSelf="center"
-                mt="3rem"
+                textAlign="center"
+                // mt={1}
               >
                 Pending Requests
               </MKTypography>
@@ -235,7 +240,6 @@ const OwnerDogRequestsForm = () => {
                 display: "flex",
                 justifyContent: "center",
                 mb: "4rem",
-                minWidth: "100%",
               }}
             >
               <MKBox
@@ -245,8 +249,7 @@ const OwnerDogRequestsForm = () => {
                   height: "auto",
                   flexDirection: "column",
                   alignItems: "center",
-                  //verticalAlign: "middle",
-                  justifyContent: "center",
+
                   // border: "3px solid blue",
                 }}
               >
@@ -272,7 +275,7 @@ const OwnerDogRequestsForm = () => {
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
-                            padding: "1rem",
+                            padding: "1rem,",
                             minHeight: "5rem",
                             paddingLeft: {
                               sx: "0.5rem",
@@ -290,15 +293,10 @@ const OwnerDogRequestsForm = () => {
                           <MKBox
                             className="Avatar"
                             sx={{
-                              width: {
-                                sm: "15%",
-                                md: "14%",
-                                lg: "12.5%",
-                                xl: "10%",
-                                xxl: "10%",
-                              },
+                              width: { sm: "15%", md: "14%", lg: "12%" },
                               display: { md: "flex" },
                               minWidth: "3.2rem",
+
                               mr: "1rem",
                             }}
                             style={{
@@ -349,7 +347,7 @@ const OwnerDogRequestsForm = () => {
                           <MKBox
                             className="DogName"
                             sx={{
-                              width: { sm: "25%", md: "20%", lg: "16%" },
+                              width: { sm: "25%", md: "20%", lg: "12%" },
                               display: { xs: "none", sm: "flex" },
                             }}
                             style={{
@@ -370,13 +368,7 @@ const OwnerDogRequestsForm = () => {
                           <MKBox
                             className="StartDate"
                             sx={{
-                              width: {
-                                md: "22%",
-                                lg: "17%",
-                                xl: "18%",
-                                xxl: "18%",
-                              },
-
+                              width: { md: "20%", lg: "12%" },
                               display: { xs: "none", md: "flex" },
                             }}
                             style={{
@@ -447,11 +439,16 @@ const OwnerDogRequestsForm = () => {
                               justifyContent: "flex-end ",
                               //   border: "2px solid red",
 
-                              width: { md: "20%", lg: "12%" },
-                              marginRight: "0rem",
+                              width: { md: "20%", lg: "16%" },
+                              marginRight: "1rem",
                             }}
                           >
                             <MKButton
+                              style={
+                                request.status === "Rejected"
+                                  ? { display: "none" }
+                                  : { display: "flex" }
+                              }
                               size="medium"
                               type="submit"
                               variant="gradient"
@@ -495,8 +492,8 @@ const OwnerDogRequestsForm = () => {
                 variant="h4"
                 fontWeight="bold"
                 color="dark"
-                alignSelf="center"
-                mt="3rem"
+                textAlign="center"
+                // mt={1}
               >
                 Approved Requests
               </MKTypography>

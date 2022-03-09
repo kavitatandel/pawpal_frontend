@@ -35,6 +35,21 @@ export const neumorphicDL = {
   justifyContent: "center",
 };
 
+export const neumorphicHidden = {
+  // opacity: 0,
+  flexBasis: 1,
+  padding: { xs: "0 1rem", sm: "0 1rem", md: "0 0.5rem", lg: "0 0.25rem" },
+  minWidth: "100%",
+  height: "5rem",
+  marginTop: "1.5rem",
+  background: "transparent",
+  // boxShadow: "14.11px 14.11px 24px #dedad9, -14.11px -14.11px 24px #FFFFFF",
+  display: "flex",
+  // alignItems: "center",
+  justifyContent: "center",
+  boxShadow: "none !important",
+};
+
 //for spinner
 export const override = css`
   display: block;
