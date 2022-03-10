@@ -7,9 +7,9 @@ Refer to styled buttons on Landing Page*/
   border: none;
   outline: none;
   text-transform: uppercase;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: nunito;
   letter-spacing: 0.05rem;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 1rem;
   color: #fff;
   background: linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
@@ -36,19 +36,8 @@ Refer to styled buttons on Landing Page*/
     #ff8645,
     #ff8494,
     #ff518c,
-    #ff1cf7,
+    #ff1c7e,
     #ff0000
-      /* 
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-     */
   );
   position: absolute;
   top: -2px;
@@ -65,7 +54,7 @@ Refer to styled buttons on Landing Page*/
 }
 
 .glow-on-hover:active {
-  /* color: #000; */
+  color: #fff;
   background: linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
 }
 

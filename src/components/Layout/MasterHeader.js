@@ -18,8 +18,8 @@ import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 import TempLogo from "../../assets/logos/logo_paw_light.png";
 
 //import layout.css
-import '../../styles/layout.css';
-import { makeStyles } from '@material-ui/core/styles';
+import "../../styles/layout.css";
+import { makeStyles } from "@material-ui/core/styles";
 
 // const useStyles = makeStyles((theme) => ({
 //   abRoot: {
@@ -99,15 +99,15 @@ const MasterHeader = () => {
         justifyContent: "center",
         top: 0,
         left: "auto !important",
-        background: "rgba( 255, 255, 255, 0.3 )",
+        background: "rgba( 255, 255, 255, 0.7 )",
         boxShadow: "0 7px 30px 5px rgba(255, 82, 0, 0.2)",
         backdropFilter: "blur( 12.5px )",
       }}
 
-    // classes={{
-    //   root: classes.abRoot,
-    //   positionStatic: classes.abStatic
-    // }}
+      // classes={{
+      //   root: classes.abRoot,
+      //   positionStatic: classes.abStatic
+      // }}
     >
       <Toolbar
         sx={{
