@@ -1,0 +1,29 @@
+.tilty {
+  position: relative;
+  /* width: 200px;
+  height: 200px; */
+  width: 60%;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 1rem;
+  margin: 0;
+  overflow: auto;
+  background-color: #eef0f4;
+  border-radius: 5rem;
+  box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
+}
+
+.inner {
+  display: inline-block;
+  transform: translateZ(60px);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: transparent;
+  letter-spacing: 0.15rem;
+}
