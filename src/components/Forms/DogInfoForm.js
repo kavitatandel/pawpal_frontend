@@ -114,7 +114,13 @@ const DogInfoForm = () => {
         >
           <Paper
             elevation={24}
-            style={{ position: "relative", borderRadius: "2rem" }}
+            style={{
+              position: "relative",
+              // borderRadius: "2rem",
+              background: "rgba( 255, 255, 255, 0.8 )",
+              borderRadius: "25px",
+              // backdropFilter: "blur( 12px )",
+            }}
             sx={{
               width: { xs: "90%", sm: "95%", md: "80%", lg: "70%", xl: "50%" },
               height: "auto",
@@ -361,14 +367,14 @@ const DogInfoForm = () => {
                   <button
                     class="glow-on-hover"
                     onClick={handleClickGoBack}
-                    style={{ margin: "10px 25px", width: "200px", height: "50px" }}
+                    style={{ margin: "10px 25px", minWidth: "230px", height: "50px" }}
                   >
                     Find More Dogs
                   </button>
                   <button
                     class="glow-on-hover"
                     onClick={toggleModal}
-                    style={{ margin: "10px 25px", width: "250px", height: "50px" }}
+                    style={{ margin: "10px 25px", minWidth: "280px", height: "50px" }}
                   >
                     Play Date Request
                   </button>

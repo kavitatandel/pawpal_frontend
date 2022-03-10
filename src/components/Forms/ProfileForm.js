@@ -28,7 +28,7 @@ import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 
 import "../../styles/buttonStyles.css";
-import swal from 'sweetalert';
+
 
 
 const ProfileForm = () => {
@@ -164,19 +164,27 @@ const ProfileForm = () => {
           elevation={24}
           style={{
             position: "relative",
-            borderRadius: "2rem",
-            // glass effect
-            background: "rgba( 255, 255, 255, 0.7 )",
-            boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-            backdropFilter: "blur( 12px )",
+            // borderRadius: "2rem",
+            background: "rgba( 255, 255, 255, 0.8 )",
+            borderRadius: "25px",
+            // boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+            // backdropFilter: "blur( 12px )",
           }}
+          // style={{
+          //   position: "relative",
+          //   borderRadius: "2rem",
+          //   // glass effect
+          //   background: "rgba( 255, 255, 255, 0.7 )",
+          //   boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+          //   backdropFilter: "blur( 12px )",
+          // }}
           sx={{
             // NEED TO FIX THIS OVERFLOW ISSUE LATER (Coralee)
             // overflow: "hidden",
             width: { xs: "95%", sm: "90%", md: "80%", xl: "70%" },
             maxWidth: "1000px",
             height: "auto",
-            mt: 35,
+            mt: 30,
             mx: { xs: 2, lg: 3 },
             position: "relative",
             mb: 10,
@@ -202,7 +210,7 @@ const ProfileForm = () => {
             color="white"
             bgColor="error"
             variant="gradient"
-            borderRadius="lg"
+            borderRadius="25px"
             shadow="lg"
             opacity={1}
             mt={-12}
