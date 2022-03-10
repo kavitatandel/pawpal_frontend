@@ -115,8 +115,8 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-      //mb={2} //added 10/3
-      //paddingBottom="3rem"
+        mb={7} //changed coralee
+        paddingBottom="5rem"
       >
         <MKBox
           width="100%"
@@ -134,10 +134,10 @@ const OwnerDogRequestsForm = () => {
           alignItems="center"
           //mb={0} //added 10/3
           paddingTop="0rem"
-          paddingBottom="0rem"
+          // paddingBottom="5rem"
         >
           <Paper
-            className="neuCard"
+            // className="neuCard"
             elevation={24}
             style={{
               position: "relative",
@@ -147,25 +147,24 @@ const OwnerDogRequestsForm = () => {
               boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
               backdropFilter: "blur( 12px )",
               paddingTop: "0rem",
-              paddingBottom: "0rem"
+              paddingBottom: "5rem",
             }}
             sx={{
               width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
-              maxWidth: "1000px",
+              maxWidth: "1300px",
               height: "auto",
               mt: {
                 xs: "140px",
                 sm: "170px",
-                md: "220px",
+                md: "200px",
 
-                xl: "300px",
+                xl: "220px",
               },
               // pb: "3rem", //commented on 10/3
               mx: { xs: 2, lg: 3 },
               position: "relative",
-              // mb: 10, //commented on 10/3             
+              // mb: 10, //commented on 10/3
             }}
-
           >
             {selectedDogRequest.length !== 0 ? (
               <DogApproveRejectModal
@@ -181,7 +180,7 @@ const OwnerDogRequestsForm = () => {
               <h1></h1>
             )}
 
-            {/* _________ div fixes pink block in postion */}
+            {/* _________ div fixes pink block in position */}
             <div
               style={{
                 display: "flex",
@@ -199,10 +198,10 @@ const OwnerDogRequestsForm = () => {
                 //borderRadius="lg"
                 borderRadius="25px"
                 coloredShadow="info"
-                width="30rem"
+                width="40rem"
                 textAlign="center"
                 sx={{
-                  height: "7rem",
+                  height: "8rem",
 
                   display: "flex",
                   alignItems: "center",
@@ -210,7 +209,7 @@ const OwnerDogRequestsForm = () => {
                 }}
               >
                 <MKTypography
-                  variant="h4"
+                  variant="h2"
                   fontWeight="bold"
                   color="light"
                   textAlign="center"
@@ -221,7 +220,11 @@ const OwnerDogRequestsForm = () => {
               </MKBox>
             </div>
 
-            <MKBox textAlign="center" mt={2}>
+            <MKBox
+              textAlign="center"
+              mt={2}
+              // style={{ border: "4px solid orange" }}
+            >
               {/* // PENDING REQUESTS */}
               <MKTypography
                 variant="h4"
@@ -244,7 +247,6 @@ const OwnerDogRequestsForm = () => {
                 // mb: "4rem", //commented on 10/3
                 minWidth: "100%",
               }}
-
             >
               <MKBox
                 sx={{ width: { xs: "95%", xxl: "90%" } }}
@@ -458,66 +460,17 @@ const OwnerDogRequestsForm = () => {
                             <button
                               class="mini-button"
                               type="submit"
-                              style={{ margin: "10px 15px", width: "200px", height: "40px" }}
-                              // sx={{
-
-                              //   minWidth: {
-                              //     xs: "2rem",
-                              //     sm: "2rem",
-                              //     md: "2.5rem",
-                              //     lg: "3rem",
-                              //   },
-
-                              //   padding: {
-                              //     xs: "10px 10px",
-                              //     md: "12px 12px",
-                              //     lg: "10px 10px",
-                              //     xl: "8px 8px",
-                              //     xxl: "8px 8px",
-                              //     xxxl: "4px 4px",
-                              //   },
-
-                              //   ml: "1rem",
-                              // }}
+                              style={{
+                                margin: "10px 15px",
+                                width: "200px",
+                                height: "40px",
+                              }}
                               value={request._id}
                               onClick={handleApproveReject}
-
                             >
                               <InfoIcon style={{ marginRight: "8px" }} />
                               INFO
                             </button>
-                            {/* <MKButton
-                              size="medium"
-                              type="submit"
-                              variant="gradient"
-                              color="info"
-                              sx={{
-
-                                minWidth: {
-                                  xs: "2rem",
-                                  sm: "2rem",
-                                  md: "2.5rem",
-                                  lg: "3rem",
-                                },
-
-                                padding: {
-                                  xs: "10px 10px",
-                                  md: "12px 12px",
-                                  lg: "10px 10px",
-                                  xl: "8px 8px",
-                                  xxl: "8px 8px",
-                                  xxxl: "4px 4px",
-                                },
-
-                                ml: "1rem",
-                              }}
-                              value={request._id}
-                              onClick={handleApproveReject}
-
-                            >
-                              <InfoIcon style={{ marginRight: "8px" }} />
-                              INFO
-                            </MKButton> */}
                           </MKBox>
                         </MKBox>
                       </Card>
@@ -525,23 +478,29 @@ const OwnerDogRequestsForm = () => {
                   })}
               </MKBox>
             </Grid>
-            <MKBox textAlign="center" mt={2}
-              mb={0} pb={0}//added 10/3
+            <MKBox
+              // style={{ border: "4px solid green" }}
+              textAlign="center"
+              mt={2}
+              mb={0}
+              pb={0} //added 10/3
             >
               {/* // Heading */}
               <MKTypography
+                // style={{ border: "4px solid purple" }}
                 variant="h4"
                 fontWeight="bold"
                 color="dark"
                 alignSelf="center"
                 mt="3rem"
                 pb="0rem"
-              //pb={1}
+                //pb={1}
               >
                 APPROVED REQUESTS
               </MKTypography>
             </MKBox>
             <OwnerApprovedRequests
+              style={{ border: "4px solid yellow", padding: 0 }}
               dogApprovedRequestsInfo={dogApprovedRequestsInfo}
               setDogApprovedRequestsInfo={setDogApprovedRequestsInfo}
             />
