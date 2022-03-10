@@ -191,7 +191,7 @@ const LoginForm = () => {
                   boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
                 }}
               >
-                {/* LogIn  Box */}
+                {/* Pink Box */}
                 <div
                   style={{
                     display: "flex",
