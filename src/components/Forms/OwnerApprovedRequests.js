@@ -263,7 +263,18 @@ const OwnerApprovedRequests = ({
                         marginRight: "0rem",
                       }}
                     >
-                      <MKButton
+                      <button
+
+                        class="mini-button"
+                        type="submit"
+                        style={{ margin: "10px 15px", width: "200px", height: "40px" }}
+                        value={request._id}
+                        onClick={handleInfo}
+                      >
+                        <InfoIcon style={{ marginRight: "8px" }} />
+                        INFO
+                      </button>
+                      {/* <MKButton
                         size="medium"
                         type="submit"
                         variant="gradient"
@@ -292,8 +303,7 @@ const OwnerApprovedRequests = ({
                       >
                         <InfoIcon style={{ marginRight: "8px" }} />
                         INFO
-                        {/* Approve / Reject */}
-                      </MKButton>
+                      </MKButton> */}
                     </MKBox>
                   </MKBox>
                 </Card>

@@ -12,6 +12,9 @@ import { fetchCoordinates } from "../../logic/FetchGeoCode";
 import { styled } from "@mui/material/styles";
 import { makeStyles } from '@material-ui/core/styles';
 
+import "../../styles/buttonStyles.css";
+
+
 // const helperTextStyles = styled((theme) => ({
 //   MuiFormHelperText: {
 //     root: {
@@ -93,6 +96,7 @@ const ProfileInputsGrid = ({ editMode }) => {
             //set newly updated user to localstorage
             //localStorage.setItem("usertoken", user);
 
+
             // navigate("/owner/ownerdogs");
             if (user.user_type === "doglover") {
               navigate("/user/searchdog");
@@ -130,6 +134,15 @@ const ProfileInputsGrid = ({ editMode }) => {
   };
 
   useEffect(() => { }, [editMode]);
+
+  const handleCancel = () => {
+    if (user.user_type === 'owner') {
+      navigate('/owner/ownerdogs');
+    }
+    else {
+      navigate('/user/searchdog');
+    }
+  }
 
   return (
     <>
@@ -335,6 +348,30 @@ const ProfileInputsGrid = ({ editMode }) => {
               textAlign="center"
               width="100%"
             >
+              <button
+                class="glow-on-hover"
+                // onClick={() => navigate("/searchdogs")}
+                onClick={() => handleCancel}
+                style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+              >
+                Cancel
+              </button>
+              <button
+                class="glow-on-hover"
+                type="submit"
+                style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+              >
+                Save
+              </button>
+            </MKBox>
+            {/* <MKBox
+              mt={5}
+              mb={5}
+              justifyContent="center"
+              sx={{ display: { xs: "block", md: "flex" } }}
+              textAlign="center"
+              width="100%"
+            >
               <MKButton
                 size="large"
                 onClick={() => navigate("/searchdogs")}
@@ -362,7 +399,7 @@ const ProfileInputsGrid = ({ editMode }) => {
               >
                 Save
               </MKButton>
-            </MKBox>
+            </MKBox> */}
           </Grid>
         </Grid>
       </MKBox>

@@ -27,6 +27,9 @@ import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 
+import "../../styles/buttonStyles.css";
+import swal from 'sweetalert';
+
 
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -287,7 +290,17 @@ const ProfileForm = () => {
             marginBottom="0rem"
           >
             {/* ************************** Edit Button (for inputs) */}
-            <MKButton
+            <button
+              class="glow-on-hover"
+              type="submit"
+              style={{ margin: "10px 50px", width: "130px", height: "50px" }}
+              onClick={toggleEdit}
+            >
+              EDIT
+              <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
+            </button>
+          </MKBox>
+          {/* <MKButton
               type="submit"
               variant="gradient"
               color="info"
@@ -300,13 +313,12 @@ const ProfileForm = () => {
                 marginRight: "3rem",
                 marginTop: "2rem",
               }}
-              onClick={toggleEdit}
-            //onClick={handleToggleEdit}
+              onClick={toggleEdit}       
             >
               EDIT
               <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
             </MKButton>
-          </MKBox>
+          </MKBox> */}
           {/* ************************** User Details */}
 
           <MKBox>

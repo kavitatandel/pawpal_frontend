@@ -35,6 +35,8 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import swal from "sweetalert";
 import RequestGridHeadingDogLover from "./RequestGridHeadingDogLover";
 
+import "../../styles/buttonStyles.css";
+
 const styledDeleteIcon = {
   transform: "scale(1.5)",
   color: "#ff3d47",
@@ -151,9 +153,9 @@ const DogLoverRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
+      // style={{ border: "3px solid red" }}
 
-        //   style={{ border: "3px solid green" }}
+      //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -532,11 +534,41 @@ const DogLoverRequestsForm = () => {
                                 justifyContent: "flex-end ",
                                 //   border: "2px solid red",
 
-                                width: { md: "20%", lg: "16%" },
+                                width: { md: "17%", lg: "12%" },
                                 marginRight: "1rem",
                               }}
                             >
-                              <MKButton
+                              {request.status === "Rejected" ? "" :
+                                <button
+                                  class="mini-button"
+                                  style={{ margin: "15px 20px", width: "100px", height: "40px" }}
+                                  type="submit"
+
+                                  value={request._id}
+                                  onClick={handleInfo}
+                                >
+                                  <InfoIcon style={{ marginRight: "8px" }} />
+                                  INFO
+                                </button>
+                              }
+                              {/* <button
+                                class="mini-button"
+                                style={
+                                  request.status === "Rejected"
+                                    ? { display: "none" }
+                                    : { display: "flex" }
+                                }
+                                // style={{ margin: "10px 15px", width: "200px", height: "40px" }}
+
+                                type="submit"
+
+                                value={request._id}
+                                onClick={handleInfo}
+                              >
+                                <InfoIcon style={{ marginRight: "8px" }} />
+                                INFO                              
+                              </button> */}
+                              {/* <MKButton
                                 style={
                                   request.status === "Rejected"
                                     ? { display: "none" }
@@ -570,8 +602,8 @@ const DogLoverRequestsForm = () => {
                               >
                                 <InfoIcon style={{ marginRight: "8px" }} />
                                 INFO
-                                {/* Approve / Reject */}
-                              </MKButton>
+                               
+                            </MKButton> */}
 
                               {request.status === "Rejected" ? (
                                 <MKBox
@@ -583,10 +615,21 @@ const DogLoverRequestsForm = () => {
                                     //   border: "2px solid red",
 
                                     // width: { md: "20%", lg: "16%" },
-                                    width: { md: "25%", lg: "20%" },
+                                    width: { md: "30%", lg: "26%" },
                                   }}
                                 >
-                                  <MKButton
+                                  <button
+                                    class="mini-button"
+                                    type="submit"
+                                    style={{ margin: "25px 0px", width: "400px", height: "40px" }}
+                                    value={request._id}
+                                    onClick={handleInfo}
+                                  >
+                                    <InfoIcon
+                                    />
+                                    INFO
+                                  </button>
+                                  {/* <MKButton
                                     size="medium"
                                     type="submit"
                                     variant="gradient"
@@ -621,11 +664,9 @@ const DogLoverRequestsForm = () => {
                                     onClick={handleInfo}
                                   >
                                     <InfoIcon
-                                    //onClick={handleInfo}
-                                    // style={{ transform: "scale(1.2)" }}
                                     />
                                     INFO
-                                  </MKButton>
+                                  </MKButton> */}
                                   <MKButton
                                     postion="absolute"
                                     mr={-5}

@@ -23,7 +23,7 @@ import { useNavigate } from "react-router";
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
-
+import "../../styles/buttonStyles.css";
 
 const OwnerDogsForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -375,7 +375,15 @@ const OwnerDogsForm = () => {
                             },
                           }}
                         >
-                          <MKButton
+                          <button
+                            class="mini-button"
+                            type="submit"
+                            style={{ margin: "10px 15px", width: "200px", height: "40px" }}
+                            onClick={() => navigate(`/editdog/${dog._id}`)}
+                          >
+                            INFO
+                          </button>
+                          {/* <MKButton
                             size="large"
                             type="submit"
                             variant="gradient"
@@ -393,8 +401,6 @@ const OwnerDogsForm = () => {
                                 md: "2.5rem",
                                 lg: "3rem",
                               },
-                              // minWidth: "2rem",
-                              // minHeight: "2rem",
                               padding: {
                                 xs: "10px 10px",
                                 md: "12px 12px",
@@ -407,12 +413,7 @@ const OwnerDogsForm = () => {
                             onClick={() => navigate(`/editdog/${dog._id}`)}
                           >
                             INFO
-                            {/* <InfoIcon
-                              style={{
-                                transform: "1.8",
-                              }}
-                            /> */}
-                          </MKButton>
+                          </MKButton> */}
                         </MKBox>
                       </MKBox>
                     </Card>

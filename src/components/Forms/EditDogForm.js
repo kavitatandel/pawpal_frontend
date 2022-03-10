@@ -30,6 +30,8 @@ import { getDogInfoById, editDog } from "../../logic/DogFunctions";
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 
+import "../../styles/buttonStyles.css";
+
 const EditDogForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogName, setDogName] = useState("");
@@ -325,7 +327,16 @@ const EditDogForm = () => {
                 marginBottom="0rem"
               >
                 {/* ************************** Edit Button (for inputs) */}
-                <MKButton
+                <button
+                  type="submit"
+                  class="glow-on-hover"
+                  onClick={toggleEdit}
+                  style={{ margin: "10px 80px", width: "100px", height: "50px" }}
+                >
+                  EDIT
+                  <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
+                </button>
+                {/* <MKButton
                   type="submit"
                   variant="gradient"
                   color="info"
@@ -342,7 +353,7 @@ const EditDogForm = () => {
                 >
                   EDIT
                   <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
-                </MKButton>
+                </MKButton> */}
               </MKBox>
               {/* ************************* DOG DETAILS */}
               <MKBox
@@ -996,6 +1007,29 @@ const EditDogForm = () => {
                       textAlign="center"
                       width="100%"
                     >
+                      <button
+                        class="glow-on-hover"
+                        onClick={() => navigate("/owner/ownerdogs")}
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        class="glow-on-hover"
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Save
+                      </button>
+                    </MKBox>
+                    {/* <MKBox
+                      mt={5}
+                      mb={5}
+                      justifyContent="center"
+                      sx={{ display: { xs: "block", md: "flex" } }}
+                      textAlign="center"
+                      width="100%"
+                    >
                       <MKButton
                         size="large"
                         onClick={() => navigate("/owner/ownerdogs")}
@@ -1011,8 +1045,7 @@ const EditDogForm = () => {
                       </MKButton>
                       <MKButton
                         type="submit"
-                        size="large"
-                        // onClick={onSaveHandler}
+                        size="large"                   
                         variant="gradient"
                         color="info"
                         style={{
@@ -1023,7 +1056,7 @@ const EditDogForm = () => {
                       >
                         Save
                       </MKButton>
-                    </MKBox>
+                    </MKBox> */}
                   </Grid>
                 </Grid>
               </MKBox>
