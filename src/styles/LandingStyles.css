@@ -77,7 +77,7 @@
   height: 13rem;
   width: 13rem;
   transition: 0.3s ease-in-out;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 #blobPic:hover {
@@ -104,8 +104,8 @@
 
 .userHeading {
   padding: 0 1rem 1rem 1rem;
-  letter-spacing: -0.07rem !important;
-  /* letter-spacing: 0.07rem !important; */
+  /* letter-spacing: -0.07rem !important; */
+  letter-spacing: 0.02rem !important;
   font-weight: 800;
   color: rgba(255, 61, 71, 0.7);
 }

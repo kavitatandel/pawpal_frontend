@@ -121,10 +121,10 @@ const LandingStyled = () => {
                 <Grid item xs={12} sm={6} id="leftUserGridContainer">
                   <MKBox id="userBlockL" className="inner">
                     <MKTypography
-                      fontFamily="nunito"
+                      // fontFamily="nunito"
                       className="userHeading"
                       variant="h1"
-                      sx={{ fontSize: "2.2rem", pt: 0 }}
+                      sx={{ fontSize: "2.3rem", pt: 0 }}
                     >
                       OWNER ?
                     </MKTypography>
@@ -160,11 +160,11 @@ const LandingStyled = () => {
                 <Grid item xs={12} sm={6} p={3} id="rightUserGridContainer">
                   <MKBox id="userBlockR" className="inner">
                     <MKTypography
-                      fontFamily="nunito"
+                      // fontFamily="nunito"
                       className="userHeading"
                       variant="h1"
                       color="dark"
-                      sx={{ fontSize: "2.2rem", pt: 0 }}
+                      sx={{ fontSize: "2.3rem", pt: 0 }}
                     >
                       DOG-LOVER ?
                     </MKTypography>
