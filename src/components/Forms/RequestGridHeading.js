@@ -90,7 +90,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "1.15rem", color: "white" }}
+              style={{ fontSize: "1.3rem", color: "white" }}
             >
               Name
             </MKTypography>
@@ -112,7 +112,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "1.15rem", color: "white" }}
+              style={{ fontSize: "1.3rem", color: "white" }}
             >
               Dog Name
             </MKTypography>
@@ -132,7 +132,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "1.15rem", color: "white" }}
+              style={{ fontSize: "1.3rem", color: "white" }}
             >
               Date
             </MKTypography>
@@ -152,7 +152,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "1.15rem", color: "white" }}
+              style={{ fontSize: "1.3rem", color: "white" }}
             >
               Start Time
             </MKTypography>
@@ -172,7 +172,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "1.15rem", color: "white" }}
+              style={{ fontSize: "1.3rem", color: "white" }}
             >
               End Time
             </MKTypography>
@@ -180,7 +180,7 @@ const RequestGridHeading = () => {
           <MKBox
             className="Info"
             sx={{
-              width: { sm: "25%", md: "25%", lg: "16%" },
+              width: { sm: "25%", md: "25%", lg: "12%" },
               display: { sm: "flex" },
             }}
             style={{
@@ -192,7 +192,7 @@ const RequestGridHeading = () => {
             <MKTypography
               variant="p"
               fontWeight="medium"
-              style={{ fontSize: "1.15rem", color: "white" }}
+              style={{ fontSize: "1.3rem", color: "white" }}
             >
               Info
             </MKTypography>

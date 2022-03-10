@@ -70,6 +70,8 @@ const OwnerApprovedRequests = ({
           padding: "0rem 1rem 0rem 1rem",
           display: "flex",
           justifyContent: "center",
+          // border: "4px solid red",
+          mt: 0,
           // mb: "2rem",
         }}
       >
@@ -80,7 +82,7 @@ const OwnerApprovedRequests = ({
             height: "auto",
             flexDirection: "column",
             alignItems: "center",
-            paddingBottom: "0rem"
+            paddingBottom: "0rem",
             // border: "3px solid blue",
           }}
         >
@@ -264,46 +266,19 @@ const OwnerApprovedRequests = ({
                       }}
                     >
                       <button
-
                         class="mini-button"
                         type="submit"
-                        style={{ margin: "10px 15px", width: "200px", height: "40px" }}
-                        value={request._id}
-                        onClick={handleInfo}
-                      >
-                        <InfoIcon style={{ marginRight: "8px" }} />
-                        INFO
-                      </button>
-                      {/* <MKButton
-                        size="medium"
-                        type="submit"
-                        variant="gradient"
-                        color="info"
-                        sx={{
-                          minWidth: {
-                            xs: "2rem",
-                            sm: "2rem",
-                            md: "2.5rem",
-                            lg: "3rem",
-                          },
-
-                          padding: {
-                            xs: "10px 10px",
-                            md: "12px 12px",
-                            lg: "10px 10px",
-                            xl: "8px 8px",
-                            xxl: "8px 8px",
-                            xxxl: "4px 4px",
-                          },
-
-                          ml: "1rem",
+                        style={{
+                          margin: "10px 15px",
+                          width: "200px",
+                          height: "40px",
                         }}
                         value={request._id}
                         onClick={handleInfo}
                       >
                         <InfoIcon style={{ marginRight: "8px" }} />
                         INFO
-                      </MKButton> */}
+                      </button>
                     </MKBox>
                   </MKBox>
                 </Card>
