@@ -31,6 +31,7 @@ import RequestGridHeading from "./RequestGridHeading";
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
+import "../../styles/buttonStyles.css";
 
 const OwnerDogRequestsForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -298,15 +299,10 @@ const OwnerDogRequestsForm = () => {
                           <MKBox
                             className="Avatar"
                             sx={{
-                              width: {
-                                sm: "15%",
-                                md: "14%",
-                                lg: "12.5%",
-                                xl: "10%",
-                                xxl: "10%",
-                              },
+                              width: { sm: "15%", md: "14%", lg: "12%" },
                               display: { md: "flex" },
                               minWidth: "3.2rem",
+
                               mr: "1rem",
                             }}
                             style={{
@@ -452,14 +448,45 @@ const OwnerDogRequestsForm = () => {
                             sx={{
                               display: "flex",
                               alignItems: "center",
-                              justifyContent: "flex-end ",
+                              justifyContent: "flex-start ",
                               //   border: "2px solid red",
 
                               width: { md: "20%", lg: "12%" },
                               marginRight: "0rem",
                             }}
                           >
-                            <MKButton
+                            <button
+                              class="mini-button"
+                              type="submit"
+                              style={{ margin: "10px 15px", width: "200px", height: "40px" }}
+                              // sx={{
+
+                              //   minWidth: {
+                              //     xs: "2rem",
+                              //     sm: "2rem",
+                              //     md: "2.5rem",
+                              //     lg: "3rem",
+                              //   },
+
+                              //   padding: {
+                              //     xs: "10px 10px",
+                              //     md: "12px 12px",
+                              //     lg: "10px 10px",
+                              //     xl: "8px 8px",
+                              //     xxl: "8px 8px",
+                              //     xxxl: "4px 4px",
+                              //   },
+
+                              //   ml: "1rem",
+                              // }}
+                              value={request._id}
+                              onClick={handleApproveReject}
+
+                            >
+                              <InfoIcon style={{ marginRight: "8px" }} />
+                              INFO
+                            </button>
+                            {/* <MKButton
                               size="medium"
                               type="submit"
                               variant="gradient"
@@ -490,8 +517,7 @@ const OwnerDogRequestsForm = () => {
                             >
                               <InfoIcon style={{ marginRight: "8px" }} />
                               INFO
-                              {/* Approve / Reject */}
-                            </MKButton>
+                            </MKButton> */}
                           </MKBox>
                         </MKBox>
                       </Card>

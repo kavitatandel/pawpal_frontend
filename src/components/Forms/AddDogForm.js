@@ -24,6 +24,8 @@ import { addDog } from "../../logic/DogFunctions";
 import { useNavigate } from "react-router";
 import UploadDogPicModal from "../Modals/UploadDogPicModal";
 
+import "../../styles/buttonStyles.css";
+
 const AddDogForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogName, setDogName] = useState("");
@@ -843,6 +845,29 @@ const AddDogForm = () => {
                       textAlign="center"
                       width="100%"
                     >
+                      <button
+                        class="glow-on-hover"
+                        onClick={() => navigate("/owner/ownerdogs")}
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="submit"
+                        class="glow-on-hover"
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Save
+                      </button>
+                    </MKBox>
+                    {/* <MKBox
+                      mt={5}
+                      mb={5}
+                      justifyContent="center"
+                      sx={{ display: { xs: "block", md: "flex" } }}
+                      textAlign="center"
+                      width="100%"
+                    >
                       <MKButton
                         size="large"
                         onClick={() => navigate("/owner/ownerdogs")}
@@ -858,8 +883,7 @@ const AddDogForm = () => {
                       </MKButton>
                       <MKButton
                         type="submit"
-                        size="large"
-                        // onClick={onSaveHandler}
+                        size="large"                     
                         variant="gradient"
                         color="info"
                         style={{
@@ -870,7 +894,7 @@ const AddDogForm = () => {
                       >
                         Save
                       </MKButton>
-                    </MKBox>
+                    </MKBox> */}
                   </Grid>
                 </Grid>
               </MKBox>
