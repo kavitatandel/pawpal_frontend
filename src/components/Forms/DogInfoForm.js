@@ -38,6 +38,8 @@ import DogRequestModal from "../Modals/DogRequestModal";
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 
+import "../../styles/buttonStyles.css";
+
 
 const DogInfoForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -356,6 +358,27 @@ const DogInfoForm = () => {
                   textAlign="center"
                   width="100%"
                 >
+                  <button
+                    class="glow-on-hover"
+                    onClick={handleClickGoBack}
+                    style={{ margin: "10px 25px", width: "200px", height: "50px" }}
+                  >
+                    Find More Dogs
+                  </button>
+                  <button
+                    class="glow-on-hover"
+                    onClick={toggleModal}
+                    style={{ margin: "10px 25px", width: "250px", height: "50px" }}
+                  >
+                    Play Date Request
+                  </button>
+                </MKBox>
+                {/* <MKBox
+                  justifyContent="center"
+                  sx={{ display: { xs: "block", md: "flex" } }}
+                  textAlign="center"
+                  width="100%"
+                >
                   <MKButton
                     size="large"
                     onClick={handleClickGoBack}
@@ -382,7 +405,7 @@ const DogInfoForm = () => {
                   >
                     Play Date Request
                   </MKButton>
-                </MKBox>
+                </MKBox> */}
               </Grid>
             </Grid>
           </Paper>
