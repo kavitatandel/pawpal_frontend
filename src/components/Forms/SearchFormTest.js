@@ -356,7 +356,7 @@ const SearchFormTest = () => {
                 {/* </div> */}
                 <MKBox
                   className="row-fluid overlay"
-                  id="scrollHide"
+                  id="scrollStyle"
                   style={{
                     height: "100%",
                     overflow: "scroll",
