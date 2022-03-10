@@ -214,6 +214,17 @@ const OwnerDogsForm = () => {
                 </MKButton>
               </MKBox>
               {/* *********************************************************** Dog List *************/}
+              {dogs === undefined ? (
+                <h5 style={{ color: "#ff3d47", marginTop: "10%" }}>
+                  No Dogs Found.
+                </h5>
+              ) : dogs.length === 0 ? (
+                <h5 style={{ color: "#ff3d47", marginTop: "10%" }}>
+                  No Dogs Found.{" "}
+                </h5>
+              ) : (
+                ""
+              )}
               {dogs !== undefined &&
                 dogs.map((dog, index) => {
                   return (
