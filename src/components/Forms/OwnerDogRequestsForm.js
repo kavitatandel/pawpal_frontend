@@ -114,9 +114,8 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        // style={{ border: "3px solid red" }}
-
-        //   style={{ border: "3px solid green" }}
+        //mb={2} //added 10/3
+        paddingBottom="3rem"
       >
         <MKBox
           width="100%"
@@ -132,6 +131,7 @@ const OwnerDogRequestsForm = () => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
+        //mb={0} //added 10/3
         >
           <Paper
             className="neuCard"
@@ -155,10 +155,10 @@ const OwnerDogRequestsForm = () => {
 
                 xl: "300px",
               },
-              pb: "3rem",
+              // pb: "3rem", //commented on 10/3
               mx: { xs: 2, lg: 3 },
               position: "relative",
-              mb: 10,
+              // mb: 10, //commented on 10/3
             }}
           >
             {selectedDogRequest.length !== 0 ? (
@@ -224,7 +224,7 @@ const OwnerDogRequestsForm = () => {
                 alignSelf="center"
                 mt="3rem"
               >
-                Pending Requests
+                PENDING REQUESTS
               </MKTypography>
             </MKBox>
 
@@ -235,7 +235,7 @@ const OwnerDogRequestsForm = () => {
                 padding: "1rem",
                 display: "flex",
                 justifyContent: "center",
-                mb: "4rem",
+                // mb: "4rem", //commented on 10/3
                 minWidth: "100%",
               }}
             >
@@ -491,7 +491,9 @@ const OwnerDogRequestsForm = () => {
                   })}
               </MKBox>
             </Grid>
-            <MKBox textAlign="center" mt={2}>
+            <MKBox textAlign="center" mt={2}
+              mb={0} //added 10/3
+            >
               {/* // Heading */}
               <MKTypography
                 variant="h4"
@@ -499,8 +501,9 @@ const OwnerDogRequestsForm = () => {
                 color="dark"
                 alignSelf="center"
                 mt="3rem"
+              //mb="0rem"
               >
-                Approved Requests
+                APPROVED REQUESTS
               </MKTypography>
             </MKBox>
             <OwnerApprovedRequests
