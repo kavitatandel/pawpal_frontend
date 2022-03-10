@@ -164,28 +164,24 @@ const ProfileForm = () => {
           elevation={24}
           style={{
             position: "relative",
-            // borderRadius: "2rem",
             background: "rgba( 255, 255, 255, 0.8 )",
             borderRadius: "25px",
-            // boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-            // backdropFilter: "blur( 12px )",
+            boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
           }}
-          // style={{
-          //   position: "relative",
-          //   borderRadius: "2rem",
-          //   // glass effect
-          //   background: "rgba( 255, 255, 255, 0.7 )",
-          //   boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-          //   backdropFilter: "blur( 12px )",
-          // }}
           sx={{
             width: { xs: "95%", sm: "90%", md: "80%", xl: "70%" },
             maxWidth: "1000px",
             height: "auto",
-            mt: 30,
+            mt: {
+              xs: "140px",
+              sm: "170px",
+              md: "200px",
+
+              xl: "250px",
+            },
             mx: { xs: 2, lg: 3 },
             position: "relative",
-            mb: 10,
+            // mb: 10,
           }}
         >
           <UploadPicModal
@@ -199,7 +195,9 @@ const ProfileForm = () => {
             loading={loading}
             setLoading={setLoading}
           />
+
           {/* ________Pink Shape */}
+
           <MKBox
             color="white"
             bgColor="error"

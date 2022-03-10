@@ -15,7 +15,7 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import TodayIcon from "@mui/icons-material/Today";
 import NotListedLocationIcon from "@mui/icons-material/NotListedLocation";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
-import MessageIcon from '@mui/icons-material/Message';
+import MessageIcon from "@mui/icons-material/Message";
 
 //for radio button
 import Radio from "@mui/material/Radio";
@@ -89,16 +89,24 @@ function DogLoverRequestInfoModal({
                 borderRadius="lg"
                 coloredShadow="info"
                 width="60%"
+                height="5rem"
                 // mx="3rem"
                 // mt="-4rem"
                 // p="2rem 2rem"
                 //by kavita
                 mx="3rem"
                 mt="-2.5rem"
-                pt="0.75rem"
-                pr="1rem" pl="1rem"
-                pb="0.75rem"
+                mb="2rem"
+                // pt="0.75rem"
+                pr="1rem"
+                pl="1rem"
+                // pb="0.75rem"
                 textAlign="center"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
                 {/* Request Status Heading */}
                 <MKTypography variant="h3" fontWeight="regular" color="white">
@@ -391,72 +399,70 @@ function DogLoverRequestInfoModal({
                             fontSize="1rem"
                           >
                             <MessageIcon style={styledIcon} />
-                            {selectedDogRequest.owner_reason === '' ? 'No message' : selectedDogRequest.owner_reason}
+                            {selectedDogRequest.owner_reason === ""
+                              ? "No message"
+                              : selectedDogRequest.owner_reason}
                           </MKTypography>
                         </MKBox>
                       </>
-                    ) :
-
-                      (selectedDogRequest.status === 'Approved' ?
-                        (<>
-                          <MKBox
-                            display="flex"
-                            // sx={{ m: "1rem 1rem 0rem 1rem" }}
-                            sx={{ m: "0.25rem 1rem 0rem 1rem" }}
-                            alignItems="flex-start"
-                            justifyContent="flex-start"
+                    ) : selectedDogRequest.status === "Approved" ? (
+                      <>
+                        <MKBox
+                          display="flex"
+                          // sx={{ m: "1rem 1rem 0rem 1rem" }}
+                          sx={{ m: "0.25rem 1rem 0rem 1rem" }}
+                          alignItems="flex-start"
+                          justifyContent="flex-start"
+                        >
+                          <MKTypography
+                            // variant="h3" //commented by kavita
+                            variant="h5"
+                            fontWeight="regular"
+                            color="info"
+                            // fontSize="1rem" //commented by kavita
+                            fontSize="0.75rem"
                           >
+                            OWNER MESSAGE
+                          </MKTypography>
+                        </MKBox>
+                        <MKBox
+                          display="flex"
+                          // sx={{ m: "0.3rem 1rem 1rem 1rem" }}//commented by kavita
+                          sx={{ m: "0.1rem 1rem 0.5rem 1rem" }}
+                          alignItems="flex-start"
+                          justifyContent="flex-start"
+                        >
+                          {selectedDogRequest.owner_message === "" ? (
+                            // || selectedDogRequest.owner_message === undefined
                             <MKTypography
                               // variant="h3" //commented by kavita
                               variant="h5"
                               fontWeight="regular"
-                              color="info"
-                              // fontSize="1rem" //commented by kavita
-                              fontSize="0.75rem"
+                              color="dark"
+                              // fontSize="1.5rem" //commented by kavita
+                              fontSize="1rem"
                             >
-                              OWNER MESSAGE
+                              <MessageIcon style={styledIcon} />
+                              No message
                             </MKTypography>
-                          </MKBox>
-                          <MKBox
-                            display="flex"
-                            // sx={{ m: "0.3rem 1rem 1rem 1rem" }}//commented by kavita
-                            sx={{ m: "0.1rem 1rem 0.5rem 1rem" }}
-                            alignItems="flex-start"
-                            justifyContent="flex-start"
-                          >
-                            {(selectedDogRequest.owner_message === ""
-                              // || selectedDogRequest.owner_message === undefined
-                            )
-
-                              ? (
-                                <MKTypography
-                                  // variant="h3" //commented by kavita
-                                  variant="h5"
-                                  fontWeight="regular"
-                                  color="dark"
-                                  // fontSize="1.5rem" //commented by kavita
-                                  fontSize="1rem"
-                                >
-                                  <MessageIcon style={styledIcon} />
-                                  No message
-                                </MKTypography>
-                              ) : (
-                                <MKTypography
-                                  // variant="h3" //commented by kavita
-                                  variant="h5"
-                                  fontWeight="regular"
-                                  color="dark"
-                                  // fontSize="1.5rem" //commented by kavita
-                                  fontSize="1rem"
-                                >
-                                  <MessageIcon style={styledIcon} />
-                                  {selectedDogRequest.owner_message}
-                                </MKTypography>
-                              )}
-                          </MKBox>
-                        </>
-                        ) : ("")
-                      )}
+                          ) : (
+                            <MKTypography
+                              // variant="h3" //commented by kavita
+                              variant="h5"
+                              fontWeight="regular"
+                              color="dark"
+                              // fontSize="1.5rem" //commented by kavita
+                              fontSize="1rem"
+                            >
+                              <MessageIcon style={styledIcon} />
+                              {selectedDogRequest.owner_message}
+                            </MKTypography>
+                          )}
+                        </MKBox>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </Grid>
 
                   <Grid item xs={12}>
