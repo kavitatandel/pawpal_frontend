@@ -31,6 +31,32 @@
 #scrollHide::-webkit-scrollbar {
   display: none;
 }
+/**************Scroll bar color**********************/
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+  color:red;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background-color: #d6dee1; */
+  background:  linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ /* #thumb:hover ::-webkit-scrollbar- { */
+  background-color:red;
+
+  /* background-color:  linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%); */
+}
+/**********************end*************************/
 
 /* control positioning */
 
