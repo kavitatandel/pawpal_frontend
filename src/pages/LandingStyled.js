@@ -186,36 +186,20 @@ const LandingStyled = () => {
             </Grid>
 
             <Grid item xs={6} id="button-container">
-              <MKButton
+              <button
                 class="glow-on-hover"
-                size="large"
                 onClick={() => navigate("/register")}
-                style={{ margin: "10px 20px" }}
-                variant="gradient"
-                color="info"
-                sx={{
-                  // width: "130px",
-                  // height: "40px",
-                  color: ({ palette: { light } }) => light.main,
-                }}
+                style={{ margin: "10px 25px", width: "150px", height: "50px" }}
               >
                 sign up
-              </MKButton>
-              <MKButton
+              </button>
+              <button
                 class="glow-on-hover"
-                size="large"
                 onClick={() => navigate("/login")}
-                style={{ margin: "10px 20px" }}
-                variant="gradient"
-                color="info"
-                sx={{
-                  width: "130px",
-                  height: "40px",
-                  color: ({ palette: { light } }) => light.main,
-                }}
+                style={{ margin: "10px 25px", width: "150px", height: "50px" }}
               >
                 log in
-              </MKButton>
+              </button>
             </Grid>
 
             {/* ******* BOTTOM SOCIAL MEDIA BLOCK */}
@@ -269,24 +253,3 @@ const LandingStyled = () => {
 };
 
 export default LandingStyled;
-
-// import React from 'react';
-// import { useNavigate } from 'react-router';
-
-// const Landing = () => {
-//     const navigate = useNavigate();
-//     return (
-//         <>
-//             <div>
-//                 <h1> Welcome to PawPal</h1>
-//                 <div>
-//                     <button onClick={() => navigate('/register')}>Register</button>
-//                     <button onClick={() => navigate('/login')}>Login</button>
-//                 </div>
-//             </div>
-
-//         </>
-//     )
-// }
-
-// export default Landing;
