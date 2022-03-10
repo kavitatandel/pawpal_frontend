@@ -114,8 +114,8 @@ const OwnerDogRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-        //mb={2} //added 10/3
-        paddingBottom="3rem"
+      //mb={2} //added 10/3
+      //paddingBottom="3rem"
       >
         <MKBox
           width="100%"
@@ -131,7 +131,9 @@ const OwnerDogRequestsForm = () => {
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
-        //mb={0} //added 10/3
+          //mb={0} //added 10/3
+          paddingTop="0rem"
+          paddingBottom="0rem"
         >
           <Paper
             className="neuCard"
@@ -143,6 +145,8 @@ const OwnerDogRequestsForm = () => {
               background: "rgba( 255, 255, 255, 0.7 )",
               boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
               backdropFilter: "blur( 12px )",
+              // paddingTop: "0rem",
+              // paddingBottom: "0rem"
             }}
             sx={{
               width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
@@ -155,11 +159,12 @@ const OwnerDogRequestsForm = () => {
 
                 xl: "300px",
               },
-              // pb: "3rem", //commented on 10/3
+              pb: "3rem", //commented on 10/3
               mx: { xs: 2, lg: 3 },
               position: "relative",
-              // mb: 10, //commented on 10/3
+              mb: 10, //commented on 10/3             
             }}
+
           >
             {selectedDogRequest.length !== 0 ? (
               <DogApproveRejectModal
@@ -230,7 +235,7 @@ const OwnerDogRequestsForm = () => {
 
             {/******************** PENDING REQUESTS */}
             <Grid
-              container
+              // container
               sx={{
                 padding: "1rem",
                 display: "flex",
@@ -238,6 +243,7 @@ const OwnerDogRequestsForm = () => {
                 // mb: "4rem", //commented on 10/3
                 minWidth: "100%",
               }}
+
             >
               <MKBox
                 sx={{ width: { xs: "95%", xxl: "90%" } }}
@@ -459,6 +465,7 @@ const OwnerDogRequestsForm = () => {
                               variant="gradient"
                               color="info"
                               sx={{
+
                                 minWidth: {
                                   xs: "2rem",
                                   sm: "2rem",
@@ -479,6 +486,7 @@ const OwnerDogRequestsForm = () => {
                               }}
                               value={request._id}
                               onClick={handleApproveReject}
+
                             >
                               <InfoIcon style={{ marginRight: "8px" }} />
                               INFO
@@ -502,6 +510,7 @@ const OwnerDogRequestsForm = () => {
                 alignSelf="center"
                 mt="3rem"
               //mb="0rem"
+
               >
                 APPROVED REQUESTS
               </MKTypography>

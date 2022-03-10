@@ -180,8 +180,8 @@ const RequestGridHeading = () => {
           <MKBox
             className="Info"
             sx={{
-              width: { lg: "12%" },
-              display: { xs: "none", lg: "flex" },
+              width: { sm: "25%", md: "25%", lg: "16%" },
+              display: { sm: "flex" },
             }}
             style={{
               alignItems: "center",
