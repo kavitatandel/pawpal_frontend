@@ -153,9 +153,9 @@ const DogLoverRequestsForm = () => {
         minHeight="auto"
         top={0}
         width="100%"
-      // style={{ border: "3px solid red" }}
+        // style={{ border: "3px solid red" }}
 
-      //   style={{ border: "3px solid green" }}
+        //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
@@ -489,7 +489,7 @@ const DogLoverRequestsForm = () => {
                               }}
                               style={{
                                 alignItems: "center !important",
-                                justifyContent: "flex-end",
+                                justifyContent: "flex-start",
                               }}
                             >
                               {request.status === "Pending" ? (
@@ -531,26 +531,31 @@ const DogLoverRequestsForm = () => {
                               sx={{
                                 display: "flex",
                                 alignItems: "center",
-                                justifyContent: "flex-end ",
+                                justifyContent: "flex-end !important ",
                                 //   border: "2px solid red",
 
                                 width: { md: "17%", lg: "12%" },
-                                marginRight: "1rem",
+                                // marginRight: "1rem",
                               }}
                             >
-                              {request.status === "Rejected" ? "" :
+                              {request.status === "Rejected" ? (
+                                ""
+                              ) : (
                                 <button
                                   class="mini-button"
-                                  style={{ margin: "15px 20px", width: "100px", height: "40px" }}
+                                  style={{
+                                    margin: "10px 10px",
+                                    minWidth: "70px",
+                                    height: "40px",
+                                  }}
                                   type="submit"
-
                                   value={request._id}
                                   onClick={handleInfo}
                                 >
-                                  <InfoIcon style={{ marginRight: "8px" }} />
+                                  <InfoIcon style={{ marginRight: "6px" }} />
                                   INFO
                                 </button>
-                              }
+                              )}
                               {/* <button
                                 class="mini-button"
                                 style={
@@ -621,12 +626,15 @@ const DogLoverRequestsForm = () => {
                                   <button
                                     class="mini-button"
                                     type="submit"
-                                    style={{ margin: "25px 0px", width: "400px", height: "40px" }}
+                                    style={{
+                                      margin: "25px 0px",
+                                      width: "400px",
+                                      height: "40px",
+                                    }}
                                     value={request._id}
                                     onClick={handleInfo}
                                   >
-                                    <InfoIcon
-                                    />
+                                    <InfoIcon />
                                     INFO
                                   </button>
                                   {/* <MKButton

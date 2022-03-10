@@ -7,10 +7,11 @@ Refer to styled buttons on Landing Page*/
   outline: none;
   text-transform: uppercase;
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  letter-spacing: 0.05rem;
+  /* letter-spacing: 0.05rem; */
   font-weight: 600;
   font-size: 0.75rem;
   color: #fff;
+  padding: 0 0.3rem;
   background: linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
   cursor: pointer;
   position: relative;
@@ -18,26 +19,26 @@ Refer to styled buttons on Landing Page*/
   border-radius: 10px;
   box-shadow: 9.91px 9.91px 15px #d9dade, -9.91px -9.91px 15px #ffffff;
   transition: all 0.2s ease-in-out;
-  }
-  
-  .mini-button:hover {
-    transform: scale(1.08);
-  }
+}
 
-  .mini-button:before {
-    content: "";
-    background: linear-gradient(
-      45deg,
-      #ff0000,
-      #ff3c00,
-      #ff7100,
-      #ffcb60,
-      #ff8645,
-      #ff8494,
-      #ff518c,
-      #ff1cf7,
-      #ff0000
-        /* 
+.mini-button:hover {
+  transform: scale(1.08);
+}
+
+.mini-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff3c00,
+    #ff7100,
+    #ffcb60,
+    #ff8645,
+    #ff8494,
+    #ff518c,
+    #ff1cf7,
+    #ff0000
+      /* 
       #ff0000,
       #ff7300,
       #fffb00,
@@ -48,47 +49,46 @@ Refer to styled buttons on Landing Page*/
       #ff00c8,
       #ff0000
        */
-    );
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 5px);
-    height: calc(100% + 5px);
-    animation: glowing 15s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
-  }
-  
-  .mini-button:active {
-    /* color: #000; */
-    background: linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
-  }
-  
-  .mini-button:active:after {
-    background: transparent;
-  }
-  
-  .mini-button:hover:before {
-    opacity: 1;
-  }
-  
-  .mini-button:after {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /* background: #111; */
-    background: linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-  }
-  
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  animation: glowing 15s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.mini-button:active {
+  /* color: #000; */
+  background: linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
+}
+
+.mini-button:active:after {
+  background: transparent;
+}
+
+.mini-button:hover:before {
+  opacity: 1;
+}
+
+.mini-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: #111; */
+  background: linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
 
 .glow-on-hover {
   /* SET HEIGHT AND WIDTH ON THE BUTTON USING IN-LINE STYLING */
