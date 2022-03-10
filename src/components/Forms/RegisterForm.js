@@ -29,15 +29,14 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 //for eye icon inside input
 import React from "react";
-import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
+import IconButton from "@mui/material/IconButton";
+import InputLabel from "@mui/material/InputLabel";
 //import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 //import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@mui/material//Input";
-import OutlinedInput from '@mui/material/OutlinedInput';
-import TextField from '@mui/material/TextField';
-
+import OutlinedInput from "@mui/material/OutlinedInput";
+import TextField from "@mui/material/TextField";
 
 import "../../styles/buttonStyles.css";
 
@@ -63,8 +62,6 @@ const RegisterForm = () => {
   const [userType, setUserType] = useState("owner");
 
   let navigate = useNavigate();
-
-
 
   const createUser = async (e) => {
     e.preventDefault();
@@ -126,7 +123,7 @@ const RegisterForm = () => {
 
   const handlePasswordChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-    setPassword(event.target.value)
+    setPassword(event.target.value);
   };
   //*******************Show hide password */
 
@@ -159,6 +156,7 @@ const RegisterForm = () => {
     <>
       <MKBox
         minHeight="100vh"
+        height="auto"
         width="100%"
         sx={{
           backgroundSize: "cover",
@@ -171,7 +169,7 @@ const RegisterForm = () => {
         <MKBox
           px={1}
           width="100%"
-          // height="100vh"
+          height="100vh"
           mx="auto"
           position="relative"
           zIndex={1}
@@ -182,59 +180,85 @@ const RegisterForm = () => {
             spacing={1}
             justifyContent="center"
             alignItems="center"
-            height="auto"
-            mt={12}
-            mb={12}
+            height="85%"
+            mt="5rem"
           >
             {/* <Grid item xs={11} sm={9} md={5} lg={10} xl={3}> */}
             <Grid
               item
-              sx={{ minWidth: 400, maxWidth: 600 }}
+              sx={{ minWidth: 800, maxWidth: 1000 }}
               xs={12}
               sm={12}
               md={10}
               lg={8}
-              xl={8}
-              xxl={6}
+              xl={6}
+              xxl={4}
             >
-              <Card>
-                <MKBox
-                  variant="gradient"
-                  bgColor="info"
-                  borderRadius="lg"
-                  coloredShadow="info"
-                  mx={4}
-                  mt={-3}
-                  p={5}
-                  mb={-2}
-                  textAlign="center"
+              <Card
+                style={{
+                  background: "rgba( 255, 255, 255, 0.8 )",
+                  borderRadius: "25px",
+                  boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+                }}
+              >
+                {/* Pink Box */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    // border: "4px solid blue",
+                    marginTop: "-2rem",
+                    position: "relative",
+                  }}
                 >
-                  <MKTypography
-                    variant="h3"
-                    fontWeight="regular"
-                    color="white"
-                  // mt={1}
+                  <MKBox
+                    variant="gradient"
+                    bgColor="info"
+                    //borderRadius="lg"
+                    borderRadius="25px"
+                    coloredShadow="info"
+                    width="25rem"
+                    textAlign="center"
+                    sx={{
+                      height: "7rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                   >
-                    REGISTER
-                  </MKTypography>
-                  {/* <Grid
-                  container
-                  spacing={3}
-                  justifyContent="center"
-                  // sx={{ mt: 1, mb: 2 }}
-                  sx={{ mt: 0, mb: 0 }}
-                ></Grid> */}
-                </MKBox>
-                <MKBox pt={4} pb={3} px={3}>
+                    <MKTypography
+                      variant="h3"
+                      fontWeight="bold"
+                      color="white"
+                      // mt={1}
+                    >
+                      REGISTER
+                    </MKTypography>
+                  </MKBox>
+                </div>
+                <MKBox
+                  pt={1}
+                  pb={0}
+                  px={4}
+                  mx={3}
+                  // border="3px solid pink"
+                >
                   <MKBox
                     component="form"
                     method="post"
                     autocomplete="off"
                     role="form"
                     onSubmit={createUser}
-                    p={6}
+                    p={8}
+                    // border="3px solid orange"
                   >
-                    <MKBox mb={1} display="flex" justifyContent="space-between">
+                    <MKBox
+                      mb={2}
+                      display="flex"
+                      justifyContent="space-between"
+                      // border="3px solid blue"
+                    >
                       <MKInput
                         style={{ width: "48%" }}
                         label="First Name"
@@ -244,10 +268,11 @@ const RegisterForm = () => {
                         required
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                      // value={user.first_name}
-                      // onChange={(e) =>
-                      //   setUser({ ...user, first_name: e.target.value })
-                      // }
+                        mb={2}
+                        // value={user.first_name}
+                        // onChange={(e) =>
+                        //   setUser({ ...user, first_name: e.target.value })
+                        // }
                       />
                       <MKInput
                         style={{ width: "48%" }}
@@ -266,7 +291,6 @@ const RegisterForm = () => {
                       />
                     </MKBox>
 
-                    <MKBox mb={2}></MKBox>
                     <MKBox mb={2}>
                       <MKInput
                         fullWidth
@@ -287,7 +311,6 @@ const RegisterForm = () => {
                       display="flex"
                       justifyContent="space-between"
                       mb={2}
-                      mt={4}
                       mr={0}
                       ml={0}
                     >
@@ -303,22 +326,26 @@ const RegisterForm = () => {
                         onChange={handlePasswordChange("password")}
                         value={values.password}
                         InputProps={{
-                          endAdornment: <InputAdornment position="end">
-
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                            </IconButton>
-                          </InputAdornment>
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                              >
+                                {values.showPassword ? (
+                                  <VisibilityIcon />
+                                ) : (
+                                  <VisibilityOffIcon />
+                                )}
+                              </IconButton>
+                            </InputAdornment>
+                          ),
                         }}
-                      // helperText={notValidPass}
-                      // FormHelperTextProps={{
-                      //   className: classes.root,
-                      // }}
+                        // helperText={notValidPass}
+                        // FormHelperTextProps={{
+                        //   className: classes.root,
+                        // }}
                       />
-
                     </MKBox>
                     <MKBox mb={2}>
                       <MKInput
@@ -431,7 +458,7 @@ const RegisterForm = () => {
                       </FormControl>
                     </MKBox>
                     <MKBox
-                      mt={2}
+                      mt={9}
                       justifyContent="center"
                       display="flex"
                       textAlign="center"
@@ -440,66 +467,32 @@ const RegisterForm = () => {
                       <button
                         class="glow-on-hover"
                         onClick={() => navigate("/")}
-                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                        style={{
+                          margin: "10px 15px",
+                          width: "170px",
+                          height: "50px",
+                        }}
                       >
                         Cancel
                       </button>
                       <button
                         class="glow-on-hover"
                         type="submit"
-                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                        style={{
+                          margin: "10px 15px",
+                          width: "170px",
+                          height: "50px",
+                        }}
                       >
                         Sign Up
                       </button>
                     </MKBox>
-
-                    {/* <MKBox
-                      mt={2}
-                      justifyContent="center"
-                      display="flex"
-                      textAlign="center"
-                      width="100%"
-                    >
-                      <MKButton
-                        size="large"
-                        onClick={() => navigate("/")}
-                        variant="gradient"
-                        color="info"
-                        style={{
-                          marginRight: "1.5rem",
-                          width: "8rem",
-                          minWidth: "120px",
-                        }}
-                      >
-                        Cancel
-                      </MKButton>
-                      <MKButton
-                        size="large"
-                        type="submit"
-                        variant="gradient"
-                        color="info"
-                        style={{
-                          marginLeft: "1.5rem",
-                          width: "8rem",
-                          minWidth: "120px",
-                        }}
-                      >
-                        Sign Up
-                      </MKButton>
-                    </MKBox> */}
-                    <MKBox mt={3} mb={1} textAlign="center"></MKBox>
                   </MKBox>
                 </MKBox>
               </Card>
             </Grid>
           </Grid>
         </MKBox>
-        {/* <MKBox
-          width="100%"
-          position="absolute"
-          zIndex={2}
-          bottom="1.625rem"
-        ></MKBox> */}
       </MKBox>
     </>
   );

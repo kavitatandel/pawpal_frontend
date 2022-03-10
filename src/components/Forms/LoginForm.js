@@ -32,12 +32,10 @@ import InputAdornment from "@mui/material/InputAdornment";
 //import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@mui/material//Input";
 
-import OutlinedInput from '@mui/material/OutlinedInput';
-import TextField from '@mui/material/TextField';
+import OutlinedInput from "@mui/material/OutlinedInput";
+import TextField from "@mui/material/TextField";
 
 import "../../styles/buttonStyles.css";
-
-
 
 const useStyles = makeStyles((theme) => ({
   // MuiOutlinedInput: {
@@ -178,7 +176,7 @@ const LoginForm = () => {
           >
             <Grid
               item
-              sx={{ minWidth: 400, maxWidth: 600 }}
+              sx={{ minWidth: 500, maxWidth: 700 }}
               xs={12}
               sm={12}
               md={10}
@@ -193,27 +191,43 @@ const LoginForm = () => {
                   boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
                 }}
               >
-                {/* LogIn  Box */}
-                <MKBox
-                  variant="gradient"
-                  bgColor="info"
-                  borderRadius="lg"
-                  coloredShadow="info"
-                  mx={4}
-                  mt={-3}
-                  p={5}
-                  mb={-2}
-                  textAlign="center"
+                {/* Pink Box */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    // border: "4px solid blue",
+                    marginTop: "-2rem",
+                    position: "relative",
+                  }}
                 >
-                  <MKTypography
-                    variant="h3"
-                    fontWeight="bold"
-                    color="white"
-                    // mt={1}
+                  <MKBox
+                    variant="gradient"
+                    bgColor="info"
+                    //borderRadius="lg"
+                    borderRadius="25px"
+                    coloredShadow="info"
+                    width="20rem"
+                    textAlign="center"
+                    sx={{
+                      height: "7rem",
+
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
                   >
-                    LOG IN
-                  </MKTypography>
-                </MKBox>
+                    <MKTypography
+                      variant="h3"
+                      fontWeight="bold"
+                      color="white"
+                      // mt={1}
+                    >
+                      LOG IN
+                    </MKTypography>
+                  </MKBox>
+                </div>
                 <MKBox pt={4} pb={3} px={3}>
                   <MKBox
                     component="form"
@@ -289,11 +303,9 @@ const LoginForm = () => {
                           className: classes.root,
                         }}
                       />
-
-
                     </MKBox>
                     <MKBox
-                      mt={10}
+                      mt={14}
                       justifyContent="center"
                       display="flex"
                       textAlign="center"
@@ -302,54 +314,26 @@ const LoginForm = () => {
                       <button
                         class="glow-on-hover"
                         onClick={() => navigate("/")}
-                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                        style={{
+                          margin: "10px 15px",
+                          width: "170px",
+                          height: "50px",
+                        }}
                       >
                         Cancel
                       </button>
                       <button
                         class="glow-on-hover"
                         type="submit"
-                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                        style={{
+                          margin: "10px 15px",
+                          width: "170px",
+                          height: "50px",
+                        }}
                       >
                         Log In
                       </button>
                     </MKBox>
-
-                    {/* <MKBox
-                      mt={10}
-                      justifyContent="center"
-                      display="flex"
-                      textAlign="center"
-                      width="100%"
-                    >
-                      <MKButton
-                        size="large"
-                        onClick={() => navigate("/")}
-                        variant="gradient"
-                        color="info"
-                        style={{
-                          marginRight: "1.5rem",
-                          width: "8rem",
-                          minWidth: "120px",
-                        }}
-                      >
-                        Cancel
-                      </MKButton>
-                      <MKButton
-                        size="large"
-                        type="submit"
-                        variant="gradient"
-                        color="info"
-                        style={{
-                          marginLeft: "1.5rem",
-                          width: "8rem",
-                          minWidth: "120px",
-                        }}
-                      >
-                        Log In
-                      </MKButton>
-                    </MKBox> */}
-                    <MKBox mt={3} mb={1} textAlign="center"></MKBox>
                   </MKBox>
                 </MKBox>
               </Card>
@@ -362,27 +346,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-/* <div >
-            <div >
-                <h1>SIGN IN</h1>
-            </div>
-            <div >
-                <form onSubmit={testLogin} >
-                    <div>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password</label>
-                        <input name="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-
-                    <div>
-                        <button type="submit">Sign In</button>
-                        <button onClick={() => navigate('/')}>Cancel</button>
-                    </div>
-                </form>
-
-            </div>
-        </div> */
