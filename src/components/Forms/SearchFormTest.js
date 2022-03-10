@@ -360,8 +360,8 @@ const SearchFormTest = () => {
                   style={{
                     height: "100%",
                     overflow: "scroll",
-                    margin: "1rem 0 0 0",
-                    padding: 0,
+                    margin: "0",
+                    padding: "1rem 0",
 
                     // border: "7px solid rgba(255,0,255)",
                     // backgroundColor: "rgb(255,0,255,0.5)",

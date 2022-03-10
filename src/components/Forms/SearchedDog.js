@@ -85,6 +85,7 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
               }}
             >
               <MKTypography
+                fontFamily="nunito"
                 variant="p"
                 fontWeight="medium"
                 style={{ fontSize: "0.90rem" }}
@@ -115,7 +116,7 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                     <MKBox
                       className="Avatar"
                       sx={{
-                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        width: { md: "25%", lg: "30%" },
                         display: { sm: "none", md: "flex" },
                         minWidth: "3.2rem",
                       }}
@@ -146,18 +147,18 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                       style={{
                         alignItems: "center",
                         justifyContent: "flex-start",
-                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        // width: { md: "30%", lg: "25%" },
                         display: { xs: "none", sm: "flex" },
                       }}
                       sx={{
-                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        width: { md: "35%", lg: "40%" },
                         display: { xs: "none", sm: "flex" },
                       }}
                     >
                       <MKTypography
-                        variant="p"
+                        variant=" subtitle2"
+                        style={{ fontSize: "1.1rem" }}
                         fontWeight="medium"
-                        style={{ fontSize: "0.90rem" }}
                       >
                         {dog.dogs_info.name}
                       </MKTypography>
@@ -165,7 +166,7 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                     <MKBox
                       className="DogType"
                       sx={{
-                        width: { md: "25%", lg: "20%" },
+                        width: { md: "35%", lg: "40%" },
                         display: { sm: "none", md: "flex" },
                       }}
                       style={{
@@ -175,32 +176,39 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                         justifyContent: "flex-start",
                       }}
                     >
-                      <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                      <MKTypography
+                        variant=" subtitle2"
+                        style={{ fontSize: "1.1rem" }}
+                        fontFamily="nunito"
+                      >
                         {dog.dogs_info.breed}
                       </MKTypography>
                     </MKBox>
                     <MKBox
                       className="Size"
                       sx={{
-                        width: { lg: "20%" },
+                        width: { md: "35%", lg: "40%" },
                         display: { xs: "none", lg: "flex" },
                       }}
                       style={{
                         alignItems: "center",
-                        justifyContent: "flex-end",
+                        justifyContent: "flex-start",
                       }}
                     >
-                      <MKTypography variant="p" style={{ fontSize: "0.90rem" }}>
+                      <MKTypography
+                        variant=" subtitle2"
+                        style={{ fontSize: "1.1rem" }}
+                      >
                         {dog.dogs_info.size}
                       </MKTypography>
                     </MKBox>
                     <MKBox
                       className="ButtonContainer"
                       sx={{
-                        width: { sm: "33%", md: "25%", lg: "20%" },
+                        width: { md: "25%", lg: "20%" },
                         display: { xs: "none", sm: "flex" },
                         alignItems: "center",
-                        justifyContent: "flex-end ",
+                        justifyContent: "center ",
                       }}
                     >
                       <MKButton
