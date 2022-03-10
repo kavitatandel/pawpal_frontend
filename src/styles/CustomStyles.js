@@ -23,6 +23,7 @@ export const neumorphic = {
   marginTop: "1.5rem",
   background: "#f4efee",
   boxShadow: "14.11px 14.11px 24px #dedad9, -14.11px -14.11px 24px #FFFFFF",
+  // border: "3px solid orange",
 };
 
 export const neumorphicDL = {

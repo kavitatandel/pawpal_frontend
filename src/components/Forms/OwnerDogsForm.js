@@ -107,14 +107,13 @@ const OwnerDogsForm = () => {
           className="neuCard"
           elevation={24}
           style={{
-            position: "relative",
-            // borderRadius: "2rem",
             background: "rgba( 255, 255, 255, 0.8 )",
             borderRadius: "25px",
+            boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
           }}
           sx={{
-            width: { xs: "95%", sm: "90%", md: "80%", xl: "70%" },
-            maxWidth: "1000px",
+            width: { xs: "95%", sm: "90%", md: "80%", xl: "80%" },
+            maxWidth: "1200px",
             height: "auto",
             mt: 30,
 
