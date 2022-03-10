@@ -318,7 +318,7 @@ const SearchFormTest = () => {
             display="flex"
             justifyContent="center"
             height="auto"
-            // border="7px dashed purple !important"
+          // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
             {/* _______________________________________PARENT CONTAINER */}
@@ -389,10 +389,10 @@ const SearchFormTest = () => {
                       locations={locations}
                       setLocations={setLocations}
                       isSearched={isSearched}
-                      // style={{
-                      //   border: "7px solid rgba(255,0,0)",
-                      //   backgroundColor: "rgb(255,0,0,0.5)",
-                      // }}
+                    // style={{
+                    //   border: "7px solid rgba(255,0,0)",
+                    //   backgroundColor: "rgb(255,0,0,0.5)",
+                    // }}
                     />
                   </MKBox>
                 </MKBox>

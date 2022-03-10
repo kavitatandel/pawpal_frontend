@@ -58,7 +58,7 @@ const OwnerApprovedRequests = ({
           setSelectedDogRequest={setSelectedDogRequest}
         />
       ) : (
-        <h1></h1>
+        <h1 style={{ margin: "0rem" }}></h1>
       )}
       {/******************** APPROVED REQUESTS */}
       {/* Heading Grid component */}

@@ -279,7 +279,7 @@ const SearchForm = () => {
             display="flex"
             justifyContent="center"
             height="auto"
-            // border="7px dashed purple !important"
+          // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
             <div
