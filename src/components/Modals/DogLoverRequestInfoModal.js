@@ -86,14 +86,10 @@ function DogLoverRequestInfoModal({
               <MKBox
                 variant="gradient"
                 bgColor="info"
-                borderRadius="lg"
+                borderRadius="15px"
                 coloredShadow="info"
                 width="60%"
                 height="5rem"
-                // mx="3rem"
-                // mt="-4rem"
-                // p="2rem 2rem"
-                //by kavita
                 mx="3rem"
                 mt="-2.5rem"
                 mb="2rem"

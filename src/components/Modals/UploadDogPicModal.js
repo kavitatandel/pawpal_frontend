@@ -18,8 +18,8 @@ import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
-import swal from 'sweetalert';
-import '../../styles/swalButtonStyle.css';
+import swal from "sweetalert";
+import "../../styles/swalButtonStyle.css";
 
 const UploadDogPicModal = ({
   show,
@@ -28,7 +28,7 @@ const UploadDogPicModal = ({
   dogPic,
   setDogPic,
   setImageModal,
-  imageModal
+  imageModal,
 }) => {
   const [user, setUser] = useContext(UserContext);
 
@@ -42,7 +42,6 @@ const UploadDogPicModal = ({
 
   //additional state to hold back show image on parent page
   const [selectedDogImage, setSelectedDogImage] = useState("");
-
 
   const handleFileUpload = (e) => {
     e.preventDefault();
@@ -75,7 +74,7 @@ const UploadDogPicModal = ({
 
     //moved toggleModal here
     await setImageModal(selectedDogImage);
-    await console.log("save changes")
+    await console.log("save changes");
     await console.log(setImageModal);
     await console.log(imageModal);
     await toggleModal();
@@ -87,12 +86,12 @@ const UploadDogPicModal = ({
       button: "OK!",
       buttonsStyling: false,
       customClass: {
-        confirmButton: 'swal-button' //insert class here
-      }
+        confirmButton: "swal-button", //insert class here
+      },
     });
   };
 
-  useEffect(() => { }, [show, uploadedImageURL, selectedFile]);
+  useEffect(() => {}, [show, uploadedImageURL, selectedFile]);
 
   //change color of close icon
   const styledCloseIcon = {
@@ -102,16 +101,16 @@ const UploadDogPicModal = ({
     marginLeft: "0.2rem",
     verticalAlign: "middle",
     width: "3%",
-    height: "3%"
+    height: "3%",
   };
 
   const handleCloseIcon = (e) => {
     e.preventDefault();
     //clear file unput
-    const inputFile = document.getElementById('inputFile');
-    inputFile.innerHTML = '';
-    inputFile.value = '';
-  }
+    const inputFile = document.getElementById("inputFile");
+    inputFile.innerHTML = "";
+    inputFile.value = "";
+  };
 
   return (
     <MKBox component="section" py={6}>
@@ -141,19 +140,23 @@ const UploadDogPicModal = ({
               <MKBox
                 variant="gradient"
                 bgColor="info"
-                borderRadius="lg"
+                borderRadius="25px"
                 coloredShadow="info"
                 width="60%"
-                // mx="3rem"
-                // mt="-4rem"
-                // p="2rem 2rem"
-                //by kavita
+                height="5rem"
                 mx="3rem"
                 mt="-2.5rem"
-                pt="0.75rem"
-                pr="1rem" pl="1rem"
-                pb="0.75rem"
+                mb="2rem"
+                // pt="0.75rem"
+                pr="1rem"
+                pl="1rem"
+                // pb="0.75rem"
                 textAlign="center"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
                 {/* Request Status Heading */}
                 <MKTypography variant="h3" fontWeight="regular" color="white">
@@ -168,14 +171,18 @@ const UploadDogPicModal = ({
               ) : (
                 <MKBox p={2}>
                   <form onSubmit={handleSubmit}>
-                    <MKBox
-                      display="flex"
-                      justifyContent="center"
-                      pb={2} pt={3}
-                    >
-                      <input style={{ width: "70%" }} id="inputFile" type="file" onChange={(e) => handleFileUpload(e)} />
+                    <MKBox display="flex" justifyContent="center" pb={2} pt={3}>
+                      <input
+                        style={{ width: "70%", fontSize: "1.3rem" }}
+                        id="inputFile"
+                        type="file"
+                        onChange={(e) => handleFileUpload(e)}
+                      />
                       <CloseIcon
-                        fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon}
+                        fontSize="small"
+                        sx={{ cursor: "pointer" }}
+                        style={styledCloseIcon}
+                        onClick={handleCloseIcon}
                       />
                     </MKBox>
                     <MKBox
@@ -189,38 +196,37 @@ const UploadDogPicModal = ({
                         onClick={toggleModal}
                         color="info"
                         size="large"
-
                         style={{
-                          // width: "8rem", //commented by kavita
-                          width: "7rem",
-                          minWidth: "100px",
+                          width: "8rem",
+                          minWidth: "120px",
                           minHeight: "30px",
                         }}
                       >
                         close
                       </MKButton>
-                      <MKButton variant="gradient" type="submit"
-                        size="large"
+                      <MKButton
                         variant="gradient"
+                        type="submit"
+                        size="large"
                         color="info"
                         style={{
                           marginLeft: "1.5rem",
                           width: "8rem",
-                          minWidth: "180px",
+                          minWidth: "120px",
                           minHeight: "30px",
-                        }}>
-                        save changes
+                        }}
+                      >
+                        save
                       </MKButton>
                     </MKBox>
-
                   </form>
                 </MKBox>
               )}
             </MKBox>
           </Slide>
         </Modal>
-      </Container >
-    </MKBox >
+      </Container>
+    </MKBox>
   );
 };
 

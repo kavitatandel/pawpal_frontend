@@ -34,7 +34,6 @@ const OwnerDogsForm = () => {
   const [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ff3d47");
 
-
   // const getDogsByOwner = (user_id) => {
   //     dogsByOwner(user_id).then((res) => {
   //         console.log(res)
@@ -81,7 +80,10 @@ const OwnerDogsForm = () => {
   const iconButtonStyle = {};
 
   //for spinner
-  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
+  if (loading)
+    return (
+      <RiseLoader color={color} loading={loading} css={override} size={40} />
+    );
   return (
     <>
       {/* Entire Page Container (without footer) */}
@@ -105,7 +107,6 @@ const OwnerDogsForm = () => {
           className="neuCard"
           elevation={24}
           style={{
-
             position: "relative",
             // borderRadius: "2rem",
             background: "rgba( 255, 255, 255, 0.8 )",
@@ -150,7 +151,7 @@ const OwnerDogsForm = () => {
                 fontWeight="bold"
                 color="light"
                 textAlign="center"
-              // mt={1}
+                // mt={1}
               >
                 MY DOGS
               </MKTypography>
@@ -362,57 +363,28 @@ const OwnerDogsForm = () => {
                         <MKBox
                           className="ButtonContainer"
                           sx={{
-                            width: { sm: "25%", md: "25%", lg: "16%" },
-                            display: { sm: "flex" },
+                            display: "flex",
                             alignItems: "center",
                             justifyContent: "flex-end ",
-                            paddingRight: {
-                              sx: "0.5rem",
-                              sm: "1rem",
-                              md: "2rem",
-                              lg: "2.5rem",
-                            },
+                            //   border: "2px solid red",
+
+                            width: { md: "20%", lg: "12%" },
+                            marginRight: "0rem",
                           }}
                         >
                           <button
                             class="mini-button"
                             type="submit"
-                            style={{ margin: "10px 15px", width: "200px", height: "40px" }}
-                            onClick={() => navigate(`/editdog/${dog._id}`)}
-                          >
-                            INFO
-                          </button>
-                          {/* <MKButton
-                            size="large"
-                            type="submit"
-                            variant="gradient"
-                            color="info"
-                            sx={{
-                              minWidth: {
-                                xs: "2rem",
-                                sm: "2rem",
-                                md: "2.5rem",
-                                lg: "3rem",
-                              },
-                              minHeight: {
-                                xs: "2rem",
-                                sm: "2rem",
-                                md: "2.5rem",
-                                lg: "3rem",
-                              },
-                              padding: {
-                                xs: "10px 10px",
-                                md: "12px 12px",
-                                lg: "10px 10px",
-                                xl: "8px 8px",
-                                xxl: "8px 8px",
-                                xxxl: "4px 4px",
-                              },
+                            style={{
+                              margin: "10px 15px",
+                              width: "200px",
+                              height: "40px",
                             }}
                             onClick={() => navigate(`/editdog/${dog._id}`)}
                           >
+                            <InfoIcon style={{ marginRight: "8px" }} />
                             INFO
-                          </MKButton> */}
+                          </button>
                         </MKBox>
                       </MKBox>
                     </Card>

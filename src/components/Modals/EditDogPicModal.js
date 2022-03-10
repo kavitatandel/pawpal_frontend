@@ -19,12 +19,12 @@ import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
 
-import { editDogProfilePic } from '../../logic/DogFunctions'
+import { editDogProfilePic } from "../../logic/DogFunctions";
 
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 const EditDogPicModal = ({
   show,
@@ -49,18 +49,17 @@ const EditDogPicModal = ({
     e.preventDefault();
     //console.log("select file occured")
     await setSelectedFile(e.target.files[0]);
-
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     //for spinner on modal
-    setLoadingImage(false)
+    setLoadingImage(false);
 
     //console.log("Dog file upload submit")
     const uploadData = new FormData();
-    uploadData.append("_id", dogid)
+    uploadData.append("_id", dogid);
     uploadData.append("file", selectedFile, "file");
     await editDogProfilePic(uploadData)
       .then((res) => {
@@ -69,7 +68,6 @@ const EditDogPicModal = ({
         // console.log(res.data);
         setUploadedImageURL(res.secure_url);
         uploadedImageURL = res.secure_url;
-
       })
       .catch((err) => console.log(err));
 
@@ -85,8 +83,8 @@ const EditDogPicModal = ({
       button: "OK!",
       buttonsStyling: false,
       customClass: {
-        confirmButton: 'swal-button' //insert class here
-      }
+        confirmButton: "swal-button", //insert class here
+      },
     });
   };
 
@@ -98,16 +96,16 @@ const EditDogPicModal = ({
     marginLeft: "0.2rem",
     verticalAlign: "middle",
     width: "4%",
-    height: "4%"
+    height: "4%",
   };
 
   const handleCloseIcon = (e) => {
     e.preventDefault();
     //clear file unput
-    const inputFile = document.getElementById('inputFile');
-    inputFile.innerHTML = '';
-    inputFile.value = '';
-  }
+    const inputFile = document.getElementById("inputFile");
+    inputFile.innerHTML = "";
+    inputFile.value = "";
+  };
 
   return (
     <MKBox component="section" py={6}>
@@ -140,13 +138,20 @@ const EditDogPicModal = ({
                 borderRadius="lg"
                 coloredShadow="info"
                 width="60%"
-
+                height="5rem"
                 mx="3rem"
                 mt="-2.5rem"
-                pt="0.75rem"
-                pr="1rem" pl="1rem"
-                pb="0.75rem"
+                mb="2rem"
+                // pt="0.75rem"
+                pr="1rem"
+                pl="1rem"
+                // pb="0.75rem"
                 textAlign="center"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
               >
                 {/* Request Status Heading */}
                 <MKTypography variant="h3" fontWeight="regular" color="white">
@@ -157,15 +162,20 @@ const EditDogPicModal = ({
                 <MKBox
                   display="flex"
                   justifyContent="center"
-                  alginItems="center"
+                  alignItems="center"
                   width="500px"
                   height="200px"
                   margin="auto 0"
                   flexDirection="column"
                 >
-                  <RiseLoader color={color} loading={true} css={override} size={50} />
+                  <RiseLoader
+                    color={color}
+                    loading={true}
+                    css={override}
+                    size={50}
+                  />
                 </MKBox>
-              )
+              ) : (
                 //    : ""}
                 //   {/* <MKTypography variant="h5">Upload Dog Image</MKTypography> */}
                 // </MKBox>
@@ -175,56 +185,61 @@ const EditDogPicModal = ({
                 //   // <MKBox p={2}>
                 //   //   <MKTypography variant="h6">Uploading...</MKTypography>
                 //   // </MKBox>
-                // ) 
+                // )
 
-                : (
-                  <MKBox p={2}>
-                    <form onSubmit={handleSubmit}>
-
-                      <MKBox
-                        display="flex"
-                        justifyContent="center"
-                        pb={2} pt={4}
+                <MKBox p={2}>
+                  <form onSubmit={handleSubmit}>
+                    <MKBox display="flex" justifyContent="center" pb={2} pt={3}>
+                      <input
+                        type="file"
+                        style={{ width: "70%", fontSize: "1.3rem" }}
+                        id="inputFile"
+                        onChange={handleFileUpload}
+                      />
+                      <CloseIcon
+                        fontSize="small"
+                        sx={{ cursor: "pointer" }}
+                        style={styledCloseIcon}
+                        onClick={handleCloseIcon}
+                      />
+                    </MKBox>
+                    <MKBox
+                      display="flex"
+                      justifyContent="center"
+                      p={1.5}
+                      mt={4}
+                    >
+                      <MKButton
+                        variant="gradient"
+                        onClick={toggleModal}
+                        color="info"
+                        size="large"
+                        style={{
+                          width: "8rem",
+                          minWidth: "120px",
+                          minHeight: "30px",
+                        }}
                       >
-                        <input type="file" style={{ width: "70%" }} id="inputFile" onChange={handleFileUpload} />
-                        <CloseIcon fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon} />
-                      </MKBox>
-                      <MKBox
-                        display="flex"
-                        justifyContent="center"
-                        p={1.5}
-                        mt={4}
+                        close
+                      </MKButton>
+                      <MKButton
+                        variant="gradient"
+                        type="submit"
+                        size="large"
+                        color="info"
+                        style={{
+                          marginLeft: "1.5rem",
+                          width: "8rem",
+                          minWidth: "120px",
+                          minHeight: "30px",
+                        }}
                       >
-                        <MKButton
-                          variant="gradient"
-                          onClick={toggleModal}
-                          color="info"
-                          size="large"
-                          style={{
-                            width: "7rem",
-                            minWidth: "100px",
-                            minHeight: "30px",
-                          }}
-                        >
-                          close
-                        </MKButton>
-                        <MKButton variant="gradient" type="submit"
-                          size="large"
-                          variant="gradient"
-                          color="info"
-                          style={{
-                            marginLeft: "1.5rem",
-                            width: "8rem",
-                            minWidth: "180px",
-                            minHeight: "30px",
-                          }}>
-                          save changes
-                        </MKButton>
-                      </MKBox>
-                    </form>
-                  </MKBox>
-                )}
-
+                        save
+                      </MKButton>
+                    </MKBox>
+                  </form>
+                </MKBox>
+              )}
             </MKBox>
           </Slide>
         </Modal>
