@@ -29,8 +29,6 @@ import { override } from "styles/CustomStyles";
 
 import "../../styles/buttonStyles.css";
 
-
-
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [show, setShow] = useState(false);
@@ -82,7 +80,7 @@ const ProfileForm = () => {
   useEffect(() => {
     console.log(loading);
     //for spinner
-    if (uploadedImageURL !== '') {
+    if (uploadedImageURL !== "") {
       setLoading(false);
     }
 
@@ -116,7 +114,6 @@ const ProfileForm = () => {
         });
         // //for spinner
         // setLoading(false);
-
       })
       .then(() => {
         //for spinner
@@ -133,12 +130,15 @@ const ProfileForm = () => {
   };
   console.log(user);
 
-  //for spinner 
+  //for spinner
   const handleToggleModal = () => {
     toggleModal();
-  }
+  };
 
-  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
+  if (loading)
+    return (
+      <RiseLoader color={color} loading={loading} css={override} size={40} />
+    );
   return (
     <>
       {/* Entire Page Container (without footer) */}
@@ -179,8 +179,6 @@ const ProfileForm = () => {
           //   backdropFilter: "blur( 12px )",
           // }}
           sx={{
-            // NEED TO FIX THIS OVERFLOW ISSUE LATER (Coralee)
-            // overflow: "hidden",
             width: { xs: "95%", sm: "90%", md: "80%", xl: "70%" },
             maxWidth: "1000px",
             height: "auto",
@@ -188,10 +186,6 @@ const ProfileForm = () => {
             mx: { xs: 2, lg: 3 },
             position: "relative",
             mb: 10,
-            // backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-            //   rgba(white.main, 0.85),
-            // backdropFilter: "saturate(200%) blur(30px)",
-            // boxShadow: ({ boxShadows: { xxl } }) => xxl,
           }}
         >
           <UploadPicModal
@@ -285,7 +279,9 @@ const ProfileForm = () => {
                 >
                   {/* {`${user.first_name !== undefined && user.first_name} ${user.last_name !== undefined && user.last_name}`} */}
                   {/* {`${user.first_name} ${user.last_name}`} */}
-                  {user.first_name === undefined ? "" : `${user.first_name} ${user.last_name}`}
+                  {user.first_name === undefined
+                    ? ""
+                    : `${user.first_name} ${user.last_name}`}
                 </MKTypography>
               </Grid>
             </Grid>
