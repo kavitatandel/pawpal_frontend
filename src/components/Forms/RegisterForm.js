@@ -38,6 +38,9 @@ import Input from "@mui/material//Input";
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
 
+
+import "../../styles/buttonStyles.css";
+
 const styledEyeIcon = {
   transform: "scale(1.5)",
   color: "#ff9a85",
@@ -315,24 +318,7 @@ const RegisterForm = () => {
                       //   className: classes.root,
                       // }}
                       />
-                      {/* <MKInput
-                                                id="password" //added for show/hid password
-                        label="Password"
-                        name="password"
-                        placeholder="Enter your password"
-                        type="password"
-                        required
-                                                value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        sx={{ width: "96%" }}
-                      />                      
-                      <span class=" field-icon " onClick={password_show_hide}>
-                        <VisibilityIcon id="show_eye" style={styledEyeIcon} />
-                        <VisibilityOffIcon
-                          id="hide_eye"
-                          style={styledEyeIcon}
-                        />                      
-                      </span> */}
+
                     </MKBox>
                     <MKBox mb={2}>
                       <MKInput
@@ -444,8 +430,30 @@ const RegisterForm = () => {
                         </RadioGroup>
                       </FormControl>
                     </MKBox>
-
                     <MKBox
+                      mt={2}
+                      justifyContent="center"
+                      display="flex"
+                      textAlign="center"
+                      width="100%"
+                    >
+                      <button
+                        class="glow-on-hover"
+                        onClick={() => navigate("/")}
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        class="glow-on-hover"
+                        type="submit"
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Sign Up
+                      </button>
+                    </MKBox>
+
+                    {/* <MKBox
                       mt={2}
                       justifyContent="center"
                       display="flex"
@@ -478,7 +486,7 @@ const RegisterForm = () => {
                       >
                         Sign Up
                       </MKButton>
-                    </MKBox>
+                    </MKBox> */}
                     <MKBox mt={3} mb={1} textAlign="center"></MKBox>
                   </MKBox>
                 </MKBox>
