@@ -180,7 +180,7 @@ const DogLoverRequestsForm = () => {
               // borderRadius: "2rem",
               background: "rgba( 255, 255, 255, 0.8 )",
               borderRadius: "25px",
-              // backdropFilter: "blur( 12px )",
+              backdropFilter: "blur( 12px )",
             }}
             sx={{
               width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
@@ -280,11 +280,11 @@ const DogLoverRequestsForm = () => {
                 }}
               >
                 {dogRequestsInfo === undefined ? (
-                  <h5 style={{ color: "#ff3d47", marginTop: "10%" }}>
+                  <h5 style={{ display: "flex", justifyContent: "center", alignItems: "center", color: "#ff3d47", marginTop: "10%" }}>
                     No Playdate Requests Found.{" "}
                   </h5>
                 ) : dogRequestsInfo.length === 0 ? (
-                  <h5 style={{ color: "#ff3d47", marginTop: "10%" }}>
+                  <h5 style={{ display: "flex", justifyContent: "center", alignItems: "center", color: "#ff3d47", marginTop: "10%" }}>
                     No Playdate Requests Found.{" "}
                   </h5>
                 ) : (
