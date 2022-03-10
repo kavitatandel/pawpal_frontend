@@ -29,8 +29,6 @@ import { override } from "styles/CustomStyles";
 
 import "../../styles/buttonStyles.css";
 
-
-
 const ProfileForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [show, setShow] = useState(false);
@@ -82,7 +80,7 @@ const ProfileForm = () => {
   useEffect(() => {
     console.log(loading);
     //for spinner
-    if (uploadedImageURL !== '') {
+    if (uploadedImageURL !== "") {
       setLoading(false);
     }
 
@@ -116,7 +114,6 @@ const ProfileForm = () => {
         });
         // //for spinner
         // setLoading(false);
-
       })
       .then(() => {
         //for spinner
@@ -133,12 +130,15 @@ const ProfileForm = () => {
   };
   console.log(user);
 
-  //for spinner 
+  //for spinner
   const handleToggleModal = () => {
     toggleModal();
-  }
+  };
 
-  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
+  if (loading)
+    return (
+      <RiseLoader color={color} loading={loading} css={override} size={40} />
+    );
   return (
     <>
       {/* Entire Page Container (without footer) */}
@@ -163,35 +163,26 @@ const ProfileForm = () => {
           className="neuCard"
           elevation={24}
           style={{
-            position: "relative",
-            // borderRadius: "2rem",
             background: "rgba( 255, 255, 255, 0.8 )",
             borderRadius: "25px",
-            // boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-            // backdropFilter: "blur( 12px )",
+            boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
           }}
-          // style={{
-          //   position: "relative",
-          //   borderRadius: "2rem",
-          //   // glass effect
-          //   background: "rgba( 255, 255, 255, 0.7 )",
-          //   boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-          //   backdropFilter: "blur( 12px )",
-          // }}
           sx={{
-            // NEED TO FIX THIS OVERFLOW ISSUE LATER (Coralee)
-            // overflow: "hidden",
-            width: { xs: "95%", sm: "90%", md: "80%", xl: "70%" },
+            width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
             maxWidth: "1000px",
             height: "auto",
-            mt: 30,
+            mt: 45,
+            // mt: {
+            //   xs: "140px",
+            //   sm: "170px",
+            //   md: "220px",
+
+            //   xl: "300px",
+            // },
+            pb: "3rem",
             mx: { xs: 2, lg: 3 },
             position: "relative",
             mb: 10,
-            // backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-            //   rgba(white.main, 0.85),
-            // backdropFilter: "saturate(200%) blur(30px)",
-            // boxShadow: ({ boxShadows: { xxl } }) => xxl,
           }}
         >
           <UploadPicModal
@@ -205,7 +196,9 @@ const ProfileForm = () => {
             loading={loading}
             setLoading={setLoading}
           />
+
           {/* ________Pink Shape */}
+
           <MKBox
             color="white"
             bgColor="error"
@@ -285,7 +278,9 @@ const ProfileForm = () => {
                 >
                   {/* {`${user.first_name !== undefined && user.first_name} ${user.last_name !== undefined && user.last_name}`} */}
                   {/* {`${user.first_name} ${user.last_name}`} */}
-                  {user.first_name === undefined ? "" : `${user.first_name} ${user.last_name}`}
+                  {user.first_name === undefined
+                    ? ""
+                    : `${user.first_name} ${user.last_name}`}
                 </MKTypography>
               </Grid>
             </Grid>
