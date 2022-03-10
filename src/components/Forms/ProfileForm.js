@@ -163,25 +163,26 @@ const ProfileForm = () => {
           className="neuCard"
           elevation={24}
           style={{
-            position: "relative",
             background: "rgba( 255, 255, 255, 0.8 )",
             borderRadius: "25px",
             boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
           }}
           sx={{
-            width: { xs: "95%", sm: "90%", md: "80%", xl: "70%" },
+            width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
             maxWidth: "1000px",
             height: "auto",
-            mt: {
-              xs: "140px",
-              sm: "170px",
-              md: "200px",
+            mt: 45,
+            // mt: {
+            //   xs: "140px",
+            //   sm: "170px",
+            //   md: "220px",
 
-              xl: "250px",
-            },
+            //   xl: "300px",
+            // },
+            pb: "3rem",
             mx: { xs: 2, lg: 3 },
             position: "relative",
-            // mb: 10,
+            mb: 10,
           }}
         >
           <UploadPicModal
