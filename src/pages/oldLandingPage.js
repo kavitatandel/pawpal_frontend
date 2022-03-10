@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import "../styles/LandingStyles.css";
-import Tilty from "react-tilty";
-import "../styles/tiltyStyles.css";
-import "../styles/buttonStyles.css";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -38,21 +34,18 @@ const LandingStyled = () => {
     <>
       {/* ******* MAIN CONTAINER WITH BG IMG */}
       <MKBox
-        id="pageContainer"
         minHeight="100vh"
-        minWidth="100vw"
-        // width="100%"
+        height="auto"
+        width="100%"
         sx={{
-          padding: "5rem 14rem",
-          // backgroundImage: ({
-          //   functions: { linearGradient, rgba },
-          //   palette: { gradients },
-          // }) =>
-          //   `${linearGradient(
-          //     rgba(gradients.dark.main, 0.05),
-          //     rgba(gradients.dark.state, 0.1)
-          //   )}, url(${bgImage})`,
-
+          backgroundImage: ({
+            functions: { linearGradient, rgba },
+            palette: { gradients },
+          }) =>
+            `${linearGradient(
+              rgba(gradients.dark.main, 0.05),
+              rgba(gradients.dark.state, 0.1)
+            )}, url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "grid",
@@ -60,19 +53,28 @@ const LandingStyled = () => {
         }}
       >
         {/* ******* CONTAINER 100% WIDTH */}
-
-        <MKBox
-          id="mainCard"
-          // style={{
-          //   "-webkit-border-radius": "50px",
-          //   "border-radius": "50px",
-          //   background: "#e9e9ea",
-          //   "-webkit-box-shadow": "12px 12px 24px #d4d4d5, -12px -12px 24px",
-          //   boxShadow: "12px 12px 24px #d4d4d5, -12px -12px 24px #fefeff",
-          // }}
+        <Container
+          minWidth="100%"
+          minHeight="100%"
+          // style={{ marginTop: "-100px" }}
         >
           {/* ******* GRID CONTAINER */}
-          <Grid id="mainGridContainer" container item xs={12} lg={8}>
+          <Grid
+            container
+            item
+            xs={12}
+            lg={8}
+            justifyContent="center"
+            alignItems="center"
+            sx={{
+              mx: "auto",
+              textAlign: "center",
+              // top: "-50",
+              minWidth: "40vw",
+              height: "50%",
+            }}
+            // border="3px solid red"
+          >
             {/* ******* HEADING */}
             <Grid
               item
@@ -115,97 +117,110 @@ const LandingStyled = () => {
                 </MKTypography>
               </MKBox>
             </Grid>
-
-            <Grid item xs={12} id="usersContainer">
-              {/* ******* LEFT OWNER BOX */}
-              <Tilty className="tilty" glare scale={1.05} maxGlare={0.5}>
-                <Grid item xs={12} sm={6} id="leftUserGridContainer">
-                  <MKBox id="userBlockL" className="inner">
-                    <MKTypography
-                      variant="h1"
-                      color="dark"
-                      sx={{ fontSize: "2rem" }}
-                    >
-                      OWNER ?
-                    </MKTypography>
-                    {/* ***************** Owner Img Container */}
-                    <MKBox>
-                      <img
-                        id="blobPic"
-                        src={ownerBlob}
-                        alt="Owner Illustration"
-                      />
-                    </MKBox>
-                    <MKBox width="80%" alignText="center">
-                      <MKTypography
-                        variant="h6"
-                        lineHeight="1.2rem"
-                        color="dark"
-                        fontWeight="bold"
-                        // textTransform="uppercase"
-                        opacity={1}
-                      >
-                        Find a trusted local dog lover to take care of your dog
-                        when you can't. They'll treat your dog like family.
-                      </MKTypography>
-                    </MKBox>
-                  </MKBox>
-                </Grid>
-              </Tilty>
-              {/* ******* RIGHT DL BOX */}
-              <Tilty className="tilty" glare scale={1.05} maxGlare={0.5}>
-                <Grid item xs={12} sm={6} p={3} id="rightUserGridContainer">
-                  <MKBox id="userBlockR" className="inner">
-                    <MKTypography
-                      variant="h1"
-                      color="dark"
-                      sx={{ fontSize: "2rem" }}
-                    >
-                      DOG-LOVER ?
-                    </MKTypography>
-                    {/* ***************** Owner Img Container */}
-                    <MKBox>
-                      <img id="blobPic" src={dlBlob} alt="Owner Illustration" />
-                    </MKBox>
-                    <MKBox width="80%" alignText="center">
-                      <MKTypography
-                        variant="h6"
-                        lineHeight="1.2rem"
-                        color="dark"
-                        fontWeight="bold"
-                        // textTransform="uppercase"
-                        opacity={1}
-                      >
-                        Fill the dog void in your life by spending time with one
-                        and helping out Owners at the same time. It's a win-win!
-                      </MKTypography>
-                    </MKBox>
-                  </MKBox>
-                </Grid>
-              </Tilty>
+            {/* ******* LEFT OWNER BOX */}
+            <Grid item xs={12} sm={6} p={3}>
+              <MKBox
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  mb: "3rem",
+                }}
+              >
+                <MKTypography
+                  variant="h1"
+                  color="dark"
+                  sx={{ fontSize: "2rem" }}
+                >
+                  OWNER ?
+                </MKTypography>
+                {/* ***************** Owner Img Container */}
+                <MKBox>
+                  <img
+                    src={ownerBlob}
+                    alt="Owner Illistration"
+                    height="40%"
+                    width="40%"
+                  />
+                </MKBox>
+                <MKBox width="80%" alignText="center">
+                  <MKTypography
+                    variant="h6"
+                    lineHeight="1.2rem"
+                    color="dark"
+                    fontWeight="bold"
+                    // textTransform="uppercase"
+                    opacity={1}
+                  >
+                    Find a trusted local dog lover to take care of your dog when
+                    you can't. They'll treat your dog like family.
+                  </MKTypography>
+                </MKBox>
+              </MKBox>
             </Grid>
-
-            <Grid item xs={6} id="button-container">
+            {/* ******* RIGHT DL BOX */}
+            <Grid item xs={12} sm={6} p={3}>
+              <MKBox
+                sx={{
+                  mb: "3rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                }}
+              >
+                <MKTypography
+                  variant="h1"
+                  color="dark"
+                  sx={{ fontSize: "2rem" }}
+                >
+                  DOG-LOVER ?
+                </MKTypography>
+                {/* ***************** Owner Img Container */}
+                <MKBox>
+                  <img
+                    src={dlBlob}
+                    alt="Owner Illistration"
+                    height="40%"
+                    width="40%"
+                  />
+                </MKBox>
+                <MKBox width="80%" alignText="center">
+                  <MKTypography
+                    variant="h6"
+                    lineHeight="1.2rem"
+                    color="dark"
+                    fontWeight="bold"
+                    // textTransform="uppercase"
+                    opacity={1}
+                  >
+                    Fill the dog void in your life by spending time with one and
+                    helping out Owners at the same time. It's a win-win!
+                  </MKTypography>
+                </MKBox>
+              </MKBox>
+            </Grid>
+            <Grid item xs={6}>
+              {" "}
               <MKButton
-                class="glow-on-hover"
                 size="large"
                 onClick={() => navigate("/register")}
-                style={{ margin: "10px 20px" }}
+                style={{ margin: "10px" }}
                 variant="gradient"
                 color="info"
                 sx={{
-                  // width: "130px",
-                  // height: "40px",
+                  width: "130px",
+                  height: "40px",
                   color: ({ palette: { light } }) => light.main,
                 }}
               >
                 sign up
               </MKButton>
               <MKButton
-                class="glow-on-hover"
                 size="large"
                 onClick={() => navigate("/login")}
-                style={{ margin: "10px 20px" }}
+                style={{ margin: "10px" }}
                 variant="gradient"
                 color="info"
                 sx={{
@@ -219,7 +234,7 @@ const LandingStyled = () => {
             </Grid>
 
             {/* ******* BOTTOM SOCIAL MEDIA BLOCK */}
-            {/* <Grid item xs={12} p={1} mt={3} mb={-30}>
+            <Grid item xs={12} p={1} mt={3} mb={-30}>
               <MKTypography variant="h6" color="white" mt={5} mb={1}>
                 Find us on
               </MKTypography>
@@ -260,9 +275,9 @@ const LandingStyled = () => {
                   <i className="fab fa-google-plus" style={smIconsStyle} />
                 </MKTypography>
               </MKBox>
-            </Grid> */}
+            </Grid>
           </Grid>
-        </MKBox>
+        </Container>
       </MKBox>
     </>
   );
