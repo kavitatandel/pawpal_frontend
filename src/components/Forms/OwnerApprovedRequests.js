@@ -58,18 +58,19 @@ const OwnerApprovedRequests = ({
           setSelectedDogRequest={setSelectedDogRequest}
         />
       ) : (
-        <h1 style={{ margin: "0rem" }}></h1>
+        <h1 style={{ padding: "0rem" }}></h1>
       )}
       {/******************** APPROVED REQUESTS */}
       {/* Heading Grid component */}
 
       <Grid
-        container
+        // container
         sx={{
-          padding: "2rem 1rem 1rem 1rem",
+          // padding: "2rem 1rem 1rem 1rem",
+          padding: "0rem 1rem 0rem 1rem",
           display: "flex",
           justifyContent: "center",
-          mb: "2rem",
+          // mb: "2rem",
         }}
       >
         <MKBox
@@ -79,7 +80,7 @@ const OwnerApprovedRequests = ({
             height: "auto",
             flexDirection: "column",
             alignItems: "center",
-
+            paddingBottom: "0rem"
             // border: "3px solid blue",
           }}
         >
@@ -105,6 +106,8 @@ const OwnerApprovedRequests = ({
                       justifyContent: "space-between",
                       alignItems: "center",
                       padding: "1rem,",
+                      paddingBottom: "0rem",
+                      // paddingBottom: "0rem",
                       minHeight: "5rem",
                       paddingLeft: {
                         sx: "0.5rem",
