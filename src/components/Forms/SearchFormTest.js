@@ -318,7 +318,7 @@ const SearchFormTest = () => {
             display="flex"
             justifyContent="center"
             height="auto"
-          // border="7px dashed purple !important"
+            // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
             {/* _______________________________________PARENT CONTAINER */}
@@ -331,7 +331,7 @@ const SearchFormTest = () => {
                 backgroundColor: "rgb(255,255,0.5)",
               }}
             >
-              {/* _______________________________________BACKROUND CONTAINER OF PARENT */}
+              {/* _______________________________________BACKGROUND CONTAINER OF PARENT */}
               <div
                 className="mapbox"
                 overflow="auto"
@@ -360,6 +360,9 @@ const SearchFormTest = () => {
                   style={{
                     height: "100%",
                     overflow: "scroll",
+                    margin: "1rem 0 0 0",
+                    padding: 0,
+
                     // border: "7px solid rgba(255,0,255)",
                     // backgroundColor: "rgb(255,0,255,0.5)",
                   }}
@@ -380,6 +383,10 @@ const SearchFormTest = () => {
                     id="results"
                     style={{
                       height: "auto",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
                       // margin: "1rem",
                       // border: "7px solid rgba(75,0,130)",
                       // backgroundColor: "rgb(75,0,130,0.5)",
@@ -389,10 +396,10 @@ const SearchFormTest = () => {
                       locations={locations}
                       setLocations={setLocations}
                       isSearched={isSearched}
-                    // style={{
-                    //   border: "7px solid rgba(255,0,0)",
-                    //   backgroundColor: "rgb(255,0,0,0.5)",
-                    // }}
+                      // style={{
+                      //   border: "7px solid rgba(255,0,0)",
+                      //   backgroundColor: "rgb(255,0,0,0.5)",
+                      // }}
                     />
                   </MKBox>
                 </MKBox>

@@ -17,8 +17,7 @@ import MKButton from "components/MKButton";
 
 // Images
 // import bgImage from "assets/images/backgrounds/patrick-hendry-jd0hS7Vhn_A-unsplash.jpeg";
-
-import bgImage from "assets/landing-page/pink-bg1.png";
+import bgImage from "assets/images/backgrounds/waves_1.png";
 import ownerBlob from "assets/landing-page/ow-blob.png";
 import dlBlob from "assets/landing-page/dl-blob.png";
 
@@ -37,6 +36,7 @@ const LandingStyled = () => {
   return (
     <>
       {/* ******* MAIN CONTAINER WITH BG IMG */}
+
       <MKBox
         id="pageContainer"
         minHeight="100vh"
@@ -44,15 +44,14 @@ const LandingStyled = () => {
         // width="100%"
         sx={{
           padding: "5rem 14rem",
-          // backgroundImage: ({
-          //   functions: { linearGradient, rgba },
-          //   palette: { gradients },
-          // }) =>
-          //   `${linearGradient(
-          //     rgba(gradients.dark.main, 0.05),
-          //     rgba(gradients.dark.state, 0.1)
-          //   )}, url(${bgImage})`,
-
+          backgroundImage: ({
+            functions: { linearGradient, rgba },
+            palette: { gradients },
+          }) =>
+            `${linearGradient(
+              rgba(gradients.dark.main, 0),
+              rgba(gradients.dark.state, 0)
+            )}, url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "grid",
@@ -122,9 +121,10 @@ const LandingStyled = () => {
                 <Grid item xs={12} sm={6} id="leftUserGridContainer">
                   <MKBox id="userBlockL" className="inner">
                     <MKTypography
+                      // fontFamily="nunito"
+                      className="userHeading"
                       variant="h1"
-                      color="dark"
-                      sx={{ fontSize: "2rem" }}
+                      sx={{ fontSize: "2.3rem", pt: 0 }}
                     >
                       OWNER ?
                     </MKTypography>
@@ -139,7 +139,10 @@ const LandingStyled = () => {
                     <MKBox width="80%" alignText="center">
                       <MKTypography
                         variant="h6"
+                        fontFamily="nunito"
                         lineHeight="1.2rem"
+                        fontSize="1.2rem"
+                        textAlign="center"
                         color="dark"
                         fontWeight="bold"
                         // textTransform="uppercase"
@@ -157,9 +160,11 @@ const LandingStyled = () => {
                 <Grid item xs={12} sm={6} p={3} id="rightUserGridContainer">
                   <MKBox id="userBlockR" className="inner">
                     <MKTypography
+                      // fontFamily="nunito"
+                      className="userHeading"
                       variant="h1"
                       color="dark"
-                      sx={{ fontSize: "2rem" }}
+                      sx={{ fontSize: "2.3rem", pt: 0 }}
                     >
                       DOG-LOVER ?
                     </MKTypography>
@@ -170,8 +175,10 @@ const LandingStyled = () => {
                     <MKBox width="80%" alignText="center">
                       <MKTypography
                         variant="h6"
+                        fontFamily="nunito"
                         lineHeight="1.2rem"
-                        color="dark"
+                        fontSize="1.2rem"
+                        textAlign="center"
                         fontWeight="bold"
                         // textTransform="uppercase"
                         opacity={1}

@@ -23,19 +23,20 @@ import { makeStyles } from "@material-ui/core/styles";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-
 //for eye icon inside input
 import React from "react";
-import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
+import IconButton from "@mui/material/IconButton";
+import InputLabel from "@mui/material/InputLabel";
 //import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from '@mui/material/InputAdornment';
+import InputAdornment from "@mui/material/InputAdornment";
 //import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@mui/material//Input";
+
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
 
 import "../../styles/buttonStyles.css";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -142,7 +143,7 @@ const LoginForm = () => {
     setUser((user) => ({
       ...user,
       password: event.target.value,
-    }))
+    }));
   };
   //*******************Show hide password */
 
@@ -185,7 +186,13 @@ const LoginForm = () => {
               xl={6}
               xxl={4}
             >
-              <Card>
+              <Card
+                style={{
+                  background: "rgba( 255, 255, 255, 0.8 )",
+                  borderRadius: "25px",
+                  boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+                }}
+              >
                 {/* LogIn  Box */}
                 <MKBox
                   variant="gradient"
@@ -202,7 +209,7 @@ const LoginForm = () => {
                     variant="h3"
                     fontWeight="bold"
                     color="white"
-                  // mt={1}
+                    // mt={1}
                   >
                     LOG IN
                   </MKTypography>
@@ -262,15 +269,20 @@ const LoginForm = () => {
                         onChange={handlePasswordChange("password")}
                         value={values.password}
                         InputProps={{
-                          endAdornment: <InputAdornment position="end">
-
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                            </IconButton>
-                          </InputAdornment>
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                              >
+                                {values.showPassword ? (
+                                  <VisibilityIcon />
+                                ) : (
+                                  <VisibilityOffIcon />
+                                )}
+                              </IconButton>
+                            </InputAdornment>
+                          ),
                         }}
                         helperText={notValidPass}
                         FormHelperTextProps={{
