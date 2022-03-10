@@ -40,7 +40,6 @@ import { override } from "styles/CustomStyles";
 
 import "../../styles/buttonStyles.css";
 
-
 const DogInfoForm = () => {
   const [user, setUser] = useContext(UserContext);
   const [dogInfo, setDogInfo] = useState("");
@@ -70,7 +69,7 @@ const DogInfoForm = () => {
         // console.log(res._id);
 
         //for spinner
-        setLoading(false)
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -80,342 +79,260 @@ const DogInfoForm = () => {
   };
 
   //for spinner
-  if (loading) return <RiseLoader color={color} loading={loading} css={override} size={40} />
+  if (loading)
+    return (
+      <RiseLoader color={color} loading={loading} css={override} size={40} />
+    );
   return (
     <>
-      {/* // Container between top & Footer */}
+      {/* Entire Page Container (without footer) */}
+      {/* ******************** 2 MASTER DIVS REQUIRED FOR EACH PAGE: MKBox & Paper */}
       <MKBox
         px={1}
         width="100%"
         top={0}
-        height="auto"
+        minHeight="100%"
         mx="auto"
         mr={0}
         ml={0}
         position="relative"
         zindex={-1}
-        sx={{ padding: "0" }}
+        // sx={{ padding: "0", border: "2px solid blue" }}
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
       >
-        <TopBgImg />
-        {/* Container for body area below featured img */}
-        <MKBox
-          pb={12}
-          mt={5}
-          display="flex"
-          flexDirection="column"
-          justifyContent="flex-start"
-          alignItems="center"
-          minHeight="auto"
-          width="100%"
+        <Paper
+          className="neuCard"
+          elevation={24}
+          style={{
+            background: "rgba( 255, 255, 255, 0.8 )",
+            borderRadius: "25px",
+            boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+          }}
+          sx={{
+            width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
+            maxWidth: "1100px",
+            height: "auto",
+            mt: 45,
+            // mt: {
+            //   xs: "140px",
+            //   sm: "170px",
+            //   md: "220px",
+
+            //   xl: "300px",
+            // },
+            pb: "3rem",
+            mx: { xs: 2, lg: 3 },
+            position: "relative",
+            mb: 10,
+          }}
         >
-          <Paper
-            elevation={24}
+          {/* ________Pink Shape */}
+          <MKBox
+            color="white"
+            bgColor="error"
+            variant="gradient"
+            borderRadius="lg"
+            shadow="lg"
+            opacity={1}
+            m={0}
             style={{
-              position: "relative",
-              // borderRadius: "2rem",
-              background: "rgba( 255, 255, 255, 0.8 )",
-              borderRadius: "25px",
-              // backdropFilter: "blur( 12px )",
-            }}
-            sx={{
-              width: { xs: "90%", sm: "95%", md: "80%", lg: "70%", xl: "50%" },
-              height: "auto",
-              mt: -12,
-              mx: { xs: 2, lg: 3 },
-              position: "relative",
-              mb: 4,
-              backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-                rgba(white.main, 0.8),
-              backdropFilter: "saturate(200%) blur(30px)",
-              boxShadow: ({ boxShadows: { xxl } }) => xxl,
+              height: "30rem",
+              borderRadius: "5% 5% 40% 90%",
+              background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
             }}
           >
-            {/* ________Pink Shape */}
+            <DogRequestModal
+              show={show}
+              setShow={setShow}
+              toggleModal={toggleModal}
+              // dogLoverId={dogLoverId}
+              // setDogLoverId={setDogLoverId}
+              dogId={dogId}
+              setDogId={setDogId}
+              //added on 6/3/2022
+              dogInfo={dogInfo}
+            />
+            {/* Container for Profile Pic */}
             <MKBox
-              color="white"
-              bgColor="error"
-              variant="gradient"
-              borderRadius="lg"
-              shadow="lg"
-              opacity={1}
-              m={0}
-              style={{
-                height: "30rem",
-                borderRadius: "5% 5% 40% 90%",
-                background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
-              }}
-            >
-              <DogRequestModal
-                show={show}
-                setShow={setShow}
-                toggleModal={toggleModal}
-                // dogLoverId={dogLoverId}
-                // setDogLoverId={setDogLoverId}
-                dogId={dogId}
-                setDogId={setDogId}
-                //added on 6/3/2022
-                dogInfo={dogInfo}
-              />
-              {/* Container for Profile Pic */}
-              <MKBox
-                zindex={2}
-                mx={4}
-                mt={-8}
-                mb={4}
-                pt={5}
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-              //   style={{ border: "3px solid blue" }}
-              >
-                {/* dog pic */}
-                <MKAvatar
-                  zindex={2}
-                  src={`${dogInfo.profile_photo}`}
-                  alt={`${dogInfo.name}`}
-                  shadow="xl"
-                  sx={{ width: "12rem", height: "12rem" }}
-                  style={{
-                    border: "3px solid white",
-                    backgroundColor: "white",
-                    marginTop: "-9rem",
-                  }}
-                >
-                  <img
-                    src={DogAvatar}
-                    alt="avatar"
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                </MKAvatar>
-                <MKTypography
-                  pt={2}
-                  variant="h1"
-                  fontWeight="medium"
-                  color="light"
-                  textAlign="center"
-                >
-                  {`${dogInfo.name}`}
-                </MKTypography>
-              </MKBox>
-              {/* Breed & Age Container */}
-              <Grid container spacing={2} style={{ padding: "0 5rem" }}>
-                <Grid
-                  item
-                  xs={12}
-                  md={6}
-                  display="flex"
-                  justifyContent="flex-end"
-                >
-                  <MKBox
-                    variant="outlined"
-                    color="white"
-                    style={{
-                      width: "15rem",
-                      borderRadius: "1rem",
-                      padding: "1rem",
-                      backgroundColor: "rgba(255, 171, 149, 0.5)",
-                      minimumWidth: "100px",
-                    }}
-
-                  //                 {`${dogInfo.name}`}
-                  //               </MKTypography>
-                  //               {/* ************************** Dog Details */}
-                  //               <MKBox pt={1} pb={3} px={3}>
-                  //                 <MKBox
-                  //                   component="form"
-                  //                   method="post"
-                  //                   autocomplete="off"
-                  //                   role="form"
-                  //                   p={6}
-                  //                 ></MKBox>
-
-                  //                 </MKBox>
-                  //                 <MKBox mb={2} display="flex" justifyContent="space-between">
-                  //                   <MKTypography color="dark" textAlign="center">
-                  //                     Breed:
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     {`${dogInfo.breed}`}
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     Age:
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     {`${dogInfo.age_years}`} yrs. {`${dogInfo.age_months}`}{" "}
-                  //                     months
-                  //                   </MKTypography>
-                  //                   {/* <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     Size:
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  //                   >
-                  //                     {`${dogInfo.size}`}
-                  //                   </MKTypography>
-                  //                   <MKTypography
-                  //                     fontWeight="regular"
-                  //                     color="dark"
-                  //                     textAlign="center"
-                  >
-                    <MKTypography
-                      variant="h6"
-                      fontWeight="medium"
-                      color="light"
-                      textAlign="left"
-                    >
-                      BREED
-                    </MKTypography>
-
-                    <MKTypography
-                      variant="h4"
-                      fontWeight="medium"
-                      color="light"
-                      textAlign="left"
-                    >
-                      {`${dogInfo.breed}`}
-                    </MKTypography>
-                  </MKBox>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  md={6}
-                  display="flex"
-                  justifyContent="flex-start"
-                >
-                  <MKBox
-                    variant="outlined"
-                    color="white"
-                    style={{
-                      width: "15rem",
-                      borderRadius: "1rem",
-                      padding: "1rem",
-                      backgroundColor: "rgba(255, 171, 149, 0.5)",
-                      minimumWidth: "100px",
-                    }}
-                  >
-                    <MKTypography
-                      variant="h6"
-                      fontWeight="medium"
-                      color="light"
-                      textAlign="left"
-                    >
-                      AGE
-                    </MKTypography>
-
-                    <MKTypography
-                      variant="h4"
-                      fontWeight="medium"
-                      color="light"
-                      textAlign="left"
-                    >
-                      {`${dogInfo.age_years}`}y {`${dogInfo.age_months}`}m
-                    </MKTypography>
-                  </MKBox>
-                </Grid>
-              </Grid>
-            </MKBox>
-
-            {/* ************************** Dog Details */}
-
-            <DogIconsGrid dogInfo={dogInfo} />
-
-            {/* ************************** Buttons */}
-            <Grid
-              container
+              zindex={2}
+              mx={4}
+              mt={-8}
+              mb={4}
+              pt={5}
               display="flex"
+              flexDirection="column"
               justifyContent="center"
               alignItems="center"
+              //   style={{ border: "3px solid blue" }}
             >
+              {/* dog pic */}
+              <MKAvatar
+                zindex={2}
+                src={`${dogInfo.profile_photo}`}
+                alt={`${dogInfo.name}`}
+                shadow="xl"
+                sx={{ width: "12rem", height: "12rem" }}
+                style={{
+                  border: "3px solid white",
+                  backgroundColor: "white",
+                  marginTop: "-9rem",
+                }}
+              >
+                <img
+                  src={DogAvatar}
+                  alt="avatar"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </MKAvatar>
+              <MKTypography
+                pt={2}
+                variant="h1"
+                fontWeight="medium"
+                color="light"
+                textAlign="center"
+              >
+                {`${dogInfo.name}`}
+              </MKTypography>
+            </MKBox>
+            {/* Breed & Age Container */}
+            <Grid container spacing={2} style={{ padding: "0 5rem" }}>
               <Grid
                 item
-                sm={12}
+                xs={12}
                 md={6}
-                style={{ padding: "1rem" }}
-                mb={8}
-                mt={-4}
+                display="flex"
+                justifyContent="flex-end"
               >
                 <MKBox
-                  justifyContent="center"
-                  sx={{ display: { xs: "block", md: "flex" } }}
-                  textAlign="center"
-                  width="100%"
+                  variant="outlined"
+                  color="white"
+                  style={{
+                    width: "18rem",
+                    borderRadius: "1rem",
+                    padding: "1rem",
+                    backgroundColor: "rgba(255, 171, 149, 0.5)",
+                    minimumWidth: "100px",
+                  }}
                 >
-                  <button
-                    class="glow-on-hover"
-                    onClick={handleClickGoBack}
-                    style={{ margin: "10px 25px", minWidth: "230px", height: "50px" }}
+                  <MKTypography
+                    variant="h2"
+                    fontSize="1.2rem"
+                    fontWeight="medium"
+                    color="light"
+                    textAlign="left"
+                    pb={0.5}
                   >
-                    Find More Dogs
-                  </button>
-                  <button
-                    class="glow-on-hover"
-                    onClick={toggleModal}
-                    style={{ margin: "10px 25px", minWidth: "280px", height: "50px" }}
+                    BREED
+                  </MKTypography>
+
+                  <MKTypography
+                    variant="h4"
+                    fontWeight="medium"
+                    color="light"
+                    textAlign="center"
+                    fontSize="1.8rem"
                   >
-                    Play Date Request
-                  </button>
+                    {`${dogInfo.breed}`}
+                  </MKTypography>
                 </MKBox>
-                {/* <MKBox
-                  justifyContent="center"
-                  sx={{ display: { xs: "block", md: "flex" } }}
-                  textAlign="center"
-                  width="100%"
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                display="flex"
+                justifyContent="flex-start"
+              >
+                <MKBox
+                  variant="outlined"
+                  color="white"
+                  style={{
+                    width: "18rem",
+                    borderRadius: "1rem",
+                    padding: "1rem",
+                    backgroundColor: "rgba(255, 171, 149, 0.5)",
+                    minimumWidth: "100px",
+                  }}
                 >
-                  <MKButton
-                    size="large"
-                    onClick={handleClickGoBack}
-                    variant="gradient"
-                    color="info"
-                    style={{
-                      width: "8rem",
-                      minWidth: "200px",
-                      margin: "1rem",
-                    }}
+                  <MKTypography
+                    variant="h2"
+                    fontSize="1.2rem"
+                    fontWeight="medium"
+                    color="light"
+                    textAlign="left"
+                    pb={0.5}
                   >
-                    Find More Dogs
-                  </MKButton>
-                  <MKButton
-                    size="large"
-                    onClick={toggleModal}
-                    variant="gradient"
-                    color="info"
-                    style={{
-                      width: "8rem",
-                      minWidth: "200px",
-                      margin: "1rem",
-                    }}
+                    AGE
+                  </MKTypography>
+
+                  <MKTypography
+                    variant="h4"
+                    fontWeight="medium"
+                    color="light"
+                    textAlign="center"
+                    fontSize="1.8rem"
                   >
-                    Play Date Request
-                  </MKButton>
-                </MKBox> */}
+                    {`${dogInfo.age_years}`}y {`${dogInfo.age_months}`}m
+                  </MKTypography>
+                </MKBox>
               </Grid>
             </Grid>
-          </Paper>
-        </MKBox>
+          </MKBox>
+
+          {/* ************************** Dog Details */}
+
+          <DogIconsGrid dogInfo={dogInfo} />
+
+          {/* ************************** Buttons */}
+          <Grid
+            container
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid
+              item
+              sm={12}
+              md={6}
+              style={{ padding: "1rem" }}
+              mb={8}
+              mt={-4}
+            >
+              <MKBox
+                justifyContent="center"
+                sx={{ display: { xs: "block", md: "flex" } }}
+                textAlign="center"
+                width="100%"
+              >
+                <button
+                  class="glow-on-hover"
+                  onClick={handleClickGoBack}
+                  style={{
+                    margin: "10px 25px",
+                    minWidth: "230px",
+                    height: "70px",
+                  }}
+                >
+                  Find More Dogs
+                </button>
+                <button
+                  class="glow-on-hover"
+                  onClick={toggleModal}
+                  style={{
+                    margin: "10px 25px",
+                    minWidth: "280px",
+                    height: "70px",
+                  }}
+                >
+                  Play Date Request
+                </button>
+              </MKBox>
+            </Grid>
+          </Grid>
+        </Paper>
       </MKBox>
     </>
   );

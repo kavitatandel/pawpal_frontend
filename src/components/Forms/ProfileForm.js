@@ -171,7 +171,7 @@ const ProfileForm = () => {
             width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
             maxWidth: "1000px",
             height: "auto",
-            mt: 35,
+            mt: 45,
             // mt: {
             //   xs: "140px",
             //   sm: "170px",

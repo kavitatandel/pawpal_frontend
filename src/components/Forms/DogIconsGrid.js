@@ -88,7 +88,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -149,7 +149,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -207,7 +207,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -261,7 +261,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -303,7 +303,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -345,7 +345,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -387,7 +387,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -429,7 +429,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
@@ -471,7 +471,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           sm={6}
           md={4}
           lg={4}
-          xl={3}
+          xl={4}
           mb={4}
           style={{ padding: "1rem" }}
         >
