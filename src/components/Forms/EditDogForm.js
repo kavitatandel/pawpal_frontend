@@ -211,7 +211,7 @@ const EditDogForm = () => {
           <TopBgImg />
           {/* Container for body area below featured img */}
           <MKBox
-            pb={12}
+            pb={10}
             mt={5}
             display="flex"
             flexDirection="column"
@@ -225,11 +225,12 @@ const EditDogForm = () => {
               style={{ position: "relative", borderRadius: "2rem" }}
               sx={{
                 width: { xs: "90%", md: "70%", xl: "40%" },
+                // width: { xs: "100%", md: "75%", xl: "45%" },
                 height: "auto",
                 mt: -12,
                 mx: { xs: 2, lg: 3 },
                 position: "relative",
-                mb: 4,
+                // mb: 4,
                 backgroundColor: ({
                   palette: { white },
                   functions: { rgba },

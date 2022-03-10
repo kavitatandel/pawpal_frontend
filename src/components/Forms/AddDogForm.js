@@ -178,7 +178,8 @@ const AddDogForm = () => {
           <TopBgImg />
           {/* Container for body area below featured img */}
           <MKBox
-            pb={12}
+            // pb={12}
+            pb={10}
             mt={5}
             display="flex"
             flexDirection="column"
@@ -189,20 +190,29 @@ const AddDogForm = () => {
           >
             <Paper
               elevation={24}
-              style={{ position: "relative", borderRadius: "2rem" }}
+              style={{
+                position: "relative",
+                // borderRadius: "2rem",
+                background: "rgba( 255, 255, 255, 0.8 )",
+                borderRadius: "25px",
+                // backdropFilter: "blur( 12px )",
+              }}
               sx={{
                 width: { xs: "90%", md: "70%", xl: "40%" },
                 height: "auto",
                 mt: -12,
                 mx: { xs: 2, lg: 3 },
                 position: "relative",
-                mb: 4,
-                backgroundColor: ({
-                  palette: { white },
-                  functions: { rgba },
-                }) => rgba(white.main, 0.8),
-                backdropFilter: "saturate(200%) blur(30px)",
-                boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                mb: 0,
+                // backgroundColor: ({
+                //   palette: { white },
+                //   functions: { rgba },
+                // }) => rgba(white.main, 0.8),
+                // backdropFilter: "saturate(200%) blur(30px)",
+                // boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                // borderRadius: "2rem",
+                background: "rgba( 255, 255, 255, 0.8 )",
+                borderRadius: "25px",
               }}
             >
               <UploadDogPicModal
