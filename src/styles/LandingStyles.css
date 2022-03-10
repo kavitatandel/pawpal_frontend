@@ -65,7 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px dashed purple;
+  /* border: 3px dashed purple; */
   padding: 1rem !important;
 }
 
