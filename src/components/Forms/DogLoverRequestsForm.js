@@ -87,24 +87,28 @@ const DogLoverRequestsForm = () => {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     // console.log("Dog lover request form")
-    getRequestData();
-    getApprovedRequestData();
+    await getRequestData();
+    await getApprovedRequestData();
   }, []);
 
   const handleInfo = (e) => {
     e.preventDefault();
-    console.log(e);
-    //get the clicked item id
-    const selectedRequestId = e.target.value;
-    //find selected request id data
-    const selectedRequest = dogRequestsInfo.find(
-      (dogRequest) => dogRequest._id === selectedRequestId
-    );
-    setSelectedDogRequest(selectedRequest);
+    if (e.target.value !== undefined) {
+      // console.log(e);
+      // console.log(e.target.value)
+      //get the clicked item id
+      const selectedRequestId = e.target.value;
+      //find selected request id data
+      const selectedRequest = dogRequestsInfo.find(
+        (dogRequest) => dogRequest._id === selectedRequestId
+      );
+      setSelectedDogRequest(selectedRequest);
 
-    toggleModal();
+      toggleModal();
+    } else {
+    }
   };
 
   //handle delete
@@ -180,7 +184,6 @@ const DogLoverRequestsForm = () => {
               borderRadius: "25px",
 
               boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-
             }}
             sx={{
               width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
@@ -280,11 +283,27 @@ const DogLoverRequestsForm = () => {
                 }}
               >
                 {dogRequestsInfo === undefined ? (
-                  <h5 style={{ display: "flex", justifyContent: "center", alignItems: "center", color: "#ff3d47", marginTop: "10%" }}>
+                  <h5
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "#ff3d47",
+                      marginTop: "10%",
+                    }}
+                  >
                     No Playdate Requests Found.{" "}
                   </h5>
                 ) : dogRequestsInfo.length === 0 ? (
-                  <h5 style={{ display: "flex", justifyContent: "center", alignItems: "center", color: "#ff3d47", marginTop: "10%" }}>
+                  <h5
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "#ff3d47",
+                      marginTop: "10%",
+                    }}
+                  >
                     No Playdate Requests Found.{" "}
                   </h5>
                 ) : (
