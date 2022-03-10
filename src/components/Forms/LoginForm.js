@@ -35,6 +35,8 @@ import Input from "@mui/material//Input";
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
 
+import "../../styles/buttonStyles.css";
+
 
 const useStyles = makeStyles((theme) => ({
   // MuiOutlinedInput: {
@@ -276,88 +278,32 @@ const LoginForm = () => {
                         }}
                       />
 
-                      {/* <InputLabel width="25%" htmlFor="standard-adornment-password">
-                        Password
-                      </InputLabel> */}
-                      {/* <OutlinedInput
-                        required
-                        variant="outlined"
-                        label="Password"
-                        name="password"
-                        id="password" //added for show/hid password
-                        placeholder="Enter your password"
-                        fullWidth
-                        type={values.showPassword ? "text" : "password"}
-                        onChange={handlePasswordChange("password")}
-                        value={values.password}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        helperText={notValidPass}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                      /> */}
-                      {/* <InputLabel htmlFor="standard-adornment-password">
-                        Enter your Password
-                      </InputLabel>
-                      <Input
-                        fullWidth
-                        type={values.showPassword ? "text" : "password"}
-                        onChange={handlePasswordChange("password")}
-                        value={values.password}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                            >
-                              {values.showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        helperText={notValidPass}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                      /> */}
-                      {/* <MKInput
-                        label="Password"
-                        name="password"
-                        id="password" //added for show/hid password
-                        placeholder="Enter your password"
-                        type="password"
-                        required
-                         value={user?.password}
-                        onChange={(e) =>
-                          setUser((user) => ({
-                            ...user,
-                            password: e.target.value,
-                          }))
-                        }
-                        helperText={notValidPass}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                        sx={{ width: "96%" }}
-                      />
-                       <span class=" field-icon " onClick={password_show_hide}>
-                        <VisibilityIcon id="show_eye" style={styledEyeIcon} />
-                        <VisibilityOffIcon
-                          id="hide_eye"
-                          style={styledEyeIcon}
-                        />
-                      </span> */}
+
+                    </MKBox>
+                    <MKBox
+                      mt={10}
+                      justifyContent="center"
+                      display="flex"
+                      textAlign="center"
+                      width="100%"
+                    >
+                      <button
+                        class="glow-on-hover"
+                        onClick={() => navigate("/")}
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        class="glow-on-hover"
+                        type="submit"
+                        style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                      >
+                        Log In
+                      </button>
                     </MKBox>
 
-                    <MKBox
+                    {/* <MKBox
                       mt={10}
                       justifyContent="center"
                       display="flex"
@@ -390,7 +336,7 @@ const LoginForm = () => {
                       >
                         Log In
                       </MKButton>
-                    </MKBox>
+                    </MKBox> */}
                     <MKBox mt={3} mb={1} textAlign="center"></MKBox>
                   </MKBox>
                 </MKBox>
