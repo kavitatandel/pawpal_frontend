@@ -145,8 +145,8 @@ const OwnerDogRequestsForm = () => {
               background: "rgba( 255, 255, 255, 0.7 )",
               boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
               backdropFilter: "blur( 12px )",
-              // paddingTop: "0rem",
-              // paddingBottom: "0rem"
+              paddingTop: "0rem",
+              paddingBottom: "0rem"
             }}
             sx={{
               width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
@@ -159,10 +159,10 @@ const OwnerDogRequestsForm = () => {
 
                 xl: "300px",
               },
-              pb: "3rem", //commented on 10/3
+              // pb: "3rem", //commented on 10/3
               mx: { xs: 2, lg: 3 },
               position: "relative",
-              mb: 10, //commented on 10/3             
+              // mb: 10, //commented on 10/3             
             }}
 
           >
@@ -500,7 +500,7 @@ const OwnerDogRequestsForm = () => {
               </MKBox>
             </Grid>
             <MKBox textAlign="center" mt={2}
-              mb={0} //added 10/3
+              mb={0} pb={0}//added 10/3
             >
               {/* // Heading */}
               <MKTypography
@@ -509,8 +509,8 @@ const OwnerDogRequestsForm = () => {
                 color="dark"
                 alignSelf="center"
                 mt="3rem"
-              //mb="0rem"
-
+                pb="0rem"
+              //pb={1}
               >
                 APPROVED REQUESTS
               </MKTypography>
