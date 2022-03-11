@@ -41,11 +41,13 @@ const LandingStyled = () => {
 
       <MKBox
         id="pageContainer"
+        maxHeight="100vh"
         minHeight="100vh"
-        minWidth="100vw"
-        // width="100%"
+        maxWidth="100vw"
+        // border="3px solid red"
+        // style={{ marginTop: "2rem" }}
         sx={{
-          padding: "4rem 14rem",
+          padding: "1rem 12rem",
           // backgroundImage: ({
           //   functions: { linearGradient, rgba },
           //   palette: { gradients },
@@ -70,7 +72,7 @@ const LandingStyled = () => {
               item
               xs={12}
               p={1}
-              mb={3}
+              mb={4}
               // border="3px solid red"
               sx={{
                 display: "flex",
@@ -81,10 +83,10 @@ const LandingStyled = () => {
             >
               {/* ******* MAIN INFO TEXT */}
               <MKBox
-                maxWidth="700px"
-                height="300px"
+                maxWidth="600px"
+                height="200px"
                 style={{
-                  marginTop: "-1rem",
+                  marginTop: "-3rem",
 
                   display: "flex",
                   justifyContent: "space-between",
@@ -101,14 +103,14 @@ const LandingStyled = () => {
                   s
                   alt="logoPic"
                   style={{
-                    maxWidth: "15rem",
-                    maxHeight: "15rem",
+                    maxWidth: "10rem",
+                    maxHeight: "10rem",
                     background: "transparent",
                     marginTop: "0",
-                    marginBottom: 0,
+                    marginBottom: "-1rem",
                   }}
                 />
-                <MKBox mt={-1}>
+                <MKBox mt={1}>
                   <MKTypography
                     variant="h3"
                     color="info"
@@ -116,8 +118,10 @@ const LandingStyled = () => {
                     opacity={1}
                     style={{
                       // padding: "1rem",
-                      lineHeight: "2.5rem",
+                      lineHeight: "1.5rem",
                       textAlign: "center",
+                      fontSize: "1.2rem",
+                      paddingBottom: "2rem",
                     }}
                   >
                     Connecting dog owners with local dog borrowers for walks,
