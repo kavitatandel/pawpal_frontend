@@ -465,7 +465,7 @@ const RegisterForm = () => {
                       width="100%"
                     >
                       <button
-                        class="glow-on-hover"
+                        className="glow-on-hover"
                         onClick={() => navigate("/")}
                         style={{
                           margin: "10px 15px",
@@ -476,7 +476,7 @@ const RegisterForm = () => {
                         Cancel
                       </button>
                       <button
-                        class="glow-on-hover"
+                        className="glow-on-hover"
                         type="submit"
                         style={{
                           margin: "10px 15px",

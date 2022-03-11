@@ -267,8 +267,8 @@ const SearchFormTest = () => {
                   >
                     {" "}
                     <div id="cover">
-                      <div class="tb">
-                        <div class="td">
+                      <div className="tb">
+                        <div className="td">
                           <input
                             id="styleinpt"
                             type="text"
@@ -280,7 +280,7 @@ const SearchFormTest = () => {
                             required
                           />
                         </div>
-                        <div class="td" id="s-cover">
+                        <div className="td" id="s-cover">
                           <button id="submit-btn" onClick={handleClearSearch}>
                             <ClearIcon style={clearSearch} />
                           </button>
@@ -299,7 +299,7 @@ const SearchFormTest = () => {
                     }}
                   >
                     <div id="searchMoved">
-                      <div class="td" id="s-cover">
+                      <div className="td" id="s-cover">
                         <button id="submit-btn" type="submit">
                           <div id="s-circle"></div>
                           <span></span>

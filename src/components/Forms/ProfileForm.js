@@ -294,7 +294,7 @@ const ProfileForm = () => {
           >
             {/* ************************** Edit Button (for inputs) */}
             <button
-              class="glow-on-hover"
+              className="glow-on-hover"
               type="submit"
               style={{ margin: "10px 50px", width: "130px", height: "50px" }}
               onClick={toggleEdit}

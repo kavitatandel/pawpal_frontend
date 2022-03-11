@@ -561,7 +561,7 @@ const DogLoverRequestsForm = () => {
                                 ""
                               ) : (
                                 <button
-                                  class="mini-button"
+                                  className="mini-button"
                                   style={{
                                     margin: "10px 10px",
                                     minWidth: "70px",
@@ -576,7 +576,7 @@ const DogLoverRequestsForm = () => {
                                 </button>
                               )}
                               {/* <button
-                                class="mini-button"
+                                className="mini-button"
                                 style={
                                   request.status === "Rejected"
                                     ? { display: "none" }
@@ -643,7 +643,7 @@ const DogLoverRequestsForm = () => {
                                   }}
                                 >
                                   <button
-                                    class="mini-button"
+                                    className="mini-button"
                                     type="submit"
                                     style={{
                                       margin: "25px 0px",
