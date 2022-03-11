@@ -3,7 +3,7 @@
   /* width: 200px;
   height: 200px; */
   width: 500px;
-  height: 400px;
+  height: 420px;
 
   transform-style: preserve-3d;
   transform: perspective(1000px);
@@ -32,5 +32,5 @@
 }
 
 .tilty-glare-wrapper {
-  height: 400px;
+  height: 3700px;
 }
