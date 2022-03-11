@@ -241,7 +241,10 @@ const LoginForm = () => {
                         sx={{ width: "96%" }}
                       />
                       {/* added for show/hide Password  */}
-                      <span class=" field-icon " onClick={password_show_hide}>
+                      <span
+                        className=" field-icon "
+                        onClick={password_show_hide}
+                      >
                         <VisibilityIcon id="show_eye" style={styledEyeIcon} />
                         <VisibilityOffIcon
                           id="hide_eye"

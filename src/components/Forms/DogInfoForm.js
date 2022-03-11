@@ -308,7 +308,7 @@ const DogInfoForm = () => {
                 width="100%"
               >
                 <button
-                  class="glow-on-hover"
+                  className="glow-on-hover"
                   onClick={handleClickGoBack}
                   style={{
                     margin: "10px 25px",
@@ -319,7 +319,7 @@ const DogInfoForm = () => {
                   Find More Dogs
                 </button>
                 <button
-                  class="glow-on-hover"
+                  className="glow-on-hover"
                   onClick={toggleModal}
                   style={{
                     margin: "10px 25px",

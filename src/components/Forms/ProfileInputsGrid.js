@@ -10,10 +10,9 @@ import { checkEMailExist, updateUserProfile } from "../../logic/UserFunctions";
 import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
 import { styled } from "@mui/material/styles";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 import "../../styles/buttonStyles.css";
-
 
 // const helperTextStyles = styled((theme) => ({
 //   MuiFormHelperText: {
@@ -30,18 +29,16 @@ import "../../styles/buttonStyles.css";
 
 // }))
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   // MuiOutlinedInput: {
   root: {
-    color: 'red',
+    color: "red",
     "&$Mui-error": {
-      color: 'red'
-    }
+      color: "red",
+    },
   },
   // },
 }));
-
-
 
 const ProfileInputsGrid = ({ editMode }) => {
   const [user, setUser] = useContext(UserContext);
@@ -96,7 +93,6 @@ const ProfileInputsGrid = ({ editMode }) => {
             //set newly updated user to localstorage
             //localStorage.setItem("usertoken", user);
 
-
             // navigate("/owner/ownerdogs");
             if (user.user_type === "doglover") {
               navigate("/user/searchdog");
@@ -133,16 +129,15 @@ const ProfileInputsGrid = ({ editMode }) => {
     });
   };
 
-  useEffect(() => { }, [editMode]);
+  useEffect(() => {}, [editMode]);
 
   const handleCancel = () => {
-    if (user.user_type === 'owner') {
-      navigate('/owner/ownerdogs');
+    if (user.user_type === "owner") {
+      navigate("/owner/ownerdogs");
+    } else {
+      navigate("/user/searchdog");
     }
-    else {
-      navigate('/user/searchdog');
-    }
-  }
+  };
 
   return (
     <>
@@ -230,7 +225,7 @@ const ProfileInputsGrid = ({ editMode }) => {
                 //className={helperTextStyles}
                 // helperTextProps={{ style: { fontSize: 40 } }}
                 FormHelperTextProps={{
-                  className: classes.root
+                  className: classes.root,
                 }}
               />
             </MKBox>
@@ -349,7 +344,7 @@ const ProfileInputsGrid = ({ editMode }) => {
               width="100%"
             >
               <button
-                class="glow-on-hover"
+                className="glow-on-hover"
                 // onClick={() => navigate("/searchdogs")}
                 onClick={() => handleCancel}
                 style={{ margin: "10px 25px", width: "150px", height: "50px" }}
@@ -357,7 +352,7 @@ const ProfileInputsGrid = ({ editMode }) => {
                 Cancel
               </button>
               <button
-                class="glow-on-hover"
+                className="glow-on-hover"
                 type="submit"
                 style={{ margin: "10px 25px", width: "150px", height: "50px" }}
               >

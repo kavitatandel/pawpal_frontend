@@ -313,7 +313,7 @@ const EditDogForm = () => {
             {/* ************************** Edit Button (for inputs) */}
             <button
               type="submit"
-              class="glow-on-hover"
+              className="glow-on-hover"
               onClick={toggleEdit}
               style={{
                 margin: "10px 80px",
@@ -932,7 +932,7 @@ const EditDogForm = () => {
                   width="100%"
                 >
                   <button
-                    class="glow-on-hover"
+                    className="glow-on-hover"
                     onClick={() => navigate("/owner/ownerdogs")}
                     style={{
                       margin: "10px 25px",
@@ -944,7 +944,7 @@ const EditDogForm = () => {
                   </button>
                   <button
                     type="submit"
-                    class="glow-on-hover"
+                    className="glow-on-hover"
                     style={{
                       margin: "10px 25px",
                       width: "150px",

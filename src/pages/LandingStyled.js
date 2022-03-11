@@ -4,6 +4,8 @@ import "../styles/LandingStyles.css";
 import Tilty from "react-tilty";
 import "../styles/tiltyStyles.css";
 import "../styles/buttonStyles.css";
+import LogoImg from "../assets/logos/logo_paw_light.png";
+import MKAvatar from "../components/MKAvatar";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -43,15 +45,15 @@ const LandingStyled = () => {
         minWidth="100vw"
         // width="100%"
         sx={{
-          padding: "5rem 14rem",
-          backgroundImage: ({
-            functions: { linearGradient, rgba },
-            palette: { gradients },
-          }) =>
-            `${linearGradient(
-              rgba(gradients.dark.main, 0),
-              rgba(gradients.dark.state, 0)
-            )}, url(${bgImage})`,
+          padding: "4rem 14rem",
+          // backgroundImage: ({
+          //   functions: { linearGradient, rgba },
+          //   palette: { gradients },
+          // }) =>
+          //   `${linearGradient(
+          //     rgba(gradients.dark.main, 0),
+          //     rgba(gradients.dark.state, 0)
+          //   )}, url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "grid",
@@ -60,16 +62,7 @@ const LandingStyled = () => {
       >
         {/* ******* CONTAINER 100% WIDTH */}
 
-        <MKBox
-          id="mainCard"
-          // style={{
-          //   "-webkit-border-radius": "50px",
-          //   "border-radius": "50px",
-          //   background: "#e9e9ea",
-          //   "-webkit-box-shadow": "12px 12px 24px #d4d4d5, -12px -12px 24px",
-          //   boxShadow: "12px 12px 24px #d4d4d5, -12px -12px 24px #fefeff",
-          // }}
-        >
+        <MKBox id="mainCard">
           {/* ******* GRID CONTAINER */}
           <Grid id="mainGridContainer" container item xs={12} lg={8}>
             {/* ******* HEADING */}
@@ -86,32 +79,51 @@ const LandingStyled = () => {
                 alignItems: "center",
               }}
             >
-              <MKBox>
-                <MKTypography
-                  variant="h1"
-                  color="dark"
-                  style={{ paddingBottom: "2rem" }}
-                  sx={({ breakpoints, typography: { size } }) => ({
-                    [breakpoints.down("md")]: {
-                      fontSize: size["3xl"],
-                    },
-                  })}
-                >
-                  Welcome to App Name
-                </MKTypography>
-              </MKBox>
               {/* ******* MAIN INFO TEXT */}
-              <MKBox maxWidth="400px">
-                <MKTypography
-                  variant="body1"
-                  color="dark"
-                  fontWeight="bold"
-                  opacity={0.8}
-                  style={{ paddingBottom: "1rem", lineHeight: "1.4rem" }}
-                >
-                  Connecting dog owners with local dog borrowers for walks,
-                  weekends and holidays.
-                </MKTypography>
+              <MKBox
+                maxWidth="700px"
+                height="300px"
+                style={{
+                  marginTop: "-1rem",
+
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  // border: "3px solid blue",
+                }}
+              >
+                <img
+                  id="logoImg"
+                  top={-50}
+                  zindex={2}
+                  src={LogoImg}
+                  s
+                  alt="logoPic"
+                  style={{
+                    maxWidth: "15rem",
+                    maxHeight: "15rem",
+                    background: "transparent",
+                    marginTop: "0",
+                    marginBottom: 0,
+                  }}
+                />
+                <MKBox mt={-1}>
+                  <MKTypography
+                    variant="h3"
+                    color="info"
+                    fontWeight="bold"
+                    opacity={1}
+                    style={{
+                      // padding: "1rem",
+                      lineHeight: "2.5rem",
+                      textAlign: "center",
+                    }}
+                  >
+                    Connecting dog owners with local dog borrowers for walks,
+                    weekends and holidays.
+                  </MKTypography>
+                </MKBox>
               </MKBox>
             </Grid>
 
@@ -124,7 +136,7 @@ const LandingStyled = () => {
                       // fontFamily="nunito"
                       className="userHeading"
                       variant="h1"
-                      sx={{ fontSize: "2.3rem", pt: 0 }}
+                      sx={{ fontSize: "1.8rem", pt: 0 }}
                     >
                       OWNER ?
                     </MKTypography>
@@ -136,12 +148,12 @@ const LandingStyled = () => {
                         alt="Owner Illustration"
                       />
                     </MKBox>
-                    <MKBox width="80%" alignText="center">
+                    <MKBox width="70%" alignText="center">
                       <MKTypography
                         variant="h6"
                         fontFamily="nunito"
                         lineHeight="1.2rem"
-                        fontSize="1.2rem"
+                        fontSize="1rem"
                         textAlign="center"
                         color="dark"
                         fontWeight="bold"
@@ -164,7 +176,7 @@ const LandingStyled = () => {
                       className="userHeading"
                       variant="h1"
                       color="dark"
-                      sx={{ fontSize: "2.3rem", pt: 0 }}
+                      sx={{ fontSize: "1.8rem", pt: 0 }}
                     >
                       DOG-LOVER ?
                     </MKTypography>
@@ -172,12 +184,12 @@ const LandingStyled = () => {
                     <MKBox>
                       <img id="blobPic" src={dlBlob} alt="Owner Illustration" />
                     </MKBox>
-                    <MKBox width="80%" alignText="center">
+                    <MKBox width="70%" alignText="center">
                       <MKTypography
                         variant="h6"
                         fontFamily="nunito"
                         lineHeight="1.2rem"
-                        fontSize="1.2rem"
+                        fontSize="1rem"
                         textAlign="center"
                         fontWeight="bold"
                         // textTransform="uppercase"
@@ -208,50 +220,6 @@ const LandingStyled = () => {
                 log in
               </button>
             </Grid>
-
-            {/* ******* BOTTOM SOCIAL MEDIA BLOCK */}
-            {/* <Grid item xs={12} p={1} mt={3} mb={-30}>
-              <MKTypography variant="h6" color="white" mt={5} mb={1}>
-                Find us on
-              </MKTypography>
-              <MKBox display="flex" justifyContent="center" alignItems="center">
-                <MKTypography
-                  component="a"
-                  variant="body1"
-                  color="white"
-                  href="#"
-                  mx={1}
-                >
-                  <i className="fab fa-facebook" style={smIconsStyle} />
-                </MKTypography>
-                <MKTypography
-                  component="a"
-                  variant="body1"
-                  color="white"
-                  href="#"
-                  mx={1}
-                >
-                  <i className="fab fa-instagram" style={smIconsStyle} />
-                </MKTypography>
-                <MKTypography
-                  component="a"
-                  variant="body1"
-                  color="white"
-                  href="#"
-                  mx={1}
-                >
-                  <i className="fab fa-twitter" style={smIconsStyle} />
-                </MKTypography>
-                <MKTypography
-                  component="a"
-                  variant="body1"
-                  color="white"
-                  href="#"
-                >
-                  <i className="fab fa-google-plus" style={smIconsStyle} />
-                </MKTypography>
-              </MKBox>
-            </Grid> */}
           </Grid>
         </MKBox>
       </MKBox>

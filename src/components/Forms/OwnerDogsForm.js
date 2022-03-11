@@ -383,7 +383,7 @@ const OwnerDogsForm = () => {
                           }}
                         >
                           <button
-                            class="mini-button"
+                            className="mini-button"
                             type="submit"
                             style={{
                               margin: "10px 15px",
