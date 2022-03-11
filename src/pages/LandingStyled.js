@@ -212,14 +212,14 @@ const LandingStyled = () => {
               <button
                 class="glow-on-hover"
                 onClick={() => navigate("/register")}
-                style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                style={{ margin: "10px 25px", width: "130px", height: "45px" }}
               >
                 sign up
               </button>
               <button
                 class="glow-on-hover"
                 onClick={() => navigate("/login")}
-                style={{ margin: "10px 25px", width: "150px", height: "50px" }}
+                style={{ margin: "10px 25px", width: "130px", height: "45px" }}
               >
                 log in
               </button>
