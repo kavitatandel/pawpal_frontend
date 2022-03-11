@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: center;
   /* min-width: 70vw; */
-  max-width: 80vw;
+  max-width: 60vw;
   max-height: 90vh;
   background-color: #eef0f4;
   border-radius: 45px;
@@ -46,7 +46,7 @@
   /* border: 4px solid coral; */
 
   min-height: 90% !important;
-  min-width: 85% !important;
+  min-width: 100% !important;
 }
 
 #leftUserGridContainer,
@@ -73,7 +73,7 @@
 
 #button-container {
   margin-top: 2rem;
-  margin-bottom: 0rem;
+  margin-bottom: -1rem;
   display: flex;
   align-items: center;
   justify-content: center;
