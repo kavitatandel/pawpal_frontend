@@ -1,0 +1,925 @@
+/* XXXXL > 1800px ---------------------------------------------------------------- */
+
+@media screen and (min-width: 1801px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 800px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    height: 800px;
+    width: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    /* padding-top: 150px; */
+    margin-left: 10%;
+    z-index: 2;
+    height: 1200px;
+    width: 55%;
+    /* background-color: lime; */
+    /* opacity: 0.5; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .logoContainer {
+    margin-top: 4rem;
+    height: 55%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* border: 5px dashed yellow; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    height: 180px;
+    display: flex;
+    padding-right: 1.5rem;
+  }
+
+  .ppLogo img {
+    height: 100%;
+  }
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 180px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* border: 5px dashed yellow; */
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    padding-top: 450px;
+    padding-right: 50px;
+    z-index: 2;
+    height: 1200px;
+    width: 40%;
+    overflow: hidden;
+    /* background-color: turquoise; */
+
+    /* opacity: 0.5; */
+  }
+
+  .featuredDogContainer img {
+    z-index: 3;
+    height: 1200px;
+    /* border: 3px solid red; */
+    margin-left: -120px;
+  }
+}
+
+/* XXXL - 1800px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 1800px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 800px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    height: 800px;
+    width: 110% !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    /* padding-top: 150px; */
+    margin-left: 10%;
+    z-index: 2;
+    height: 1200px;
+    width: 55%;
+    /* background-color: lime; */
+    /* opacity: 0.5; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .logoContainer {
+    margin-top: 4rem;
+    height: 55%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* border: 5px dashed yellow; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    height: 180px;
+    display: flex;
+    padding-right: 1.5rem;
+  }
+
+  .ppLogo img {
+    height: 100%;
+  }
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 180px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* border: 5px dashed yellow; */
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    padding-top: 450px;
+    padding-right: 50px;
+    z-index: 2;
+    height: 1200px;
+    width: 40%;
+    overflow: hidden;
+    /* background-color: turquoise; */
+
+    /* opacity: 0.5; */
+  }
+
+  .featuredDogContainer img {
+    z-index: 3;
+    height: 1200px;
+    /* border: 3px solid red; */
+    margin-left: -120px;
+  }
+}
+
+/* XXL - 1400px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 1400px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 700px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    height: 700px;
+    width: 110% !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    /* padding-top: 150px; */
+    margin-left: 10%;
+    z-index: 2;
+    height: 1000px;
+    width: 50%;
+    /* background-color: lime; */
+    /* opacity: 0.5; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .logoContainer {
+    margin-top: 0rem;
+    height: 55%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* border: 5px dashed yellow; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    height: 140px;
+    padding-right: 1rem;
+  }
+
+  .ppLogo img {
+    height: 100%;
+    display: flex;
+  }
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 140px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* border: 5px dashed yellow; */
+  }
+
+  #typographyInfoText {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    line-height: 3rem;
+    text-align: left;
+    font-size: 2.2rem;
+    color: #ffffff;
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    padding-top: 500px;
+    padding-right: 50px;
+    z-index: 2;
+    height: 1200px;
+    width: 45%;
+    overflow: hidden;
+    /* background-color: turquoise; */
+
+    /* opacity: 0.5; */
+  }
+
+  .featuredDogContainer img {
+    z-index: 3;
+    height: 1200px;
+    /* border: 3px solid red; */
+    margin-left: -120px;
+  }
+}
+
+/* XL - 1200px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 1400px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 700px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    height: 700px;
+    width: 110% !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    /* padding-top: 150px; */
+    margin-left: 10%;
+    z-index: 2;
+    height: 1000px;
+    width: 50%;
+    /* background-color: lime; */
+    /* opacity: 0.5; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .logoContainer {
+    margin-top: 0rem;
+    height: 55%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* border: 5px dashed yellow; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    height: 140px;
+    padding-right: 1rem;
+  }
+
+  .ppLogo img {
+    height: 100%;
+    display: flex;
+  }
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 140px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* border: 5px dashed yellow; */
+  }
+
+  #typographyInfoText {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    line-height: 3rem;
+    text-align: left;
+    font-size: 2.2rem;
+    color: #ffffff;
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    padding-top: 500px;
+    padding-right: 50px;
+    z-index: 2;
+    height: 1200px;
+    width: 45%;
+    overflow: hidden;
+    /* background-color: turquoise; */
+
+    /* opacity: 0.5; */
+  }
+
+  .featuredDogContainer img {
+    z-index: 3;
+    height: 1200px;
+    /* border: 3px solid red; */
+    margin-left: -120px;
+  }
+}
+
+/* LG - 992px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 992px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 600px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    height: 500px;
+    width: 140% !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    /* padding-top: 150px; */
+    margin-left: 0;
+    z-index: 2;
+    height: 700px;
+    width: 50%;
+    /* background-color: lime; */
+    /* opacity: 0.5; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .logoContainer {
+    margin-top: 0rem;
+    height: 55%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* border: 5px dashed yellow; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    height: 100px;
+    display: flex;
+  }
+
+  .ppLogo img {
+    height: 100%;
+  }
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 100px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* border: 5px dashed yellow; */
+  }
+
+  #typographyInfoText {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    line-height: 2rem;
+    text-align: left;
+    font-size: 1.6rem;
+    color: #ffffff;
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    padding-top: 200px;
+    padding-right: 50px;
+    z-index: 2;
+    height: 700px;
+    width: 45%;
+    overflow: hidden;
+    /* background-color: turquoise; */
+
+    /* opacity: 0.5; */
+  }
+
+  .featuredDogContainer img {
+    z-index: 3;
+    height: 900px;
+    /* border: 3px solid red; */
+    margin-left: -150px;
+  }
+}
+
+/* XL - 1200px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 600px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    height: 550px;
+    width: 130% !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    /* padding-top: 150px; */
+    margin-left: 0;
+    z-index: 2;
+    height: 700px;
+    width: 55%;
+    /* background-color: lime; */
+    /* opacity: 0.5; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .logoContainer {
+    margin-top: 0rem;
+    height: 55%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    /* border: 5px dashed yellow; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    height: 120px;
+    display: flex;
+    padding-right: 0.5rem;
+  }
+
+  .ppLogo img {
+    height: 100%;
+  }
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 120px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* border: 5px dashed yellow; */
+  }
+
+  #typographyInfoText {
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    line-height: 2.2rem;
+    text-align: left;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    padding-top: 200px;
+    padding-right: 50px;
+    z-index: 2;
+    height: 700px;
+    width: 40%;
+    overflow: hidden;
+    /* background-color: turquoise; */
+
+    /* opacity: 0.5; */
+  }
+
+  .featuredDogContainer img {
+    z-index: 3;
+    height: 900px;
+    /* border: 3px solid red; */
+    margin-left: -120px;
+  }
+}
+
+/* MD - 768px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 600px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    height: 500px;
+    width: 150% !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-y: hidden;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    margin-right: 0;
+    padding: 0;
+    z-index: 2;
+    height: 800px;
+    width: 50%;
+    /* background-color: pink; */
+    /* opacity: 0.5; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .logoContainer {
+    margin-top: 0rem;
+    margin-left: 3rem;
+    height: 50%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* border: 5px solid aqua; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    height: 100px;
+    display: none;
+  }
+
+  .ppLogo img {
+    height: 100%;
+  }
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 100px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 30%;
+    width: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    /* border: 5px solid lime; */
+  }
+
+  #typographyInfoText {
+    padding-top: 1rem;
+    line-height: 2rem;
+    text-align: right;
+    font-size: 1.4rem;
+    color: #ffffff;
+    /* border: 5px dashed yellow; */
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    padding-top: 220px;
+    z-index: 2;
+    height: 700px;
+    width: 60%;
+    overflow: hidden;
+    margin-right: 0;
+    /* background-color: turquoise; */
+
+    /* opacity: 0.5; */
+  }
+
+  .featuredDogContainer img {
+    z-index: 3;
+    height: 800px;
+    /* border: 3px solid red; */
+    margin-left: -120px;
+  }
+}
+
+/* SM - 576px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 576px) {
+  .TopContainerMain {
+    margin-top: 0;
+    width: 100%;
+    height: 400px;
+    z-index: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: aquamarine; */
+    display: block;
+  }
+
+  .blob {
+    z-index: 1;
+    position: absolute;
+    border-radius: 0% 0% 38% 97% / 10% 0% 98% 89%;
+    background: rgb(246, 181, 142);
+    background: linear-gradient(
+      166deg,
+      rgba(246, 181, 142, 1) 21%,
+      rgba(242, 71, 71, 1) 100%
+    );
+    left: -15%;
+    height: 400px;
+    width: 200% !important;
+    display: flex;
+    text-align: center !important;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .featuredTextContainer {
+    position: relative;
+    z-index: 3;
+    height: 350px;
+    width: 40%;
+    padding-right: 1%;
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    /* opacity: 0.5; */
+    /* display: block; */
+  }
+
+  .logoContainer {
+    margin-top: 0rem;
+    /* margin-left: 2rem; */
+    height: 40%;
+    width: 60%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    /* border: 5px solid aqua; */
+  }
+
+  .ppLogo {
+    /* border: 3px solid red; */
+    /* height: 100px; */
+    display: none;
+  }
+  /* 
+  .ppLogo img {
+    height: 100%;
+  } */
+
+  .ppHeading {
+    /* border: 3px solid red; */
+    height: 80px;
+  }
+
+  .ppHeading img {
+    height: 100%;
+  }
+
+  .ppInfoText {
+    height: 50%;
+    width: 60%;
+    padding-right: 1rem;
+    /* display: flex;
+    align-items: flex-start;
+    justify-content: flex-end; */
+    /* border: 5px solid lime; */
+  }
+
+  #typographyInfoText {
+    /* padding-top: 1rem; */
+
+    line-height: 1.7rem;
+    text-align: right;
+    font-size: 1.2rem;
+    color: #ffffff;
+    /* border: 5px dashed yellow; */
+  }
+
+  .featuredDogContainer {
+    position: relative;
+    z-index: 4;
+    height: 700px;
+    width: 45%;
+    overflow-x: visible;
+    overflow-y: hidden;
+    /* background-color: turquoise; */
+    /* text-align: center; */
+    margin-right: 320px;
+    margin-top: 30px;
+  }
+
+  .featuredDogContainer img {
+    z-index: 5;
+    height: 600px;
+    margin-left: -6rem;
+    /* border: 3px solid red; */
+  }
+}
