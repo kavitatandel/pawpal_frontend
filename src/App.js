@@ -1,4 +1,3 @@
-import "./App.css";
 import AppRouter from "./AppRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";

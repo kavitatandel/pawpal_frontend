@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "../styles/LandingStyles.css";
 import Tilty from "react-tilty";
-import "../styles/tiltyStyles.css";
 import "../styles/buttonStyles.css";
-import LogoImg from "../assets/logos/logo_paw_light.png";
+import LandingPageTop from "../components/Custom/LandingPageTop";
+import LogoImg from "../assets/logos/logo-notext.png";
+import PawPalsText from "../assets/logos/textonly.png";
+
+import PinkCurve from "../assets/landing-page/Blob-1.png";
 import MKAvatar from "../components/MKAvatar";
 
 // @mui material components
@@ -17,11 +20,9 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
-// Images
-// import bgImage from "assets/images/backgrounds/patrick-hendry-jd0hS7Vhn_A-unsplash.jpeg";
-import bgImage from "assets/images/backgrounds/waves_1.png";
-import ownerBlob from "assets/landing-page/ow-blob.png";
-import dlBlob from "assets/landing-page/dl-blob.png";
+import ownerBlob from "assets/landing-page/dogblob1.png";
+import dlBlob from "assets/landing-page/dogblob2.png";
+import featuredDog from "assets/landing-page/Dog1.png";
 
 const LandingStyled = () => {
   const navigate = useNavigate();
@@ -37,195 +38,114 @@ const LandingStyled = () => {
 
   return (
     <>
-      {/* ******* MAIN CONTAINER WITH BG IMG */}
+      {/* ************ MAIN PAGE CONTAINER */}
 
-      <MKBox
-        id="pageContainer"
-        maxHeight="100vh"
-        minHeight="100vh"
-        maxWidth="100vw"
-        // border="3px solid red"
-        // style={{ marginTop: "2rem" }}
-        sx={{
-          padding: "1rem 12rem",
-          // backgroundImage: ({
-          //   functions: { linearGradient, rgba },
-          //   palette: { gradients },
-          // }) =>
-          //   `${linearGradient(
-          //     rgba(gradients.dark.main, 0),
-          //     rgba(gradients.dark.state, 0)
-          //   )}, url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "grid",
-          placeItems: "center",
-        }}
-      >
-        {/* ******* CONTAINER 100% WIDTH */}
+      <MKBox id="pageContainer">
+        {/* ******* GRID CONTAINER */}
+        <div id="mainContainer">
+          {/* ******* TOP SECTION */}
 
-        <MKBox id="mainCard">
-          {/* ******* GRID CONTAINER */}
-          <Grid id="mainGridContainer" container item xs={12} lg={8}>
-            {/* ******* HEADING */}
-            <Grid
-              item
-              xs={12}
-              p={1}
-              mb={4}
-              // border="3px solid red"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              {/* ******* MAIN INFO TEXT */}
-              <MKBox
-                maxWidth="600px"
-                height="200px"
-                style={{
-                  marginTop: "-3rem",
+          <LandingPageTop />
 
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  // border: "3px solid blue",
-                }}
-              >
-                <img
-                  id="logoImg"
-                  top={-50}
-                  zindex={2}
-                  src={LogoImg}
-                  s
-                  alt="logoPic"
-                  style={{
-                    maxWidth: "10rem",
-                    maxHeight: "10rem",
-                    background: "transparent",
-                    marginTop: "0",
-                    marginBottom: "-1rem",
-                  }}
-                />
-                <MKBox mt={1}>
-                  <MKTypography
-                    variant="h3"
-                    color="info"
-                    fontWeight="bold"
-                    opacity={1}
-                    style={{
-                      // padding: "1rem",
-                      lineHeight: "1.5rem",
-                      textAlign: "center",
-                      fontSize: "1.2rem",
-                      paddingBottom: "2rem",
-                    }}
+          {/* ******* MIDDLE SECTION */}
+          <div className="middle">
+            {/* ******* LEFT OWNER BOX */}
+            <div id="usersContainer" className="ownerBox">
+              {/* ***************** Owner Img Container */}
+              <div className="ownerBlob">
+                <img id="blobPic" src={ownerBlob} alt="Owner Illustration" />
+              </div>
+
+              <div className="ownerText">
+                <MKTypography className="userHeading" variant="h1">
+                  Dog Owners
+                </MKTypography>
+                <MKTypography
+                  id="smallFont"
+                  variant="h6"
+                  color="dark"
+                  fontWeight="bold"
+                  // textTransform="uppercase"
+                  opacity={1}
+                  minHeight="120px"
+                >
+                  Find a trusted local dog lover to take care of your dog when
+                  you can't. They'll treat your dog like family.
+                  <br />
+                  <br />
+                  Our members sign up to make another person happy by sharing
+                  the love of dogs.
+                </MKTypography>
+                <div item id="button-container">
+                  <button
+                    id="registerButton"
+                    class="glow-on-hover"
+                    onClick={() => navigate("/register")}
                   >
-                    Connecting dog owners with local dog borrowers for walks,
-                    weekends and holidays.
-                  </MKTypography>
-                </MKBox>
-              </MKBox>
-            </Grid>
+                    sign up
+                  </button>
+                  <button
+                    id="loginButton"
+                    class="glow-on-hover"
+                    onClick={() => navigate("/login")}
+                  >
+                    log in
+                  </button>
+                </div>
+              </div>
+            </div>
+            {/* ******* RIGHT DL BOX */}
+            <div id="usersContainer" className="dogLoverBox">
+              {/* ***************** Owner Img Container */}
 
-            <Grid item xs={12} id="usersContainer">
-              {/* ******* LEFT OWNER BOX */}
-              <Tilty className="tilty" glare scale={1.05} maxGlare={0.5}>
-                <Grid item xs={12} sm={6} id="leftUserGridContainer">
-                  <MKBox id="userBlockL" className="inner">
-                    <MKTypography
-                      // fontFamily="nunito"
-                      className="userHeading"
-                      variant="h1"
-                      sx={{ fontSize: "1.8rem", pt: 0 }}
-                    >
-                      OWNER ?
-                    </MKTypography>
-                    {/* ***************** Owner Img Container */}
-                    <MKBox>
-                      <img
-                        id="blobPic"
-                        src={ownerBlob}
-                        alt="Owner Illustration"
-                      />
-                    </MKBox>
-                    <MKBox width="70%" alignText="center">
-                      <MKTypography
-                        variant="h6"
-                        fontFamily="nunito"
-                        lineHeight="1.2rem"
-                        fontSize="1rem"
-                        textAlign="center"
-                        color="dark"
-                        fontWeight="bold"
-                        // textTransform="uppercase"
-                        opacity={1}
-                      >
-                        Find a trusted local dog lover to take care of your dog
-                        when you can't. They'll treat your dog like family.
-                      </MKTypography>
-                    </MKBox>
-                  </MKBox>
-                </Grid>
-              </Tilty>
-              {/* ******* RIGHT DL BOX */}
-              <Tilty className="tilty" glare scale={1.05} maxGlare={0.5}>
-                <Grid item xs={12} sm={6} p={3} id="rightUserGridContainer">
-                  <MKBox id="userBlockR" className="inner">
-                    <MKTypography
-                      // fontFamily="nunito"
-                      className="userHeading"
-                      variant="h1"
-                      color="dark"
-                      sx={{ fontSize: "1.8rem", pt: 0 }}
-                    >
-                      DOG-LOVER ?
-                    </MKTypography>
-                    {/* ***************** Owner Img Container */}
-                    <MKBox>
-                      <img id="blobPic" src={dlBlob} alt="Owner Illustration" />
-                    </MKBox>
-                    <MKBox width="70%" alignText="center">
-                      <MKTypography
-                        variant="h6"
-                        fontFamily="nunito"
-                        lineHeight="1.2rem"
-                        fontSize="1rem"
-                        textAlign="center"
-                        fontWeight="bold"
-                        // textTransform="uppercase"
-                        opacity={1}
-                      >
-                        Fill the dog void in your life by spending time with one
-                        and helping out Owners at the same time. It's a win-win!
-                      </MKTypography>
-                    </MKBox>
-                  </MKBox>
-                </Grid>
-              </Tilty>
-            </Grid>
-
-            <Grid item xs={6} id="button-container">
-              <button
-                class="glow-on-hover"
-                onClick={() => navigate("/register")}
-                style={{ margin: "10px 25px", width: "130px", height: "45px" }}
-              >
-                sign up
-              </button>
-              <button
-                class="glow-on-hover"
-                onClick={() => navigate("/login")}
-                style={{ margin: "10px 25px", width: "130px", height: "45px" }}
-              >
-                log in
-              </button>
-            </Grid>
-          </Grid>
-        </MKBox>
+              <div className="dlText">
+                <MKTypography className="userHeading" variant="h1" color="dark">
+                  Dog Lovers
+                </MKTypography>
+                <MKTypography
+                  id="smallFont"
+                  variant="h6"
+                  fontWeight="bold"
+                  // textTransform="uppercase"
+                  opacity={1}
+                  minHeight="120px"
+                >
+                  Fill the dog void in your life by spending time with one and
+                  helping out Owners at the same time. It's a win-win!
+                  <br />
+                  <br />
+                  Join like minded people in your local area who are part of the
+                  largest dog-loving community.
+                </MKTypography>
+                <div item id="button-container">
+                  <button
+                    id="registerButton"
+                    class="glow-on-hover"
+                    onClick={() => navigate("/register")}
+                  >
+                    sign up
+                  </button>
+                  <button
+                    id="loginButton"
+                    class="glow-on-hover"
+                    onClick={() => navigate("/login")}
+                  >
+                    log in
+                  </button>
+                </div>
+              </div>
+              <div className="dlBlob">
+                <img
+                  id="blobPic"
+                  className="singleDog"
+                  src={dlBlob}
+                  alt="Owner Illustration"
+                />
+              </div>
+            </div>
+          </div>
+          {/* ******* BOTTOM SECTION */}
+        </div>
       </MKBox>
     </>
   );
