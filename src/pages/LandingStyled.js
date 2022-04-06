@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/LandingStyles.css";
 import Tilty from "react-tilty";
 import "../styles/buttonStyles.css";
+import { UserTypeContext } from "context/UserTypeContext";
+
 import LandingPageTop from "../components/Custom/LandingPageTop";
 import LogoImg from "../assets/logos/logo-notext.png";
 import PawPalsText from "../assets/logos/textonly.png";
@@ -26,6 +28,7 @@ import featuredDog from "assets/landing-page/Dog1.png";
 
 const LandingStyled = () => {
   const navigate = useNavigate();
+  const [isOwner, setIsOwner] = useContext(UserTypeContext);
 
   /* ******* SOCIAL MEDIA ICON STYLING */
 
@@ -35,6 +38,20 @@ const LandingStyled = () => {
     // [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
     filter: "drop-shadow(-1px 2px 3px  rgba(255, 61, 71, 0.6))",
   };
+
+  const registerOwnerHandler = () => {
+    setIsOwner(true);
+    navigate("/register");
+  };
+
+  const registerDLHandler = () => {
+    setIsOwner(false);
+    navigate("/register");
+  };
+
+  useEffect(() => {
+    console.log(`Owner? ${isOwner}`);
+  }, [isOwner]);
 
   return (
     <>
@@ -80,7 +97,8 @@ const LandingStyled = () => {
                   <button
                     id="registerButton"
                     class="glow-on-hover"
-                    onClick={() => navigate("/register")}
+                    onClick={registerOwnerHandler}
+                    // onClick={() => navigate("/register")}
                   >
                     sign up
                   </button>
@@ -121,7 +139,8 @@ const LandingStyled = () => {
                   <button
                     id="registerButton"
                     class="glow-on-hover"
-                    onClick={() => navigate("/register")}
+                    onClick={registerDLHandler}
+                    // onClick={() => navigate("/register")}
                   >
                     sign up
                   </button>

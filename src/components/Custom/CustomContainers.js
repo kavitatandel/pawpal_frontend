@@ -4,8 +4,41 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import MKBox from "components/MKBox";
 import bgImage from "../../assets/images/backgrounds/waves_1.png";
+import "../../styles/customContainerStyles.css";
 
-export default function Body(props) {
+export function Body(props) {
+  return (
+    <>
+      <div id="mainContainerBody">
+        <MKBox
+          height="88vh"
+          minHeight="950px"
+          width="100%"
+          // style={{ border: " 2px solid blue" }}
+          sx={{
+            backgroundImage: ({
+              functions: { linearGradient, rgba },
+              palette: { gradients },
+            }) =>
+              `${linearGradient(
+                rgba(gradients.dark.main, 0),
+                rgba(gradients.dark.state, 0)
+              )}, url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            position: "relative",
+            placeItems: "center",
+          }}
+        >
+          {props.children}
+        </MKBox>
+        <CenteredFooter />
+      </div>
+    </>
+  );
+}
+
+export function BodyNoFooter(props) {
   return (
     <>
       {/* <CssBaseline /> */}
@@ -17,15 +50,15 @@ export default function Body(props) {
           left: 0,
 
           // border: " 10px solid red",
-          maxHeight: "100%",
-          minHeight: "100vh",
+
+          height: "100vh",
           width: "100%",
           minWidth: "350px",
         }}
       >
         {/* <Box sx={{ height: "auto" }}>{props.children}</Box> */}
         <MKBox
-          minHeight="90vh"
+          height="100%"
           // style={{ border: " 2px solid blue" }}
           sx={{
             backgroundImage: ({
@@ -44,7 +77,6 @@ export default function Body(props) {
         >
           {props.children}
         </MKBox>
-        <CenteredFooter minHeight="10vh" />
       </div>
     </>
   );

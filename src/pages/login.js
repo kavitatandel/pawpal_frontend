@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../logic/UserFunctions";
 import { useNavigate } from "react-router-dom";
-import Body from "../components/Custom/CustomContainers";
+import { Body } from "../components/Custom/CustomContainers";
 import LoginForm from "components/Forms/LoginForm";
 
 const Login = () => {

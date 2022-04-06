@@ -1,5 +1,5 @@
 import MasterHeader from "components/Layout/MasterHeader";
-import Body from "components/Custom/CustomContainers";
+import { Body } from "components/Custom/CustomContainers";
 import CenteredFooter from "components/Layout/CenteredFooter";
 import SearchForm from "components/Forms/SearchForm";
 import SearchFormTest from "components/Forms/SearchFormTest";

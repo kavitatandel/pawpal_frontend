@@ -3,17 +3,20 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "assets/theme";
 import { UserContextProvider } from "context/UserContext";
+import { UserTypeContextProvider } from "context/UserTypeContext";
 
 function App() {
   return (
     <>
-      <UserContextProvider>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+      <UserTypeContextProvider>
+        <UserContextProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
 
-          <AppRouter />
-        </ThemeProvider>
-      </UserContextProvider>
+            <AppRouter />
+          </ThemeProvider>
+        </UserContextProvider>
+      </UserTypeContextProvider>
     </>
   );
 }

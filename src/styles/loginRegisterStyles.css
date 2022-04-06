@@ -1,0 +1,464 @@
+/* XXL - 1200px+++ ---------------------------------------------------------------- */
+
+@media screen and (min-width: 1201px) {
+  .mainContainerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCard {
+    width: 60%;
+    max-width: 900px;
+  }
+
+  .outerForm {
+    /* border: 3px solid pink; */
+    padding: 1rem 3rem 1rem 3rem;
+    margin: 0 3rem;
+  }
+
+  .innerForm {
+    /* border: 3px solid orange; */
+    padding: 5rem 2rem;
+  }
+
+  .inputsContainer {
+    display: flex;
+    justify-content: "center";
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputs {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputs {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 5rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtons {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainer {
+    margin: 3rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+}
+
+/* XL - 1200px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  .mainContainerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+  .mainCard {
+    width: 65%;
+    max-width: 900px;
+  }
+
+  .outerForm {
+    /* border: 3px solid pink; */
+    padding: 1rem 2rem 1rem 2rem;
+    margin: 0 3rem;
+  }
+
+  .innerForm {
+    /* border: 3px solid orange; */
+    padding: 5rem 1rem;
+  }
+
+  .inputsContainer {
+    display: flex;
+    justify-content: "center";
+  }
+
+  .nameInputs {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputs {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 5rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtons {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainer {
+    margin: 3rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* LG - 992px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 992px) {
+  .mainContainerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+  .mainCard {
+    width: 75%;
+    max-width: 900px;
+  }
+
+  .outerForm {
+    /* border: 3px solid pink; */
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 0 3rem;
+  }
+
+  .innerForm {
+    /* border: 3px solid orange; */
+    padding: 5rem 1rem;
+  }
+
+  .inputsContainer {
+    display: flex;
+    justify-content: "center";
+  }
+
+  .nameInputs {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputs {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 5rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtons {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainer {
+    margin: 3rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* MD - 768px ---------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .mainContainerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+  .mainCard {
+    width: 85%;
+    max-width: 900px;
+  }
+
+  .outerForm {
+    /* border: 3px solid pink; */
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 0 2rem;
+  }
+
+  .innerForm {
+    /* border: 3px solid orange; */
+    padding: 5rem 1rem;
+  }
+
+  .inputsContainer {
+    display: flex;
+    justify-content: "center";
+  }
+
+  .nameInputs {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputs {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 5rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtons {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainer {
+    margin: 3rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* SM - 576px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 576px) {
+  .mainContainerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCard {
+    width: 85%;
+    max-width: 900px;
+  }
+
+  .outerForm {
+    /* border: 3px solid pink; */
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .innerForm {
+    /* border: 3px solid orange; */
+    padding: 4rem 0rem;
+  }
+
+  .inputsContainer {
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid yellow; */
+  }
+
+  .nameInputs,
+  .inputs {
+    width: 100%;
+    margin: 0.5rem 0 !important;
+    /* border: 3px solid blue !important; */
+  }
+
+  #radioButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 5rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  .buttonsContainer {
+    margin: 3rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #formButtons {
+    margin: 1rem;
+    width: 170px;
+    min-width: 130px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+/* XS - 400px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 400px) {
+  .mainContainerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCard {
+    width: 85%;
+    max-width: 900px;
+  }
+
+  .outerForm {
+    /* border: 3px solid pink; */
+    padding: 1rem 0rem 1rem 0rem;
+    margin: 0 0.5rem;
+  }
+
+  .innerForm {
+    /* border: 3px solid orange; */
+    padding: 4rem 1rem;
+  }
+
+  .inputsContainer {
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid yellow; */
+  }
+
+  .nameInputs,
+  .inputs {
+    width: 100%;
+    margin: 0.5rem 0 !important;
+    /* border: 3px solid blue !important; */
+  }
+
+  #radioButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 5rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  .buttonsContainer {
+    margin: 2rem 0 0 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  #formButtons {
+    margin: 1rem;
+    width: 170px;
+    min-width: 130px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+/*  300px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 300px) {
+  .mainContainerForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCard {
+    width: 85%;
+    max-width: 900px;
+  }
+
+  .outerForm {
+    /* border: 3px solid pink; */
+    padding: 1rem 0rem 1rem 0rem;
+    margin: 0 0.5rem;
+  }
+
+  .innerForm {
+    /* border: 3px solid orange; */
+    padding: 4rem 1rem;
+  }
+
+  .inputsContainer {
+    display: flex;
+    flex-direction: column;
+    /* border: 3px solid yellow; */
+  }
+
+  .nameInputs,
+  .inputs {
+    width: 100%;
+    margin: 0.5rem 0 !important;
+    /* border: 3px solid blue !important; */
+  }
+
+  #radioButtonsContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 5rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  .buttonsContainer {
+    margin: 2rem 0 0 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    border: 3px solid yellow;
+  }
+
+  #formButtons {
+    margin: 1rem 0;
+    width: 130px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+/* MIN - 200px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 200px) {
+  .mainCard {
+    max-width: 900px;
+    min-width: 220px;
+  }
+}
