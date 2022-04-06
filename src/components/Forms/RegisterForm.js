@@ -142,7 +142,7 @@ const RegisterForm = () => {
 
   return (
     <>
-      <Grid className="mainContainerForm">
+      <div className="mainContainerForm">
         <Card
           className="mainCard"
           style={{
@@ -367,7 +367,7 @@ const RegisterForm = () => {
             </MKBox>
           </MKBox>
         </Card>
-      </Grid>
+      </div>
       {/* </Grid> */}
     </>
   );
