@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../logic/UserFunctions";
 import { UserContext } from "context/UserContext";
-import bgImage from "assets/images/backgrounds/drew-coffman-DzIt-fTYv4E-unsplash.jpeg";
+import "../../styles/loginRegisterStyles.css";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -97,31 +97,6 @@ const LoginForm = () => {
     });
   };
 
-  //useEffect to hide VisibilityOffIcon
-  useEffect(() => {
-    // var hide_eye = document.getElementById("hide_eye");
-    // hide_eye.style.display = "none";
-    // var show_eye = document.getElementById("show_eye");
-    // show_eye.style.display = "block";
-  });
-
-  // //show/hide password
-  // function password_show_hide() {
-  //   var x = document.getElementById("password");
-  //   var show_eye = document.getElementById("show_eye");
-  //   var hide_eye = document.getElementById("hide_eye");
-  //   hide_eye.classList.remove("d-none");
-  //   if (x.type === "password") {
-  //     x.type = "text";
-  //     show_eye.style.display = "none";
-  //     hide_eye.style.display = "block";
-  //   } else {
-  //     x.type = "password";
-  //     show_eye.style.display = "block";
-  //     hide_eye.style.display = "none";
-  //   }
-  // }
-
   //*******************Show hide password */
   const [values, setValues] = React.useState({
     password: "",
@@ -147,200 +122,141 @@ const LoginForm = () => {
 
   return (
     <>
-      <MKBox
-        minHeight="100vh"
-        height="auto"
-        width="100%"
-        sx={{
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "grid",
-          placeItems: "center",
-        }}
-      >
-        <MKBox
-          px={1}
-          width="100%"
-          height="100vh"
-          mx="auto"
-          position="relative"
-          zIndex={1}
-          sx={{ width: "75%" }}
+      <div className="mainContainerForm" id="mainContainerFormLogIn">
+        <Card
+          className="mainCard"
+          id="mainCardLogIn"
+          style={{
+            background: "rgba( 255, 255, 255, 0.8 )",
+            borderRadius: "25px",
+            boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+            margin: "0 !important",
+          }}
         >
-          <Grid
-            container
-            spacing={1}
-            justifyContent="center"
-            alignItems="center"
-            height="85%"
+          {/* Pink Box */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              // border: "4px solid blue",
+              marginTop: "-2rem",
+              position: "relative",
+            }}
           >
-            <Grid
-              item
-              sx={{ minWidth: 500, maxWidth: 700 }}
-              xs={12}
-              sm={12}
-              md={10}
-              lg={8}
-              xl={6}
-              xxl={4}
-            >
-              <Card
-                style={{
-                  background: "rgba( 255, 255, 255, 0.8 )",
-                  borderRadius: "25px",
-                  boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-                }}
-              >
-                {/* Pink Box */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    // border: "4px solid blue",
-                    marginTop: "-2rem",
-                    position: "relative",
-                  }}
-                >
-                  <MKBox
-                    variant="gradient"
-                    bgColor="info"
-                    //borderRadius="lg"
-                    borderRadius="25px"
-                    coloredShadow="info"
-                    width="20rem"
-                    textAlign="center"
-                    sx={{
-                      height: "7rem",
+            <MKBox
+              variant="gradient"
+              bgColor="info"
+              //borderRadius="lg"
+              borderRadius="25px"
+              coloredShadow="info"
+              width="20rem"
+              textAlign="center"
+              sx={{
+                height: "7rem",
 
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <MKTypography
-                      variant="h3"
-                      fontWeight="bold"
-                      color="white"
-                      // mt={1}
-                    >
-                      LOG IN
-                    </MKTypography>
-                  </MKBox>
-                </div>
-                <MKBox pt={4} pb={3} px={3}>
-                  <MKBox
-                    component="form"
-                    autocomplete="off"
-                    role="form"
-                    onSubmit={testLogin}
-                    p={6}
-                  >
-                    <MKBox mb={4} mt={4}>
-                      <MKInput
-                        fullWidth
-                        label="E-Mail"
-                        name="email"
-                        placeholder="Enter your email"
-                        type="email"
-                        required
-                        value={user?.email}
-                        // onChange={(e) => setEmail(e.target.value)}
-                        // onChange={(e) =>
-                        //   setUser({ ...user, email: e.target.value })
-                        // }
-                        onChange={(e) =>
-                          setUser((user) => ({
-                            ...user,
-                            email: e.target.value,
-                          }))
-                        }
-                        //error
-                        helperText={notValidEmail}
-                        // className={helperTextStyles}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                      ></MKInput>
-                    </MKBox>
-                    <MKBox
-                      display="flex"
-                      justifyContent="space-between"
-                      mb={2}
-                      mt={4}
-                      mr={0}
-                      ml={0}
-                    >
-                      <TextField
-                        required
-                        variant="outlined"
-                        label="Password"
-                        name="password"
-                        id="password" //added for show/hid password
-                        placeholder="Enter your password"
-                        fullWidth
-                        type={values.showPassword ? "text" : "password"}
-                        onChange={handlePasswordChange("password")}
-                        value={values.password}
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <IconButton
-                                onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
-                              >
-                                {values.showPassword ? (
-                                  <VisibilityIcon />
-                                ) : (
-                                  <VisibilityOffIcon />
-                                )}
-                              </IconButton>
-                            </InputAdornment>
-                          ),
-                        }}
-                        helperText={notValidPass}
-                        FormHelperTextProps={{
-                          className: classes.root,
-                        }}
-                      />
-                    </MKBox>
-                    <MKBox
-                      mt={14}
-                      justifyContent="center"
-                      display="flex"
-                      textAlign="center"
-                      width="100%"
-                    >
-                      <button
-                        className="glow-on-hover"
-                        onClick={() => navigate("/")}
-                        style={{
-                          margin: "10px 15px",
-                          width: "170px",
-                          height: "50px",
-                        }}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className="glow-on-hover"
-                        type="submit"
-                        style={{
-                          margin: "10px 15px",
-                          width: "170px",
-                          height: "50px",
-                        }}
-                      >
-                        Log In
-                      </button>
-                    </MKBox>
-                  </MKBox>
-                </MKBox>
-              </Card>
-            </Grid>
-          </Grid>
-        </MKBox>
-      </MKBox>
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <MKTypography
+                variant="h3"
+                fontWeight="bold"
+                color="white"
+                // mt={1}
+              >
+                LOG IN
+              </MKTypography>
+            </MKBox>
+          </div>
+          <MKBox className="outerForm" id="outer">
+            <MKBox
+              id="innerFormLogIn"
+              component="form"
+              autocomplete="off"
+              role="form"
+              onSubmit={testLogin}
+            >
+              <MKBox className="inputsContainer">
+                <MKInput
+                  className="inputs"
+                  fullWidth
+                  label="E-Mail"
+                  name="email"
+                  placeholder="Enter your email"
+                  type="email"
+                  required
+                  value={user?.email}
+                  onChange={(e) =>
+                    setUser((user) => ({
+                      ...user,
+                      email: e.target.value,
+                    }))
+                  }
+                  //error
+                  helperText={notValidEmail}
+                  // className={helperTextStyles}
+                  FormHelperTextProps={{
+                    className: classes.root,
+                  }}
+                />
+              </MKBox>
+              <MKBox className="inputsContainer">
+                <TextField
+                  className="inputs"
+                  required
+                  variant="outlined"
+                  label="Password"
+                  name="password"
+                  id="password" //added for show/hid password
+                  placeholder="Enter your password"
+                  fullWidth
+                  type={values.showPassword ? "text" : "password"}
+                  onChange={handlePasswordChange("password")}
+                  value={values.password}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                        >
+                          {values.showPassword ? (
+                            <VisibilityIcon />
+                          ) : (
+                            <VisibilityOffIcon />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                  helperText={notValidPass}
+                  FormHelperTextProps={{
+                    className: classes.root,
+                  }}
+                />
+              </MKBox>
+              <MKBox className="buttonsContainer">
+                <button
+                  id="formButtons"
+                  className="glow-on-hover"
+                  onClick={() => navigate("/")}
+                >
+                  Cancel
+                </button>
+                <button
+                  id="formButtons"
+                  className="glow-on-hover"
+                  type="submit"
+                >
+                  Log In
+                </button>
+              </MKBox>
+            </MKBox>
+          </MKBox>
+        </Card>
+      </div>
     </>
   );
 };
