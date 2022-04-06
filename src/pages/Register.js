@@ -1,5 +1,5 @@
 import RegisterForm from "components/Forms/RegisterForm";
-import Body from "../components/Custom/CustomContainers";
+import { Body } from "../components/Custom/CustomContainers";
 
 const Register = () => {
   return (

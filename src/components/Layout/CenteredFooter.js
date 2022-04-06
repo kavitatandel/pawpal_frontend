@@ -51,15 +51,13 @@ function CenteredFooter({ company, links, socials, light }) {
   return (
     <MKBox
       component="footer"
-      position="relative"
       bottom="0 !important"
       style={{
-        // height: "auto",
-        // glass effect
-        background: "rgba( 255, 255, 255, 0.5 )",
-        boxShadow: "0 -10px 40px 0 rgba(255, 61, 46, 0.3)",
-        backdropFilter: "blur( 8.5px )",
+        height: "10.5vh",
+
         minWidth: "100%",
+
+        // border: "4px solid blue",
       }}
     >
       <Grid
@@ -118,35 +116,35 @@ function CenteredFooter({ company, links, socials, light }) {
 
 // Setting default values for the props of CenteredFooter
 CenteredFooter.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+  company: { href: "#", name: "Name" },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Company" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/presentation", name: "Team" },
-    { href: "https://www.creative-tim.com/templates/react", name: "Products" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "#", name: "Company" },
+    { href: "#", name: "About Us" },
+    { href: "#", name: "Team" },
+    { href: "#", name: "Products" },
+    { href: "#", name: "Blog" },
+    { href: "#", name: "License" },
   ],
   socials: [
     {
       icon: <FacebookIcon fontSize="small" />,
-      link: "https://www.facebook.com/CreativeTim/",
+      link: "#",
     },
     {
       icon: <TwitterIcon fontSize="small" />,
-      link: "https://twitter.com/creativetim",
+      link: "#",
     },
     {
       icon: <InstagramIcon fontSize="small" />,
-      link: "https://www.instagram.com/creativetimofficial/",
+      link: "#",
     },
     {
       icon: <PinterestIcon fontSize="small" />,
-      link: "https://ro.pinterest.com/thecreativetim/",
+      link: "#",
     },
     {
       icon: <GitHubIcon fontSize="small" />,
-      link: "https://github.com/creativetimofficial",
+      link: "#",
     },
   ],
   light: false,
