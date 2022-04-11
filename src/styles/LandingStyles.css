@@ -22,6 +22,7 @@
   /* margin: 1rem 2rem; */
   /* min-width: 80%; */
   /* border: 4px solid coral; */
+  margin-bottom: 5rem;
 }
 
 .singleDog {
@@ -480,7 +481,7 @@
 
 @media screen and (max-width: 400px) {
   .middle {
-    margin-top: -12rem;
+    margin-top: -2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -574,7 +575,7 @@
 
 @media screen and (max-width: 300px) {
   .middle {
-    margin-top: -4rem;
+    margin-top: 0rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -669,7 +670,7 @@
 @media screen and (max-width: 200px) {
   .middle {
     min-width: 200px;
-    margin-top: -5rem;
+    margin-top: -1rem;
     display: flex;
     flex-direction: column;
     align-items: center;

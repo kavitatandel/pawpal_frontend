@@ -12,7 +12,7 @@ export function Body(props) {
       <div id="mainContainerBody">
         <MKBox
           height="88vh"
-          minHeight="950px"
+          minHeight="1050px"
           width="100%"
           // style={{ border: " 2px solid blue" }}
           sx={{
