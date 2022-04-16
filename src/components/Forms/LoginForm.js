@@ -122,9 +122,8 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="mainContainerForm" id="mainContainerFormRegister">
+      <div id="mainContainerForm">
         <Card
-          className="mainCardRegister"
           id="mainCardLogIn"
           style={{
             background: "rgba( 255, 255, 255, 0.8 )",
@@ -135,12 +134,11 @@ const LoginForm = () => {
         >
           {/* Pink Box */}
           <div
+            className="pinkBoxContainer"
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              // border: "4px solid blue",
-              marginTop: "-2rem",
               position: "relative",
             }}
           >
