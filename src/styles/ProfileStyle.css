@@ -1,0 +1,1040 @@
+/* XXL - 1200px+++ ------------------------------------- */
+
+@media screen and (min-width: 1201px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1400px;
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 60%;
+    max-width: 900px;
+    min-width: 900px;
+    height: 90%;
+    min-height: 850px;
+    max-height: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    margin-top: 150px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -915px;
+    width: 20%;
+  }
+
+  #avatar {
+    width: 14rem;
+    height: 14rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 60%;
+    max-width: 900px;
+    min-width: 900px;
+    height: 90%;
+    min-height: 850px;
+    max-height: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 25px 25px 0px 0px;
+    margin-top: 150px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 130%;
+    background-position: top -16rem right -10rem;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 30%;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 30%;
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 53%;
+    height: 30%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 90%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    margin: 10px 50px;
+    width: 130px;
+    height: 50px;
+    font-size: 0.9rem;
+    padding-left: 0rem;
+  }
+}
+
+/* XL - 1200px ----------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1400px;
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 60%;
+    max-width: 900px;
+    min-width: 900px;
+    height: 90%;
+    min-height: 850px;
+    max-height: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    margin-top: 150px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -915px;
+    width: 20%;
+  }
+
+  #avatar {
+    width: 14rem;
+    height: 14rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 60%;
+    max-width: 900px;
+    min-width: 900px;
+    height: 90%;
+    min-height: 850px;
+    max-height: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 25px 25px 0px 0px;
+    margin-top: 150px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 130%;
+    background-position: top -16rem right -10rem;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 30%;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 30%;
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 53%;
+    height: 30%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    margin: 10px 50px;
+    width: 130px;
+    height: 50px;
+    font-size: 0.9rem;
+    padding-left: 0rem;
+  }
+}
+
+/* LG - 992px ----------------------------------------- */
+
+@media screen and (max-width: 992px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1400px;
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 70%;
+    max-width: 900px;
+    min-width: 700px;
+    height: 90%;
+    min-height: 600px;
+    max-height: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    margin-top: 150px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -905px;
+    width: 20%;
+  }
+
+  #avatar {
+    width: 14rem;
+    height: 14rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 70%;
+    max-width: 900px;
+    min-width: 700px;
+    height: 90%;
+    min-height: 600px;
+    max-height: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 25px 25px 0px 0px;
+    margin-top: 150px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 130%;
+    background-position: top -8rem right -10rem;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 35%;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 30%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 1rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 70%;
+    height: 30%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    margin: 10px 50px;
+    width: 130px;
+    height: 50px;
+    font-size: 0.9rem;
+    padding-left: 0rem;
+  }
+}
+
+/* MD - 768px ----------------------------------------- */
+
+@media screen and (max-width: 768px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1600px;
+
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 80%;
+    max-width: 900px;
+    min-width: 500px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    margin-top: 120px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -1200px;
+    width: 30%;
+  }
+
+  #avatar {
+    width: 15rem;
+    height: 15rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 80%;
+    max-width: 1000px;
+    min-width: 500px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 25px 25px 0px 0px;
+    margin-top: 120px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 140%;
+    background-position: top -0.8rem right -6rem;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 30%;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 40%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 95%;
+    height: 40%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    margin: 10px 50px;
+    width: 130px;
+    height: 50px;
+    font-size: 0.9rem;
+    padding-left: 0rem;
+  }
+}
+
+/* SM - 576px ----------------------------------------- */
+
+@media screen and (max-width: 576px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1600px;
+
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 80%;
+    max-width: 900px;
+    min-width: 380px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    margin-top: 120px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -1225px;
+    width: 20%;
+  }
+
+  #avatar {
+    width: 11rem;
+    height: 11rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 80%;
+    max-width: 1000px;
+    min-width: 380px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 25px 25px 0px 0px;
+    margin-top: 120px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 180%;
+    background-position: top -50px right -180px;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 30%;
+    min-height: 300px;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 45%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.7rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 95%;
+    height: 30%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    margin: 10px 50px;
+    width: 130px;
+    height: 50px;
+    font-size: 0.9rem;
+    padding-left: 0rem;
+  }
+}
+/* XS - 400px ----------------------------------------- */
+
+@media screen and (max-width: 400px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1800px;
+
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 100%;
+    max-width: 900px;
+    min-width: 300px;
+    height: 90%;
+    min-height: 1500px;
+    max-height: 1600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    border-radius: 0 !important;
+    margin-top: 100px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -1470px;
+    width: 20%;
+  }
+
+  #avatar {
+    width: 12rem;
+    height: 12rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 300px;
+    height: 90%;
+    min-height: 1500px;
+    max-height: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0px 0px 0px 0px;
+    margin-top: 100px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 900px;
+    background-position: top 0px right -80px;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 38%;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 40%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 30%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 67%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 115%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    margin: 10px 50px;
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+    padding-left: 0rem;
+  }
+}
+
+/* 300px ---------------------------------------------- */
+@media screen and (max-width: 300px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1700px;
+    min-width: 200px;
+
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 100%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    border-radius: 0 !important;
+    margin-top: 50px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -1350px;
+    width: 20%;
+  }
+
+  #avatar {
+    width: 10rem;
+    height: 10rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 200px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0px 0px 0px 0px;
+    margin-top: 50px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 900px;
+    background-position: top 0px right 0px;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 35%;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 25%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    margin: 10px 50px;
+    width: 150px;
+    min-width: 150px;
+    height: 50px;
+    font-size: 1rem;
+    padding-left: 0rem;
+  }
+}
+
+/* 200px ---------------------------------------------- */
+@media screen and (max-width: 200px) {
+  #mainPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1700px;
+    min-width: 200px;
+
+    /* border: 4px solid lime; */
+  }
+
+  #mainCard {
+    width: 100%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+    z-index: 0;
+    border-radius: 0 !important;
+    margin-top: 50px;
+  }
+
+  .avatarContainer {
+    /* border: 3px solid yellow; */
+    z-index: 7;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: -1350px;
+    width: 20%;
+  }
+
+  #avatar {
+    width: 10rem;
+    height: 10rem;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.6);
+  }
+
+  .cardTopOverlay {
+    width: 100%;
+    max-width: 1000px;
+    min-width: 200px;
+    height: 90%;
+    min-height: 1200px;
+    max-height: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid yellow !important; */
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 0px 0px 0px 0px;
+    margin-top: 50px;
+  }
+
+  /* TOP DIV */
+  .topSectionContainer {
+    background-image: url("../assets/landing-page/Blob-1.png");
+    background-size: 900px;
+    background-position: top 0px right 0px;
+    position: relative;
+    background-repeat: no-repeat;
+    /* place-items: top; */
+    height: 35%;
+    width: 100%;
+    overflow: visible;
+    z-index: 4;
+    /* border: 3px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .userNameContainer {
+    /* border: 3px solid blue; */
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .editProfilePicButtonContainer {
+    /* border: 3px solid purple; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 25%;
+  }
+
+  /* MIDDLE DIV */
+  .editAllInputsButtonContainer {
+    /* border: 3px solid yellow; */
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* BOTTOM DIV */
+  .inputsGridSection {
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    /* border: 3px solid green; */
+  }
+
+  #mainEditButton {
+    /* border: 4px solid blue; */
+    margin: 10px 10px;
+    width: 150px;
+    min-width: 120px;
+    height: 50px;
+    font-size: 1rem;
+    padding-left: 0rem;
+  }
+}
