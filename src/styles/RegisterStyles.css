@@ -1,0 +1,653 @@
+/* XXL - 1200px+++ ---------------------------------------------------------------- */
+
+@media screen and (min-width: 1201px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 60%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 800px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 60%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 70%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 4rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: flex;
+    justify-content: "center";
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 4rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainerReg {
+    margin: 1rem 0 3rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+}
+
+/* XL - 1200px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 60%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 800px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 60%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 75%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 4rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: flex;
+    justify-content: "center";
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 4rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainerReg {
+    margin: 1rem 0 3rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+}
+
+/* LG - 992px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 992px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 70%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 800px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 60%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 75%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 4rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: flex;
+    justify-content: "center";
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 4rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainerReg {
+    margin: 1rem 0 3rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+}
+
+/* MD - 768px ---------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 80%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 800px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 70%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 80%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 3rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: flex;
+    justify-content: "center";
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 4rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainerReg {
+    margin: 1rem 0 3rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+}
+
+/* SM - 576px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 576px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1000px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 95%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 800px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 70%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 90%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 3rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: flex;
+    justify-content: "center";
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 48%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 4rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 1rem;
+    width: 170px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .buttonsContainerReg {
+    margin: 1rem 0 3rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+}
+
+/* XS - 400px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 400px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1050px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 95%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 900px;
+    max-height: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 80%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 90%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 2rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: block;
+    text-align: "center";
+    margin-left: -1rem;
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: flex;
+    justify-content: flex-start;
+    margin: 2rem 0 3rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 0.5rem;
+    width: 170px;
+    min-width: 120px;
+    height: 50px;
+    font-size: 1rem;
+    /* border: 3px solid blue; */
+  }
+
+  .buttonsContainerReg {
+    margin: 0.5rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 3px solid green; */
+  }
+}
+
+/*  300px ---------------------------------------------------------------- */
+@media screen and (max-width: 300px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1100px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 95%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 950px;
+    max-height: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 90%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 90%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 1.5rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: block;
+    text-align: "center";
+    margin: 0.3rem 0.5rem 0.3rem -0.5rem;
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: block;
+    margin: 2rem 0 3rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 0.5rem;
+    width: 170px;
+    min-width: 120px;
+    height: 50px;
+    font-size: 1rem;
+    /* border: 3px solid blue; */
+  }
+
+  .buttonsContainerReg {
+    margin: 0.5rem 0 4rem 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    /* border: 3px solid green; */
+    min-height: 200px;
+  }
+}
+/* MIN - 200px ---------------------------------------------------------------- */
+
+@media screen and (max-width: 200px) {
+  #mainContainerFormRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88vh;
+    min-height: 1100px;
+    /* border: 4px solid lime; */
+  }
+
+  .mainCardRegister {
+    width: 95%;
+    max-width: 900px;
+    min-width: 200px;
+    height: 60%;
+    min-height: 950px;
+    max-height: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 4px solid blue !important; */
+  }
+
+  .pinkBoxContainerReg {
+    width: 90%;
+    min-width: 200px;
+  }
+
+  .outerFormRegister {
+    /* border: 3px solid pink; */
+    width: 90%;
+    height: 70%;
+  }
+
+  .innerFormRegister {
+    /* border: 3px solid orange; */
+    margin: 1.5rem 0 0 0;
+  }
+
+  .inputsContainerRegister {
+    display: block;
+    text-align: "center";
+    margin: 0.3rem 0.5rem 0.3rem -0.5rem;
+    /* border: 3px solid lime; */
+  }
+
+  .nameInputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  .inputsReg {
+    width: 100%;
+    margin: 0.5rem 0.5rem !important;
+  }
+
+  #radioButtonsContainerReg {
+    display: block;
+    margin: 2rem 0 3rem 1rem;
+    width: 100%;
+    /* border: 3px solid lime; */
+  }
+
+  #formButtonsReg {
+    margin: 0.5rem;
+    width: 170px;
+    min-width: 120px;
+    height: 50px;
+    font-size: 1rem;
+    /* border: 3px solid blue; */
+  }
+
+  .buttonsContainerReg {
+    margin: 0.5rem 0 4rem 0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    /* border: 3px solid green; */
+    min-height: 200px;
+  }
+}

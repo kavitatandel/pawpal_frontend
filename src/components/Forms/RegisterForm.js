@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../logic/UserFunctions";
 import { UserTypeContext } from "context/UserTypeContext";
-import "../../styles/loginRegisterStyles.css";
+import "../../styles/RegisterStyles.css";
 
 import { fetchCoordinates } from "../../logic/FetchGeoCode";
 
@@ -142,9 +142,9 @@ const RegisterForm = () => {
 
   return (
     <>
-      <div className="mainContainerForm">
+      <div id="mainContainerFormRegister">
         <Card
-          className="mainCard"
+          className="mainCardRegister"
           style={{
             background: "rgba( 255, 255, 255, 0.8 )",
             borderRadius: "25px",
@@ -154,12 +154,13 @@ const RegisterForm = () => {
         >
           {/* Pink Box */}
           <div
+            className="pinkBoxContainerReg"
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               // border: "4px solid blue",
-              marginTop: "-2rem",
+              marginTop: "-15rem",
               position: "relative",
             }}
           >
@@ -188,9 +189,9 @@ const RegisterForm = () => {
               </MKTypography>
             </MKBox>
           </div>
-          <MKBox className="outerForm">
+          <MKBox className="outerFormRegister">
             <MKBox
-              className="innerForm"
+              className="innerFormRegister"
               component="form"
               method="post"
               autocomplete="off"
@@ -199,9 +200,9 @@ const RegisterForm = () => {
               // p={8}
               // border="3px solid orange"
             >
-              <MKBox className="inputsContainer">
+              <MKBox className="inputsContainerRegister">
                 <MKInput
-                  className="nameInputs"
+                  className="nameInputsReg"
                   label="First Name"
                   type="text"
                   name="first_name"
@@ -211,7 +212,7 @@ const RegisterForm = () => {
                   onChange={(e) => setFirstName(e.target.value)}
                 />
                 <MKInput
-                  className="nameInputs"
+                  className="nameInputsReg"
                   label="Last Name"
                   type="text"
                   name="last_name"
@@ -222,9 +223,9 @@ const RegisterForm = () => {
                 />
               </MKBox>
 
-              <MKBox className="inputsContainer">
+              <MKBox className="inputsContainerRegister">
                 <MKInput
-                  className="inputs"
+                  className="inputsReg"
                   fullWidth
                   label="E-Mail"
                   name="email"
@@ -235,9 +236,9 @@ const RegisterForm = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </MKBox>
-              <MKBox className="inputsContainer">
+              <MKBox className="inputsContainerRegister">
                 <TextField
-                  className="inputs"
+                  className="inputsReg"
                   required
                   variant="outlined"
                   label="Password"
@@ -266,9 +267,9 @@ const RegisterForm = () => {
                   }}
                 />
               </MKBox>
-              <MKBox className="inputsContainer">
+              <MKBox className="inputsContainerRegister">
                 <MKInput
-                  className="inputs"
+                  className="inputsReg"
                   fullWidth
                   label="Street Name"
                   type="text"
@@ -279,9 +280,9 @@ const RegisterForm = () => {
                   onChange={(e) => setStreet(e.target.value)}
                 />
               </MKBox>
-              <MKBox className="inputsContainer">
+              <MKBox className="inputsContainerRegister">
                 <MKInput
-                  className="inputs"
+                  className="inputsReg"
                   label="Zip Code"
                   type="text"
                   name="zip_code"
@@ -291,7 +292,7 @@ const RegisterForm = () => {
                   onChange={(e) => setZipcode(e.target.value)}
                 />
                 <MKInput
-                  className="inputs"
+                  className="inputsReg"
                   label="City"
                   type="text"
                   name="city"
@@ -301,9 +302,9 @@ const RegisterForm = () => {
                   onChange={(e) => setCity(e.target.value)}
                 />
               </MKBox>
-              <MKBox className="inputsContainer">
+              <MKBox className="inputsContainerRegister">
                 <MKInput
-                  className="inputs"
+                  className="inputsReg"
                   fullWidth
                   label="Country"
                   type="text"
@@ -315,7 +316,7 @@ const RegisterForm = () => {
                 />
               </MKBox>
 
-              <div id="radioButtonsContainer">
+              <div id="radioButtonsContainerReg">
                 <FormControl>
                   <FormLabel
                     style={{ fontSize: "0.70em", color: "Gray" }}
@@ -348,16 +349,16 @@ const RegisterForm = () => {
                   </RadioGroup>
                 </FormControl>
               </div>
-              <MKBox className="buttonsContainer">
+              <MKBox className="buttonsContainerReg">
                 <button
-                  id="formButtons"
+                  id="formButtonsReg"
                   className="glow-on-hover"
                   onClick={() => navigate("/")}
                 >
                   Cancel
                 </button>
                 <button
-                  id="formButtons"
+                  id="formButtonsReg"
                   className="glow-on-hover"
                   type="submit"
                 >
