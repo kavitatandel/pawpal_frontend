@@ -2,10 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import jwt_decode from "jwt-decode";
-import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import "../../styles/layout.css";
+import "../../styles/ProfileStyle.css";
+import pinkBlob from "../../assets/landing-page/Blob-1.png";
+
 import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 
 import MKBox from "../MKBox";
@@ -49,10 +51,17 @@ const ProfileForm = () => {
   const editProfileIcon = {
     color: "#f0f2f5",
     backgroundColor: "transparent",
-    transform: "scale(1)",
-    marginLeft: "0.5rem",
-    // width: "1rem",
-    // height: "1rem",
+    transform: "scale(1.5)",
+    marginRight: "1rem",
+    marginTop: "-1rem",
+  };
+
+  const editProfileIconSmall = {
+    color: "#fff",
+    backgroundColor: "transparent",
+    transform: "scale(1.5)",
+    marginRight: "0.8rem",
+    marginTop: "-0.3rem",
   };
 
   const handleLogOut = () => {
@@ -141,48 +150,85 @@ const ProfileForm = () => {
     );
   return (
     <>
-      {/* Entire Page Container (without footer) */}
-      {/* ******************** 2 MASTER DIVS REQUIRED FOR EACH PAGE: MKBox & Paper */}
-      <MKBox
-        px={1}
-        width="100%"
-        top={0}
-        minHeight="100%"
-        mx="auto"
-        mr={0}
-        ml={0}
-        position="relative"
-        zindex={-1}
-        // sx={{ padding: "0", border: "2px solid blue" }}
-        display="flex"
-        flexDirection="column"
-        justifyContent="flex-start"
-        alignItems="center"
-      >
-        <Paper
-          className="neuCard"
-          elevation={24}
+      <div id="mainPageContainer">
+        <div className="avatarContainer">
+          <MKAvatar
+            id="avatar"
+            src={`${user.profile_pic}`}
+            alt={`${user.first_name}`}
+            shadow="xl"
+            style={{
+              borderStyle: "ridge",
+              border: "4px solid white",
+              backgroundColor: "white",
+            }}
+          >
+            <img
+              src={HumanAvatar}
+              alt="avatar"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </MKAvatar>
+        </div>
+        <div className="cardTopOverlay">
+          <div className="topSectionContainer">
+            <div className="editProfilePicButtonContainer">
+              <MKButton
+                variant="text"
+                onClick={handleToggleModal}
+                style={{
+                  width: "150px",
+                  height: "2rem",
+                  marginLeft: -12,
+                  fontSize: "0.8rem",
+                  letterSpacing: "0.1rem",
+                }}
+              >
+                <EditRoundedIcon style={editProfileIconSmall}></EditRoundedIcon>
+                EDIT PIC
+              </MKButton>
+            </div>
+
+            <div className="userNameContainer">
+              {/* ************************* User Full Name */}
+              <MKTypography
+                variant="h1"
+                fontWeight="medium"
+                color="light"
+                textAlign="center"
+              >
+                {user.first_name === undefined
+                  ? ""
+                  : `${user.first_name} ${user.last_name}`}
+              </MKTypography>
+            </div>
+
+            <div className="editAllInputsButtonContainer">
+              {/* ************************** Edit Button (for inputs) */}
+              <button
+                id="mainEditButton"
+                className="glow-on-hover"
+                type="submit"
+                onClick={toggleEdit}
+              >
+                <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
+                EDIT
+              </button>
+            </div>
+          </div>
+
+          <div className="inputsGridSection">
+            <ProfileInputsGrid editMode={editMode} />
+          </div>
+        </div>
+
+        <Card
+          id="mainCard"
           style={{
             background: "rgba( 255, 255, 255, 0.8 )",
             borderRadius: "25px",
             boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
-          }}
-          sx={{
-            width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
-            maxWidth: "1000px",
-            height: "auto",
-            mt: 45,
-            // mt: {
-            //   xs: "140px",
-            //   sm: "170px",
-            //   md: "220px",
-
-            //   xl: "300px",
-            // },
-            pb: "3rem",
-            mx: { xs: 2, lg: 3 },
-            position: "relative",
-            mb: 10,
+            margin: "0 !important",
           }}
         >
           <UploadPicModal
@@ -196,139 +242,8 @@ const ProfileForm = () => {
             loading={loading}
             setLoading={setLoading}
           />
-
-          {/* ________Pink Shape */}
-
-          <MKBox
-            color="white"
-            bgColor="error"
-            variant="gradient"
-            borderRadius="25px"
-            shadow="lg"
-            opacity={1}
-            mt={-12}
-            style={{
-              height: "20rem",
-              borderRadius: "5% 5% 40% 90%",
-              background: "linear-gradient(146deg, #ff9a85 21%, #ff3d47 75%)",
-            }}
-          >
-            {/* Container for Profile Pic */}
-            <Grid container>
-              <Grid item xs={12}>
-                <MKBox
-                  ml={6}
-                  display="flex"
-                  justifyContent="center"
-                  alignItems="flex-end"
-                >
-                  {/* <Avatar
-                    src={user.profile_pic}
-                    alt={`${user.first_name} avatar`}
-                    sx={{ width: 55, height: 55 }}
-                  >
-                    <img
-                      src={HumanAvatar}
-                      alt="avatar"
-                      style={{ width: "99%", height: "99%" }}
-                    />
-                  </Avatar> */}
-                  <MKAvatar
-                    top={-50}
-                    zindex={2}
-                    src={`${user.profile_pic}`}
-                    alt={`${user.first_name}`}
-                    shadow="xl"
-                    sx={{ width: "12rem", height: "12rem" }}
-                    style={{
-                      borderStyle: "ridge",
-                      border: "3px solid white",
-                      backgroundColor: "white",
-                      marginTop: "-6rem",
-                    }}
-                  >
-                    <img
-                      src={HumanAvatar}
-                      alt="avatar"
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </MKAvatar>
-                  <MKButton
-                    variant="text"
-                    // onClick={toggleModal}
-                    onClick={handleToggleModal}
-                    style={{
-                      width: "2rem",
-                      height: "2rem",
-                      marginLeft: -12,
-                    }}
-                  >
-                    EDIT
-                  </MKButton>
-                </MKBox>
-              </Grid>
-
-              <Grid item xs={12} mt={4}>
-                {/* ************************* User Full Name */}
-                <MKTypography
-                  variant="h1"
-                  fontWeight="medium"
-                  color="light"
-                  textAlign="center"
-                >
-                  {/* {`${user.first_name !== undefined && user.first_name} ${user.last_name !== undefined && user.last_name}`} */}
-                  {/* {`${user.first_name} ${user.last_name}`} */}
-                  {user.first_name === undefined
-                    ? ""
-                    : `${user.first_name} ${user.last_name}`}
-                </MKTypography>
-              </Grid>
-            </Grid>
-          </MKBox>
-          <MKBox
-            display="flex"
-            flex-direction="flex-end"
-            width="100%"
-            justifyContent="right"
-            marginBottom="0rem"
-          >
-            {/* ************************** Edit Button (for inputs) */}
-            <button
-              className="glow-on-hover"
-              type="submit"
-              style={{ margin: "10px 50px", width: "130px", height: "50px" }}
-              onClick={toggleEdit}
-            >
-              EDIT
-              <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
-            </button>
-          </MKBox>
-          {/* <MKButton
-              type="submit"
-              variant="gradient"
-              color="info"
-              size="large"
-              style={{
-                padding: "10px 2px 10px 10px",
-                minWidth: "7rem",
-                minHeight: "3rem",
-                border: "0px",
-                marginRight: "3rem",
-                marginTop: "2rem",
-              }}
-              onClick={toggleEdit}       
-            >
-              EDIT
-              <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>
-            </MKButton>
-          </MKBox> */}
-          {/* ************************** User Details */}
-
-          <MKBox>
-            <ProfileInputsGrid editMode={editMode} />
-          </MKBox>
-        </Paper>
-      </MKBox>
+        </Card>
+      </div>
     </>
   );
 };
