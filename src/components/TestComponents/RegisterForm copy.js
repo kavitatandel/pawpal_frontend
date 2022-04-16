@@ -23,7 +23,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
 //import GeoCode component
-import GeoCode from "../../components/Maps/GeoCode";
+import GeoCode from "../Maps/GeoCode";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 

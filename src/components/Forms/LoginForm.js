@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../logic/UserFunctions";
 import { UserContext } from "context/UserContext";
-import "../../styles/loginRegisterStyles.css";
+import "../../styles/LoginStyles.css";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -122,9 +122,9 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="mainContainerForm" id="mainContainerFormLogIn">
+      <div className="mainContainerForm" id="mainContainerFormRegister">
         <Card
-          className="mainCard"
+          className="mainCardRegister"
           id="mainCardLogIn"
           style={{
             background: "rgba( 255, 255, 255, 0.8 )",
@@ -172,6 +172,7 @@ const LoginForm = () => {
           </div>
           <MKBox className="outerForm" id="outer">
             <MKBox
+              className="innerForm"
               id="innerFormLogIn"
               component="form"
               autocomplete="off"
@@ -237,7 +238,7 @@ const LoginForm = () => {
                   }}
                 />
               </MKBox>
-              <MKBox className="buttonsContainer">
+              <MKBox className="buttonsContainer" id="loginButtonsContainer">
                 <button
                   id="formButtons"
                   className="glow-on-hover"
