@@ -1,20 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* * {
-  outline: none;
-} */
-/* 
-html,
-body {
-  height: 100%;
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-  background-color: #ffd8d8;
-} */
-
 .tb {
   display: table;
   width: 100%;
@@ -23,17 +8,6 @@ body {
 .td {
   display: table-cell;
   vertical-align: middle;
-}
-
-#searchMoved {
-  transform-origin: left center;
-  /* offset-position: left; */
-  /* -moz-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%; */
-  transform: scale(0.5);
-  padding: 1rem 1rem;
 }
 
 #styleinpt,
@@ -46,25 +20,18 @@ body {
   background-color: transparent;
 }
 
-#cover {
+/* #cover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  left: 0;
-  right: 0;
-  height: 10rem;
-  width: 70rem;
-  padding: 25px 55px;
+  height: 200px;
+  min-width: 1200px;
+  padding: 0 8rem;
   margin: 0px auto 0 auto;
-  background-color: #ff7575;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px #ff7c7c, 0 0 0 20px #ffffffeb;
+  border: 10px solid #ffffffeb;
+  border-radius: 100px;
   transform: scale(0.3);
-  transform-origin: right center;
-}
-
-/* form {
-  height: 96px;
+  transform-origin: center right;
 } */
 
 #styleinpt {
@@ -79,7 +46,7 @@ body {
 }
 
 #styleinpt::placeholder {
-  color: #a70507;
+  color: #ffffffeb;
   /* color:#ff7c7c; */
 }
 
