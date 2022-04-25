@@ -1,0 +1,192 @@
+/* XXL - 1200px+++ ------------------------------------- */
+
+@media screen and (min-width: 1201px) {
+  .topContainerPink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .topContainerForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .searchBarContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: 3px solid yellow; */
+    padding-right: 8rem;
+  }
+  #cover {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 200px;
+    min-width: 1200px;
+    padding: 0 8rem;
+    margin: 0px auto 0 auto;
+    border: 10px solid #ffffffeb;
+    border-radius: 100px;
+    transform: scale(0.3);
+    transform-origin: center right;
+  }
+}
+
+/* XL - 1200px ----------------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  .topContainerPink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .topContainerForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .searchBarContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: 3px solid yellow; */
+    padding-right: 5rem;
+  }
+  #cover {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 200px;
+    min-width: 1200px;
+    padding: 0 8rem;
+    margin: 0px auto 0 auto;
+    border: 10px solid #ffffffeb;
+    border-radius: 100px;
+    transform: scale(0.3);
+    transform-origin: center right;
+  }
+}
+
+/* LG - 992px ----------------------------------------- */
+
+@media screen and (max-width: 992px) {
+  .topContainerPink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid blue; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .topContainerForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid lime; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .searchBarContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid yellow; */
+    padding: 0;
+    margin: 0;
+  }
+
+  #cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    min-width: 1000px;
+    padding: 0 8rem;
+    margin: 0px auto 0 auto;
+    border: 10px solid #ffffffeb;
+    border-radius: 100px;
+    transform: scale(0.3);
+    transform-origin: center;
+  }
+}
+
+/* MD - 768px ----------------------------------------- */
+
+@media screen and (max-width: 768px) {
+}
+
+/* SM - 576px ----------------------------------------- */
+
+@media screen and (max-width: 576px) {
+  .topContainerPink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid blue; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .topContainerForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid lime; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .searchBarContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid yellow; */
+    padding: 0;
+    margin: 0;
+  }
+
+  #cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    min-width: 800px;
+    padding: 0 8rem;
+    margin: 0px auto 0 auto;
+    border: 10px solid #ffffffeb;
+    border-radius: 100px;
+    transform: scale(0.3);
+    transform-origin: center;
+  }
+
+  /* #cover:placeholder-shown {
+    color: blue;
+  } */
+}
+/* XS - 400px ----------------------------------------- */
+
+@media screen and (max-width: 400px) {
+}
+
+/* 300px ---------------------------------------------- */
+@media screen and (max-width: 300px) {
+}
+
+/* 200px ---------------------------------------------- */
+@media screen and (max-width: 200px) {
+}

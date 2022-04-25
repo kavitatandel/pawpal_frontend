@@ -19,23 +19,29 @@
   pointer-events: initial;
   /* overflow: scroll; */
 }
+
 /* Firefox */
 #scrollStyle {
   scrollbar-color: rgba(255, 112, 120, 1) rgba(255, 235, 231, 0);
   scrollbar-width: auto;
 }
 
-/* WebKit and Chromiums */
-/* ::-webkit-scrollbar {
-  width: 8px;
+/* WebKit and Chrome */
+::-webkit-scrollbar {
+  width: 10px;
   height: 8px;
-  background-color: white;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: blue;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 174, 149, 1) 0%,
+    rgba(255, 131, 132, 1) 100%
+  );
   border-radius: 5px;
-} */
+}
+
 /* control positioning */
 
 .leaflet-control {

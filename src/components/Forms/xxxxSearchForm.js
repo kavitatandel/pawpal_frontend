@@ -1,7 +1,6 @@
 import { UserContext } from "../../context/UserContext";
 import { useEffect, useState, useCallback, useContext } from "react";
-import { spinnerContainer } from "../../styles/CustomStyles";
-import "../../styles/search.css";
+import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKInput from "../MKInput";
@@ -12,9 +11,7 @@ import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import "../../styles/Map.css";
-import "../../styles/searchbarStyle.css";
 import { glassStyle } from "../../styles/CustomStyles";
-import ClearIcon from "@mui/icons-material/Clear";
 
 //Leaflet Map
 import LeafletMap from "../Maps/LeafletMap";
@@ -53,10 +50,6 @@ const SearchForm = () => {
   //use state for search and no data
   const [noData, setNoData] = useState(false);
 
-  const clearSearch = {
-    transform: "scale(6)",
-    marginLeft: "50px",
-  };
   const sleep = (ms) => {
     new Promise((userLocation) => {
       console.log(`waiting 2sec`);
@@ -111,7 +104,7 @@ const SearchForm = () => {
     const searchCityInput = document.getElementsByName("searchCity")[0];
     searchCityInput.innerHTML = "";
     searchCityInput.value = "";
-    setSearch(user.city);
+    setSearch("");
     await runFunctions();
   };
 
@@ -161,9 +154,7 @@ const SearchForm = () => {
 
   if (loading)
     return (
-      <div style={spinnerContainer}>
-        <RiseLoader color={color} loading={loading} css={override} size={40} />
-      </div>
+      <RiseLoader color={color} loading={loading} css={override} size={40} />
     );
   return (
     <>
@@ -178,6 +169,7 @@ const SearchForm = () => {
         ml={0}
         position="relative"
         zindex={-1}
+        // sx={{ padding: "0", border: "2px solid blue" }}
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
@@ -187,6 +179,14 @@ const SearchForm = () => {
           className="neuCard"
           elevation={24}
           sx={{
+            // BREAKPOINTS:
+            // xs: 0,
+            // sm: 576,
+            // md: 768,
+            // lg: 992,
+            // xl: 1200,
+            // xxl: 1400,
+            // xxxl: 1800,
             zIndex: 3,
             position: "relative",
 
@@ -212,85 +212,83 @@ const SearchForm = () => {
         >
           {/* Top Search Bar Area */}
           <Grid container>
-            <Grid
-              item
-              className="topContainerPink"
-              xs={12}
-              style={{
-                zIndex: 4,
-
-                background:
-                  "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",
-                boxShadow:
-                  "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
-                // border: "5px solid blue",
-              }}
-              height="7rem"
-            >
-              <form
-                className="topContainerForm"
-                onSubmit={handleSearch}
-                autocomplete="off"
-                style={{
-                  height: "100%",
-                  width: "60%",
-
-                  // border: "5px solid lime",
-                }}
-              >
-                <div className="searchBarContainer">
-                  <div id="cover">
-                    <div className="tb">
-                      <div className="td">
-                        <input
-                          id="styleinpt"
-                          type="text"
-                          name="searchCity"
-                          // placeholder={search}
-                          placeholder="Enter city to search..."
-                          value={search}
-                          onChange={(e) => setSearch(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div className="td" id="s-cover">
-                        <div className="td" id="s-cover">
-                          <button id="submit-btn" type="submit">
-                            <div id="s-circle"></div>
-                            <span></span>
-                          </button>
-                        </div>
-                        {/* <button id="submit-btn" onClick={handleClearSearch}>
-                            <ClearIcon style={clearSearch} />
-                          </button> */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <Grid item xs={12} style={{ padding: "1rem" }}>
+              <form onSubmit={handleSearch}>
+                <MKBox
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    mb: "0rem",
+                    pb: "0rem",
+                  }}
+                >
+                  <MKInput
+                    style={{ width: "17rem" }}
+                    label="Search by City"
+                    type="text"
+                    name="searchCity"
+                    placeholder={search}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                  <MKButton
+                    size="large"
+                    type="submit"
+                    variant="gradient"
+                    color="info"
+                    style={{
+                      marginLeft: "1.5rem",
+                      width: "8rem",
+                      minWidth: "120px",
+                    }}
+                  >
+                    Search
+                  </MKButton>
+                  <MKButton
+                    size="large"
+                    variant="gradient"
+                    color="info"
+                    style={{
+                      marginLeft: "1.5rem",
+                      width: "11rem",
+                      minWidth: "120px",
+                    }}
+                    onClick={handleClearSearch}
+                  >
+                    Clear Search
+                  </MKButton>
+                </MKBox>
               </form>
             </Grid>
           </Grid>
-
+          {/* Section below the search area */}
+          {/* <Grid
+            container
+            mx={0}
+            display="flex"
+            justifyContent="center"
+            height="80%"
+            minHeight="400px"
+            border="7px dashed purple !important"
+          > */}
+          {/* Section below the search area */}
           <Grid
             container
             mx={0}
             display="flex"
             justifyContent="center"
             height="auto"
-            // border="7px dashed purple !important"
+          // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
-            {/* _______________________________________PARENT CONTAINER */}
             <div
               className="container-fluid"
               style={{
                 width: "100%",
                 borderRadius: "0 0 30px 30px",
-                // border: "7px solid yellow",
-                backgroundColor: "rgb(255,255,0.5)",
               }}
             >
-              {/* _______________________________________BACKGROUND CONTAINER OF PARENT */}
               <div
                 className="mapbox"
                 overflow="auto"
@@ -298,35 +296,27 @@ const SearchForm = () => {
                   width: "100%",
                   diplay: "flex",
                   flexDirection: "column",
-                  // border: "7px solid rgb(0,255,0)",
-                  // backgroundColor: "rgb(0,255,0,0.5)",
+
+                  // border: "2px solid green",
                 }}
               >
-                <LeafletMap
-                  locations={locations}
-                  isSearched={isSearched}
-                  style={
-                    {
-                      // border: "7px solid rgba(0,255,255)",
-                      // backgroundColor: "rgb(0,255,255,0.5)",
-                    }
-                  }
-                />
-                {/* </div> */}
+                <div
+                  className="row-fluid some"
+                  id="map"
+                  style={{
+                    border: "2px solid orange",
+                    borderRadius: "0 0 30px 30px",
+                  }}
+                >
+                  <LeafletMap locations={locations} isSearched={isSearched} />
+                </div>
                 <MKBox
                   className="row-fluid overlay"
-                  id="scrollStyle"
-                  style={{
-                    height: "100%",
-                    overflowY: "scroll",
-                    margin: "0",
-                    padding: "1rem 0",
-                  }}
                   sx={{
                     // flexWrap: "wrap",
                     width: {
-                      sm: "45%",
-                      md: "45%",
+                      sm: "35%",
+                      md: "50%",
                       lg: "50%",
                       xl: "45%",
                       xxl: "40%",
@@ -339,24 +329,66 @@ const SearchForm = () => {
                     id="results"
                     style={{
                       height: "auto",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      // margin: "1rem",
-                      // border: "7px solid rgba(75,0,130)",
-                      // backgroundColor: "rgb(75,0,130,0.5)",
+                      margin: "1rem",
+                      // overflow: "scroll",
+                      // backgroundColor: "rgba(255, 41, 41, 0.4)",
                     }}
                   >
+                    {/* commented to check loading when page loads */}
                     <SearchedDog
                       locations={locations}
                       setLocations={setLocations}
                       isSearched={isSearched}
-                      // style={{
-                      //   border: "7px solid rgba(255,0,0)",
-                      //   backgroundColor: "rgb(255,0,0,0.5)",
-                      // }}
                     />
+                    {/* {locations.length < 1 && isSearched === false ? "" :
+                      locations.length < 1 && noData === true ? "No Dogs Found" :
+                      <SearchedDog
+                        locations={locations}
+                        setLocations={setLocations}
+                        isSearched={isSearched}
+                        noData={noData}
+                      />
+                    } */}
+
+                    {/* {isSearched && locations.length > 0 ? (
+                    
+                      <SearchedDog
+                        locations={locations}
+                        setLocations={setLocations}
+                      />
+                    ) : (
+                      <MKBox>
+                        <Card style={glassStyle}>
+                          <MKBox
+                            className="mainContainer"
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignContent: "center",
+                              padding: "0rem",
+                            }}
+                          >
+                            <MKBox
+                              className="DogName"
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "flex-start",
+                                width: "25%",
+                              }}
+                            >
+                              <MKTypography
+                                variant="p"
+                                fontWeight="medium"
+                                style={{ fontSize: "0.90rem" }}
+                              >
+                                No dogs found
+                              </MKTypography>
+                            </MKBox>
+                          </MKBox>
+                        </Card>
+                      </MKBox>
+                    )} */}
                   </MKBox>
                 </MKBox>
               </div>

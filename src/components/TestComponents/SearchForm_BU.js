@@ -1,7 +1,6 @@
 import { UserContext } from "../../context/UserContext";
 import { useEffect, useState, useCallback, useContext } from "react";
-import { spinnerContainer } from "../../styles/CustomStyles";
-import "../../styles/search.css";
+import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKInput from "../MKInput";
@@ -161,9 +160,7 @@ const SearchForm = () => {
 
   if (loading)
     return (
-      <div style={spinnerContainer}>
-        <RiseLoader color={color} loading={loading} css={override} size={40} />
-      </div>
+      <RiseLoader color={color} loading={loading} css={override} size={40} />
     );
   return (
     <>
@@ -178,6 +175,7 @@ const SearchForm = () => {
         ml={0}
         position="relative"
         zindex={-1}
+        // sx={{ padding: "0", border: "2px solid blue" }}
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
@@ -187,6 +185,14 @@ const SearchForm = () => {
           className="neuCard"
           elevation={24}
           sx={{
+            // BREAKPOINTS:
+            // xs: 0,
+            // sm: 576,
+            // md: 768,
+            // lg: 992,
+            // xl: 1200,
+            // xxl: 1400,
+            // xxxl: 1800,
             zIndex: 3,
             position: "relative",
 
@@ -214,59 +220,94 @@ const SearchForm = () => {
           <Grid container>
             <Grid
               item
-              className="topContainerPink"
               xs={12}
+              display="flex"
+              alignItems="center"
               style={{
                 zIndex: 4,
-
+                padding: "0.6rem",
                 background:
                   "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",
                 boxShadow:
                   "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px",
-                // border: "5px solid blue",
               }}
-              height="7rem"
+              height="6.5rem"
             >
               <form
-                className="topContainerForm"
                 onSubmit={handleSearch}
                 autocomplete="off"
                 style={{
+                  // marginTop: "-100px",
                   height: "100%",
-                  width: "60%",
-
-                  // border: "5px solid lime",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
                 }}
               >
-                <div className="searchBarContainer">
-                  <div id="cover">
-                    <div className="tb">
-                      <div className="td">
-                        <input
-                          id="styleinpt"
-                          type="text"
-                          name="searchCity"
-                          // placeholder={search}
-                          placeholder="Enter city to search..."
-                          value={search}
-                          onChange={(e) => setSearch(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div className="td" id="s-cover">
+                <Grid
+                  container
+                  style={{
+                    padding: "1rem",
+                    display: "flex",
+
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Grid
+                    item
+                    xs={10}
+                    style={{
+                      display: "flex",
+                      height: "100px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {" "}
+                    <div id="cover">
+                      <div className="tb">
+                        <div className="td">
+                          <input
+                            id="styleinpt"
+                            type="text"
+                            name="searchCity"
+                            // placeholder={search}
+                            placeholder="Enter city to search...."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            required
+                          />
+                        </div>
                         <div className="td" id="s-cover">
-                          <button id="submit-btn" type="submit">
-                            <div id="s-circle"></div>
-                            <span></span>
+                          <button id="submit-btn" onClick={handleClearSearch}>
+                            <ClearIcon style={clearSearch} />
                           </button>
                         </div>
-                        {/* <button id="submit-btn" onClick={handleClearSearch}>
-                            <ClearIcon style={clearSearch} />
-                          </button> */}
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={2}
+                    style={{
+                      display: "flex",
+                      height: "100px",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                    }}
+                  >
+                    <div id="searchMoved">
+                      <div className="td" id="s-cover">
+                        <button id="submit-btn" type="submit">
+                          <div id="s-circle"></div>
+                          <span></span>
+                        </button>
+                      </div>
+                    </div>
+                  </Grid>
+                </Grid>
               </form>
             </Grid>
           </Grid>
@@ -318,15 +359,18 @@ const SearchForm = () => {
                   id="scrollStyle"
                   style={{
                     height: "100%",
-                    overflowY: "scroll",
+                    overflow: "scroll",
                     margin: "0",
                     padding: "1rem 0",
+
+                    // border: "7px solid rgba(255,0,255)",
+                    // backgroundColor: "rgb(255,0,255,0.5)",
                   }}
                   sx={{
                     // flexWrap: "wrap",
                     width: {
-                      sm: "45%",
-                      md: "45%",
+                      sm: "35%",
+                      md: "50%",
                       lg: "50%",
                       xl: "45%",
                       xxl: "40%",

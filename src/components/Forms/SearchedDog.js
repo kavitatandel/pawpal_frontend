@@ -17,8 +17,6 @@ import { useEffect, useState } from "react";
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
-// import DefaultBlogCard from "examples/Cards/BlogCards/DefaultBlogCard";
-//import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 
 const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
   const navigate = useNavigate();
@@ -34,38 +32,9 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
     }
   }, []);
 
-  // // if (isSearched === false) return "";
-  // if (isSearched === false)
-  //   return (
-  //     <RiseLoader color={color} loading={loading} css={override} size={40} />
-  //   )
-
-  console.log("inside search dog");
-  console.log(noData);
-
   return (
     <>
-      {/* <MKBox
-        sx={{ display: { xs: "none", sm: "flex" } }}
-        style={{
-          flexDirection: "column",
-          alignItems: "center",
-          height: "100%",
-          border: "6px dotted orange",
-          overflow: "scroll",
-        }}
-      > */}
       {locations.length < 1 ? (
-        // <MKBox
-        //   sx={{ display: { xs: "none", sm: "flex" } }}
-        //   style={{
-        //     // paddingTop: "1rem",
-        //     border: "3px solid red",
-        //     alignSelf: "flex-start",
-        //     verticalAlign: "top",
-        //     width: "50%",
-        //   }}
-        // >
         <Card style={glassStyle}>
           <MKBox
             className="mainContainer"
@@ -90,20 +59,21 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                 fontWeight="medium"
                 style={{ fontSize: "0.90rem" }}
               >
-                {/* {locations.length < 1 ? "No Dogs Found" : ""} */}
-                {/* {noData ? "No dogs found" : ""} */}
                 No Dogs Found.
               </MKTypography>
             </MKBox>
           </MKBox>
         </Card>
       ) : (
-        // </MKBox>
         <>
           {locations &&
             locations.map((dog) => {
               return (
-                <Card style={glassStyle} key={dog.dogs_info._id}>
+                <Card
+                  style={glassStyle}
+                  key={dog.dogs_info._id}
+                  sx={{ display: { xs: "none", sm: "flex" } }}
+                >
                   <MKBox
                     className="mainContainer"
                     style={{
@@ -111,14 +81,18 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                       justifyContent: "space-between",
                       alignContent: "center",
                       padding: "0rem",
+                      // border: "2px solid yellow",
+                      minHeight: "50px",
                     }}
+                    sx={{ display: { sm: "none", md: "flex" } }}
                   >
                     <MKBox
                       className="Avatar"
                       sx={{
-                        width: { md: "25%", lg: "30%" },
-                        display: { sm: "none", md: "flex" },
-                        minWidth: "3.2rem",
+                        width: { sm: "20%", lg: "15%" },
+                        display: { xs: "none", sm: "flex" },
+                        minWidth: "3rem",
+                        // border: "1px solid blue",
                       }}
                       style={{
                         justifyContent: "flex-start",
@@ -132,7 +106,6 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                         sx={{ width: "2.5rem", height: "2.5rem" }}
                         style={{
                           border: "3.2px solid white",
-                          marginRight: "1rem",
                         }}
                       >
                         <img
@@ -147,12 +120,11 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                       style={{
                         alignItems: "center",
                         justifyContent: "flex-start",
-                        // width: { md: "30%", lg: "25%" },
-                        display: { xs: "none", sm: "flex" },
                       }}
                       sx={{
-                        width: { md: "35%", lg: "40%" },
+                        width: { sm: "60%", md: "45%", lg: "25%" },
                         display: { xs: "none", sm: "flex" },
+                        // border: "1px solid blue",
                       }}
                     >
                       <MKTypography
@@ -166,14 +138,15 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                     <MKBox
                       className="DogType"
                       sx={{
-                        width: { md: "35%", lg: "40%" },
-                        display: { sm: "none", md: "flex" },
+                        width: { sm: "60%", md: "45%", lg: "35%" },
+                        display: { xs: "none", lg: "flex" },
                       }}
                       style={{
                         fontSize: "0.8rem",
 
                         alignItems: "center",
                         justifyContent: "flex-start",
+                        // border: "1px solid blue",
                       }}
                     >
                       <MKTypography
@@ -187,28 +160,34 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                     <MKBox
                       className="Size"
                       sx={{
-                        width: { md: "35%", lg: "40%" },
-                        display: { xs: "none", lg: "flex" },
+                        width: { md: "45%", lg: "10%" },
+                        display: { xs: "none", xl: "flex" },
                       }}
                       style={{
                         alignItems: "center",
-                        justifyContent: "flex-start",
+                        justifyContent: "center",
+                        // border: "1px solid blue",
                       }}
                     >
                       <MKTypography
                         variant=" subtitle2"
-                        style={{ fontSize: "1.1rem" }}
+                        style={{
+                          fontSize: "1.1rem",
+                          fontWeight: 600,
+                          textTransform: "capitalize",
+                        }}
                       >
-                        {dog.dogs_info.size}
+                        {dog.dogs_info.size[0]}
                       </MKTypography>
                     </MKBox>
                     <MKBox
                       className="ButtonContainer"
                       sx={{
-                        width: { md: "25%", lg: "20%" },
+                        width: { sm: "20%", lg: "10%" },
                         display: { xs: "none", sm: "flex" },
                         alignItems: "center",
-                        justifyContent: "center ",
+                        justifyContent: "flex-end",
+                        // border: "1px solid blue",
                       }}
                     >
                       <MKButton
@@ -236,7 +215,6 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
             })}
         </>
       )}
-      {/* </MKBox> */}
     </>
   );
 };
