@@ -195,6 +195,7 @@ const SearchForm = () => {
             boxShadow: "12px 30px 40px 0 rgba(255, 61, 46, 0.5)",
             backdropFilter: "blur( 12px )",
             padding: "0",
+            minWidth: "185px",
             borderRadius: "2rem !important",
             overflow: "hidden !important",
             width: {

@@ -89,7 +89,7 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                     <MKBox
                       className="Avatar"
                       sx={{
-                        width: { sm: "20%", lg: "15%" },
+                        width: { sm: "50%", md: "40%", lg: "15%" },
                         display: { xs: "none", sm: "flex" },
                         minWidth: "3rem",
                         // border: "1px solid blue",
@@ -122,7 +122,7 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                         justifyContent: "flex-start",
                       }}
                       sx={{
-                        width: { sm: "60%", md: "45%", lg: "25%" },
+                        width: { sm: "60%", md: "45%", lg: "30%" },
                         display: { xs: "none", sm: "flex" },
                         // border: "1px solid blue",
                       }}
@@ -151,7 +151,7 @@ const SearchedDog = ({ locations, setLocations, isSearched, noData }) => {
                     >
                       <MKTypography
                         variant=" subtitle2"
-                        style={{ fontSize: "1.1rem" }}
+                        style={{ fontSize: "0.9rem" }}
                         fontFamily="nunito"
                       >
                         {dog.dogs_info.breed}
