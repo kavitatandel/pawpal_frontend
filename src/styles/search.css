@@ -176,15 +176,101 @@
 
   /* #cover:placeholder-shown {
     color: blue;
+    font-size: large;
   } */
 }
 /* XS - 400px ----------------------------------------- */
 
 @media screen and (max-width: 400px) {
+  .topContainerPink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid blue; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .topContainerForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid lime; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .searchBarContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid yellow; */
+    padding: 0;
+    margin: 0;
+  }
+
+  #cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    min-width: 800px;
+    padding: 0 4rem;
+    margin: 0px auto 0 auto;
+    border: 10px solid #ffffffeb;
+    border-radius: 100px;
+    transform: scale(0.3);
+    transform-origin: center;
+  }
 }
 
 /* 300px ---------------------------------------------- */
 @media screen and (max-width: 300px) {
+  .topContainerPink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid blue; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .topContainerForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px solid lime; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .searchBarContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid yellow; */
+    padding: 0;
+    margin: 0;
+  }
+
+  #cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    min-width: 500px;
+    padding: 0 4rem;
+    margin: 0px auto 0 auto;
+    border: 7px solid #ffffffeb;
+    border-radius: 100px;
+    transform: scale(0.3);
+    transform-origin: center;
+    word-wrap: break-word;
+  }
 }
 
 /* 200px ---------------------------------------------- */
