@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
-import TopBgImg from "components/Blocks/TopBgImg";
+import { spinnerContainer } from "../../styles/CustomStyles";
 import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
 
 import MKBox from "components/MKBox";
@@ -80,9 +80,9 @@ const DogInfoForm = () => {
 
   //for spinner
   if (loading)
-    return (
+    <div style={spinnerContainer}>
       <RiseLoader color={color} loading={loading} css={override} size={40} />
-    );
+    </div>;
   return (
     <>
       {/* Entire Page Container (without footer) */}

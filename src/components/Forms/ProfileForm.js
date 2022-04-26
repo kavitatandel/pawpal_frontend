@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import jwt_decode from "jwt-decode";
-import Paper from "@mui/material/Paper";
+import { spinnerContainer } from "../../styles/CustomStyles";
 import { Grid } from "@mui/material";
 import "../../styles/layout.css";
 import "../../styles/ProfileStyle.css";
@@ -146,7 +146,9 @@ const ProfileForm = () => {
 
   if (loading)
     return (
-      <RiseLoader color={color} loading={loading} css={override} size={40} />
+      <div style={spinnerContainer}>
+        <RiseLoader color={color} loading={loading} css={override} size={40} />
+      </div>
     );
   return (
     <>

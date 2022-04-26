@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
-import bgImage from "../../assets/images/backgrounds/giorgia-finazzi-p73awrEBovI-unsplash-cropped.jpeg";
+import { spinnerContainer } from "../../styles/CustomStyles";
 import MKBox from "components/MKBox";
 import MKAvatar from "components/MKAvatar";
 import MKTypography from "../MKTypography";
@@ -103,7 +103,9 @@ const OwnerDogRequestsForm = () => {
   //for spinner
   if (loading)
     return (
-      <RiseLoader color={color} loading={loading} css={override} size={40} />
+      <div style={spinnerContainer}>
+        <RiseLoader color={color} loading={loading} css={override} size={40} />
+      </div>
     );
   return (
     <>

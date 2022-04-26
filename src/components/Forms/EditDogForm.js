@@ -14,6 +14,7 @@ import { Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
+import { spinnerContainer } from "../../styles/CustomStyles";
 
 //for radio button
 import Radio from "@mui/material/Radio";
@@ -173,7 +174,9 @@ const EditDogForm = () => {
   //for spinner
   if (loading)
     return (
-      <RiseLoader color={color} loading={loading} css={override} size={40} />
+      <div style={spinnerContainer}>
+        <RiseLoader color={color} loading={loading} css={override} size={40} />
+      </div>
     );
   return (
     <>
