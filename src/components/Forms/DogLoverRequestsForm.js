@@ -17,6 +17,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { neumorphic } from "styles/CustomStyles";
 import { neumorphicDL } from "styles/CustomStyles";
 import DogAvatar from "../../assets/images/avatars/dog-av-grad.png";
+import "../../styles/extraStyles.css";
 
 import {
   getDogLoverRequests,
@@ -189,17 +190,12 @@ const DogLoverRequestsForm = () => {
               boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
             }}
             sx={{
-              width: { xs: "95%", sm: "90%", md: "85%", xl: "80%" },
+              width: { xxxxs: "95%", sm: "90%", md: "85%", xl: "80%" },
               maxWidth: "1000px",
+              minWidth: "185px",
               height: "auto",
               mt: 30,
-              // mt: {
-              //   xs: "140px",
-              //   sm: "170px",
-              //   md: "220px",
 
-              //   xl: "300px",
-              // },
               pb: "3rem",
               mx: { xs: 2, lg: 3 },
               position: "relative",
@@ -238,11 +234,23 @@ const DogLoverRequestsForm = () => {
                 //borderRadius="lg"
                 borderRadius="25px"
                 coloredShadow="info"
-                width="30rem"
                 textAlign="center"
                 sx={{
                   height: "7rem",
-
+                  padding: "1rem",
+                  width: {
+                    xxxxs: "100%",
+                    xxxs: "95%",
+                    xs: "85%",
+                    sm: "80%",
+                    md: "75%",
+                    lg: "65%",
+                    xl: "50%",
+                    xxl: "40%",
+                    xxxl: "30%",
+                  },
+                  minWidth: "200px",
+                  maxWidth: "1000px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -268,7 +276,6 @@ const DogLoverRequestsForm = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-
                 mb: "4rem",
                 minWidth: "100%",
               }}
@@ -282,7 +289,7 @@ const DogLoverRequestsForm = () => {
                   // alignItems: "center",
 
                   justifyContent: "center",
-                  // border: "3px solid blue",
+                  // border: "2px solid blue",
                 }}
               >
                 {dogRequestsInfo === undefined ? (
@@ -321,22 +328,18 @@ const DogLoverRequestsForm = () => {
                         <Card sx={neumorphicDL} key={index}>
                           <MKBox
                             className="mainContainer"
+                            style={{
+                              border: "2px solid blue !important",
+                              minHeight: "5rem",
+                              width: "100% !important",
+                              minWidth: "175px",
+                            }}
                             sx={{
                               position: "relative",
                               display: "flex",
                               justifyContent: "space-between",
                               alignItems: "center",
                               padding: "1rem",
-                              minHeight: "5rem",
-                              paddingLeft: {
-                                sx: "0.5rem",
-                                sm: "1rem",
-                                md: "2rem",
-                                lg: "2.5rem",
-                              },
-                              paddingRight: {
-                                sx: "1rem",
-                              },
                             }}
                           >
                             <MKBox
@@ -344,18 +347,18 @@ const DogLoverRequestsForm = () => {
                               sx={{
                                 width: {
                                   sm: "15%",
-                                  md: "14%",
+                                  md: "12.5%",
                                   lg: "12.5%",
                                   xl: "10%",
                                   xxl: "10%",
                                 },
                                 display: { md: "flex" },
-                                minWidth: "3.2rem",
-                                mr: "1rem",
+                                minWidth: "4rem",
                               }}
                               style={{
                                 justifyContent: "flex-start",
                                 alignItems: "center",
+                                // border: "2px solid orange",
                               }}
                             >
                               <MKAvatar
@@ -364,16 +367,17 @@ const DogLoverRequestsForm = () => {
                                 src={`${request.DogsRequests.profile_photo}`}
                                 alt={`${request.DogsRequests.name}`}
                                 shadow="xl"
-                                sx={{ width: "2.5rem", height: "2.5rem" }}
+                                sx={{ width: "3.5rem", height: "3.5rem" }}
                                 style={{
-                                  border: "3.2px solid white",
+                                  border: "3px solid #ff9a85",
+                                  boxSizing: "border-box",
                                   marginRight: "1rem",
                                 }}
                               >
                                 <img
                                   src={DogAvatar}
                                   alt="avatar"
-                                  style={{ width: "100%", height: "100%" }}
+                                  style={{ width: "101%", height: "101%" }}
                                 />
                               </MKAvatar>
                             </MKBox>
@@ -381,15 +385,19 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="DogName"
                               sx={{
-                                width: { sm: "25%", md: "16%", lg: "12%" },
-                                // display: { xs: "none", sm: "flex" },
-                                display: { xs: "flex" },
+                                width: { sm: "25%", md: "20%", lg: "15%" },
+                                display: {
+                                  xxxxs: "none",
+                                  xs: "block",
+                                  sm: "flex",
+                                },
                               }}
                               style={{
                                 fontSize: "0.8rem",
-
                                 alignItems: "center",
                                 justifyContent: "flex-start",
+                                // border: "2px solid orange",
+                                minWidth: "6rem",
                               }}
                             >
                               <MKTypography
@@ -404,14 +412,19 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="meetingLocation"
                               sx={{
-                                width: { sm: "25%", md: "20%", lg: "16%" },
-                                display: { xs: "none", sm: "flex" },
+                                width: {
+                                  sm: "25%",
+                                  md: "32%",
+                                  lg: "24%",
+                                  xl: "25%",
+                                },
+                                display: { xxxxs: "none", md: "flex" },
                               }}
                               style={{
                                 fontSize: "0.8rem",
-
                                 alignItems: "center",
                                 justifyContent: "flex-start",
+                                // border: "2px solid yellow",
                               }}
                             >
                               <MKTypography
@@ -425,24 +438,16 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartDate"
                               sx={{
-                                // width: {
-                                //   md: "22%",
-                                //   lg: "17%",
-                                //   xl: "18%",
-                                //   xxl: "18%",
-                                // },
                                 width: {
-                                  md: "22%",
-                                  lg: "17%",
-                                  xl: "18%",
-                                  xxl: "18%",
+                                  md: "15%",
+                                  lg: "13%",
                                 },
-
-                                display: { xs: "none", md: "flex" },
+                                display: { xxxxs: "none", lg: "flex" },
                               }}
                               style={{
                                 alignItems: "center",
                                 justifyContent: "flex-start",
+                                // border: "2px solid lime",
                               }}
                             >
                               <MKTypography
@@ -455,10 +460,6 @@ const DogLoverRequestsForm = () => {
                                   .split("-")
                                   .reverse()
                                   .join(".")}
-                                {/* {new Date(
-                                     request.start_date
-                                   ).toLocaleDateString()} */}
-                                {/* {request.start_date} */}
                               </MKTypography>
                             </MKBox>
 
@@ -466,12 +467,13 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="StartTime"
                               sx={{
-                                width: { lg: "12%" },
-                                display: { xs: "none", lg: "flex" },
+                                width: { lg: "10%" },
+                                display: { xxxxs: "none", lg: "flex" },
                               }}
                               style={{
                                 alignItems: "center",
                                 justifyContent: "flex-start",
+                                // border: "2px solid red",
                               }}
                             >
                               <MKTypography
@@ -486,12 +488,13 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="EndTime"
                               sx={{
-                                width: { lg: "12%" },
-                                display: { xs: "none", lg: "flex" },
+                                width: { lg: "10%" },
+                                display: { xxxxs: "none", lg: "flex" },
                               }}
                               style={{
                                 alignItems: "center",
                                 justifyContent: "flex-start",
+                                // border: "2px solid purple",
                               }}
                             >
                               <MKTypography
@@ -506,12 +509,14 @@ const DogLoverRequestsForm = () => {
                             <MKBox
                               className="status"
                               sx={{
-                                width: { lg: "12%" },
-                                display: { xs: "none", lg: "flex" },
+                                width: { md: "15%", lg: "12%" },
+                                display: { xxxxs: "none", xxs: "flex" },
                               }}
                               style={{
                                 alignItems: "center !important",
                                 justifyContent: "flex-start",
+                                minWidth: "5rem",
+                                // border: "2px solid blue",
                               }}
                             >
                               {request.status === "Pending" ? (
@@ -554,10 +559,8 @@ const DogLoverRequestsForm = () => {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "flex-end !important ",
-                                //   border: "2px solid red",
-
-                                width: { md: "17%", lg: "12%" },
-                                // marginRight: "1rem",
+                                // border: "2px solid red",
+                                width: { md: "15%", lg: "10%" },
                               }}
                             >
                               {request.status === "Rejected" ? (
@@ -565,72 +568,14 @@ const DogLoverRequestsForm = () => {
                               ) : (
                                 <button
                                   className="mini-button"
-                                  style={{
-                                    margin: "10px 10px",
-                                    minWidth: "70px",
-                                    height: "40px",
-                                  }}
                                   type="submit"
                                   value={request._id}
                                   onClick={handleInfo}
                                 >
-                                  <InfoIcon style={{ marginRight: "6px" }} />
-                                  INFO
+                                  <InfoIcon className="infoIcon" />
+                                  <span className="infoText">INFO</span>
                                 </button>
                               )}
-                              {/* <button
-                                className="mini-button"
-                                style={
-                                  request.status === "Rejected"
-                                    ? { display: "none" }
-                                    : { display: "flex" }
-                                }
-                                // style={{ margin: "10px 15px", width: "200px", height: "40px" }}
-
-                                type="submit"
-
-                                value={request._id}
-                                onClick={handleInfo}
-                              >
-                                <InfoIcon style={{ marginRight: "8px" }} />
-                                INFO                              
-                              </button> */}
-                              {/* <MKButton
-                                style={
-                                  request.status === "Rejected"
-                                    ? { display: "none" }
-                                    : { display: "flex" }
-                                }
-                                size="medium"
-                                type="submit"
-                                variant="gradient"
-                                color="info"
-                                sx={{
-                                  minWidth: {
-                                    xs: "2rem",
-                                    sm: "2rem",
-                                    md: "2.5rem",
-                                    lg: "3rem",
-                                  },
-
-                                  padding: {
-                                    xs: "10px 10px",
-                                    md: "12px 12px",
-                                    lg: "10px 10px",
-                                    xl: "8px 8px",
-                                    xxl: "8px 8px",
-                                    xxxl: "4px 4px",
-                                  },
-
-                                  ml: "1rem",
-                                }}
-                                value={request._id}
-                                onClick={handleInfo}
-                              >
-                                <InfoIcon style={{ marginRight: "8px" }} />
-                                INFO
-                               
-                            </MKButton> */}
 
                               {request.status === "Rejected" ? (
                                 <MKBox
@@ -647,102 +592,20 @@ const DogLoverRequestsForm = () => {
                                 >
                                   <button
                                     className="mini-button"
+                                    id="deletebtn"
                                     type="submit"
-                                    style={{
-                                      margin: "25px 0px",
-                                      width: "400px",
-                                      height: "40px",
-                                    }}
                                     value={request._id}
-                                    onClick={handleInfo}
-                                  >
-                                    <InfoIcon />
-                                    INFO
-                                  </button>
-                                  {/* <MKButton
-                                    size="medium"
-                                    type="submit"
-                                    variant="gradient"
-                                    color="info"
-                                    sx={{
-                                      minWidth: {
-                                        xs: "2rem",
-                                        sm: "2rem",
-                                        md: "3rem",
-                                        lg: "3rem",
-                                      },
-
-                                      minHeight: {
-                                        xs: "2rem",
-                                        sm: "2rem",
-                                        md: "2rem",
-                                        lg: "2rem",
-                                      },
-
-                                      padding: {
-                                        xs: "6px 10px",
-                                        md: "8px 12px",
-                                        lg: "6px 10px",
-                                        xl: "4px 8px",
-                                        xxl: "4px 8px",
-                                        xxxl: "1px 4px",
-                                      },
-
-                                      ml: "2rem",
-                                    }}
-                                    value={request._id}
-                                    onClick={handleInfo}
+                                    // onClick={handleInfo}
                                   >
                                     <InfoIcon
+                                      className="infoIconByDelete"
+                                      onClick={handleInfo}
                                     />
-                                    INFO
-                                  </MKButton> */}
-                                  <MKButton
-                                    postion="absolute"
-                                    mr={-5}
-                                    size="small"
-                                    type="submit"
-                                    variant="outline"
-                                    color="error"
-                                    style={{
-                                      // minWidth: "1rem",
-                                      width: "1rem",
-                                      marginLeft: "0rem",
-                                    }}
-                                    value={request._id}
-                                    //added on 4.3
-                                    sx={{
-                                      minWidth: {
-                                        xs: "1rem",
-                                        sm: "1rem",
-                                        md: "2.75rem",
-                                        lg: "2.75rem",
-                                      },
-                                      minHeight: {
-                                        xs: "1.75rem",
-                                        sm: "1.75rem",
-                                        md: "2rem",
-                                        lg: "2rem",
-                                      },
-                                      // minWidth: "2rem",
-                                      // minHeight: "2rem",
-                                      padding: {
-                                        xs: "6px 8px",
-                                        md: "16px 10px",
-                                        lg: "6px 8px",
-                                        xl: "4px 6px",
-                                        xxl: "4px 6px",
-                                        xxxl: "2px 2px",
-                                      },
-
-                                      ml: "1rem",
-                                    }}
-                                  >
                                     <DeleteOutlineIcon
-                                      style={styledDeleteIcon}
+                                      className="deleteIcon"
+                                      onClick={handleDelete}
                                     />
-                                    {/* DELETE */}
-                                  </MKButton>
+                                  </button>
                                 </MKBox>
                               ) : (
                                 ""

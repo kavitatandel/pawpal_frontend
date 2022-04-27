@@ -56,12 +56,12 @@ export const neumorphicHidden = {
 
 //for spinner
 export const override = css`
-  display: block;
+  display: flex;
   margin: 0 auto;
   /* border: 5px solid red; */
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 350px;
 `;
 
 export const spinnerContainer = {
@@ -70,4 +70,5 @@ export const spinnerContainer = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  // border: "5px solid red",
 };

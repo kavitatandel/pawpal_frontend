@@ -283,7 +283,7 @@ const MasterHeader = () => {
         {userType === "doglover" ? (
           <>
             {/* ________DOGLOVER */}
-            <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ flexGrow: 2, display: { xxxxs: "none", sm: "flex" } }}>
               <Link to="/user/searchdog">
                 <MKButton
                   variant="text"
@@ -307,7 +307,7 @@ const MasterHeader = () => {
         ) : (
           <>
             {/* ________OWNER */}
-            <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ flexGrow: 2, display: { xxxxs: "none", sm: "flex" } }}>
               <Link to="/owner/ownerdogs">
                 <MKButton
                   variant="text"
@@ -337,12 +337,6 @@ const MasterHeader = () => {
               onClick={handleOpenUserMenu}
               sx={{ p: 0, backgroundColor: "white" }}
             >
-              {/* <Avatar
-                sx={{ width: 56, height: 56 }}
-                alt={`${user.first_name} avatar`}
-                src={headerAvatar}
-              /> */}
-              {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               <Avatar
                 src={user.profile_pic}
                 alt={`${user.first_name} avatar`}

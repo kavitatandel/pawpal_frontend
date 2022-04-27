@@ -56,6 +56,7 @@ const RequestGridHeading = () => {
             style={{
               justifyContent: "flex-start",
               alignItems: "center",
+              border: "2px solid blue",
             }}
           >
             <MKAvatar
@@ -84,6 +85,7 @@ const RequestGridHeading = () => {
               justifyContent: "flex-start",
               width: { sm: "25%", md: "25%", lg: "16%" },
               display: { sm: "flex" },
+              border: "2px solid blue",
             }}
           >
             {" "}
@@ -107,6 +109,7 @@ const RequestGridHeading = () => {
 
               alignItems: "center",
               justifyContent: "flex-start",
+              border: "2px solid blue",
             }}
           >
             <MKTypography
@@ -127,6 +130,7 @@ const RequestGridHeading = () => {
             style={{
               alignItems: "center",
               justifyContent: "flex-start",
+              border: "2px solid blue",
             }}
           >
             <MKTypography
@@ -147,6 +151,7 @@ const RequestGridHeading = () => {
             style={{
               alignItems: "center",
               justifyContent: "flex-start",
+              border: "2px solid blue",
             }}
           >
             <MKTypography
@@ -167,6 +172,7 @@ const RequestGridHeading = () => {
             style={{
               alignItems: "center",
               justifyContent: "flex-start",
+              border: "2px solid blue",
             }}
           >
             <MKTypography
@@ -187,6 +193,7 @@ const RequestGridHeading = () => {
               alignItems: "center",
               justifyContent: "flex-start",
               paddingLeft: "2rem",
+              border: "2px solid blue",
             }}
           >
             <MKTypography
