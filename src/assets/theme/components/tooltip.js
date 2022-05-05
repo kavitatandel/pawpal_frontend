@@ -41,7 +41,7 @@ export default {
       color: light.main,
       fontSize: size.sm,
       fontWeight: fontWeightRegular,
-      textAlign: "center",
+      textalign: "center",
       borderRadius: borderRadius.md,
       opacity: 0.7,
       padding: `${pxToRem(5)} ${pxToRem(8)} ${pxToRem(4)}`,

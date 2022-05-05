@@ -278,7 +278,7 @@ const ProfileInputsGrid = ({ editMode }) => {
             md={6}
             style={{
               padding: "1rem",
-              textAlign: "center",
+              textalign: "center",
               // border: "3px solid red",
             }}
           >
@@ -356,7 +356,7 @@ const ProfileInputsGrid = ({ editMode }) => {
               mb={5}
               justifyContent="center"
               sx={{ display: { xs: "block", md: "flex" } }}
-              textAlign="center"
+              textalign="center"
               width="100%"
             >
               <button
@@ -380,7 +380,7 @@ const ProfileInputsGrid = ({ editMode }) => {
               mb={5}
               justifyContent="center"
               sx={{ display: { xs: "block", md: "flex" } }}
-              textAlign="center"
+              textalign="center"
               width="100%"
             >
               <MKButton

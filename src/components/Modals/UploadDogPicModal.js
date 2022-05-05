@@ -85,7 +85,7 @@ const UploadDogPicModal = ({
       icon: "success",
       button: "OK!",
       buttonsStyling: false,
-      customClass: {
+      className: {
         confirmButton: "swal-button", //insert class here
       },
     });
@@ -151,7 +151,7 @@ const UploadDogPicModal = ({
                 pr="1rem"
                 pl="1rem"
                 // pb="0.75rem"
-                textAlign="center"
+                textalign="center"
                 style={{
                   display: "flex",
                   alignItems: "center",

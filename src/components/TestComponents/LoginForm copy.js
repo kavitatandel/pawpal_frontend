@@ -127,7 +127,7 @@ const LoginForm = () => {
           height="100vh"
           mx="auto"
           position="relative"
-          zIndex={1}
+          zindex={1}
           sx={{ width: "75%" }}
         >
           <Grid
@@ -158,7 +158,7 @@ const LoginForm = () => {
                   mt={-3}
                   p={5}
                   mb={-2}
-                  textAlign="center"
+                  textalign="center"
                 >
                   <MKTypography
                     variant="h3"
@@ -259,7 +259,7 @@ const LoginForm = () => {
                       mt={10}
                       justifyContent="center"
                       display="flex"
-                      textAlign="center"
+                      textalign="center"
                       width="100%"
                     >
                       <MKButton
@@ -289,7 +289,7 @@ const LoginForm = () => {
                         Log In
                       </MKButton>
                     </MKBox>
-                    <MKBox mt={3} mb={1} textAlign="center"></MKBox>
+                    <MKBox mt={3} mb={1} textalign="center"></MKBox>
                   </MKBox>
                 </MKBox>
               </Card>

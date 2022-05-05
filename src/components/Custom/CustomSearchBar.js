@@ -18,18 +18,18 @@ const CustomSearchBar = () => {
 
   return (
     <>
-      <div class="search-wrapper">
-        <div class="input-holder">
+      <div className="search-wrapper">
+        <div className="input-holder">
           <input
             type="text"
-            class="search-input"
+            className="search-input"
             placeholder="Type to search"
           />
-          <button class="search-icon" onclick="searchToggle(this, event);">
+          <button className="search-icon" onclick="searchToggle(this, event);">
             <span></span>
           </button>
         </div>
-        <span class="close" onclick="searchToggle(this, event);"></span>
+        <span className="close" onclick="searchToggle(this, event);"></span>
       </div>
     </>
   );

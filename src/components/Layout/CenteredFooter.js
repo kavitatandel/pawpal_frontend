@@ -22,9 +22,9 @@ function CenteredFooter({ company, links, socials, light }) {
 
   const year = new Date().getFullYear();
 
-  const renderLinks = links.map((link) => (
+  const renderLinks = links.map((link, index) => (
     <MKTypography
-      key={link.name}
+      key={index}
       component={Link}
       href={link.href}
       variant="body2"
@@ -35,9 +35,9 @@ function CenteredFooter({ company, links, socials, light }) {
     </MKTypography>
   ));
 
-  const renderSocials = socials.map((social) => (
+  const renderSocials = socials.map((social, index) => (
     <MKTypography
-      key={social.link}
+      key={index}
       component={Link}
       href={social.link}
       variant="body2"
@@ -93,7 +93,16 @@ function CenteredFooter({ company, links, socials, light }) {
             {renderSocials}
           </Stack>
         </Grid>
-        <Grid item xs={12} lg={8} sx={{ textAlign: "center" }}>
+        <Grid
+          item
+          xs={12}
+          lg={8}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {/* <MKTypography variant="body2" color={light ? "white" : "secondary"}>
             Copyright &copy; {year} Made by{" "}
             <MKTypography

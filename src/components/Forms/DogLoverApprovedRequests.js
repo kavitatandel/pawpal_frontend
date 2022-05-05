@@ -26,7 +26,7 @@ const DogLoverApprovedRequests = ({
             variant="h5"
             fontWeight="medium"
             color="dark"
-            textAlign="center"
+            textalign="center"
           >
             Approved Requests
           </MKTypography>
@@ -48,7 +48,7 @@ const DogLoverApprovedRequests = ({
           flexDirection="column"
           justifyContent="flex-start"
           alignItems="center"
-          textAlign="center"
+          textalign="center"
           style={{
             // border: "3px solid blue",
             backgroundColor: "rgba(39, 46, 245, 0.2)",
@@ -93,7 +93,7 @@ const DogLoverApprovedRequests = ({
                       {request.DogsRequests.profile_photo !== undefined ? (
                         <MKAvatar
                           top={-50}
-                          zIndex={2}
+                          zindex={2}
                           src={`${request.DogsRequests.profile_photo}`}
                           alt={`${request.DogsRequests.name}`}
                           shadow="xl"
@@ -106,7 +106,7 @@ const DogLoverApprovedRequests = ({
                       ) : (
                         <MKAvatar
                           top={-50}
-                          zIndex={2}
+                          zindex={2}
                           src=""
                           alt={`${request.DogsRequests.name}`}
                           shadow="xl"

@@ -32,7 +32,7 @@ import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
 import MKAvatar from "components/MKAvatar";
 
 //import swal from sweetalert
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 // //date localization
 // import deLocale from 'date-fns/locale/de';
@@ -52,7 +52,7 @@ function DogRequestModal({
   // dogLoverId, setDogLoverId,
   dogId,
   setDogId,
-  dogInfo
+  dogInfo,
 }) {
   //for localization
   const [locale, setLocale] = useState("de");
@@ -67,7 +67,7 @@ function DogRequestModal({
     setLocale(newLocale);
   };
 
-  useEffect(() => { });
+  useEffect(() => {});
 
   const handleCancel = () => {
     toggleModal();
@@ -111,9 +111,9 @@ function DogRequestModal({
       icon: "success",
       button: "OK!",
       buttonsStyling: false,
-      customClass: {
-        confirmButton: 'swal-button' //insert class here
-      }
+      className: {
+        confirmButton: "swal-button", //insert class here
+      },
     });
     // swal("Request Sent", "Your request has been sent!", "success", {
     //   button: "OK",
@@ -171,9 +171,10 @@ function DogRequestModal({
                 mx="3rem"
                 mt="-2.5rem"
                 pt="0.75rem"
-                pr="1rem" pl="1rem"
+                pr="1rem"
+                pl="1rem"
                 pb="0.75rem"
-                textAlign="center"
+                textalign="center"
               >
                 {/* Request Status Heading */}
                 <MKTypography variant="h3" fontWeight="regular" color="white">
@@ -194,7 +195,7 @@ function DogRequestModal({
                         }}
                       >
                         <MKAvatar
-                          zIndex={2}
+                          zindex={2}
                           src={`${dogInfo.profile_photo}`}
                           alt={`${dogInfo.name} `}
                           shadow="xl"
@@ -218,7 +219,6 @@ function DogRequestModal({
                       </MKBox>
                     </Grid>
                     <Grid
-
                       item
                       xs={12}
                       md={6}
@@ -230,14 +230,14 @@ function DogRequestModal({
                         flexDirection="column"
                         alignItems="flexStart"
                         justifyContent="center"
-                        mb="0.5rem" ml="1rem"
+                        mb="0.5rem"
+                        ml="1rem"
                       >
                         <MKTypography
                           // variant="h2" //commented by kavita
                           variant="h4"
                           fontWeight="regular"
                           color="dark"
-
                         >
                           {dogInfo.name}
                         </MKTypography>
@@ -269,7 +269,6 @@ function DogRequestModal({
                           dateAdapter={AdapterDateFns}
                           locale={localeMap[locale]}
                         >
-
                           <DatePicker
                             views={["day"]}
                             mask={maskMap[locale]}
@@ -288,12 +287,11 @@ function DogRequestModal({
                               <TextField
                                 {...params}
                                 sx={{
-                                  svg: { color: "#ff9a85" }
+                                  svg: { color: "#ff9a85" },
                                 }}
                               />
                             )}
                           />
-
                         </LocalizationProvider>
                       </MKBox>
                     </Grid>
@@ -303,19 +301,14 @@ function DogRequestModal({
                         alginItems="center"
                         justifyContent="flex-start"
 
-                      // pl={2} pr={}
+                        // pl={2} pr={}
                       >
-                        <MKBox pl={2} mr={1}
-                          width="45%"
-                        >
-
+                        <MKBox pl={2} mr={1} width="45%">
                           <LocalizationProvider
                             dateAdapter={AdapterDateFns}
-                          // locale={localeMap[locale]}
+                            // locale={localeMap[locale]}
                           >
-
                             <TimePicker
-
                               //ampm={false}
                               //format="HH:mm:ss"
 
@@ -332,8 +325,8 @@ function DogRequestModal({
                                   }}
                                 />
                               )}
-                            // InputProps={{ readOnly: true }}
-                            // onChangeRaw={(e) => e.preventDefault()}
+                              // InputProps={{ readOnly: true }}
+                              // onChangeRaw={(e) => e.preventDefault()}
                             />
                           </LocalizationProvider>
                         </MKBox>
@@ -349,7 +342,7 @@ function DogRequestModal({
                                 <TextField
                                   {...params}
                                   sx={{
-                                    svg: { color: "#ff9a85" }
+                                    svg: { color: "#ff9a85" },
                                   }}
                                 />
                               )}
@@ -364,7 +357,7 @@ function DogRequestModal({
                         alginItems="center"
                         justifyContent="flex-start"
                         p={2}
-                      // sx={{ p: "2rem, 1rem, 1rem, 1rem" }}
+                        // sx={{ p: "2rem, 1rem, 1rem, 1rem" }}
                       >
                         <MKInput
                           label="Meeting Location"
@@ -383,7 +376,10 @@ function DogRequestModal({
                         display="flex"
                         alginItems="center"
                         justifyContent="flex-start"
-                        pt={0} pl={2} pb={2} pr={2}
+                        pt={0}
+                        pl={2}
+                        pb={2}
+                        pr={2}
                       >
                         <MKInput
                           multiline
@@ -438,7 +434,7 @@ function DogRequestModal({
           </Slide>
         </Modal>
       </Container>
-    </MKBox >
+    </MKBox>
   );
 }
 

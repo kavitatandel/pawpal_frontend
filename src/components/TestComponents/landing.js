@@ -66,7 +66,7 @@ const Landing = () => {
             justifyContent="center"
             alignItems="center"
             flexDirection="column"
-            sx={{ mx: "auto", textAlign: "center", top: "-100" }}
+            sx={{ mx: "auto", textalign: "center", top: "-100" }}
           >
             <MKTypography
               variant="h1"

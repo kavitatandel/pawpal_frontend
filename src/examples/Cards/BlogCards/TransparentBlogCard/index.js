@@ -55,7 +55,7 @@ function TransparentBlogCard({ image, title, description, action }) {
         shadow="md"
         width="100%"
         position="relative"
-        zIndex={1}
+        zindex={1}
       />
       <MKBox
         borderRadius="lg"
@@ -98,7 +98,12 @@ function TransparentBlogCard({ image, title, description, action }) {
             </MKTypography>
           </Link>
         ) : (
-          <MuiLink href={action.route} target="_blank" rel="noreferrer" sx={cardActionStyles}>
+          <MuiLink
+            href={action.route}
+            target="_blank"
+            rel="noreferrer"
+            sx={cardActionStyles}
+          >
             <MKTypography variant="h5" gutterBottom>
               {title}
             </MKTypography>

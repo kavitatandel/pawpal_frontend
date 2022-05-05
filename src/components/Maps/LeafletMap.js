@@ -96,7 +96,7 @@ const LeafletMap = ({ locations, isSearched }) => {
             width: "100%",
             position: "absolute !important",
             boxSizing: "border-box",
-            zIndex: 0,
+            zindex: 0,
             // border: "6px dotted rgba(0,0,0)",
           }}
         >
@@ -124,7 +124,7 @@ const LeafletMap = ({ locations, isSearched }) => {
                     }}
                   >
                     <MKAvatar
-                      zIndex={2}
+                      zindex={2}
                       src={`${point.dogs_info.profile_photo}`}
                       alt={`${point.dogs_info.name}`}
                       shadow="xl"

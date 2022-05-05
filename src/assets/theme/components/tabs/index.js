@@ -38,7 +38,7 @@ export default {
     flexContainer: {
       height: "100%",
       position: "relative",
-      zIndex: 10,
+      zindex: 10,
     },
 
     fixed: {

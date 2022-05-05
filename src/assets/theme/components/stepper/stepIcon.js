@@ -32,7 +32,7 @@ export default {
       width: pxToRem(13),
       height: pxToRem(13),
       borderRadius: "50%",
-      zIndex: 99,
+      zindex: 99,
       transition: "all 200ms linear",
 
       "&.Mui-active": {

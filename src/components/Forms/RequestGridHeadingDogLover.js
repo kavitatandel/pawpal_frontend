@@ -25,6 +25,7 @@ const RequestGridHeadingDogLover = () => {
           minWidth: "185px",
           height: "5rem",
           marginTop: "1.5rem",
+          marginBottom: "-1.5rem",
           display: { xxxxs: "none", xs: "block" },
           // border: "2px solid lime !important",
         }}
@@ -64,7 +65,7 @@ const RequestGridHeadingDogLover = () => {
           >
             {/* <MKAvatar
               top={-50}
-              zIndex={2}
+              zindex={2}
               src=""
               alt="H"
               shadow="xl"

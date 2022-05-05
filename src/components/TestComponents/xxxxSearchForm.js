@@ -26,7 +26,7 @@ import data from "../../data/dogFromDB";
 import { searchDogByCity } from "../../logic/SearchFunctions.js";
 
 //get searched dog component
-import SearchedDog from "./SearchedDog";
+import SearchedDog from "../Forms/SearchedDog";
 
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
@@ -187,7 +187,7 @@ const SearchForm = () => {
             // xl: 1200,
             // xxl: 1400,
             // xxxl: 1800,
-            zIndex: 3,
+            zindex: 3,
             position: "relative",
 
             // glass effect
@@ -279,7 +279,7 @@ const SearchForm = () => {
             display="flex"
             justifyContent="center"
             height="auto"
-          // border="7px dashed purple !important"
+            // border="7px dashed purple !important"
           >
             {/* **************** SEARCH RESULTS */}
             <div

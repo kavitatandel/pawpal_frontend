@@ -193,7 +193,7 @@ const SearchForm = () => {
             // xl: 1200,
             // xxl: 1400,
             // xxxl: 1800,
-            zIndex: 3,
+            zindex: 3,
             position: "relative",
 
             // glass effect
@@ -224,7 +224,7 @@ const SearchForm = () => {
               display="flex"
               alignItems="center"
               style={{
-                zIndex: 4,
+                zindex: 4,
                 padding: "0.6rem",
                 background:
                   "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",

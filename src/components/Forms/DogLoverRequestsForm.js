@@ -126,7 +126,7 @@ const DogLoverRequestsForm = () => {
           icon: "success",
           button: "OK!",
           buttonsStyling: false,
-          customClass: {
+          className: {
             confirmButton: "swal-button", //insert class here
           },
         });
@@ -173,11 +173,10 @@ const DogLoverRequestsForm = () => {
           mr={0}
           ml={0}
           position="relative"
-          zindex={-1}
           sx={{ padding: "0" }}
           display="flex"
           flexDirection="column"
-          justifyContent="flex-start"
+          justifyContent="center"
           alignItems="center"
         >
           <Paper
@@ -195,11 +194,10 @@ const DogLoverRequestsForm = () => {
               minWidth: "185px",
               height: "auto",
               mt: 30,
-
               pb: "3rem",
               mx: { xs: 2, lg: 3 },
               position: "relative",
-              mb: 10,
+              mb: 20,
             }}
           >
             {selectedDogRequest.length !== 0 ? (
@@ -211,7 +209,7 @@ const DogLoverRequestsForm = () => {
                 setSelectedDogRequest={setSelectedDogRequest}
               />
             ) : (
-              <h1></h1>
+              <h1> </h1>
             )}
 
             {/* ************************** Dog Details */}
@@ -231,10 +229,12 @@ const DogLoverRequestsForm = () => {
               <MKBox
                 variant="gradient"
                 bgColor="info"
-                //borderRadius="lg"
                 borderRadius="25px"
                 coloredShadow="info"
-                textAlign="center"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                position="absolute"
                 sx={{
                   height: "7rem",
                   padding: "1rem",
@@ -247,21 +247,15 @@ const DogLoverRequestsForm = () => {
                     lg: "65%",
                     xl: "50%",
                     xxl: "40%",
-                    xxxl: "30%",
                   },
                   minWidth: "200px",
-                  maxWidth: "1000px",
+                  maxWidth: "1400px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                <MKTypography
-                  variant="h4"
-                  fontWeight="bold"
-                  color="light"
-                  textAlign="center"
-                >
+                <MKTypography variant="h4" fontWeight="bold" color="light">
                   PLAY DATE REQUESTS
                 </MKTypography>
                 {/* </MKBox> */}
@@ -276,7 +270,7 @@ const DogLoverRequestsForm = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                mb: "4rem",
+                mb: "6rem",
                 minWidth: "100%",
               }}
             >
@@ -363,7 +357,6 @@ const DogLoverRequestsForm = () => {
                             >
                               <MKAvatar
                                 top={-50}
-                                zIndex={2}
                                 src={`${request.DogsRequests.profile_photo}`}
                                 alt={`${request.DogsRequests.name}`}
                                 shadow="xl"

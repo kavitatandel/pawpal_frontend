@@ -97,7 +97,7 @@ function DogLoverRequestInfoModal({
                 pr="1rem"
                 pl="1rem"
                 // pb="0.75rem"
-                textAlign="center"
+                textalign="center"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -126,7 +126,7 @@ function DogLoverRequestInfoModal({
                       }}
                     >
                       <MKAvatar
-                        zIndex={2}
+                        zindex={2}
                         src={`${selectedDogRequest.DogsRequests.profile_photo}`}
                         alt={`${selectedDogRequest.DogsRequests.profile_photo}`}
                         shadow="xl"

@@ -96,7 +96,7 @@ const LandingStyled = () => {
                 <div item id="button-container">
                   <button
                     id="registerButton"
-                    class="glow-on-hover"
+                    className="glow-on-hover"
                     onClick={registerOwnerHandler}
                     // onClick={() => navigate("/register")}
                   >
@@ -104,7 +104,7 @@ const LandingStyled = () => {
                   </button>
                   <button
                     id="loginButton"
-                    class="glow-on-hover"
+                    className="glow-on-hover"
                     onClick={() => navigate("/login")}
                   >
                     log in
@@ -138,7 +138,7 @@ const LandingStyled = () => {
                 <div item id="button-container">
                   <button
                     id="registerButton"
-                    class="glow-on-hover"
+                    className="glow-on-hover"
                     onClick={registerDLHandler}
                     // onClick={() => navigate("/register")}
                   >
@@ -146,7 +146,7 @@ const LandingStyled = () => {
                   </button>
                   <button
                     id="loginButton"
-                    class="glow-on-hover"
+                    className="glow-on-hover"
                     onClick={() => navigate("/login")}
                   >
                     log in

@@ -173,7 +173,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
 
@@ -188,7 +188,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -202,7 +202,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -239,7 +239,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -253,7 +253,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -267,7 +267,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -376,7 +376,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -391,7 +391,7 @@ const MasterHeader = () => {
                       onClick={handleLogOut}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -426,7 +426,7 @@ const MasterHeader = () => {
                       onClick={handleCloseNavMenu}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >
@@ -440,7 +440,7 @@ const MasterHeader = () => {
                       onClick={handleLogOut}
                       size="medium"
                       color="dark"
-                      textAlign="center"
+                      textalign="center"
                       variant="text"
                       fontWeight="medium"
                     >

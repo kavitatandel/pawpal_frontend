@@ -171,7 +171,7 @@ const RegisterForm = () => {
               borderRadius="25px"
               coloredShadow="info"
               width="25rem"
-              textAlign="center"
+              textalign="center"
               sx={{
                 height: "7rem",
                 display: "flex",

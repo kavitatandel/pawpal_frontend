@@ -1,7 +1,14 @@
 /* XXL - 1200px+++ ------------------------------------- */
 
 @media screen and (min-width: 1201px) {
-  .mini-button {
+  .paper {
+    /* elevation: 24; */
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 8px 40px 0 rgba(255, 61, 46, 0.5);
+  }
+
+  #miniBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +41,7 @@
 /* XL - 1200px ----------------------------------------- */
 
 @media screen and (max-width: 1200px) {
-  .mini-button {
+  #miniBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,7 +74,7 @@
 /* LG - 992px ----------------------------------------- */
 
 @media screen and (max-width: 992px) {
-  .mini-button {
+  #miniBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +107,7 @@
 /* MD - 768px ----------------------------------------- */
 
 @media screen and (max-width: 768px) {
-  .mini-button {
+  #miniBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,7 +141,7 @@
 /* SM - 576px ----------------------------------------- */
 
 @media screen and (max-width: 576px) {
-  .mini-button {
+  #miniBtn {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -179,19 +186,21 @@
 /* XS - 400px ----------------------------------------- */
 
 @media screen and (max-width: 400px) {
-  .mini-button {
+  #miniBtn {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .infoIcon {
-    margin-right: 6px;
+    margin-right: 0px;
     transform: scale(1.2);
+    margin-top: 3.5px;
     /* border: 1px solid blue; */
   }
   .infoText {
     display: flex;
+    justify-content: center;
     /* border: 1px solid blue; */
     width: 30px;
   }
@@ -199,6 +208,23 @@
 
 /* 300px ---------------------------------------------- */
 @media screen and (max-width: 300px) {
+  #miniBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .infoIcon {
+    margin-right: 0px;
+    transform: scale(1.2);
+    margin-top: 3.5px;
+    /* border: 1px solid blue; */
+  }
+  .infoText {
+    display: none;
+    /* border: 1px solid blue; */
+    width: 30px;
+  }
 }
 
 /* 200px ---------------------------------------------- */
