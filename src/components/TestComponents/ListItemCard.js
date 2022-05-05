@@ -33,7 +33,7 @@ const ListItemCard = () => {
         >
           <MKAvatar
             top={-50}
-            zIndex={2}
+            zindex={2}
             // Hard coded for now
             src="https://res.cloudinary.com/kavita-project/image/upload/v1645350736/lqhvjqlevlaqxpzw7hqq.png"
             alt="Burce Mars"

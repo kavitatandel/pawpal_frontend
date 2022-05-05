@@ -12,7 +12,7 @@ const DogInfo = () => {
     <>
       <MasterHeader />
       <Body>
-        <DogInfoForm dogid={dogid} style={{ zIndex: "3" }} />
+        <DogInfoForm dogid={dogid} style={{ zindex: "3" }} />
       </Body>
       {/* <CenteredFooter /> */}
     </>

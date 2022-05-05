@@ -75,75 +75,31 @@ function OwnerApprovedRequestModal({
               shadow="xl"
               p={3}
               my={2}
-              // border="5px solid aqua"
+              border="5px solid aqua"
             >
-              {/* ************** PINK HEADING BOX */}
+              {/* Pink Box at top */}
               <MKBox
                 variant="gradient"
                 bgColor="info"
-                borderRadius="25px"
+                borderRadius="lg"
                 coloredShadow="info"
-                mt="-4rem"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                sx={{
-                  height: "7rem",
-                  padding: "1rem 3rem",
-                  width: {
-                    xxxxs: "90%",
-                    xxxs: "90%",
-                    xs: "85%",
-                    sm: "80%",
-                    md: "75%",
-                    lg: "65%",
-                    xl: "60%",
-                    xxl: "60%",
-                  },
-                  minWidth: "200px",
-                  maxWidth: "1400px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                width="60%"
+                mx="3rem"
+                mt="-2.5rem"
+                pt="0.75rem"
+                pr="1rem"
+                pl="1rem"
+                pb="0.75rem"
+                textalign="center"
               >
                 {/* Request Status Heading */}
-                <MKTypography
-                  variant="h4"
-                  fontWeight="bold"
-                  color="light"
-                  style={{ textAlign: "center" }}
-                >
-                  APPROVED REQUEST
+                <MKTypography variant="h3" fontWeight="regular" color="white">
+                  Approved Request
                 </MKTypography>
               </MKBox>
-              <MKBox
-                pt="2rem"
-                pl="3rem"
-                pr="3rem"
-                pb="2rem"
-                // border="3px solid lime"
-              >
+              <MKBox pt="1rem" pl="3rem" pr="3rem" pb="0rem">
                 <Grid container>
-                  <Grid
-                    item
-                    xxxxs={12}
-                    md={6}
-                    sx={{
-                      display: "flex",
-                      justifyContent: {
-                        xxxxs: "center",
-                        md: "flex-end",
-                      },
-                      paddingRight: { xxxxs: "0rem", md: "1rem" },
-                      paddingTop: { xxxxs: "0.5rem" },
-                      paddingBottom: { xxxxs: "0.5rem" },
-                    }}
-                    style={{
-                      // border: "3px solid red",
-                      minWidth: "180px",
-                    }}
-                  >
+                  <Grid item xs={12} md={6}>
                     <MKBox
                       className="Avatar"
                       sx={{
@@ -172,53 +128,42 @@ function OwnerApprovedRequestModal({
                         <img
                           src={DogAvatar}
                           alt="avatar"
-                          style={{ width: "101%", height: "101%" }}
+                          style={{ width: "100%", height: "100%" }}
                         />
                       </MKAvatar>
                     </MKBox>
                   </Grid>
 
-                  {/* ************** DOG NAME & BREED GRID CELL */}
+                  {/* *********** Dog requester Name */}
                   <Grid
                     item
-                    xxxxs={12}
+                    xs={12}
                     md={6}
                     display="flex"
-                    // border="3px solid lime"
-                    sx={{
-                      justifyContent: {
-                        xxxxs: "center",
-                        md: "flex-start",
-                      },
-                      paddingLeft: { xxxxs: "0rem", md: "1rem" },
-                      paddingTop: { xxxxs: "0.5rem" },
-                      paddingBottom: { xxxxs: "0.5rem" },
-                    }}
+                    sx={{ justifyContent: { xs: "flex-start" } }}
                   >
-                    {/* ************** DOG NAME & BREED MKBOX */}
                     <MKBox
                       display="flex"
                       flexDirection="column"
+                      alignItems="flexStart"
                       justifyContent="center"
-                      sx={{
-                        alignItems: { xxxxs: "center", md: "flex-start" },
-                      }}
-                      // border="5px solid orange"
+                      mb="2rem"
+                      ml="1rem"
                     >
                       <MKTypography
-                        variant="h4"
-                        fontWeight="bold"
+                        // variant="h2" //commented by kavita
+                        variant="h5"
+                        fontWeight="regular"
                         color="dark"
-                        fontSize="1.5rem"
                       >
                         {selectedDogRequest.DogsRequests.name}
                       </MKTypography>
 
                       <MKTypography
-                        variant="h4"
-                        fontWeight="bold"
-                        color="info"
-                        fontSize="1.2rem"
+                        // variant="h3" //commented by kavita
+                        variant="h6"
+                        fontWeight="regular"
+                        color="dark"
                       >
                         {selectedDogRequest.DogsRequests.breed}
                       </MKTypography>

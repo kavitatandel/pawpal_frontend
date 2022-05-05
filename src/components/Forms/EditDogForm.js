@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "context/UserContext";
-import TopBgImg from "components/Blocks/TopBgImg";
 import MKBox from "components/MKBox";
 import MKAvatar from "components/MKAvatar";
 import MKTypography from "../MKTypography";
@@ -297,7 +296,7 @@ const EditDogForm = () => {
                     variant="h1"
                     fontWeight="medium"
                     color="light"
-                    textAlign="center"
+                    textalign="center"
                     mt={-3}
                   >
                     {dogName}
@@ -486,7 +485,7 @@ const EditDogForm = () => {
                     <Typography
                       component="legend"
                       variant="h6"
-                      textAlign="left"
+                      textalign="left"
                       mb="1rem"
                     >
                       Size
@@ -562,7 +561,7 @@ const EditDogForm = () => {
                     <Typography
                       component="legend"
                       variant="h6"
-                      textAlign="left"
+                      textalign="left"
                       mb="1rem"
                     >
                       Energy
@@ -636,7 +635,7 @@ const EditDogForm = () => {
                     <Typography
                       component="legend"
                       variant="h6"
-                      textAlign="left"
+                      textalign="left"
                       mb="1rem"
                     >
                       Can Play Fetch
@@ -690,7 +689,7 @@ const EditDogForm = () => {
               </Grid>
 
               <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
-                <Typography component="legend" variant="h6" textAlign="center">
+                <Typography component="legend" variant="h6" textalign="center">
                   Kid Friendly
                 </Typography>
                 <div
@@ -730,7 +729,7 @@ const EditDogForm = () => {
               </Grid>
 
               <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
-                <Typography component="legend" variant="h6" textAlign="center">
+                <Typography component="legend" variant="h6" textalign="center">
                   Cat Friendly
                 </Typography>
                 <div
@@ -769,7 +768,7 @@ const EditDogForm = () => {
                 </div>
               </Grid>
               <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
-                <Typography component="legend" variant="h6" textAlign="center">
+                <Typography component="legend" variant="h6" textalign="center">
                   Dog Friendly
                 </Typography>
                 <div
@@ -808,7 +807,7 @@ const EditDogForm = () => {
                 </div>
               </Grid>
               <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
-                <Typography component="legend" variant="h6" textAlign="center">
+                <Typography component="legend" variant="h6" textalign="center">
                   Obedience
                 </Typography>
                 <div
@@ -847,7 +846,7 @@ const EditDogForm = () => {
                 </div>
               </Grid>
               <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
-                <Typography component="legend" variant="h6" textAlign="center">
+                <Typography component="legend" variant="h6" textalign="center">
                   Can stay home alone
                 </Typography>
                 <div
@@ -886,7 +885,7 @@ const EditDogForm = () => {
                 </div>
               </Grid>
               <Grid item xs={12} sm={6} md={4} style={{ padding: "1rem" }}>
-                <Typography component="legend" variant="h6" textAlign="center">
+                <Typography component="legend" variant="h6" textalign="center">
                   Exercise Needs
                 </Typography>
                 <div
@@ -931,7 +930,7 @@ const EditDogForm = () => {
                   mb={5}
                   justifyContent="center"
                   sx={{ display: { xs: "block", md: "flex" } }}
-                  textAlign="center"
+                  textalign="center"
                   width="100%"
                 >
                   <button

@@ -32,7 +32,7 @@ export default {
   borderRadius: borderRadius.lg,
   padding: `${pxToRem(6.302)} ${pxToRem(16.604)}`,
   lineHeight: 1.4,
-  textAlign: "center",
+  textalign: "center",
   textTransform: "uppercase",
   userSelect: "none",
   backgroundSize: "150% !important",

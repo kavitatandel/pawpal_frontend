@@ -171,7 +171,7 @@ const SearchForm = () => {
         mr={0}
         ml={0}
         position="relative"
-        zIndex={-1}
+        zindex={-1}
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
@@ -182,7 +182,7 @@ const SearchForm = () => {
           className="neuCard"
           elevation={24}
           sx={{
-            zIndex: 3,
+            zindex: 3,
             position: "relative",
 
             // glass effect

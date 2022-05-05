@@ -53,14 +53,14 @@ export default {
       position: "relative",
       border: "none",
       borderRadius: borderRadius.lg,
-      zIndex: 1,
+      zindex: 1,
     },
 
     thumb: {
       width: pxToRem(14),
       height: pxToRem(14),
       backgroundColor: white.main,
-      zIndex: 10,
+      zindex: 10,
       boxShadow: sliderBoxShadow.thumb,
       border: `${borderWidth[1]} solid ${info.main}`,
       transition: "all 200ms linear",
@@ -73,7 +73,9 @@ export default {
         transform: "translate(-50%, -50%) scale(1.4)",
       },
 
-      "&.Mui-active": { boxShadow: boxShadow([0, 0], [0, 14], info.main, 0.16) },
+      "&.Mui-active": {
+        boxShadow: boxShadow([0, 0], [0, 14], info.main, 0.16),
+      },
     },
   },
 };

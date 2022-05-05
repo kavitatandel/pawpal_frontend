@@ -24,6 +24,7 @@ import { useNavigate } from "react-router";
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 import "../../styles/buttonStyles.css";
+import { KeyboardReturnRounded } from "@mui/icons-material";
 
 const OwnerDogsForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -34,14 +35,6 @@ const OwnerDogsForm = () => {
   const [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ff3d47");
 
-  // const getDogsByOwner = (user_id) => {
-  //     dogsByOwner(user_id).then((res) => {
-  //         console.log(res)
-  //         setDogs(res);
-  //     })
-  //         .catch((err) => console.log(err));
-  // }
-
   useEffect(() => {
     //getDogsByOwner(user._id);
     console.log(user._id);
@@ -49,10 +42,12 @@ const OwnerDogsForm = () => {
       .then((res) => {
         console.log(res);
         setDogs(res);
-        //for spinner
-        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() =>
+        //for spinner
+        setLoading(false)
+      );
   }, []);
 
   const handleChangeAdd = () => {
@@ -77,12 +72,12 @@ const OwnerDogsForm = () => {
     transform: "scale(1.5)",
   };
 
-  const iconButtonStyle = {};
-
   //for spinner
   if (loading)
     return (
-      <RiseLoader color={color} loading={loading} css={override} size={40} />
+      <div style={spinnerContainer}>
+        <RiseLoader color={color} loading={loading} css={override} size={40} />
+      </div>
     );
   return (
     <>
@@ -96,7 +91,6 @@ const OwnerDogsForm = () => {
         mr={0}
         ml={0}
         position="relative"
-        zindex={-1}
         // sx={{ padding: "0", border: "2px solid blue" }}
         display="flex"
         flexDirection="column"
@@ -130,6 +124,7 @@ const OwnerDogsForm = () => {
               alignItems: "flex-start",
               mb: "0rem",
               pb: "0rem",
+              // border: "3px solid lime",
             }}
           >
             <MKBox
@@ -141,15 +136,19 @@ const OwnerDogsForm = () => {
               mt={-4}
               p={5}
               mb={2}
-              textAlign="center"
-              sx={{ width: "50%" }}
+              sx={{
+                width: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               {/* // Heading */}
               <MKTypography
                 variant="h2"
                 fontWeight="bold"
                 color="light"
-                textAlign="center"
+
                 // mt={1}
               >
                 MY DOGS
@@ -226,11 +225,14 @@ const OwnerDogsForm = () => {
                 ""
               )}
               {dogs !== undefined &&
-                dogs.map((dog, index) => {
+                dogs.map((dog) => {
                   return (
                     /* ************************** List Item Card */
 
-                    <Card sx={neumorphic}>
+                    <Card
+                      sx={neumorphic}
+                      key={Math.floor(Math.random() * 9999)}
+                    >
                       <MKBox
                         className="mainContainer"
                         style={{

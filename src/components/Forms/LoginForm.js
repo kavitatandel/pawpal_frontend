@@ -149,7 +149,7 @@ const LoginForm = () => {
               borderRadius="25px"
               coloredShadow="info"
               width="20rem"
-              textAlign="center"
+              textalign="center"
               sx={{
                 height: "7rem",
 
@@ -169,12 +169,12 @@ const LoginForm = () => {
             </MKBox>
           </div>
           <MKBox className="outerForm" id="outer">
-            <MKBox
+            <form
               className="innerForm"
               id="innerFormLogIn"
-              component="form"
+              // component="form"
               autocomplete="off"
-              role="form"
+              // role="form"
               onSubmit={testLogin}
             >
               <MKBox className="inputsContainer">
@@ -240,6 +240,7 @@ const LoginForm = () => {
                 <button
                   id="formButtons"
                   className="glow-on-hover"
+                  type="button"
                   onClick={() => navigate("/")}
                 >
                   Cancel
@@ -252,7 +253,7 @@ const LoginForm = () => {
                   Log In
                 </button>
               </MKBox>
-            </MKBox>
+            </form>
           </MKBox>
         </Card>
       </div>

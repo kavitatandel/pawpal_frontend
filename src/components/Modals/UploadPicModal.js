@@ -23,7 +23,7 @@ import UserInfo from "pages/UserInfoKavita";
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 const UploadPicModal = ({
   show,
@@ -61,7 +61,7 @@ const UploadPicModal = ({
     e.preventDefault();
 
     //for spinner on modal
-    setLoadingImage(false)
+    setLoadingImage(false);
 
     const uploadData = new FormData();
     //const uploadData = new FormData();
@@ -86,7 +86,7 @@ const UploadPicModal = ({
         //set loading image to true again
         setLoadingImage(true);
 
-        toggleModal()
+        toggleModal();
         setLoading(true);
         loading = true;
 
@@ -96,9 +96,9 @@ const UploadPicModal = ({
           icon: "success",
           button: "OK!",
           buttonsStyling: false,
-          customClass: {
-            confirmButton: 'swal-button' //insert class here
-          }
+          className: {
+            confirmButton: "swal-button", //insert class here
+          },
         });
       })
       .catch((err) => console.log(err));
@@ -118,16 +118,16 @@ const UploadPicModal = ({
     marginLeft: "0.2rem",
     verticalAlign: "middle",
     width: "3%",
-    height: "3%"
+    height: "3%",
   };
 
   const handleCloseIcon = (e) => {
     e.preventDefault();
     //clear file unput
-    const inputFile = document.getElementById('inputFile');
-    inputFile.innerHTML = '';
-    inputFile.value = '';
-  }
+    const inputFile = document.getElementById("inputFile");
+    inputFile.innerHTML = "";
+    inputFile.value = "";
+  };
 
   return (
     <MKBox component="section" py={6}>
@@ -167,9 +167,10 @@ const UploadPicModal = ({
                 mx="3rem"
                 mt="-2.5rem"
                 pt="0.75rem"
-                pr="1rem" pl="1rem"
+                pr="1rem"
+                pl="1rem"
                 pb="0.75rem"
-                textAlign="center"
+                textalign="center"
               >
                 {/* Request Status Heading */}
                 <MKTypography variant="h3" fontWeight="regular" color="white">
@@ -181,7 +182,6 @@ const UploadPicModal = ({
                 alginItems="center"
                 justifyContent="space-between"
                 p={1}
-
               >
                 {!loadingImage ? (
                   <MKBox
@@ -193,19 +193,26 @@ const UploadPicModal = ({
                     margin="auto 0"
                     flexDirection="column"
                   >
-                    <RiseLoader color={color} loading={true} css={override} size={50} />
+                    <RiseLoader
+                      color={color}
+                      loading={true}
+                      css={override}
+                      size={50}
+                    />
                   </MKBox>
-                ) : ""}
+                ) : (
+                  ""
+                )}
                 {/* <MKTypography variant="h5">Upload Profile Image</MKTypography> */}
               </MKBox>
               {/* <Divider sx={{ my: 0 }} /> */}
               {!loadingImage ? (
                 <></>
+              ) : (
                 // <MKBox p={2}>
                 //   <MKTypography variant="h6">Uploading...</MKTypography>
                 // </MKBox>
                 // <RiseLoader color={color} loading={loadingImage} css={override} size={40} />
-              ) : (
                 <MKBox p={2}>
                   <form onSubmit={handleSubmit}>
                     {/* <MKBox
@@ -214,11 +221,7 @@ const UploadPicModal = ({
                       pb={2}
                     ><MKTypography variant="h6" style={{}}>Upload Profile Pic</MKTypography>
                     </MKBox> */}
-                    <MKBox
-                      display="flex"
-                      justifyContent="center"
-                      pb={2} pt={3}
-                    >
+                    <MKBox display="flex" justifyContent="center" pb={2} pt={3}>
                       {/* <label for="inputFile" Style={{
                         border: "1px solid #ccc",
                         display: "inline-block",
@@ -232,8 +235,18 @@ const UploadPicModal = ({
                       }}>                      
                         Choose File
                       </label> */}
-                      <input style={{ width: "70%" }} id="inputFile" type="file" onChange={(e) => handleFileUpload(e)} />
-                      <CloseIcon fontSize="small" sx={{ cursor: "pointer" }} style={styledCloseIcon} onClick={handleCloseIcon} />
+                      <input
+                        style={{ width: "70%" }}
+                        id="inputFile"
+                        type="file"
+                        onChange={(e) => handleFileUpload(e)}
+                      />
+                      <CloseIcon
+                        fontSize="small"
+                        sx={{ cursor: "pointer" }}
+                        style={styledCloseIcon}
+                        onClick={handleCloseIcon}
+                      />
                     </MKBox>
                     {/* <Divider sx={{ my: 0 }} /> */}
                     <MKBox
@@ -247,7 +260,6 @@ const UploadPicModal = ({
                         onClick={toggleModal}
                         color="info"
                         size="large"
-
                         style={{
                           // width: "8rem", //commented by kavita
                           width: "7rem",
@@ -257,7 +269,9 @@ const UploadPicModal = ({
                       >
                         close
                       </MKButton>
-                      <MKButton variant="gradient" type="submit"
+                      <MKButton
+                        variant="gradient"
+                        type="submit"
                         size="large"
                         variant="gradient"
                         color="info"
@@ -277,8 +291,8 @@ const UploadPicModal = ({
             </MKBox>
           </Slide>
         </Modal>
-      </Container >
-    </MKBox >
+      </Container>
+    </MKBox>
   );
 };
 

@@ -28,14 +28,14 @@ export const neumorphic = {
 
 export const neumorphicDL = {
   flexBasis: 1,
-  padding: { xs: "0 1rem", sm: "0 1rem", md: "0 0.5rem", lg: "0 0.25rem" },
+  padding: { xxxxs: "0 1rem", md: "0 0.5rem", lg: "0 0.25rem" },
+  margin: " 1.5rem 1rem 0 1rem",
   minWidth: "100%",
   height: "5rem",
-  marginTop: "1.5rem",
   background: "#f4efee",
   boxShadow: "14.11px 14.11px 24px #dedad9, -14.11px -14.11px 24px #FFFFFF",
   display: "flex",
-  // alignItems: "center",
+  border: "2px solid pink",
   justifyContent: "center",
 };
 
@@ -46,22 +46,22 @@ export const neumorphicHidden = {
   minWidth: "100%",
   height: "5rem",
   marginTop: "1.5rem",
+  marginBottom: "-1.5rem",
   background: "transparent",
   // boxShadow: "14.11px 14.11px 24px #dedad9, -14.11px -14.11px 24px #FFFFFF",
   display: "flex",
-  // alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   boxShadow: "none !important",
 };
 
 //for spinner
 export const override = css`
-  display: block;
+  display: flex;
   margin: 0 auto;
   /* border: 5px solid red; */
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 350px;
 `;
 
 export const spinnerContainer = {
@@ -70,4 +70,5 @@ export const spinnerContainer = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  // border: "5px solid red",
 };

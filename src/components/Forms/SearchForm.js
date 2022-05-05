@@ -8,7 +8,6 @@ import MKInput from "../MKInput";
 import MKButton from "../MKButton";
 import MKTypography from "../MKTypography";
 import Card from "@mui/material/Card";
-import TopBgImg from "components/Blocks/TopBgImg";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import "../../styles/Map.css";
@@ -187,7 +186,7 @@ const SearchForm = () => {
           className="neuCard"
           elevation={24}
           sx={{
-            zIndex: 3,
+            zindex: 3,
             position: "relative",
 
             // glass effect
@@ -218,7 +217,7 @@ const SearchForm = () => {
               className="topContainerPink"
               xs={12}
               style={{
-                zIndex: 4,
+                zindex: 4,
 
                 background:
                   "linear-gradient(146deg, #ff9a85 21%, rgba(255, 61, 71, 0.8) 75%)",

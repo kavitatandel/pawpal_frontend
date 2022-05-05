@@ -27,19 +27,19 @@ const Header = () => {
     <MKBox
       component="header"
       position="relative"
-      style={{ zIndex: 4, backgroundColor: "black" }}
+      style={{ zindex: 4, backgroundColor: "black" }}
     >
       <MKBox
         component="nav"
         position="absolute"
         top="0"
         width="auto"
-        style={{ zIndex: 2 }}
+        style={{ zindex: 2 }}
       >
         <div
           style={{
             marginTop: "2rem",
-            zIndex: 2,
+            zindex: 2,
             display: "flex",
             width: "auto",
             // height: "auto",

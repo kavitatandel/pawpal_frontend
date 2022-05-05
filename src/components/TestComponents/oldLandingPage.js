@@ -68,7 +68,7 @@ const LandingStyled = () => {
             alignItems="center"
             sx={{
               mx: "auto",
-              textAlign: "center",
+              textalign: "center",
               // top: "-50",
               minWidth: "40vw",
               height: "50%",

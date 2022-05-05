@@ -24,8 +24,8 @@ import {
 } from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
 import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
-import OwnerApprovedRequests from "./OwnerApprovedRequests";
-import RequestGridHeading from "./RequestGridHeading";
+import OwnerApprovedRequests from "../Forms/OwnerApprovedRequests";
+import RequestGridHeading from "../Forms/RequestGridHeading";
 
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
@@ -192,7 +192,7 @@ const OwnerDogRequestsForm = () => {
               pr="1rem"
               pl="1rem"
               pb="1.25rem"
-              textAlign="center"
+              textalign="center"
               //mr="10rem"
             >
               {/* <MKBox
@@ -204,7 +204,7 @@ const OwnerDogRequestsForm = () => {
                 // mt={-4}
                 p={5}
                 mb={2}
-                textAlign="center"
+                textalign="center"
                 sx={{ width: "60%" }}
               > */}
               {/* // Heading */}
@@ -212,20 +212,20 @@ const OwnerDogRequestsForm = () => {
                 variant="h4"
                 fontWeight="bold"
                 color="light"
-                textAlign="center"
+                textalign="center"
                 // mt={1}
               >
                 PLAY DATE REQUESTS
               </MKTypography>
               {/* </MKBox> */}
             </MKBox>
-            <MKBox textAlign="center" mt={2}>
+            <MKBox textalign="center" mt={2}>
               {/* // Heading */}
               <MKTypography
                 variant="h4"
                 fontWeight="bold"
                 color="dark"
-                textAlign="center"
+                textalign="center"
                 // mt={1}
               >
                 Pending Requests
@@ -306,7 +306,7 @@ const OwnerDogRequestsForm = () => {
                           >
                             <MKAvatar
                               top={-50}
-                              zIndex={2}
+                              zindex={2}
                               src={`${request.DogLovers.profile_pic}`}
                               alt={`${request.DogLovers.first_name}`}
                               shadow="xl"
@@ -486,13 +486,13 @@ const OwnerDogRequestsForm = () => {
                   })}
               </MKBox>
             </Grid>
-            <MKBox textAlign="center" mt={2}>
+            <MKBox textalign="center" mt={2}>
               {/* // Heading */}
               <MKTypography
                 variant="h4"
                 fontWeight="bold"
                 color="dark"
-                textAlign="center"
+                textalign="center"
                 // mt={1}
               >
                 Approved Requests

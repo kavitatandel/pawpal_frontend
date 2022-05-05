@@ -118,7 +118,7 @@
 //           icon: "success",
 //           button: "OK!",
 //           buttonsStyling: false,
-//           customClass: {
+//           className: {
 //             confirmButton: "swal-button", //insert class here
 //           },
 //         });
@@ -244,7 +244,7 @@
 //               pr="1rem"
 //               pl="1rem"
 //               pb="1.25rem"
-//               textAlign="center"
+//               textalign="center"
 //               //mr="10rem"
 //             >
 //               {/* <MKBox
@@ -256,7 +256,7 @@
 //                 // mt={-4}
 //                 p={5}
 //                 mb={2}
-//                 textAlign="center"
+//                 textalign="center"
 //                 sx={{ width: "60%" }}
 //               > */}
 //               {/* // Heading */}
@@ -264,7 +264,7 @@
 //                 variant="h4"
 //                 fontWeight="bold"
 //                 color="light"
-//                 textAlign="center"
+//                 textalign="center"
 //                 // mt={1}
 //               >
 //                 PLAY DATE REQUESTS
@@ -401,7 +401,7 @@
 //                             >
 //                               <MKAvatar
 //                                 top={-50}
-//                                 zIndex={2}
+//                                 zindex={2}
 //                                 src={`${request.DogsRequests.profile_photo}`}
 //                                 alt={`${request.DogsRequests.name}`}
 //                                 shadow="xl"

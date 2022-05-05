@@ -92,7 +92,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Can play fetch
           </Typography>
           <div
@@ -109,7 +109,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
               defaultValue={!dogInfo.can_play_fetch ? 1 : 0}
               precision={1}
               max={1}
-              textAlign="center"
+              textalign="center"
               style={{
                 marginRight: "0.7rem",
                 fontSize: "2rem",
@@ -153,7 +153,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Size
           </Typography>
           <div
@@ -211,7 +211,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Energy Level
           </Typography>
           <div
@@ -265,7 +265,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Kid Friendly
           </Typography>
           <div
@@ -307,7 +307,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Cat Friendly
           </Typography>
           <div
@@ -349,7 +349,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Dog Friendly
           </Typography>
           <div
@@ -391,7 +391,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Obedience
           </Typography>
           <div
@@ -433,7 +433,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Can stay home alone
           </Typography>
           <div
@@ -475,7 +475,7 @@ export const DogIconsGrid = ({ dogInfo }) => {
           mb={4}
           style={{ padding: "1rem" }}
         >
-          <Typography component="legend" variant="h6" textAlign="center">
+          <Typography component="legend" variant="h6" textalign="center">
             Exercise Needs
           </Typography>
           <div

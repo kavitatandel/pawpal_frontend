@@ -4,16 +4,19 @@ import { spinnerContainer } from "../../styles/CustomStyles";
 import MKBox from "components/MKBox";
 import MKAvatar from "components/MKAvatar";
 import MKTypography from "../MKTypography";
-
+import MKInput from "../MKInput";
+import MKButton from "../MKButton";
 // @mui material components
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import InfoIcon from "@mui/icons-material/Info";
-import { neumorphic } from "styles/CustomStyles";
+import { neumorphicDL } from "styles/CustomStyles";
 import HumanAvatar from "../../assets/images/avatars/human-av-grad.png";
+import "../../styles/extraStyles.css";
 
 import {
   GetPlayDateRequestsForOwner,
@@ -22,15 +25,14 @@ import {
 } from "../../logic/PlayDateFunctions";
 import { useNavigate, useParams } from "react-router";
 import DogApproveRejectModal from "../Modals/DogApproveRejectModal";
-import OwnerApprovedRequests from "./OwnerApprovedRequests";
+import OwnerApprovedRequests from "../Forms/OwnerApprovedRequests";
 import swal from "sweetalert";
-import RequestGridHeading from "./RequestGridHeading";
+import RequestGridHeading from "../Forms/RequestGridHeading";
 
 //for spinner
 import RiseLoader from "react-spinners/RiseLoader";
 import { override } from "styles/CustomStyles";
 import "../../styles/buttonStyles.css";
-import "../../styles/extraStyles.css";
 
 const OwnerDogRequestsForm = () => {
   const [user, setUser] = useContext(UserContext);
@@ -47,50 +49,49 @@ const OwnerDogRequestsForm = () => {
   //to show Approved component
   const [showApproved, setShowApproved] = useState(true);
 
-  //generate random index number
-
   //for spinner
   const [loading, setLoading] = useState(true);
-  const [approvedLoading, setApprovedLoading] = useState(true);
   let [color, setColor] = useState("#ff3d47");
 
   //get dog 'Pending' requests
-  const getRequestData = () => {
+  const getReuqestData = () => {
     const owner_id = user._id;
     GetPlayDateRequestsForOwner(owner_id)
       .then((res) => {
         setDogRequestsInfo(res);
       })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        //for spinner
-        setLoading(false);
-        console.log("Pending Requests loading complete");
-      });
+      .catch((err) => console.log(err));
   };
 
   //get dog 'Approved' request
-  const getApprovedRequestData = () => {
+  const getApprovedReuqestData = () => {
     const owner_id = user._id;
     GetApprovedRequestsForOwner(owner_id)
       .then((res) => {
         // console.log(res)
         setDogApprovedRequestsInfo(res);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
+
         //for spinner
-        setApprovedLoading(false);
-        console.log("Approved Requests loading complete");
-      });
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
   };
+
+  // useEffect(() => {
+  //     getReuqestData();
+  //     getApprovedReuqestData();
+  // }, [toggleModal])
+
+  useEffect(() => {
+    getReuqestData();
+    getApprovedReuqestData();
+  }, [showApproved]);
 
   const handleApproveReject = (e) => {
     e.preventDefault();
 
     //get the clicked item id
     const selectedRequestId = e.target.value;
-    console.log(selectedRequestId);
     //find selected request id data
     const selectedRequest = dogRequestsInfo.find(
       (dogRequest) => dogRequest._id === selectedRequestId
@@ -100,17 +101,8 @@ const OwnerDogRequestsForm = () => {
     toggleModal();
   };
 
-  useEffect(() => {
-    getRequestData();
-    getApprovedRequestData();
-  }, [showApproved]);
-
-  console.log(dogRequestsInfo);
-  console.log(dogApprovedRequestsInfo);
-  console.log(selectedDogRequest);
-
   //for spinner
-  if (loading || approvedLoading)
+  if (loading)
     return (
       <div style={spinnerContainer}>
         <RiseLoader color={color} loading={loading} css={override} size={40} />
@@ -119,22 +111,26 @@ const OwnerDogRequestsForm = () => {
   return (
     <>
       <MKBox
-        pt="0px !important"
-        mt="0px !important"
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="center"
-        minHeight="80vh"
+        minHeight="90vh"
         top={0}
         width="100%"
         // style={{ border: "3px solid red" }}
+
+        //   style={{ border: "3px solid green" }}
       >
         <MKBox
           width="100%"
+          top={0}
+          minHeight="80vh"
           mx="auto"
           mr={0}
           ml={0}
+          position="relative"
+          zindex={-1}
           sx={{ padding: { xxxxs: "1rem", md: "2rem" } }}
           display="flex"
           flexDirection="column"
@@ -142,21 +138,14 @@ const OwnerDogRequestsForm = () => {
           alignItems="center"
           // border="3px solid lime"
         >
-          {selectedDogRequest.length !== 0 ? (
-            <DogApproveRejectModal
-              show={show}
-              setShow={setShow}
-              toggleModal={toggleModal}
-              selectedDogRequest={selectedDogRequest}
-              setSelectedDogRequest={setSelectedDogRequest}
-              setShowApproved={setShowApproved}
-              showApproved={showApproved}
-            />
-          ) : (
-            <h1> </h1>
-          )}
           <Paper
+            // className="neuCard"
             elevation={24}
+            style={{
+              background: "rgba( 255, 255, 255, 0.8 )",
+              borderRadius: "25px",
+              boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+            }}
             sx={{
               width: {
                 xxxxs: "105%",
@@ -170,17 +159,31 @@ const OwnerDogRequestsForm = () => {
               maxWidth: "1000px",
               minWidth: "200px",
               height: "auto",
-              mt: "10rem",
-              mb: "8rem",
+              mt: 30,
               pb: "8rem",
               px: "1rem",
               mx: { xs: 2, lg: 3 },
-              background: "rgba(255, 255, 255, 0.8)",
-              borderRadius: "25px",
-              boxShadow: "0 8px 40px 0 rgba(255, 61, 46, 0.5)",
+              position: "relative",
+              mb: 20,
+              // border: " 3px solid blue",
             }}
           >
+            {selectedDogRequest.length !== 0 ? (
+              <DogApproveRejectModal
+                show={show}
+                setShow={setShow}
+                toggleModal={toggleModal}
+                selectedDogRequest={selectedDogRequest}
+                setSelectedDogRequest={setSelectedDogRequest}
+                setShowApproved={setShowApproved}
+                showApproved={showApproved}
+              />
+            ) : (
+              <h1></h1>
+            )}
+
             {/* _________ div fixes pink block in position */}
+            {/* _________ div fixes pink block in postion */}
             <div
               style={{
                 display: "flex",
@@ -188,6 +191,7 @@ const OwnerDogRequestsForm = () => {
                 justifyContent: "center",
                 // border: "4px solid blue",
                 marginTop: "-2rem",
+                position: "relative",
               }}
             >
               {/* ____________PINK BOX */}
@@ -197,10 +201,7 @@ const OwnerDogRequestsForm = () => {
                 //borderRadius="lg"
                 borderRadius="25px"
                 coloredShadow="info"
-                mb="2rem"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
+                textalign="center"
                 sx={{
                   height: "7rem",
                   padding: "1rem",
@@ -214,7 +215,7 @@ const OwnerDogRequestsForm = () => {
                     xl: "50%",
                     xxl: "40%",
                   },
-                  minWidth: "200px",
+                  minWidth: "180px",
                   maxWidth: "1400px",
                   display: "flex",
                   alignItems: "center",
@@ -225,7 +226,7 @@ const OwnerDogRequestsForm = () => {
                   variant="h4"
                   fontWeight="bold"
                   color="light"
-                  style={{ textAlign: "center" }}
+                  textalign="center"
                 >
                   PLAY DATE REQUESTS
                 </MKTypography>
@@ -233,46 +234,34 @@ const OwnerDogRequestsForm = () => {
               </MKBox>
             </div>
 
+            <MKBox
+              textalign="center"
+              mt={2}
+              // style={{ border: "4px solid orange" }}
+            >
+              {/* // PENDING REQUESTS */}
+              <MKTypography
+                variant="h4"
+                fontWeight="bold"
+                color="dark"
+                alignSelf="center"
+                mt="3rem"
+              >
+                PENDING REQUESTS
+              </MKTypography>
+            </MKBox>
+
             {/******************** PENDING REQUESTS */}
             <Grid
               // container
               sx={{
                 padding: "0rem",
                 display: "flex",
-                flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "center",
                 // border: "4px solid red",
                 mt: 0,
               }}
             >
-              <MKBox
-                // style={{ border: "4px solid green" }}
-                mt={0}
-                mb={0}
-                pb={0}
-                style={{
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                // border="3px solid yellow"
-              >
-                {/* // Heading */}
-                <MKTypography
-                  style={{ textAlign: "center" }}
-                  variant="h4"
-                  fontWeight="bold"
-                  color="dark"
-                  mt="3rem"
-                  pb="0rem"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  PENDING REQUESTS
-                </MKTypography>
-              </MKBox>
               <MKBox
                 sx={{ width: { xs: "95%", xxl: "90%" } }}
                 style={{
@@ -286,31 +275,19 @@ const OwnerDogRequestsForm = () => {
               >
                 {/* map thru searched dogs */}
                 {dogRequestsInfo === undefined ? (
-                  <h5
-                    style={{
-                      color: "#ff3d47",
-                      padding: "2rem",
-                      // border: "3px solid lime",
-                    }}
-                  >
-                    No Playdate Requests Found.
+                  <h5 style={{ color: "#ff3d47" }}>
+                    No Playdate Requests Found.{" "}
                   </h5>
                 ) : dogRequestsInfo.length === 0 ? (
-                  <h5
-                    style={{
-                      color: "#ff3d47",
-                      padding: "2rem",
-                      // border: "3px solid blue",
-                    }}
-                  >
-                    No Playdate Requests Found.
+                  <h5 style={{ color: "#ff3d47" }}>
+                    No Playdate Requests Found.{" "}
                   </h5>
                 ) : (
                   // ""
                   <RequestGridHeading />
                 )}
                 {dogRequestsInfo !== undefined &&
-                  dogRequestsInfo.map((request) => {
+                  dogRequestsInfo.map((request, index) => {
                     return (
                       <Card
                         sx={{
@@ -329,7 +306,7 @@ const OwnerDogRequestsForm = () => {
                           // border: "5px solid yellow",
                           justifyContent: "center",
                         }}
-                        key={Math.floor(Math.random() * 9999)}
+                        key={index}
                       >
                         <MKBox
                           className="mainContainer"
@@ -354,7 +331,7 @@ const OwnerDogRequestsForm = () => {
                             },
                             minWidth: "165px",
                             maxWidth: "850px",
-
+                            position: "relative",
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
@@ -383,6 +360,7 @@ const OwnerDogRequestsForm = () => {
                           >
                             <MKAvatar
                               top={-50}
+                              zindex={2}
                               src={`${request.DogLovers.profile_pic}`}
                               alt={`${request.DogLovers.first_name}`}
                               shadow="xl"
@@ -536,14 +514,13 @@ const OwnerDogRequestsForm = () => {
                             }}
                           >
                             <button
-                              id="miniBtn"
-                              className="mini-button"
+                              class="mini-button"
                               type="submit"
                               value={request._id}
                               onClick={handleApproveReject}
                             >
                               <InfoIcon className="infoIcon" />
-                              INFO
+                              <span className="infoText">INFO</span>
                             </button>
                           </MKBox>
                         </MKBox>
@@ -552,8 +529,29 @@ const OwnerDogRequestsForm = () => {
                   })}
               </MKBox>
             </Grid>
-
+            <MKBox
+              // style={{ border: "4px solid green" }}
+              textalign="center"
+              mt={2}
+              mb={0}
+              pb={0} //added 10/3
+            >
+              {/* // Heading */}
+              <MKTypography
+                // style={{ border: "4px solid purple" }}
+                variant="h4"
+                fontWeight="bold"
+                color="dark"
+                alignSelf="center"
+                mt="3rem"
+                pb="0rem"
+                //pb={1}
+              >
+                APPROVED REQUESTS
+              </MKTypography>
+            </MKBox>
             <OwnerApprovedRequests
+              style={{ border: "4px solid yellow", padding: 0 }}
               dogApprovedRequestsInfo={dogApprovedRequestsInfo}
               setDogApprovedRequestsInfo={setDogApprovedRequestsInfo}
             />

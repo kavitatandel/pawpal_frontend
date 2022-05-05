@@ -70,7 +70,7 @@ function DogLoverRequestInfoModal({
                 mt={-5}
                 p={4}
                 mb={-2}
-                textAlign="center"
+                textalign="center"
               >
                 {/* Request Status Heading */}
                 <MKTypography variant="h3" fontWeight="regular" color="white">
@@ -188,7 +188,7 @@ function DogLoverRequestInfoModal({
                                         display="flex"
                                         mb={1}
                                         ml={0.5}
-                                        textAlign="left"
+                                        textalign="left"
                                         width="100%"
                                     >
                                         <MKTypography

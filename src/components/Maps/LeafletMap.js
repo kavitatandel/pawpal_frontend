@@ -96,7 +96,7 @@ const LeafletMap = ({ locations, isSearched }) => {
             width: "100%",
             position: "absolute !important",
             boxSizing: "border-box",
-            zIndex: 0,
+            zindex: 0,
             // border: "6px dotted rgba(0,0,0)",
           }}
         >
@@ -113,13 +113,7 @@ const LeafletMap = ({ locations, isSearched }) => {
                 icon={dogIcon}
                 key={point.dogs_info._id}
               >
-                <Popup style={{ width: "200px" }}>
-                  {/* commented to add Avatar */}
-                  {/* <img
-                    src={point.dogs_info.profile_photo}
-                    alt={`${point.dogs_info.name}`}
-                    style={{ width: "20px", height: "20px" }}
-                  /> */}
+                <Popup>
                   <MKBox
                     className="Avatar"
                     sx={{
@@ -130,14 +124,13 @@ const LeafletMap = ({ locations, isSearched }) => {
                     }}
                   >
                     <MKAvatar
-                      zIndex={2}
+                      zindex={2}
                       src={`${point.dogs_info.profile_photo}`}
                       alt={`${point.dogs_info.name}`}
                       shadow="xl"
-                      // sx={{ width: "10rem", height: "10rem" }} //commented by kavita
                       sx={{ width: "4rem", height: "4rem" }}
                       style={{
-                        border: "0.3rem solid #ff9a85",
+                        border: "5px solid #ff9a85",
                         background: "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
                         borderRadius: "100%",
                         boxShadow:
@@ -158,6 +151,7 @@ const LeafletMap = ({ locations, isSearched }) => {
                       justifyContent: { xs: "center" },
                       alignItems: "center",
                       mb: "0.5rem", //commented by kavita
+                      px: "1rem",
                     }}
                   >
                     <Link

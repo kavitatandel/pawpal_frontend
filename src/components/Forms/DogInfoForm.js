@@ -192,7 +192,7 @@ const DogInfoForm = () => {
                 variant="h1"
                 fontWeight="medium"
                 color="light"
-                textAlign="center"
+                textalign="center"
               >
                 {`${dogInfo.name}`}
               </MKTypography>
@@ -222,7 +222,7 @@ const DogInfoForm = () => {
                     fontSize="1.2rem"
                     fontWeight="medium"
                     color="light"
-                    textAlign="left"
+                    textalign="left"
                     pb={0.5}
                   >
                     BREED
@@ -232,7 +232,7 @@ const DogInfoForm = () => {
                     variant="h4"
                     fontWeight="medium"
                     color="light"
-                    textAlign="center"
+                    textalign="center"
                     fontSize="1.8rem"
                   >
                     {`${dogInfo.breed}`}
@@ -262,7 +262,7 @@ const DogInfoForm = () => {
                     fontSize="1.2rem"
                     fontWeight="medium"
                     color="light"
-                    textAlign="left"
+                    textalign="left"
                     pb={0.5}
                   >
                     AGE
@@ -272,7 +272,7 @@ const DogInfoForm = () => {
                     variant="h4"
                     fontWeight="medium"
                     color="light"
-                    textAlign="center"
+                    textalign="center"
                     fontSize="1.8rem"
                   >
                     {`${dogInfo.age_years}`}y {`${dogInfo.age_months}`}m
@@ -304,7 +304,7 @@ const DogInfoForm = () => {
               <MKBox
                 justifyContent="center"
                 sx={{ display: { xs: "block", md: "flex" } }}
-                textAlign="center"
+                textalign="center"
                 width="100%"
               >
                 <button

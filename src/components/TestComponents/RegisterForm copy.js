@@ -138,7 +138,7 @@ const RegisterForm = () => {
           // height="100vh"
           mx="auto"
           position="relative"
-          zIndex={1}
+          zindex={1}
           sx={{ width: "75%" }}
         >
           <Grid
@@ -171,7 +171,7 @@ const RegisterForm = () => {
                   mt={-3}
                   p={5}
                   mb={-2}
-                  textAlign="center"
+                  textalign="center"
                 >
                   <MKTypography
                     variant="h3"
@@ -351,7 +351,7 @@ const RegisterForm = () => {
                       display="flex"
                       mb={6}
                       ml={0.5}
-                      textAlign="left"
+                      textalign="left"
                       width="100%"
                     >
                       <FormControl>
@@ -397,7 +397,7 @@ const RegisterForm = () => {
                       mt={2}
                       justifyContent="center"
                       display="flex"
-                      textAlign="center"
+                      textalign="center"
                       width="100%"
                     >
                       <MKButton
@@ -427,7 +427,7 @@ const RegisterForm = () => {
                         Sign Up
                       </MKButton>
                     </MKBox>
-                    <MKBox mt={3} mb={1} textAlign="center"></MKBox>
+                    <MKBox mt={3} mb={1} textalign="center"></MKBox>
                   </MKBox>
                 </MKBox>
               </Card>
@@ -437,7 +437,7 @@ const RegisterForm = () => {
         {/* <MKBox
           width="100%"
           position="absolute"
-          zIndex={2}
+          zindex={2}
           bottom="1.625rem"
         ></MKBox> */}
       </MKBox>

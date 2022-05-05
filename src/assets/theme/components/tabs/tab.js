@@ -32,7 +32,7 @@ export default {
       alignItems: "center",
       flexDirection: "row",
       flex: "1 1 auto",
-      textAlign: "center",
+      textalign: "center",
       maxWidth: "unset !important",
       minWidth: "unset !important",
       minHeight: "unset !important",

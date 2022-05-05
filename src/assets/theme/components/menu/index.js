@@ -39,7 +39,7 @@ export default {
       padding: `${pxToRem(16)} ${pxToRem(8)}`,
       fontSize: size.sm,
       color: text.main,
-      textAlign: "left",
+      textalign: "left",
       backgroundColor: `${white.main} !important`,
       borderRadius: borderRadius.md,
     },

@@ -175,7 +175,7 @@ export default SliderTest;
 //         //   style={{ border: "3px solid green" }}
 //       >
 //         <Card
-//           // zIndex={0}
+//           // zindex={0}
 //           style={{ position: "relative", border: "3px solid green" }}
 //           sx={{
 //             width: "90%",
@@ -224,7 +224,7 @@ export default SliderTest;
               variant="h3"
               fontWeight="medium"
               color="dark"
-              textAlign="center"
+              textalign="center"
             >
               {`${dogInfo.name}`}
             </MKTypography> */
@@ -242,27 +242,27 @@ export default SliderTest;
                 p={6}
               >
                 <MKBox mb={2} display="flex" justifyContent="space-between">
-                  <MKTypography color="dark" textAlign="center">
+                  <MKTypography color="dark" textalign="center">
                     Breed:
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     {`${dogInfo.breed}`}
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     Age:
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     {`${dogInfo.age_years}`} yrs. {`${dogInfo.age_months}`}{" "}
                     months
@@ -270,42 +270,42 @@ export default SliderTest;
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     Size:
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     {`${dogInfo.size}`}
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     Energy:
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     {`${dogInfo.energy}`}
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     Can Play Fetch:
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     {dogInfo.can_play_fetch ? `Yes` : `No`}
                   </MKTypography>
@@ -466,14 +466,14 @@ export default SliderTest;
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     Description:
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     {`${dogInfo.description}`}
                   </MKTypography>
@@ -487,14 +487,14 @@ export default SliderTest;
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     Address:
                   </MKTypography>
                   <MKTypography
                     fontWeight="small"
                     color="dark"
-                    textAlign="center"
+                    textalign="center"
                   >
                     {`${user.street} ${user.zip_code}, ${user.city}, ${user.country}`}
                   </MKTypography>
