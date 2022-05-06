@@ -134,7 +134,7 @@ function DogApproveRejectModal({
   };
 
   return (
-    <MKBox component="section" xs={{ overflow: "scroll !important" }}>
+    <MKBox component="section" xxxxs={{ overflow: "scroll !important" }}>
       <Container
         sx={{
           display: "flex",
@@ -352,6 +352,7 @@ function DogApproveRejectModal({
                           fontWeight="regular"
                           color="info"
                           fontSize="0.75rem"
+                          pb="0.3rem"
                         >
                           Requested by:
                         </MKTypography>
@@ -400,6 +401,7 @@ function DogApproveRejectModal({
                           fontWeight="regular"
                           color="info"
                           fontSize="0.75rem"
+                          pb="0.3rem"
                         >
                           Address:
                         </MKTypography>
@@ -455,6 +457,7 @@ function DogApproveRejectModal({
                               fontWeight="regular"
                               color="info"
                               fontSize="0.75rem"
+                              pb="0.3rem"
                             >
                               Start Date:
                             </MKTypography>
@@ -498,6 +501,7 @@ function DogApproveRejectModal({
                               fontWeight="regular"
                               color="info"
                               fontSize="0.75rem"
+                              pb="0.3rem"
                             >
                               Start Time:
                             </MKTypography>
@@ -540,6 +544,7 @@ function DogApproveRejectModal({
                               fontWeight="regular"
                               color="info"
                               fontSize="0.75rem"
+                              pb="0.3rem"
                             >
                               End Time:
                             </MKTypography>
@@ -587,6 +592,7 @@ function DogApproveRejectModal({
                               fontWeight="regular"
                               color="info"
                               fontSize="0.75rem"
+                              pb="0.3rem"
                             >
                               Meeting Location:
                             </MKTypography>
@@ -624,6 +630,7 @@ function DogApproveRejectModal({
                               fontWeight="regular"
                               color="info"
                               fontSize="0.75rem"
+                              pb="0.3rem"
                             >
                               Status:
                             </MKTypography>
@@ -671,6 +678,7 @@ function DogApproveRejectModal({
                                   fontWeight="regular"
                                   color="info"
                                   fontSize="0.75rem"
+                                  pb="0.3rem"
                                 >
                                   Approve / Reject
                                 </MKTypography>
@@ -736,6 +744,7 @@ function DogApproveRejectModal({
                           fontWeight="regular"
                           color="info"
                           fontSize="0.75rem"
+                          pb="0.3rem"
                         >
                           Requester Message:
                         </MKTypography>

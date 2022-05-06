@@ -125,8 +125,8 @@ const ProfileForm = () => {
         // setLoading(false);
       })
       .then(() => {
-        //for spinner
-        // setLoading(false);
+        // for spinner
+        setLoading(false);
       })
 
       .catch((err) => console.log(err));
