@@ -52,14 +52,30 @@ function OwnerApprovedRequestModal({
   };
 
   return (
-    <MKBox component="section" py={6}>
-      <Container>
+    <MKBox component="section" xxxxs={{ overflow: "scroll !important" }}>
+      <Container
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Modal
           open={show}
           onClose={toggleModal}
-          sx={{ display: "grid", placeItems: "center", minHeight: "1150px" }}
+          sx={{
+            minWidth: "220px",
+            minHeight: "1200px",
+            // border: "3px solid lime",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: { xxxxs: "4rem", sm: "2rem" },
+            marginBottom: { xxxxs: "3rem", sm: "1rem" },
+          }}
         >
           <Slide direction="down" in={show} timeout={500}>
+            {/* ************** ROUNDED WHITE CARD MAIN */}
             <MKBox
               position="relative"
               width="80%"
@@ -73,8 +89,8 @@ function OwnerApprovedRequestModal({
               borderRadius="2rem"
               bgColor="white"
               shadow="xl"
-              p={3}
-              my={2}
+              my={5}
+              padding="0 2rem 2rem 2rem"
               // border="5px solid aqua"
             >
               {/* ************** PINK HEADING BOX */}
@@ -118,13 +134,24 @@ function OwnerApprovedRequestModal({
                 </MKTypography>
               </MKBox>
               <MKBox
-                pt="2rem"
-                pl="3rem"
-                pr="3rem"
-                pb="2rem"
-                // border="3px solid lime"
+                // border="3px solid yellow"
+                minWidth="220px"
+                sx={{
+                  padding: {
+                    xxxxs: "0 0.5rem",
+                    xxl: "0 1rem 0 0.5rem",
+                  },
+                }}
               >
-                <Grid container>
+                <Grid
+                  container
+                  style={{
+                    // border: "3px solid yellow",
+                    minWidth: "200px",
+                    padding: "1rem 0rem",
+                  }}
+                >
+                  {/* ************** DOG AVATAR GRID CELL */}
                   <Grid
                     item
                     xxxxs={12}
@@ -144,40 +171,27 @@ function OwnerApprovedRequestModal({
                       minWidth: "180px",
                     }}
                   >
-                    <MKBox
-                      className="Avatar"
-                      sx={{
-                        display: "flex",
-                        justifyContent: { xs: "flex-end" },
-                        alignItems: "center",
-                        mb: "2rem", //commented by kavita
+                    <MKAvatar
+                      zindex={2}
+                      src={`${selectedDogRequest.DogsRequests.profile_photo}`}
+                      alt={`${selectedDogRequest.DogsRequests.name} ${selectedDogRequest.DogLovers.last_name}`}
+                      shadow="xl"
+                      sx={{ width: "6rem", height: "6rem" }}
+                      style={{
+                        border: "0.3rem solid #ff9a85",
+                        background: "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
+                        borderRadius: "100%",
+                        boxShadow:
+                          "14.11px 14.11px 24px #D9DADE, -14.11px -14.11px 24px #FFFFFF",
                       }}
                     >
-                      <MKAvatar
-                        zindex={2}
-                        src={`${selectedDogRequest.DogsRequests.profile_photo}`}
-                        alt={`${selectedDogRequest.DogsRequests.name} ${selectedDogRequest.DogLovers.last_name}`}
-                        shadow="xl"
-                        // sx={{ width: "10rem", height: "10rem" }} //commented by kavita
-                        sx={{ width: "6rem", height: "6rem" }}
-                        style={{
-                          border: "0.3rem solid #ff9a85",
-                          background:
-                            "linear-gradient(145deg, #FFFFFF, #C1C3C6)",
-                          borderRadius: "100%",
-                          boxShadow:
-                            "14.11px 14.11px 24px #D9DADE, -14.11px -14.11px 24px #FFFFFF",
-                        }}
-                      >
-                        <img
-                          src={DogAvatar}
-                          alt="avatar"
-                          style={{ width: "101%", height: "101%" }}
-                        />
-                      </MKAvatar>
-                    </MKBox>
+                      <img
+                        src={DogAvatar}
+                        alt="avatar"
+                        style={{ width: "101%", height: "101%" }}
+                      />
+                    </MKAvatar>
                   </Grid>
-
                   {/* ************** DOG NAME & BREED GRID CELL */}
                   <Grid
                     item
@@ -224,33 +238,39 @@ function OwnerApprovedRequestModal({
                       </MKTypography>
                     </MKBox>
                   </Grid>
-                  <Grid item xs={12}>
+                  {/* ************** "REQUESTED BY: {DOGLOVER NAME}"" GRID CELL */}
+                  <Grid
+                    item
+                    xxxxs={12}
+                    p={1}
+                    // border="3px solid aqua"
+                  >
                     <MKBox
                       display="flex"
                       sx={{
-                        m: "0.25rem 1rem 0rem 1rem",
                         justifyContent: { lg: "flex-start" },
+                        flexDirection: { xxxxs: "column" },
+                        padding: {
+                          xxxxs: "0.5rem 0.5rem",
+                          xs: "0.5rem 1rem",
+                          sm: "0.5rem 1.5rem",
+                          md: "0.5rem 2rem",
+                          lg: "0.5rem 3rem",
+                          xxl: "0.5rem 5rem",
+                        },
                       }}
                       alignItems="flex-start"
+                      // border="2px solid red"
                     >
-                      {/* <MKBox> */}
                       <MKTypography
                         variant="h5"
                         fontWeight="regular"
                         color="info"
                         fontSize="0.75rem"
+                        pb="0.3rem"
                       >
-                        Requester Name:
+                        Requested by:
                       </MKTypography>
-                    </MKBox>
-                    <MKBox
-                      display="flex"
-                      sx={{
-                        m: "0.25rem 1rem 1rem 1rem",
-                        justifyContent: { lg: "flex-start" },
-                      }}
-                      alignItems="flex-start"
-                    >
                       <MKTypography
                         variant="h5"
                         fontWeight="regular"
@@ -261,36 +281,45 @@ function OwnerApprovedRequestModal({
                         {selectedDogRequest.DogLovers.first_name}{" "}
                         {selectedDogRequest.DogLovers.last_name}
                       </MKTypography>
-                      {/* </MKBox> */}
                     </MKBox>
                   </Grid>
-                  <Grid item xs={12}>
+                  {/* ************** ADDRESS" GRID CELL */}
+                  <Grid
+                    item
+                    xxxxs={12}
+                    p={1}
+                    sx={{
+                      // border: "3px solid blue",
+                      paddingTop: { xxxxs: "0.5rem" },
+                      paddingBottom: { xxxxs: "0.5rem" },
+                    }}
+                  >
                     <MKBox
                       display="flex"
                       sx={{
-                        m: "0.25rem 1rem 0rem 1rem",
                         justifyContent: { lg: "flex-start" },
+                        flexDirection: { xxxxs: "column" },
+                        padding: {
+                          xxxxs: "0.5rem 0.5rem",
+                          xs: "0.5rem 1rem",
+                          sm: "0.5rem 1.5rem",
+                          md: "0.5rem 2rem",
+                          lg: "0.5rem 3rem",
+                          xxl: "0.5rem 5rem",
+                        },
                       }}
                       alignItems="flex-start"
+                      // border="2px solid red"
                     >
-                      {/* <MKBox> */}
                       <MKTypography
                         variant="h5"
                         fontWeight="regular"
                         color="info"
                         fontSize="0.75rem"
+                        pb="0.3rem"
                       >
-                        Requester Address:
+                        Address:
                       </MKTypography>
-                    </MKBox>
-                    <MKBox
-                      display="flex"
-                      sx={{
-                        m: "0.25rem 1rem 1rem 1rem",
-                        justifyContent: { lg: "flex-start" },
-                      }}
-                      alignItems="flex-start"
-                    >
                       <MKTypography
                         variant="h5"
                         fontWeight="regular"
@@ -303,95 +332,181 @@ function OwnerApprovedRequestModal({
                         {selectedDogRequest.DogLovers.city},{" "}
                         {selectedDogRequest.DogLovers.country}
                       </MKTypography>
-                      {/* </MKBox> */}
                     </MKBox>
                   </Grid>
-                  <Grid item xs={12}>
-                    <MKBox
-                      display="flex"
-                      // sx={{ m: "0.3rem 1rem 1rem 1rem" }}
-                      sx={{ m: "0.1rem 1rem 1rem 1rem" }}
-                      alignItems="flex-start"
-                      justifyContent="flex-start"
+                  {/* ************** CONTAINER FOR 2x 3-CELL-ROW Blocks */}
+                  <Grid
+                    item
+                    xxxxs={12}
+                    style={{
+                      // border: "3px solid orange",
+                      minWidth: "200px",
+                    }}
+                  >
+                    {/* ************** GRID CELL -> 3-CELL-ROW (Start Date, Start Time, End Time) */}
+                    <Grid
+                      container
+                      p={1}
+                      // border="5px solid pink"
                     >
-                      <MKBox pr={4}>
-                        <MKTypography
-                          variant="h5"
-                          fontWeight="regular"
-                          color="info"
-                          // fontSize="1rem" //commented by kavita
-                          fontSize="0.75rem"
+                      {/* ************** START DATE */}
+                      <Grid item xxxxs={12} md={4}>
+                        <MKBox
+                          display="flex"
+                          sx={{
+                            justifyContent: { lg: "flex-start" },
+                            flexDirection: { xxxxs: "column" },
+                            padding: {
+                              xxxxs: "1rem 0.5rem",
+                              xs: "1rem 1rem",
+                              sm: "1rem 1.5rem",
+                              md: "1rem 2rem",
+                              lg: "1rem 3rem",
+                              xxl: "1rem 5rem",
+                            },
+                          }}
+                          alignItems="flex-start"
+                          // border="2px solid red"
                         >
-                          Start Date:
-                        </MKTypography>
-                        <MKTypography>
-                          <TodayIcon style={styledIcon} />
-                          {new Date(selectedDogRequest.start_date)
-                            .toISOString()
-                            .replace(/T.*/, "")
-                            .split("-")
-                            .reverse()
-                            .join(".")}
-                          {/* {new Date(selectedDogRequest.start_date).toLocaleDateString()} */}
-                        </MKTypography>
-                      </MKBox>
+                          <MKTypography
+                            variant="h5"
+                            fontWeight="regular"
+                            color="info"
+                            fontSize="0.75rem"
+                            pb="0.3rem"
+                          >
+                            Start Date:
+                          </MKTypography>
+                          <MKTypography
+                            variant="h5"
+                            fontWeight="regular"
+                            color="dark"
+                            fontSize="1rem"
+                          >
+                            <TodayIcon style={styledIcon} />
+                            {new Date(selectedDogRequest.start_date)
+                              .toISOString()
+                              .replace(/T.*/, "")
+                              .split("-")
+                              .reverse()
+                              .join(".")}
+                          </MKTypography>
+                        </MKBox>
+                      </Grid>
+                      {/* ************** START TIME */}
+                      <Grid item xxxxs={12} md={4}>
+                        <MKBox
+                          display="flex"
+                          sx={{
+                            justifyContent: { lg: "flex-start" },
+                            flexDirection: { xxxxs: "column" },
+                            padding: {
+                              xxxxs: "1rem 0.5rem",
+                              xs: "1rem 1rem",
+                              sm: "1rem 1.5rem",
+                              md: "1rem 2rem",
+                              lg: "1rem 3rem",
+                              xxl: "1rem 5rem",
+                            },
+                          }}
+                          alignItems="flex-start"
+                          // border="2px solid red"
+                        >
+                          <MKTypography
+                            variant="h5"
+                            fontWeight="regular"
+                            color="info"
+                            fontSize="0.75rem"
+                            pb="0.3rem"
+                          >
+                            Start Time:
+                          </MKTypography>
+                          <MKTypography
+                            variant="h5"
+                            fontWeight="regular"
+                            color="dark"
+                            fontSize="1rem"
+                          >
+                            <AccessTimeFilledIcon style={styledIcon} />
+                            {selectedDogRequest.start_time.slice(-11, -6)}{" "}
+                            {selectedDogRequest.start_time.slice(-3)}
+                          </MKTypography>
+                        </MKBox>
+                      </Grid>
+                      {/* ************** END TIME */}
+                      <Grid item xxxxs={12} md={4}>
+                        <MKBox
+                          display="flex"
+                          sx={{
+                            justifyContent: { lg: "flex-start" },
+                            flexDirection: { xxxxs: "column" },
+                            padding: {
+                              xxxxs: "1rem 0.5rem",
+                              xs: "1rem 1rem",
+                              sm: "1rem 1.5rem",
+                              md: "1rem 2rem",
+                              lg: "1rem 3rem",
+                              xxl: "1rem 5rem",
+                            },
+                          }}
+                          alignItems="flex-start"
+                          // border="2px solid red"
+                        >
+                          <MKTypography
+                            variant="h5"
+                            fontWeight="regular"
+                            color="info"
+                            fontSize="0.75rem"
+                            pb="0.3rem"
+                          >
+                            End Time:
+                          </MKTypography>
+                          <MKTypography
+                            variant="h5"
+                            fontWeight="regular"
+                            color="dark"
+                            fontSize="1rem"
+                          >
+                            <AccessTimeFilledIcon style={styledIcon} />
+                            {selectedDogRequest.end_time.slice(-11, -6)}{" "}
+                            {selectedDogRequest.end_time.slice(-3)}
+                          </MKTypography>
+                        </MKBox>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  {/* ************** GRID CELL -> 2-CELL-ROW (Meeting Location,  */}
 
-                      <MKBox pr={4}>
-                        <MKTypography
-                          variant="h5"
-                          fontWeight="regular"
-                          color="info"
-                          // fontSize="1rem" //commented by kavita
-                          fontSize="0.75rem"
-                        >
-                          Start Time:
-                        </MKTypography>
-                        <MKTypography>
-                          <AccessTimeFilledIcon style={styledIcon} />
-                          {/* {selectedDogRequest.start_time} */}
-                          {selectedDogRequest.start_time.slice(-11, -6)}{" "}
-                          {selectedDogRequest.start_time.slice(-3)}
-                        </MKTypography>
-                      </MKBox>
-                      <MKBox pr={4}>
-                        <MKTypography
-                          variant="h5"
-                          fontWeight="regular"
-                          color="info"
-                          // fontSize="1rem" //commented by kavita
-                          fontSize="0.75rem"
-                        >
-                          End Time:
-                        </MKTypography>
-                        <MKTypography
-                          variant="h5"
-                          fontWeight="regular"
-                          color="dark"
-                          // fontSize="1.5rem"//commented by kavita
-                          fontSize="1rem"
-                        >
-                          <AccessTimeFilledIcon style={styledIcon} />
-                          {/* {selectedDogRequest.end_time} */}
-                          {selectedDogRequest.end_time.slice(-11, -6)}{" "}
-                          {selectedDogRequest.end_time.slice(-3)}
-                        </MKTypography>
-                      </MKBox>
-                    </MKBox>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <MKBox
-                      display="flex"
-                      // sx={{ m: "0.3rem 1rem 1rem 1rem" }}
-                      sx={{ m: "0.1rem 1rem 1rem 1rem" }}
-                      alignItems="flex-start"
-                      justifyContent="flex-start"
-                    >
-                      <MKBox pr={7}>
+                  <Grid
+                    container
+                    p={1}
+                    // border="5px solid lime"
+                  >
+                    {/* ************** MEETING LOCATION */}
+                    <Grid item xxxxs={12} sm={6}>
+                      <MKBox
+                        display="flex"
+                        sx={{
+                          justifyContent: { lg: "flex-start" },
+                          flexDirection: { xxxxs: "column" },
+                          padding: {
+                            xxxxs: "1rem 0.5rem",
+                            xs: "1rem 1rem",
+                            sm: "1rem 1.5rem",
+                            md: "1rem 2rem",
+                            lg: "1rem 3rem",
+                            xxl: "1rem 5rem",
+                          },
+                        }}
+                        alignItems="flex-start"
+                        // border="2px solid red"
+                      >
                         <MKTypography
                           variant="h5"
                           fontWeight="regular"
                           color="info"
                           fontSize="0.75rem"
+                          pb="0.3rem"
                         >
                           Meeting Location:
                         </MKTypography>
@@ -399,65 +514,86 @@ function OwnerApprovedRequestModal({
                         <MKTypography
                           fontWeight="regular"
                           color="dark"
-                          // fontSize="1.5rem"//commented by kavita
                           fontSize="1rem"
                         >
                           <AccessTimeFilledIcon style={styledIcon} />
                           {selectedDogRequest.meeting_location}
                         </MKTypography>
                       </MKBox>
+                    </Grid>
 
-                      {/* </Grid>
-                                    <Grid item xs={12}> */}
-
-                      <MKBox>
+                    {/* ************** STATUS */}
+                    <Grid item xxxxs={12} sm={6}>
+                      <MKBox
+                        display="flex"
+                        sx={{
+                          justifyContent: { lg: "flex-start" },
+                          flexDirection: { xxxxs: "column" },
+                          padding: {
+                            xxxxs: "1rem 0.5rem",
+                            xs: "1rem 1rem",
+                            sm: "1rem 1.5rem",
+                            md: "1rem 2rem",
+                            lg: "1rem 3rem",
+                            xxl: "1rem 5rem",
+                          },
+                        }}
+                        alignItems="flex-start"
+                        // border="2px solid red"
+                      >
                         <MKTypography
                           variant="h5"
                           fontWeight="regular"
                           color="info"
                           fontSize="0.75rem"
+                          pb="0.3rem"
                         >
                           Status:
                         </MKTypography>
                         <MKTypography
                           fontWeight="regular"
                           color="dark"
-                          // fontSize="1.5rem"//commented by kavita
                           fontSize="1rem"
                         >
                           <ApprovalIcon style={styledIcon} />
                           {selectedDogRequest.status}
                         </MKTypography>
                       </MKBox>
-                    </MKBox>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12}>
+                  {/* ************** MESSAGE */}
+                  <Grid
+                    item
+                    xxxxs={12}
+                    p={1}
+                    // border="3px solid blue"
+                  >
                     <MKBox
                       display="flex"
                       sx={{
-                        m: "0.25rem 1rem 0rem 1rem",
                         justifyContent: { lg: "flex-start" },
+                        flexDirection: { xxxxs: "column" },
+                        padding: {
+                          xxxxs: "1rem 0.5rem",
+                          xs: "1rem 1rem",
+                          sm: "1rem 1.5rem",
+                          md: "1rem 2rem",
+                          lg: "1rem 3rem",
+                          xxl: "1rem 5rem",
+                        },
                       }}
                       alignItems="flex-start"
+                      // border="2px solid red"
                     >
-                      {/* <MKBox> */}
                       <MKTypography
                         variant="h5"
                         fontWeight="regular"
                         color="info"
                         fontSize="0.75rem"
+                        pb="0.3rem"
                       >
                         Requester Message:
                       </MKTypography>
-                    </MKBox>
-                    <MKBox
-                      display="flex"
-                      sx={{
-                        m: "0.25rem 1rem 0.75rem 1rem",
-                        justifyContent: { lg: "flex-start" },
-                      }}
-                      alignItems="flex-start"
-                    >
                       <MKTypography
                         variant="h5"
                         fontWeight="regular"
@@ -469,29 +605,43 @@ function OwnerApprovedRequestModal({
                           ? "No message"
                           : selectedDogRequest.dl_message}
                       </MKTypography>
-                      {/* </MKBox> */}
                     </MKBox>
                   </Grid>
-                  <Grid item xs={12}>
+                  {/* ************** BUTTONS GRID CELL */}
+                  <Grid
+                    item
+                    xxxxs={12}
+                    sx={{
+                      paddingTop: { xxxxs: "1rem" },
+                      paddingBottom: { xxxxs: "1rem" },
+                    }}
+                    // border="3px solid lightBlue"
+                  >
                     <MKBox
                       display="flex"
-                      justifyContent="center"
-                      // p={1.5}
-                      // my="2rem" //commented by kavita
-                      my="1rem"
-                      sx={{ p: "1 1.5 0.5 1.5" }}
+                      sx={{
+                        justifyContent: {
+                          xxxxs: "center",
+                        },
+                        flexDirection: { xxxxs: "column", sm: "row" },
+                        padding: { xxxxs: "0rem", sm: "0 4rem" },
+                        marginTop: {
+                          xxxxs: "0.5rem",
+                          sm: "1rem",
+                        },
+                      }}
+                      alignItems="center"
+                      // border="2px solid red"
                     >
                       <MKButton
                         size="large"
                         variant="gradient"
                         color="info"
                         style={{
-                          // width: "8rem", //commented by kavita
                           width: "7rem",
                           minWidth: "100px",
                           minHeight: "50px",
                         }}
-                        // onClick={toggleModal}
                         onClick={handleCancel}
                       >
                         Close
