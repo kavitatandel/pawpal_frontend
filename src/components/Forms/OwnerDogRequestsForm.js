@@ -235,7 +235,7 @@ const OwnerDogRequestsForm = () => {
 
             {/******************** PENDING REQUESTS */}
             <Grid
-              // container
+              container
               sx={{
                 padding: "0rem",
                 display: "flex",
@@ -247,7 +247,6 @@ const OwnerDogRequestsForm = () => {
               }}
             >
               <MKBox
-                // style={{ border: "4px solid green" }}
                 mt={0}
                 mb={0}
                 pb={0}
