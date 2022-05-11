@@ -69,14 +69,6 @@ const EditDogForm = () => {
     // height: "1rem",
   };
 
-  const editProfileIconSmall = {
-    color: "#fff",
-    backgroundColor: "transparent",
-    transform: "scale(1.5)",
-    marginRight: "0.8rem",
-    marginTop: "-0.3rem",
-  };
-
   //for dog pic modal
   const [show, setShow] = useState(false);
   const toggleModal = () => setShow(!show);
@@ -290,17 +282,12 @@ const EditDogForm = () => {
                     variant="text"
                     onClick={toggleModal}
                     style={{
-                      width: "150px",
+                      width: "2rem",
                       height: "2rem",
                       marginLeft: -12,
-                      fontSize: "0.8rem",
-                      letterSpacing: "0.1rem",
                     }}
                   >
-                    <EditRoundedIcon
-                      style={editProfileIconSmall}
-                    ></EditRoundedIcon>
-                    EDIT PIC
+                    EDIT
                   </MKButton>
                 </MKBox>
                 <Grid item xs={12} mt={5}>
@@ -309,7 +296,7 @@ const EditDogForm = () => {
                     variant="h1"
                     fontWeight="medium"
                     color="light"
-                    textAlign="center"
+                    textalign="center"
                     mt={-3}
                   >
                     {dogName}
@@ -326,12 +313,15 @@ const EditDogForm = () => {
             marginBottom="0rem"
           >
             {/* ************************** Edit Button (for inputs) */}
-
             <button
-              id="mainEditButton"
-              className="glow-on-hover"
               type="submit"
+              className="glow-on-hover"
               onClick={toggleEdit}
+              style={{
+                margin: "10px 80px",
+                width: "100px",
+                height: "50px",
+              }}
             >
               EDIT
               <EditRoundedIcon style={editProfileIcon}></EditRoundedIcon>

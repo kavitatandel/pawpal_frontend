@@ -197,7 +197,7 @@ const ProfileForm = () => {
                 variant="h1"
                 fontWeight="medium"
                 color="light"
-                textalign="center"
+                textAlign="center"
               >
                 {user.first_name === undefined
                   ? ""
