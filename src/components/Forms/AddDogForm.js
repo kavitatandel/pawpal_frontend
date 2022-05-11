@@ -148,13 +148,6 @@ const AddDogForm = () => {
             maxWidth: "1000px",
             height: "auto",
             mt: 45,
-            // mt: {
-            //   xs: "140px",
-            //   sm: "170px",
-            //   md: "220px",
-
-            //   xl: "300px",
-            // },
             pb: "3rem",
             mx: { xs: 2, lg: 3 },
             position: "relative",
@@ -229,8 +222,15 @@ const AddDogForm = () => {
                     ADD
                   </MKButton>
                 </MKBox>
-                <Grid item xs={12} mt={5}>
+                <Grid
+                  item
+                  xs={12}
+                  mt={5}
+                  display="flex"
+                  justifyContent="center"
+                >
                   {/* ************************* HEADING */}
+
                   <MKTypography
                     variant="h1"
                     fontWeight="medium"
